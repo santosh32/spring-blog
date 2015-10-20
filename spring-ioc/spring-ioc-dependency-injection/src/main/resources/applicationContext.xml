@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <context:annotation-config /> -->
+
+	<bean id="springBarBean"
+		class="in.spring4buddies.application.constructor_injection.SpringBarBean">
+		<constructor-arg type="java.lang.String">
+			<value>name:bar</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>role:se</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.Integer">
+			<value>35</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.Double">
+			<value>25.25</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="springFooBean"
+		class="in.spring4buddies.application.constructor_injection.SpringFooBean">
+		<constructor-arg ref="springBarBean" />
+	</bean>
+
+</beans>

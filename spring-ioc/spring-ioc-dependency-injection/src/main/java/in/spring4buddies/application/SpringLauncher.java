@@ -10,12 +10,13 @@ public class SpringLauncher {
 	public static void main(String args[]) {
 
 		ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"applicationContext-annotation-component.xml");
+				"applicationContext.xml");
 
 		System.out.println("--------SpringLauncher-------------------");
 
-		SpringFooBean springBean = (SpringFooBean) applicationContext
-				.getBean("springBean");
+		SpringFooBean springFooBean = (SpringFooBean) applicationContext
+				.getBean("springFooBean");
+		System.out.println(springFooBean.toString());
 
 		applicationContext.close();
 	}

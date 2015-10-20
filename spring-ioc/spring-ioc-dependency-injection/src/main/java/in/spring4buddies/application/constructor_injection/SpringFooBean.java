@@ -15,6 +15,6 @@ public class SpringFooBean {
 
 	@Override
 	public String toString() {
-		return "" + springBarBean;
+		return springBarBean.toString();
 	}
 }
