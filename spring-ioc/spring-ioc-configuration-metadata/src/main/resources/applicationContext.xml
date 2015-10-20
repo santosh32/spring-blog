@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 	<import resource="moduleA/Spring-ModuleA.xml" />
+	<import resource="moduleB/Spring-ModuleB.xml" />
+	<import resource="moduleC/Spring-ModuleC.xml" /> -->
+
+	<bean id="springHelloWorldBean"
+		class="in.spring4buddies.application.beans.xml.SpringHelloWorldBean" />
+		
+	<bean id="springFooBean" class="in.spring4buddies.application.beans.xml.SpringFooBean">
+		<property name="springBarBean" ref="springBarBean" />
+	</bean>
+	
+	<bean id="springBarBean" class="in.spring4buddies.application.beans.xml.SpringBarBean" />
+
+</beans>
