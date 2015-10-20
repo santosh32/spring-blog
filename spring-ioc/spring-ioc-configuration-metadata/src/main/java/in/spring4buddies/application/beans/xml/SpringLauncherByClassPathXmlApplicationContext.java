@@ -1,6 +1,5 @@
 package in.spring4buddies.application.beans.xml;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringLauncherByClassPathXmlApplicationContext {
@@ -8,7 +7,7 @@ public class SpringLauncherByClassPathXmlApplicationContext {
 	public static void main(String args[]) {
 		
 		String configFile = "applicationContext.xml";
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				configFile);
 		
 //		ApplicationContext applicationContext = 
@@ -28,5 +27,7 @@ public class SpringLauncherByClassPathXmlApplicationContext {
 		SpringFooBean springFooBean = (SpringFooBean) applicationContext
 				.getBean("springFooBean");
 		springFooBean.foo();
+		
+		applicationContext.close();
 	}
 }

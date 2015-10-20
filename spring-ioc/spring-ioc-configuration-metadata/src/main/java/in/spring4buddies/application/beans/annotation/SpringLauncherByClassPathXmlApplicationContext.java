@@ -17,5 +17,7 @@ public class SpringLauncherByClassPathXmlApplicationContext {
 		SpringFooBean springFooBean = (SpringFooBean) applicationContext
 				.getBean("springFooBean");
 		springFooBean.foo();
+		
+		applicationContext.close();
 	}
 }

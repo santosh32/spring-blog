@@ -17,5 +17,7 @@ public class SpringLauncherByClassPathXmlApplicationContext_ComponentScan {
 		SpringFooBean springFooBean = (SpringFooBean) applicationContext
 				.getBean("springFooBean");
 		springFooBean.foo();
+		
+		applicationContext.close();
 	}
 }
