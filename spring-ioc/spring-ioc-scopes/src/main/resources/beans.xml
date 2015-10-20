@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="springSingleton" class="in.spring4buddies.application.scope.xml.SpringSingleton"
+		scope="singleton" />
+
+	<bean id="anotherSpringSingleton" class="in.spring4buddies.application.scope.xml.SpringSingleton"
+		scope="singleton" />
+
+	<bean id="springPrototype" class="in.spring4buddies.application.scope.xml.SpringPrototype"
+		scope="prototype" />
+
+</beans>
