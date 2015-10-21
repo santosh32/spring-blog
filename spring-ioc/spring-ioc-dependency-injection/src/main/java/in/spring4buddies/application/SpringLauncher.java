@@ -10,9 +10,9 @@ public class SpringLauncher {
 	public static void main(String args[]) {
 
 		ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"applicationContext.xml");
+				"applicationContext_constructor_injection.xml");
 
-		System.out.println("--------SpringLauncher-------------------");
+		System.out.println("-------- SpringLauncher -------------------");
 
 		SpringFooBean springFooBean = (SpringFooBean) applicationContext
 				.getBean("springFooBean");
@@ -29,7 +29,20 @@ public class SpringLauncher {
 		SpringFooBean springFooBean3 = (SpringFooBean) applicationContext
 				.getBean("springFooBean3");
 		System.out.println("springFooBean3 - "+springFooBean3.toString());
+		
+		System.out.println("---------------------------");
+		
+		ConfigurableApplicationContext applicationContext1 = new ClassPathXmlApplicationContext(
+				"applicationContext_setter_injection.xml");
+
+		System.out.println("-------- SpringLauncher -------------------");
+
+		in.spring4buddies.application.setter_injection.SpringFooBean springFooBeani = (in.spring4buddies.application.setter_injection.SpringFooBean) applicationContext1
+				.getBean("springFooBeani");
+		System.out.println("springFooBeani - "+springFooBeani.toString());
+		
 
 		applicationContext.close();
+		applicationContext1.close();
 	}
 }

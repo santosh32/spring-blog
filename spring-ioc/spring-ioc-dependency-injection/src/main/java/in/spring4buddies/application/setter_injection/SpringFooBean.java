@@ -1,13 +1,23 @@
 package in.spring4buddies.application.setter_injection;
 
-
 public class SpringFooBean {
 
+	private SpringBarBean springBarBean;
+
 	public SpringFooBean() {
-		System.out.println("Constructor Instantiation :  (cons) SpringBean() ");
+		System.out.println("(constructor) SpringFooBean()");
 	}
 
-	public void print() {
-		System.out.println("This is Bar : print()");
+	public void setSpringBarBean(SpringBarBean springBarBean) {
+		this.springBarBean = springBarBean;
+	}
+
+	public SpringBarBean getSpringBarBean() {
+		return springBarBean;
+	}
+
+	@Override
+	public String toString() {
+		return springBarBean.toString();
 	}
 }
