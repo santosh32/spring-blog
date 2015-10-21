@@ -34,4 +34,25 @@
 	</bean>
 
 	<bean id="springRefBean" class="in.spring4buddies.application.beans.SpringRefBean" />
+
+	<bean id="aliasBean" class="in.spring4buddies.application.beans.AliasBean">
+		<property name="innerRefBean">
+			<bean id="innerRefBean" class="in.spring4buddies.application.beans.InnerRefBean">
+				<property name="name" value="ajay" />
+				<property name="address" value="hyd" />
+			</bean>
+		</property>
+	</bean>
+	
+	<alias name="aliasBean" alias="aliasBean_a"/>
+
+	<bean id="extendedCollectionBean" parent="collectionBean">
+		<property name="someProps">
+			<props merge="true">
+				<prop key="sales">sales@example.uk</prop>
+				<prop key="support">support@example.us</prop>
+				<prop key="development">development@example.com</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

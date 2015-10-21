@@ -1,5 +1,6 @@
 package in.spring4buddies.application;
 
+import in.spring4buddies.application.beans.AliasBean;
 import in.spring4buddies.application.beans.CollectionBean;
 import in.spring4buddies.application.beans.SpringRefBean;
 
@@ -23,6 +24,14 @@ public class BeanLauncher {
 		SpringRefBean springRefBean = (SpringRefBean) applicationContext
 				.getBean("springRefBean");
 		springRefBean.foo();
+		
+		AliasBean aliasBean = (AliasBean) applicationContext
+				.getBean("aliasBean_a");
+		System.out.println("aliasBean_a - "+aliasBean.toString());
+		
+		CollectionBean extendedCollectionBean = (CollectionBean) applicationContext
+				.getBean("extendedCollectionBean");
+		System.out.println("props - " + extendedCollectionBean.getSomeProps());
 
 		applicationContext.close();
 	}
