@@ -1,7 +1,5 @@
 package in.spring4buddies.application.setter_injection;
 
-import java.beans.ConstructorProperties;
-
 public class SpringBarBean {
 
 	private String name;
@@ -12,31 +10,38 @@ public class SpringBarBean {
 	public SpringBarBean() {
 		System.out.println("(constructor) SpringBarBean() ");
 	}
-	
-//	@ConstructorProperties({ "name", "age", "salary", "role" })
-	public SpringBarBean(String name, Integer age, Double salary, String role) {
-		System.out.println("(constructor) SpringBarBean(name, age, salary, role ) ");
-		this.name = name;
-		this.role = role;
-		this.age = age;
-		this.salary = salary;
+
+	public String getName() {
+		return name;
 	}
 
-//	@ConstructorProperties({ "name", "role", "age", "salary" })
-	public SpringBarBean(String name, String role, Integer age, Double salary) {
-		System.out.println("(constructor) SpringBarBean(name, role, age, salary) ");
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	public SpringBarBean(String name, String role, Integer age) {
-		System.out.println("(constructor) SpringBarBean(name, role, age) ");
-		this.name = name;
-		this.role = role;
-		this.age = age;
-	}
-	
 
 	@Override
 	public String toString() {
