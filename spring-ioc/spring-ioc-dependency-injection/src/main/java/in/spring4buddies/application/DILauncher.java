@@ -5,7 +5,7 @@ import in.spring4buddies.application.constructor_injection.SpringFooBean;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringLauncher {
+public class DILauncher {
 
 	public static void main(String args[]) {
 

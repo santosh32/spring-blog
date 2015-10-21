@@ -2,7 +2,7 @@ package in.spring4buddies.application.instantiation.instance_factory;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringLauncher {
+public class InstanceFactoryLauncher {
 
 	public static void main(String args[]) {
 

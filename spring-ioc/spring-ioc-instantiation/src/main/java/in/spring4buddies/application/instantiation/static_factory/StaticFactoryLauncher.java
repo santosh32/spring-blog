@@ -2,7 +2,7 @@ package in.spring4buddies.application.instantiation.static_factory;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringLauncher {
+public class StaticFactoryLauncher {
 
 	public static void main(String args[]) {
 
