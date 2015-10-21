@@ -1,4 +1,4 @@
-package in.spring4buddies.application.constructor_injection;
+package in.spring4buddies.application.c_namespace;
 
 import java.beans.ConstructorProperties;
 
