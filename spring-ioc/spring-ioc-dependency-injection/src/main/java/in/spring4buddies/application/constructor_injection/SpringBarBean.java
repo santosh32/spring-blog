@@ -1,5 +1,7 @@
 package in.spring4buddies.application.constructor_injection;
 
+import java.beans.ConstructorProperties;
+
 public class SpringBarBean {
 
 	private String name;
@@ -10,15 +12,8 @@ public class SpringBarBean {
 	public SpringBarBean() {
 		System.out.println("(constructor) SpringBarBean() ");
 	}
-
-	public SpringBarBean(String name, String role, Integer age, Double salary) {
-		System.out.println("(constructor) SpringBarBean(name, role, age, salary) ");
-		this.name = name;
-		this.role = role;
-		this.age = age;
-		this.salary = salary;
-	}
-
+	
+//	@ConstructorProperties({ "name", "age", "salary", "role" })
 	public SpringBarBean(String name, Integer age, Double salary, String role) {
 		System.out.println("(constructor) SpringBarBean(name, age, salary, role ) ");
 		this.name = name;
@@ -26,6 +21,22 @@ public class SpringBarBean {
 		this.age = age;
 		this.salary = salary;
 	}
+
+//	@ConstructorProperties({ "name", "role", "age", "salary" })
+	public SpringBarBean(String name, String role, Integer age, Double salary) {
+		System.out.println("(constructor) SpringBarBean(name, role, age, salary) ");
+		this.name = name;
+		this.role = role;
+		this.age = age;
+		this.salary = salary;
+	}
+	public SpringBarBean(String name, String role, Integer age) {
+		System.out.println("(constructor) SpringBarBean(name, role, age) ");
+		this.name = name;
+		this.role = role;
+		this.age = age;
+	}
+	
 
 	@Override
 	public String toString() {
