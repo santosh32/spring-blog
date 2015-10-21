@@ -1,4 +1,4 @@
-package in.spring4buddies.application.instantiation.static_factory;
+package in.spring4buddies.application.instantiation.instance_factory;
 
 public class WorkAddress implements Address {
 	

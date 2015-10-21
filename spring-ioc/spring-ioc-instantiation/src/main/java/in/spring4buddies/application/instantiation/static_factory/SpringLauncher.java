@@ -8,17 +8,13 @@ public class SpringLauncher {
 
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"applicationContext-annotation-component.xml");
-
+		
 		System.out.println("--------SpringLauncher-------------------");
 		
-		Address personalAddress = (PersonalAddress) applicationContext
-				.getBean("springPersonalInstance");
-		personalAddress.getAddress(null, null, null, null, null);
-
-		Address workAddress = (WorkAddress) applicationContext
-				.getBean("springWorkInstance");
-		workAddress.getAddress(null, null, null, null, null);
-
+		SpringStaticFactory springStaticFactory = (SpringStaticFactory) applicationContext
+				.getBean("springStaticFactory");
+		springStaticFactory.print();
+		
 		applicationContext.close();
 	}
 }

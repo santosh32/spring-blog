@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class SpringBean {
 
 	public SpringBean() {
-		System.out.println("Constructor Instantiation :  (cons) SpringBean() ");
+		System.out.println(" (cons) Constructor Instantiation : SpringBean() ");
 	}
 
 	public void print() {

@@ -7,17 +7,22 @@
 
 	<!-- <context:annotation-config /> -->
 
-	<context:component-scan base-package="in.spring4buddies.application.instantiation.instance_factory" />
+	<!-- <context:component-scan base-package="in.spring4buddies.application.instantiation.instance_factory" />
 	<context:component-scan base-package="in.spring4buddies.application.instantiation.static_factory" />
-	<context:component-scan base-package="in.spring4buddies.application.instantiation.constructor" />
-	
-	<bean id="springStaticFactory" class="in.spring4buddies.application.instantiation.static_factory.SpringStaticFactory" />
-	<!-- <bean id="springInstanceFactory" class="in.spring4buddies.application.instantiation.instance_factory.SpringInstanceFactory" factory-method="springInstanceFactory" /> -->
-	<!-- not working -->
-	<!-- <bean id="springInstanceFactory" factory-method="springInstanceFactory" /> -->
-	
-	<bean id="springPersonalInstance" factory-bean="springStaticFactory" factory-method="createPersonalInstance" />
-	<bean id="springWorkInstance" factory-bean="springStaticFactory" factory-method="createWorkInstance" />
+	<context:component-scan base-package="in.spring4buddies.application.instantiation.constructor" /> -->
 
-	<!-- <bean id="springInstanceFactory" class="in.spring4buddies.application.instantiation.instance_factory.SpringInstanceFactory" factory-method="springInstanceFactory" /> -->
+	<bean id="springBean"
+		class="in.spring4buddies.application.instantiation.constructor.SpringBean"/>
+		
+	<bean id="springStaticFactory"
+		class="in.spring4buddies.application.instantiation.static_factory.SpringStaticFactory"
+		factory-method="springStaticFactory" />
+
+	<bean id="springInstanceFactory"
+		class="in.spring4buddies.application.instantiation.instance_factory.SpringInstanceFactory" />
+	<bean id="springPersonalInstance" factory-bean="springInstanceFactory"
+		factory-method="createPersonalInstance" />
+	<bean id="springWorkInstance" factory-bean="springInstanceFactory"
+		factory-method="createWorkInstance" />
+
 </beans>

@@ -5,7 +5,7 @@ public class SpringInstanceFactory {
 	private static SpringInstanceFactory springInstanceFactory = new SpringInstanceFactory();
 
 	private SpringInstanceFactory() {
-		System.out.println("This would not execute, but its executing - (cons)SpringInstanceFactory()");
+		System.out.println(" (cons) This would not execute, but its executing : SpringInstanceFactory()");
 	}
 
 	// Static factory method
@@ -13,4 +13,12 @@ public class SpringInstanceFactory {
 		return springInstanceFactory;
 	}
 
+	// Instance factory methods
+	public Address createPersonalInstance() {
+		return new PersonalAddress();
+	}
+
+	public Address createWorkInstance() {
+		return new WorkAddress();
+	}
 }
