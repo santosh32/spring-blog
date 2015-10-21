@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="springFooBean" class="in.spring4buddies.application.p_namespace.SpringFooBean"
+		p:springBarBean-ref="springBarBean" 
+		p:springBazBean-ref="springBazBean" />
+
+	<bean id="springBarBean" class="in.spring4buddies.application.p_namespace.SpringBarBean"
+		p:name="name:bar" 
+		p:role="se" 
+		p:age="35" 
+		p:salary="25.25" />
+
+	<bean id="springBazBean" class="in.spring4buddies.application.p_namespace.SpringBazBean"
+		p:name="name:baz" 
+		p:role="sse" />
+
+</beans>
