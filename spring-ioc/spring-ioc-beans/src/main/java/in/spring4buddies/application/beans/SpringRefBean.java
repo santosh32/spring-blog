@@ -1,8 +1,8 @@
 package in.spring4buddies.application.beans;
 
-public class SpringFooBean {
+public class SpringRefBean {
 
-	public SpringFooBean() {
+	public SpringRefBean() {
 		System.out.println("(constructor) SpringFooBean()");
 	}
 

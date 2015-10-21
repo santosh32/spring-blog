@@ -16,22 +16,22 @@
 		<property name="someList">
 			<list>
 				<value>a list element followed by a reference</value>
-				<ref bean="springFooBean" />
+				<ref bean="springRefBean" />
 			</list>
 		</property>
 		<property name="someMap">
 			<map>
 				<entry key="an entry" value="a map element followed by a reference" />
-				<entry key="a ref" value-ref="springFooBean" />
+				<entry key="a ref" value-ref="springRefBean" />
 			</map>
 		</property>
 		<property name="someSet">
 			<set>
 				<value>a set element followed by a reference</value>
-				<ref bean="springFooBean" />
+				<ref bean="springRefBean" />
 			</set>
 		</property>
 	</bean>
 
-	<bean id="springFooBean" class="in.spring4buddies.application.beans.SpringFooBean" />
+	<bean id="springRefBean" class="in.spring4buddies.application.beans.SpringRefBean" />
 </beans>

@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class CollectionBean {
 
-	private SpringFooBean springFooBean;
+	private SpringRefBean springFooBean;
 
 	private List<Object> someList = new ArrayList<>();
 	private Set<Object> someSet = new HashSet<>();
@@ -49,11 +49,11 @@ public class CollectionBean {
 		this.someProps = someProps;
 	}
 
-	public SpringFooBean getSpringFooBean() {
+	public SpringRefBean getSpringFooBean() {
 		return springFooBean;
 	}
 
-	public void setSpringFooBean(SpringFooBean springFooBean) {
+	public void setSpringFooBean(SpringRefBean springFooBean) {
 		this.springFooBean = springFooBean;
 	}
 
