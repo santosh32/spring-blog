@@ -16,4 +16,5 @@
 	
 	<bean id="springBarBean" class="in.spring4buddies.application.beans.xml.SpringBarBean" />
 
+
 </beans>
