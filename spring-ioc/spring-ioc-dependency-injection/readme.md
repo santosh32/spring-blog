@@ -10,28 +10,63 @@ DI exists in two major variants, Constructor-based dependency injection and Sett
 Constructor-based DI is accomplished by the container invoking a constructor with a number of arguments, each representing a dependency. Calling a static factory method with specific arguments to construct the bean is nearly equivalent, and this discussion treats arguments to a constructor and to a static factory method similarly.
 
 ````
-public class SimpleMovieLister {
-// the SimpleMovieLister has a dependency on a MovieFinder
-private MovieFinder movieFinder;
-// a constructor so that the Spring container can inject a MovieFinder
-public SimpleMovieLister(MovieFinder movieFinder) {
-this.movieFinder = movieFinder;
-}
-// business logic that actually uses the injected MovieFinder is omitted...
-}
+public class SpringFooBean {
+
+	private SpringBarBean springBarBean;
+
+	public SpringFooBean() {
+		System.out.println("(constructor) SpringFooBean()");
+	}
+
+	public SpringFooBean(SpringBarBean springBarBean) {
+		System.out.println("(constructor) SpringFooBean(springBarBean)");
+		this.springBarBean = springBarBean;
+	}
+
+	@Override
+	public String toString() {
+		return springBarBean.toString();
+	}
 ```
 
 # Setter-based dependency injection
 Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
 
 ````
-public class SimpleMovieLister {
-// the SimpleMovieLister has a dependency on the MovieFinder
-private MovieFinder movieFinder;
-// a setter method so that the Spring container can inject a MovieFinder
-public void setMovieFinder(MovieFinder movieFinder) {
-this.movieFinder = movieFinder;
-}
-// business logic that actually uses the injected MovieFinder is omitted...
-}
+public class SpringBarBean {
+
+	private String name;
+	private String role;
+	private Integer age;
+	private Double salary;
+
+	public SpringBarBean() {
+		System.out.println("(constructor) SpringBarBean() ");
+	}
+	
+//	@ConstructorProperties({ "name", "age", "salary", "role" })
+	public SpringBarBean(String name, Integer age, Double salary, String role) {
+		System.out.println("(constructor) SpringBarBean(name, age, salary, role ) ");
+		this.name = name;
+		this.role = role;
+		this.age = age;
+		this.salary = salary;
+	}
+
+//	@ConstructorProperties({ "name", "role", "age", "salary" })
+	public SpringBarBean(String name, String role, Integer age, Double salary) {
+		System.out.println("(constructor) SpringBarBean(name, role, age, salary) ");
+		this.name = name;
+		this.role = role;
+		this.age = age;
+		this.salary = salary;
+	}
+	public SpringBarBean(String name, String role, Integer age) {
+		System.out.println("(constructor) SpringBarBean(name, role, age) ");
+		this.name = name;
+		this.role = role;
+		this.age = age;
+	}
+	
+
 ```
