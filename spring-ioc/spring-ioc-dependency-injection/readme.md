@@ -9,7 +9,7 @@ DI exists in two major variants, Constructor-based dependency injection and Sett
 # Constructor-based dependency injection
 Constructor-based DI is accomplished by the container invoking a constructor with a number of arguments, each representing a dependency. Calling a static factory method with specific arguments to construct the bean is nearly equivalent, and this discussion treats arguments to a constructor and to a static factory method similarly.
 
-````
+````java
 public class SpringFooBean {
 
 	private SpringBarBean springBarBean;
