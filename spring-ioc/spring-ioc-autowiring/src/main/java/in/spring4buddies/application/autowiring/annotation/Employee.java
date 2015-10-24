@@ -6,15 +6,21 @@ public class Employee {
 
 	private String empId;
 	private String name;
-	@Autowired
+	
+	@Autowired// byName
 	private Address address;
 
-	public Employee() {
-	}
-
-//	@Autowired
+	// @Autowired // constructor
 	public Employee(Address address) {
 		this.address = address;
+	}
+
+	// @Autowired //byType
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Employee() {
 	}
 
 	public String getEmpId() {
@@ -35,11 +41,6 @@ public class Employee {
 
 	public Address getAddress() {
 		return address;
-	}
-
-//	@Autowired
-	public void setAddress(Address address) {
-		this.address = address;
 	}
 
 	@Override

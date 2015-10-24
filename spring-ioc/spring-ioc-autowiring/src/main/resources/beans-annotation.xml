@@ -8,17 +8,39 @@
 	<!-- <context:component-scan base-package="in.spring4buddies.application.autowiring.annotation" /> -->
 	
 	<context:annotation-config/>
-	
-	<bean id="address" class="in.spring4buddies.application.autowiring.annotation.Address" />
-	<bean id="employee" class="in.spring4buddies.application.autowiring.annotation.Employee" />
-	
-	<bean id="employee_byName" class="in.spring4buddies.application.autowiring.annotation.Employee" />
-	
-	<bean id="employee_byType" class="in.spring4buddies.application.autowiring.annotation.Employee" />
-	
-	<bean id="employee_constructor" class="in.spring4buddies.application.autowiring.annotation.Employee" />
+
+	<bean id="address" class="in.spring4buddies.application.autowiring.annotation.Address">
+		<property name="line1" value="ASM" />
+		<property name="line2" value="Raj Bhavan" />
+		<property name="city" value="HYD" />
+		<property name="state" value="TS" />
+		<property name="country" value="IN" />
+		<property name="zipcode" value="508218" />
+	</bean>
 	
 	<!-- autodetect is not working -->
 	<!-- <bean id="employee_constructor" class="in.spring4buddies.application.autowiring.annotation.Employee" /> -->
+	
+	<bean id="employee" class="in.spring4buddies.application.autowiring.annotation.Employee">
+		<property name="empId" value="10" />
+		<property name="name" value="sathish" />
+	</bean>
+	
+	<!-- <bean id="address_byName" class="in.spring4buddies.application.autowiring.Address" /> -->
+	<bean id="employee_byName" class="in.spring4buddies.application.autowiring.annotation.Employee">
+		<property name="empId" value="100" />
+		<property name="name" value="Sandeep" />
+	</bean>
+	
+	<!-- <bean id="address_byType" class="in.spring4buddies.application.autowiring.Address" /> -->
+	<bean id="employee_byType" class="in.spring4buddies.application.autowiring.annotation.Employee">
+		<property name="empId" value="120" />
+		<property name="name" value="raghu" />
+	</bean>
+
+	<bean id="employee_constructor" class="in.spring4buddies.application.autowiring.annotation.Employee">
+		<property name="empId" value="123" />
+		<property name="name" value="Santosh" />
+	</bean>
 	
 </beans>
