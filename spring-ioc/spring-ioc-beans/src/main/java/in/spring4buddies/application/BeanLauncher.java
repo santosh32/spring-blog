@@ -24,6 +24,7 @@ public class BeanLauncher {
 		SpringRefBean springRefBean = (SpringRefBean) applicationContext
 				.getBean("springRefBean");
 		springRefBean.foo();
+		System.out.println("getIdRefBean - " + springRefBean.getIdRefBean());
 		
 		AliasBean aliasBean = (AliasBean) applicationContext
 				.getBean("aliasBean_a");

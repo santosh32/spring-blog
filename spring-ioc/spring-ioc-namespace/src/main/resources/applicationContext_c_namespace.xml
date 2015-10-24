@@ -11,6 +11,10 @@
 		c:springBarBean-ref="springBarBean" 
 		c:springBazBean-ref="springBazBean" />
 
+	<bean id="springFooBeanIdx" class="in.spring4buddies.application.c_namespace.SpringFooBean"
+		c:_0-ref="springBarBean" 
+		c:_1-ref="springBazBean" />
+
 	<bean id="springBarBean" class="in.spring4buddies.application.c_namespace.SpringBarBean"
 		c:name="name:bar" 
 		c:role="se" 

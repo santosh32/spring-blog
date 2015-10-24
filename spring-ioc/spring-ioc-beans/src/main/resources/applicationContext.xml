@@ -5,6 +5,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Collection beans-->
 	<bean id="collectionBean" class="in.spring4buddies.application.beans.CollectionBean">
 		<property name="someProps">
 			<props>
@@ -32,8 +33,13 @@
 			</set>
 		</property>
 	</bean>
-
-	<bean id="springRefBean" class="in.spring4buddies.application.beans.SpringRefBean" />
+	<!-- Collections -->
+	
+	<!-- idref beans -->
+	<bean id="springRefBean" class="in.spring4buddies.application.beans.SpringRefBean" >
+		<!-- <property name="idRefBean" value="idRefBean" /> -->
+		<property name="idRefBean" > <idref bean="idRefBean"/></property>
+	</bean>
 
 	<bean id="aliasBean" class="in.spring4buddies.application.beans.AliasBean">
 		<property name="innerRefBean">
@@ -44,8 +50,10 @@
 		</property>
 	</bean>
 	
+	<!-- alias bean -->
 	<alias name="aliasBean" alias="aliasBean_a"/>
 
+	<!-- merge beans -->
 	<bean id="extendedCollectionBean" parent="collectionBean">
 		<property name="someProps">
 			<props merge="true">
@@ -55,4 +63,27 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- idref beans -->
+	<bean id="idRefBean" class="in.spring4buddies.application.beans.IdRefBean">
+		<property name="name" value="ajay" />
+		<property name="address" value="hyd" />
+	</bean>
+	
+	<!-- A bean depends on single bean -->
+    <!-- <bean id="beanA" class="in.spring4buddies.application.dependson.BeanA"
+        depends-on="beanB" />
+    <bean id="beanB" class="in.spring4buddies.application.dependson.BeanB" /> -->
+ 
+    <!-- A bean depends on multiple beans -->
+    <bean id="beanA" class="in.spring4buddies.application.dependson.BeanA" depends-on="beanB, beanC">
+        <property name="beanB" ref="beanB" />
+    </bean>
+ 
+    <bean id="beanB" class="in.spring4buddies.application.dependson.BeanB" />
+    <bean id="beanC" class="in.spring4buddies.application.dependson.BeanC" />
+    
+    <bean id="lazyBean" class="in.spring4buddies.application.beans.LazyBean" lazy-init="true"/>
+    <bean id="eagerBean" class="in.spring4buddies.application.beans.EagerBean" />
+	
 </beans>
