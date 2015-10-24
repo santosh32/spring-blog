@@ -1,4 +1,4 @@
-#Configuration metadata
+# Configuration metadata
 
 the Spring IoC container consumes a form of configuration metadata; this configuration metadata represents how you as an application developer tell the Spring container to instantiate, configure, and assemble the objects in your application.
 
@@ -8,7 +8,6 @@ For information about using other forms of metadata with the Spring container, s
 Annotation-based configuration: Spring 2.5 introduced support for annotation-based configuration metadata.
 Java-based configuration: Starting with Spring 3.0, many features provided by the Spring JavaConfig project became part of the core Spring Framework. Thus you can define beans external to your application classes by using Java rather than XML files. To use these new features, see the
 @Configuration, @Bean, @Import and @DependsOn annotations.
-
 
 ````xml
 
@@ -33,23 +32,23 @@ Instantiating a Spring IoC container is straightforward. The location path or pa
 
 ````java
 
-ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"services.xml", "daos.xml"});
+1. ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"services.xml", "daos.xml"});
 
 
-ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+2. ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"applicationContext-annotation.xml");
 				
 
-AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+3. AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				SpringAppConfig.class);
 	
 			
-Resource resource = new ClassPathResource("applicationContext.xml");
-BeanFactory beanFactory = new XmlBeanFactory(resource);
+4. Resource resource = new ClassPathResource("applicationContext.xml");
+   BeanFactory beanFactory = new XmlBeanFactory(resource);
 
 
-FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext(
-				"D:/poc/blogWS/code/spring-ioc/Spring - IoC Containers/spring-ioc-xml/src/main/resources/applicationContext.xml");
+5. FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext(
+				".././src/main/resources/applicationContext.xml");
 ````
 
 # Composing XML-based configuration metadata
