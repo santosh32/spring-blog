@@ -1,16 +1,20 @@
-package in.spring4buddies.application.autowiring;
+package in.spring4buddies.application.callback;
 
 public class Employee {
 
 	private String empId;
 	private String name;
-	private Address address;
 
 	public Employee() {
+		System.out.println("(cons) Employee()");
 	}
 
-	public Employee(Address address) {
-		this.address = address;
+	public void init() {
+		System.out.println("Bean initializing - Employee:init() ");
+	}
+
+	public void destroy() {
+		System.out.println("Bean destroying - Employee:destroy()");
 	}
 
 	public String getEmpId() {
@@ -29,18 +33,9 @@ public class Employee {
 		this.name = name;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", name=" + name + ", address="
-				+ address + "]";
+		return "Employee [empId=" + empId + ", name=" + name + "]";
 	}
 
 }

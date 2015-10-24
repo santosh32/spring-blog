@@ -5,18 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="address" class="in.spring4buddies.application.autowiring.Address" />
-	<bean id="employee" class="in.spring4buddies.application.autowiring.Employee" />
+	<bean id="employee" class="in.spring4buddies.application.callback.Employee"
+		init-method="init" destroy-method="destroy">
+		<property name="empId" value="10" />
+		<property name="name" value="sathish" />
+	</bean>
 	
-	<!-- <bean id="address_byName" class="in.spring4buddies.application.autowiring.Address" /> -->
-	<bean id="employee_byName" class="in.spring4buddies.application.autowiring.Employee" autowire="byName" />
-	
-	<!-- <bean id="address_byType" class="in.spring4buddies.application.autowiring.Address" /> -->
-	<bean id="employee_byType" class="in.spring4buddies.application.autowiring.Employee" autowire="byType" />
-	
-	<bean id="employee_constructor" class="in.spring4buddies.application.autowiring.Employee" autowire="constructor" />
-	
-	<!-- autodetect is not working -->
-	<!-- <bean id="employee_constructor" class="in.spring4buddies.application.autowiring.Employee" autowire="autodetect" /> -->
+	<bean id="employeeWithInferface" class="in.spring4buddies.application.callback.EmployeeWithInferface">
+		<property name="empId" value="20" />
+		<property name="name" value="sash" />
+	</bean>
 
 </beans>
