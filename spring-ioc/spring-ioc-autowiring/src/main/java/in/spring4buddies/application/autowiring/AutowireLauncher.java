@@ -1,7 +1,4 @@
-package in.spring4buddies.application.annotation;
-
-import in.spring4buddies.application.autowiring.Address;
-import in.spring4buddies.application.autowiring.Employee;
+package in.spring4buddies.application.autowiring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
