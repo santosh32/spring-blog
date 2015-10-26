@@ -33,22 +33,22 @@ Instantiating a Spring IoC container is straightforward. The location path or pa
 
 ````java
 
-ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"services.xml", "daos.xml"});
+1. ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"applicationContext-annotation.xml", "applicationContext.xml"});
 
 
-ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
+2. ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"applicationContext-annotation.xml");
 				
 
-AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+3. AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				SpringAppConfig.class);
 	
 			
-Resource resource = new ClassPathResource("applicationContext.xml");
-BeanFactory beanFactory = new XmlBeanFactory(resource);
+4. Resource resource = new ClassPathResource("applicationContext.xml");
+   BeanFactory beanFactory = new XmlBeanFactory(resource);
 
 
-FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext(
+5. FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext(
 				"D:/poc/blogWS/code/spring-ioc/Spring - IoC Containers/spring-ioc-xml/src/main/resources/applicationContext.xml");
 ````
 
