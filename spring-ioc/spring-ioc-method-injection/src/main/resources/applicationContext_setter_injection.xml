@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="springFooBeani" class="in.spring4buddies.application.setter_injection.SpringFooBean">
+		<property name="springBarBean" ref="springBarBeani" />
+	</bean>
+
+	<bean id="springBarBeani" class="in.spring4buddies.application.setter_injection.SpringBarBean">
+		<property name="name" value="name:bar" />
+		<property name="role" value="se" />
+		<property name="age" value="35" />
+		<property name="salary" value="25.25" />
+	</bean>
+
+</beans>
