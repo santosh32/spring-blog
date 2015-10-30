@@ -10,7 +10,7 @@ public class PropertiesLauncher {
 	public static void main(String args[]) {
 
 		ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"beans_properties.xml");
+				"beans.xml");
 
 		BasicDataSource basicDataSource = applicationContext.getBean(BasicDataSource.class);
 
