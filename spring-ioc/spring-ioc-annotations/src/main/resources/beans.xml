@@ -6,5 +6,11 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
+	
+	<bean id="movieFinder" class="in.spring4buddies.application.annotation.autowired.MovieFinder"/>
+	<bean id="simpleMovieLister" class="in.spring4buddies.application.annotation.autowired.SimpleMovieLister"/>
+	
+	<bean id="movieFinderRequired" class="in.spring4buddies.application.annotation.required.MovieFinder"/>
+	<bean id="simpleMovieListerRequired" class="in.spring4buddies.application.annotation.required.SimpleMovieLister"/>
 
 </beans>
