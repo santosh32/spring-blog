@@ -6,11 +6,11 @@ public class SimpleMovieLister {
 
 	private MovieFinder movieFinderRequired;
 
-	@Required
 	public String getMovieByUps(String ups) {
 		return movieFinderRequired.getMovieByUps(ups);
 	}
-
+	
+	@Required
 	public void setMovieFinderRequired(MovieFinder movieFinderRequired) {
 		this.movieFinderRequired = movieFinderRequired;
 	}

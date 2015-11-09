@@ -7,14 +7,23 @@
 
 	<context:annotation-config />
 	
+	<!-- for autowire annotation -->
 	<bean id="movieFinder" class="in.spring4buddies.application.annotation.autowired.MovieFinder"/>
 	<bean id="simpleMovieLister" class="in.spring4buddies.application.annotation.autowired.SimpleMovieLister"/>
 	
+	<!-- for required annotation -->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 	<bean id="movieFinderRequired" class="in.spring4buddies.application.annotation.required.MovieFinder"/>
 	<bean id="simpleMovieListerRequired" class="in.spring4buddies.application.annotation.required.SimpleMovieLister"/>
 	
+	<!-- for multi param annotation -->
 	<bean id="customerPreferenceDao" class="in.spring4buddies.application.annotation.autowired.CustomerPreferenceDao"/>
 	<bean id="movieCatalog" class="in.spring4buddies.application.annotation.autowired.MovieCatalog"/>
 	<bean id="movieRecommender" class="in.spring4buddies.application.annotation.autowired.MovieRecommender"/>
+	
+	<!-- for qualifier annotation -->
+	<bean id="movieRecommenderQualifier" class="in.spring4buddies.application.annotation.qualifier.MovieRecommenderQualifier"/>
+	<bean id="firstMovieCatalog" class="in.spring4buddies.application.annotation.autowired.MovieCatalog"/>
+	<bean id="secondMovieCatalog" class="in.spring4buddies.application.annotation.autowired.MovieCatalog"/>
 
 </beans>

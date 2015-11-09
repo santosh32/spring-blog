@@ -6,4 +6,7 @@ public class MovieCatalog {
 		return "response from MovieCatalog class";
 	}
 
+	public String getQualifierName(String qualifierName) {
+		return qualifierName;
+	}
 }
