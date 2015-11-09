@@ -15,6 +15,5 @@ public class GsonUtility {
 		String formattedJson = new GsonBuilder().setPrettyPrinting().create()
 				.toJson(new JsonParser().parse(jsonString));
 		System.out.println(formattedJson);
-
 	}
 }
