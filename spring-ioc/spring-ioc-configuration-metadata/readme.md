@@ -89,10 +89,26 @@ the method **T getBean(String name, Class<T> requiredType)** you can retrieve in
 // create and configure beans
 ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"services.xml", "daos.xml"});
 // retrieve configured instance
-PetStoreService service = context.getBean("petStore", PetStoreService.class);
-// use configured instance
-List<String> userList = service.getUsernameList();
+1. PetStoreService service = context.getBean("petStore", PetStoreService.class);
+2. PetStoreService service = context.getBean("petStore");
+3. PetStoreService service = context.getBean(PetStoreService.class);
+
 ````
+
+#Quick points
+- ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+- ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+- AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+- <context:annotation-config />
+- <context:component-scan base-package="" />
+- <dependency>
+	<groupId>cglib</groupId>
+	<artifactId>cglib</artifactId>
+	<version>3.0</version>
+  </dependency>
+ - @Configuration, @Bean etc..
+ - @Autowire, @component, @service, @Request
+
 
 
 
