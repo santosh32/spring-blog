@@ -96,9 +96,12 @@ ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"s
 ````
 
 #Quick points
+````java
 - ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 - ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 - AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+````
+````xml
 - <context:annotation-config />
 - <context:component-scan base-package="" />
 - <dependency>
@@ -106,8 +109,11 @@ ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"s
 	<artifactId>cglib</artifactId>
 	<version>3.0</version>
   </dependency>
+  ````
+  ````java
  - @Configuration, @Bean etc..
  - @Autowire, @component, @service, @Request
+ ````
 
 
 
