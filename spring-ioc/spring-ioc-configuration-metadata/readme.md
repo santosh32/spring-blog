@@ -6,13 +6,13 @@
 *that is instantiated, assembled, and otherwise managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application.*
 *Beans, and the dependencies among them, are reflected in the configuration metadata used by a container*.
 
-#Container overview
+**Container overview**
 - The interface *org.springframework.context.ApplicationContext* represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the aforementioned beans. The container gets its instructions on what objects to instantiate, configure, and assemble by reading configuration metadata. The configuration metadata is represented in XML, Java annotations, or Java code. It allows you to express the objects that compose your application and the rich interdependencies between such objects.
 - Several implementations of the ApplicationContext interface are supplied out-of-the-box with Spring. In standalone applications it is common to create an instance of **ClassPathXmlApplicationContext** or **FileSystemXmlApplicationContext**. While XML has been the traditional format for defining configuration metadata you can instruct the container to use Java annotations or code as the metadata format by providing a small amount of XML configuration to declaratively enable support for these additional metadata formats.
 
-**<< Diagram goes here >>** 
+#**<< Diagram goes here >>** 
 
-#Configuration metadata
+**Configuration metadata**
 - The Spring IoC container consumes a form of configuration metadata; this configuration metadata represents how you as an application developer tell the Spring container to instantiate, configure, and assemble the objects in your application.
 
 Configuration metadata is traditionally supplied in a simple and intuitive XML format, we can also do it in other forms.
@@ -41,7 +41,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	</beans>
 ````
 
-#Instantiating a container
+**Instantiating a container**
 - Instantiating a Spring IoC container is straightforward. The location path or paths supplied to an ApplicationContext constructor are actually resource strings that allow the container to load configuration metadata from a variety of external resources such as the local file system, from the Java CLASSPATH, and so on.
 
 ````java
@@ -65,7 +65,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				".././src/main/resources/applicationContext.xml");
 ````
 
-#Composing XML-based configuration metadata
+**Composing XML-based configuration metadata**
 - It can be useful to have bean definitions span multiple XML files. Often each individual XML configuration file represents a logical layer or module in your
 architecture. You can use the application context constructor to load bean definitions from all these XML fragments. This constructor takes multiple Resource
 locations, as was shown in the previous section. Alternatively, use one or more occurrences of the **<import/>** element to load bean definitions from another file or files.
@@ -81,7 +81,7 @@ locations, as was shown in the previous section. Alternatively, use one or more 
 </beans>
 ````
 
-#Using the container
+**Using the container**
 The ApplicationContext is the interface for an advanced factory capable of maintaining a registry of different beans and their dependencies. Using 
 the method **T getBean(String name, Class<T> requiredType)** you can retrieve instances of your beans.The **ApplicationContext** enables you to read bean definitions and access them as follows:
 
@@ -95,7 +95,7 @@ ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"s
 
 ````
 
-#Quick points
+**Quick points**
 ````java
 - ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 - ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
