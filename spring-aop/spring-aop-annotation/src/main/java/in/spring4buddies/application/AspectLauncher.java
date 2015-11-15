@@ -1,20 +1,19 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.annotation.autowired.SimpleMovieLister;
+import in.spring4buddies.application.annotation.autowired.CustomerDao;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AutowiredAnnotationLauncher {
+public class AspectLauncher {
 
 	public static void main(String args[]) {
 
 		ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"beans.xml");
 
-		SimpleMovieLister simpleMovieLister = applicationContext
-				.getBean(SimpleMovieLister.class);
-		System.out.println(simpleMovieLister.getMovieByUps("UPS1234974890"));
+		CustomerDao customerDao = applicationContext.getBean(CustomerDao.class);
+		System.out.println("Res  - "+customerDao.getAllCustomer());
 
 		applicationContext.close();
 	}
