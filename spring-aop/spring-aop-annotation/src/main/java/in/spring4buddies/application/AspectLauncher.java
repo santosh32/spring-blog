@@ -13,7 +13,7 @@ public class AspectLauncher {
 				"beans.xml");
 
 		CustomerDao customerDao = applicationContext.getBean(CustomerDao.class);
-		System.out.println("Res  - "+customerDao.getAllCustomer());
+		System.out.println("Res  - " + customerDao.getAllCustomer());
 
 		applicationContext.close();
 	}
