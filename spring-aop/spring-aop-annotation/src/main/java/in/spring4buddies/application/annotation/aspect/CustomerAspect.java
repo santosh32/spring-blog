@@ -32,6 +32,14 @@ public class CustomerAspect {
 	}
 	
 	@Pointcut("within(in.spring4buddies.application.annotation.autowired.*)")
+	public void logWithinCustomer() {
+	}
+	
+	@Pointcut("execution(* *get*(..))")
+	public void logExecutionCustomer() {
+	}
+	
+	@Pointcut("logWithinCustomer() && logExecutionCustomer()")
 	public void logCustomer() {
 	}
 }
