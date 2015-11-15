@@ -16,7 +16,7 @@ public class CustomerAspect {
 		System.out.println("CustomerAspect.logBeforeGetMethod() : " + joinPoint.getSignature().getName());
 	}
 
-	@Before("logCustomer()")
+	@Before("execution(* in.spring4buddies.application.annotation.autowired.CustomerDao.getAll*(..))")
 	public void logBeforeAllMethod(JoinPoint joinPoint) {
 		System.out.println("CustomerAspect.logBeforeAllMethod() : " + joinPoint.getSignature().getName());
 	}

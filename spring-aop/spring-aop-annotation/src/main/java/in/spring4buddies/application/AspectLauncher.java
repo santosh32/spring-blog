@@ -14,6 +14,11 @@ public class AspectLauncher {
 
 		CustomerDao customerDao = applicationContext.getBean(CustomerDao.class);
 		System.out.println("Res  - " + customerDao.getAllCustomer());
+		System.out.println("--------------------------------------");
+		System.out.println("Res  - " + customerDao.getCustomerById(1));
+		System.out.println("--------------------------------------");
+		customerDao.createCustomer(null);
+		System.out.println("--------------------------------------");
 
 		applicationContext.close();
 	}
