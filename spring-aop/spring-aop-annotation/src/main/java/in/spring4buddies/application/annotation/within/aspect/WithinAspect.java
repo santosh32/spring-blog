@@ -1,4 +1,4 @@
-package in.spring4buddies.application.annotation.aspect;
+package in.spring4buddies.application.annotation.within.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class CustomerAspect {
+public class WithinAspect {
 
 	@Before("logCustomer()")
 	public void logBeforeGetMethod(JoinPoint joinPoint) {

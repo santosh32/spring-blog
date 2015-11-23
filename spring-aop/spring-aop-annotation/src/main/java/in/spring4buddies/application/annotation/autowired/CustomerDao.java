@@ -9,24 +9,27 @@ import org.springframework.stereotype.Component;
 public class CustomerDao {
 
 	public Customer getCustomerById(Integer Id) {
-		System.out.println("Method getCustomerById() called");
+		System.out.println("CustomerDao: Method getCustomerById() called");
 		return new Customer();
 	}
 
 	public List<Customer> getAllCustomer() {
-		System.out.println("Method getAllCustomer() called");
-		return new ArrayList<Customer>();
+		System.out.println("CustomerDao: Method getAllCustomer() called");
+		Customer customer =new Customer();
+		List<Customer> customers = new ArrayList<Customer>();
+		customers.add(customer);
+		return customers;
 	}
 
 	public void createCustomer(Customer Customer) {
-		System.out.println("Method createCustomer() called");
+		System.out.println("CustomerDao: Method createCustomer() called");
 	}
 
 	public void deleteCustomer(Integer CustomerId) {
-		System.out.println("Method deleteCustomer() called");
+		System.out.println("CustomerDao: Method deleteCustomer() called");
 	}
 
 	public void updateCustomer(Customer Customer) {
-		System.out.println("Method updateCustomer() called");
+		System.out.println("CustomerDao: Method updateCustomer() called");
 	}
 }
