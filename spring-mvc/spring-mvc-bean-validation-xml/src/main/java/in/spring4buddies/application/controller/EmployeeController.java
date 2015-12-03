@@ -45,7 +45,7 @@ public class EmployeeController {
 		return sections;
 	}
 
-	@ModelAttribute("countries")
+/*	@ModelAttribute("countries")
 	public List<String> initializeCountries() {
 		List<String> countries = new ArrayList<String>();
 		countries.add("USA");
@@ -55,7 +55,7 @@ public class EmployeeController {
 		countries.add("ITALY");
 		countries.add("OTHER");
 		return countries;
-	}
+	}*/
 
 	@ModelAttribute("subjects")
 	public List<String> initializeSubjects() {

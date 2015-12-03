@@ -92,63 +92,6 @@
 				</div>
 			</div>
 
-
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="section">Section</label>
-					<div class="col-md-7" class="form-control input-sm">
-						<form:radiobuttons path="section" items="${sections}" />
-						<div class="has-error">
-							<form:errors path="section" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="country">Country</label>
-					<div class="col-md-7">
-						<form:select path="country" id="country"
-							class="form-control input-sm">
-							<form:option value="">Select Country</form:option>
-							<form:options items="${countries}" />
-						</form:select>
-						<div class="has-error">
-							<form:errors path="country" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="firstAttempt">First
-						Attempt ?</label>
-					<div class="col-md-1">
-						<form:checkbox path="firstAttempt" class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="firstAttempt" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="subjects">Subjects</label>
-					<div class="col-md-7">
-						<form:select path="subjects" items="${subjects}" multiple="true"
-							class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="subjects" class="help-inline" />
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<div class="row">
 				<div class="form-actions floatRight">
 					<input type="submit" value="Register"
