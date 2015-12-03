@@ -9,7 +9,8 @@
 	<packaging>pom</packaging>
 
 	 <modules>
-        <!--module>spring-ioc-annotations</module-->
+		<module>spring-mvc-basic-xml</module>
+        <module>spring-mvc-basic-config</module>
     </modules>
 	
 	<properties>
