@@ -11,6 +11,8 @@
 	 <modules>
 		<module>spring-mvc-basic-xml</module>
         <module>spring-mvc-basic-config</module>
+		<module>spring-mvc-bean-validation-xml</module>
+        <module>spring-mvc-bean-validation-config</module>
     </modules>
 	
 	<properties>
