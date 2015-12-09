@@ -4,6 +4,7 @@
 <title>Login</title>
 </head>
 <body>
+<h1>Login Page</h1>
 	<form:form action="userCheck" method="post">
 			Enter User Name : <input type="text" name="name"> <br />
 			Enter Password  : <input type="password" name="pwd" /> <br /> 

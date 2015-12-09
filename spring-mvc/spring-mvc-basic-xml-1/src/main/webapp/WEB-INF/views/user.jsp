@@ -4,6 +4,7 @@
 <title>Create User</title>
 </head>
 <body>
+<h1>Create User </h1>
 	<form:form action="/createUser" method="post">
   		 Enter User Name: <form:input path="name" /> <br />
    		 Enter age      : <form:input path="age" /> <br />
