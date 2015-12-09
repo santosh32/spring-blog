@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/")
 public class UserController {
-	
+
 	@RequestMapping(value = "user", method = RequestMethod.GET)
 	public ModelAndView user() {
 		return new ModelAndView("user", "command", new User());
@@ -20,11 +20,12 @@ public class UserController {
 
 	@RequestMapping(value = "createUser", method = RequestMethod.POST)
 	public String createUser(@ModelAttribute("user") User user, ModelMap model) {
-		
+
 		model.addAttribute("name", user.getName());
 		model.addAttribute("age", user.getAge());
 		model.addAttribute("location", user.getLocation());
-		
+
 		return "userSuccess";
+
 	}
 }

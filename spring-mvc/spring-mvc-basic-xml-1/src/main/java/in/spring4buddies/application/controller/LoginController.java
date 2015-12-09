@@ -1,6 +1,9 @@
 package in.spring4buddies.application.controller;
 
+import in.spring4buddies.application.model.User;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,7 @@ public class LoginController {
 		String nextPage = "login";
 
 		if ("admin".equalsIgnoreCase(name) && "password".equalsIgnoreCase(pwd)) {
-			model.addAttribute("message", "Successfully logged in.");
+			model.addAttribute("command", new User());
 			nextPage = "user";
 		} else {
 			model.addAttribute("message", "Username or password is wrong.");

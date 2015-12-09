@@ -5,11 +5,9 @@
 </head>
 <body>
 	<form:form action="userCheck" method="post">
-		<center>
 			Enter User Name : <input type="text" name="name"> <br />
 			Enter Password  : <input type="password" name="pwd" /> <br /> 
 			<input type="submit">
-		</center>
 	</form:form>
 </body>
 </html>
