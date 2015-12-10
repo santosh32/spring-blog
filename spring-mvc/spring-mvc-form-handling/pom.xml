@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>spring-mvc-basic-xml-1</artifactId>
+	<artifactId>spring-mvc-form-handling</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
