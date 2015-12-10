@@ -13,7 +13,10 @@
         <module>spring-mvc-basic-config</module>
 		<module>spring-mvc-bean-validation-xml</module>
         <module>spring-mvc-bean-validation-config</module>
-    </modules>
+        <module>spring-mvc-form-handling</module>
+        <module>spring-mvc-view-resolver-config</module>
+        <module>spring-mvc-form-validation</module>
+	 </modules>
 	
 	<properties>
 		<spring.version>4.1.0.RELEASE</spring.version>
