@@ -4,12 +4,27 @@
 <title>Create User</title>
 </head>
 <body>
-<h1>Create User Page </h1>
-	<form:form action="/createUser" method="post">
-  		 Enter User Name: <form:input path="name" /> <br />
-   		 Enter age      : <form:input path="age" /> <br />
-         Enter location : <form:input path="location" /> <br />
-		<input type="submit">
+	<h2>Create User</h2>
+	<form:form method="post" action="/createUser">
+
+		<table>
+			<tr>
+				<td><form:label path="name">Enter User Name:</form:label></td>
+				<td><form:input path="name" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="age">Enter age:</form:label></td>
+				<td><form:input path="age" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="location">Enter location :</form:label></td>
+				<td><form:input path="location" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Add User" /></td>
+			</tr>
+		</table>
+
 	</form:form>
 </body>
 </html>
