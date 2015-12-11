@@ -17,6 +17,7 @@
         <module>spring-mvc-view-resolver-config</module>
         <module>spring-mvc-form-validation</module>
         <module>spring-mvc-handler-interceptor</module>
+        <module>spring-mvc-file-upload-config</module>
 	 </modules>
 	
 	<properties>
