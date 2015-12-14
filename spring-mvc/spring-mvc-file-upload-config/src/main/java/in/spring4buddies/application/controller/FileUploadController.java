@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileUploadController {
 
-	private static String UPLOAD_LOCATION = "C:/mytemp/";
+	private static String UPLOAD_LOCATION = "C:/poc/upload";
 
 	@Autowired
 	FileValidator fileValidator;
