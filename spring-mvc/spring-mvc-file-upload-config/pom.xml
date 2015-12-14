@@ -74,6 +74,7 @@
 					<warSourceDirectory>src/main/webapp</warSourceDirectory>
 					<warName>spring-mvc-file-upload-config</warName>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 

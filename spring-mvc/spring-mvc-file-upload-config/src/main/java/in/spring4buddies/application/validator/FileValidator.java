@@ -13,11 +13,11 @@ public class FileValidator implements Validator {
 		return FileBucket.class.isAssignableFrom(clazz);
 	}
 
-	public void validate(Object obj, Errors errors) {
-		FileBucket file = (FileBucket) obj;
+	public void validate(Object object, Errors errors) {
+		FileBucket fileBucket = (FileBucket) object;
 
-		if (file.getFile() != null) {
-			if (file.getFile().getSize() == 0) {
+		if (fileBucket.getFile() != null) {
+			if (fileBucket.getFile().getSize() == 0) {
 				errors.rejectValue("file", "missing.file");
 			}
 		}

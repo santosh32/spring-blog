@@ -14,20 +14,19 @@ public class MultiFileValidator implements Validator {
 		return MultiFileBucket.class.isAssignableFrom(clazz);
 	}
 
-	public void validate(Object obj, Errors errors) {
-		MultiFileBucket multiBucket = (MultiFileBucket) obj;
+	public void validate(Object object, Errors errors) {
+		
+		MultiFileBucket multiBucket = (MultiFileBucket) object;
 
 		int index = 0;
 
 		for (FileBucket file : multiBucket.getFiles()) {
 			if (file.getFile() != null) {
 				if (file.getFile().getSize() == 0) {
-					errors.rejectValue("files[" + index + "].file",
-							"missing.file");
+					errors.rejectValue("files[" + index + "].file", "missing.file");
 				}
 			}
 			index++;
 		}
-
 	}
 }

@@ -21,7 +21,7 @@
 			<br />
 			<div>
 				<div>
-					<input type="submit" value="Upload" class="btn btn-primary btn-sm">
+					<input type="submit" value="Upload">
 				</div>
 			</div>
 		</form:form>
