@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class FileUploadController {
 
-	private static String UPLOAD_LOCATION = "C:/poc/upload";
+	private static String UPLOAD_LOCATION = "C:/poc/upload/";
 
 	@Autowired
 	FileValidator fileValidator;
@@ -98,9 +98,7 @@ public class FileUploadController {
 
 			// Now do something with file...
 			for (FileBucket bucket : multiFileBucket.getFiles()) {
-				FileCopyUtils.copy(bucket.getFile().getBytes(), new File(
-						UPLOAD_LOCATION
-								+ bucket.getFile().getOriginalFilename()));
+				FileCopyUtils.copy(bucket.getFile().getBytes(), new File( UPLOAD_LOCATION + bucket.getFile().getOriginalFilename()));
 				fileNames.add(bucket.getFile().getOriginalFilename());
 			}
 

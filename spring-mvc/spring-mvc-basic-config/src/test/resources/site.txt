@@ -4,5 +4,5 @@ http://o7planning.org/web/fe/default/en/document/8108/spring-mvc-tutorial-for-be
 http://www.concretepage.com/spring-4/
 http://geowarin.github.io/mastering-spring-mvc4.html
 
-set MAVEN_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n"
+set MAVEN_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4005,server=y,suspend=n
 mvn jetty:run
