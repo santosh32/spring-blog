@@ -1,76 +1,58 @@
-package in.spring4buddies.application.common;
+package in.spring4buddies.application.pdf;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import in.spring4buddies.application.common.PdfDocument;
+import in.spring4buddies.application.common.PdfFont;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
-import com.lowagie.text.Font;
-import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfCell;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfWriter;
 
 @Component
-public class PdfGenerator {
+public class DefaultPdfGenerator implements PdfGenerator {
 
-	public void execute() {
+	@Value("${dotLines}")
+	private String dotLines;
 
-		try {
-			Document document = new Document();
-			PdfWriter.getInstance(document, new FileOutputStream(new File(
-					"Payslip_1.pdf")));
-			document.setPageSize(PageSize.A4);
+	@Autowired
+	private PdfDocument pdfDocument;
 
-			document.open();
+	@Override
+	public void execute() throws Exception {
 
-			document.add(new Chunk("Company Name", font1));
-			document.add(Chunk.NEWLINE);
+		Document document = pdfDocument.open();
 
-			document.add(new Paragraph("Company address", font3));
+		document.add(new Chunk("Company Name", PdfFont.font1));
+		document.add(Chunk.NEWLINE);
 
-			document.add(new Paragraph(
-					"----------------------------------------------------------------------------------------------------------------------------------"));
-			document.add(new Paragraph("Payslip for the month of Feb-2016",
-					font1));
-			document.add(new Paragraph(
-					"----------------------------------------------------------------------------------------------------------------------------------"));
+		document.add(new Paragraph("Company address", PdfFont.font3));
+		document.add(new Paragraph(dotLines));
 
-			document.add(setEmplyoeeInfo());
+		document.add(new Paragraph("Payslip for the month of Feb-2016",
+				PdfFont.font1));
+		document.add(new Paragraph(dotLines));
 
-			document.add(new Paragraph(
-					"----------------------------------------------------------------------------------------------------------------------------------"));
+		document.add(setEmplyoeeInfo());
+		document.add(new Paragraph(dotLines));
 
-			document.add(Chunk.NEWLINE);
+		document.add(Chunk.NEWLINE);
 
-			document.close();
+		pdfDocument.close(document);
 
-			System.out.println("Pdf created successfully..");
+		System.out.println("Employee Payslip Generated Successfully..");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
-
-	static Font font1 = new Font(Font.HELVETICA, 7, Font.BOLD);
-	static Font font2 = new Font(Font.HELVETICA, 7, Font.ITALIC
-			| Font.UNDERLINE);
-	static Font font3 = new Font(Font.HELVETICA, 7);
 
 	private static PdfPTable setEmplyoeeInfo() throws Exception {
 
-		PdfPTable pdfPTable = new PdfPTable(6);
-		PdfPCell defaultCell = pdfPTable.getDefaultCell();
-		defaultCell.setBorder(PdfCell.NO_BORDER);
-		defaultCell.setNoWrap(true);
-
-		pdfPTable.setWidthPercentage(100);
-		pdfPTable.setWidths(new float[] { 2f, 2.8f, 2.8f, 2.8f, 2.5f, 2.8f });
+		PdfPTable pdfPTable = createPdfTableForEmployeeInfo();
 
 		pdfPTable.addCell(createPharseText("Emp. ID"));
 		pdfPTable.addCell(createPharseText(": 12345"));
@@ -79,12 +61,7 @@ public class PdfGenerator {
 		pdfPTable.addCell(createPharseText("PF. No"));
 		pdfPTable.addCell(createPharseText(": AP/HYD/1233/1244"));
 
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
+		emptyCell(pdfPTable);
 
 		pdfPTable.addCell(createPharseText("Name"));
 		pdfPTable.addCell(createPharseText(": Rajesh "));
@@ -93,12 +70,7 @@ public class PdfGenerator {
 		pdfPTable.addCell(createPharseText("PAN"));
 		pdfPTable.addCell(createPharseText(": ATDB8347E"));
 
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
+		emptyCell(pdfPTable);
 
 		pdfPTable.addCell(createPharseText("Designation"));
 		pdfPTable.addCell(createPharseText(": Sr.Software Engineer"));
@@ -107,18 +79,33 @@ public class PdfGenerator {
 		pdfPTable.addCell(createPharseText("Paid Days"));
 		pdfPTable.addCell(createPharseText(": 29"));
 
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
-		pdfPTable.addCell("");
+		emptyCell(pdfPTable);
 
 		return pdfPTable;
 	}
 
+	private static void emptyCell(PdfPTable pdfPTable) {
+		pdfPTable.addCell("");
+		pdfPTable.addCell("");
+		pdfPTable.addCell("");
+		pdfPTable.addCell("");
+		pdfPTable.addCell("");
+		pdfPTable.addCell("");
+	}
+
+	private static PdfPTable createPdfTableForEmployeeInfo() throws Exception {
+		PdfPTable pdfPTable = new PdfPTable(6);
+		PdfPCell defaultCell = pdfPTable.getDefaultCell();
+		defaultCell.setBorder(PdfCell.NO_BORDER);
+		defaultCell.setNoWrap(true);
+
+		pdfPTable.setWidthPercentage(100);
+		pdfPTable.setWidths(new float[] { 2f, 2.8f, 2.8f, 2.8f, 2.5f, 2.8f });
+		return pdfPTable;
+	}
+
 	private static Phrase createPharseText(String text) {
-		return new Phrase(text, font3);
+		return new Phrase(text, PdfFont.font3);
 	}
 
 }

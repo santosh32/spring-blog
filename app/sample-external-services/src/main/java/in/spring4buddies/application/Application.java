@@ -1,6 +1,6 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.common.PdfGenerator;
+import in.spring4buddies.application.pdf.PdfGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,11 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application implements CommandLineRunner {
 
 	@Autowired
-	PdfGenerator pdfGenerator;
+	private PdfGenerator pdfGenerator;
 
 	public static void main(final String[] args) {
 		SpringApplication.run(Application.class, args);
-
 	}
 
 	@Override
