@@ -19,11 +19,14 @@ public class ConfigAttribute implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "name")
+	@Column(name = "config_name")
 	private String name;
 
-	@Column(name = "description")
+	@Column(name = "config_desc")
 	private String description;
+
+	@Column(name = "config_type")
+	private String type;
 
 	public Integer getId() {
 		return id;
@@ -48,4 +51,13 @@ public class ConfigAttribute implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 }

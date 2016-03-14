@@ -26,8 +26,8 @@ public class DBConfig {
 		EmbeddedDatabase embeddedDatabase = embeddedDatabaseBuilder
 				.setType(EmbeddedDatabaseType.H2)
 				// .H2 or .DERBY
-				.addScript("classpath:db/sql/create-db.sql")
-				.addScript("classpath:db/sql/insert-data.sql").build();
+				.addScript("classpath:db/sql/create-db_DDL.sql")
+				.addScript("classpath:db/sql/config_attribute_DML.sql").build();
 		return embeddedDatabase;
 	}
 
