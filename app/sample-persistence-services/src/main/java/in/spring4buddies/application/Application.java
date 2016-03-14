@@ -14,9 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(Application.class);
 
 	public static void main(final String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -27,13 +27,13 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Iterable<ConfigAttribute> configAttributeIterable = attributeRepository.findAll();
-		ConfigAttribute attribute = attributeRepository.findOne(1);
+		Iterable<ConfigAttribute> configAttributeIterable = attributeRepository
+				.findAll();
 		Iterator<ConfigAttribute> iterator = configAttributeIterable.iterator();
 		while (iterator.hasNext()) {
 			ConfigAttribute configAttribute = iterator.next();
-			System.out.println(configAttribute.getName() + ", " + configAttribute.getDescription());
-			LOGGER.info(configAttribute.getName() + ", " + configAttribute.getDescription());
+			LOGGER.info(configAttribute.getName() + ", "
+					+ configAttribute.getDescription());
 		}
 	}
 }
