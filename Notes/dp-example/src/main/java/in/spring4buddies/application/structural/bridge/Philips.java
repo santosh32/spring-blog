@@ -1,4 +1,4 @@
-package in.spring4buddies.application.bridge;
+package in.spring4buddies.application.structural.bridge;
 
 //Concrete Implementor 
 public class Philips implements TV {

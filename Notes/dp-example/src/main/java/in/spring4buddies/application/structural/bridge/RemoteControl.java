@@ -1,4 +1,4 @@
-package in.spring4buddies.application.bridge;
+package in.spring4buddies.application.structural.bridge;
 
 //Abstraction
 public abstract class RemoteControl {

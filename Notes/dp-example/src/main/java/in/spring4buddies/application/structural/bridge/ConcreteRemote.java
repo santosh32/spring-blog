@@ -1,4 +1,4 @@
-package in.spring4buddies.application.bridge;
+package in.spring4buddies.application.structural.bridge;
 
 //Refined abstraction
 public class ConcreteRemote extends RemoteControl {
