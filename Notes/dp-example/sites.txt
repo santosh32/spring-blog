@@ -1,37 +1,18 @@
+spring security - 
+----------------
+http://www.programming-free.com/search/label/Spring%20MVC
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-
-[''\
-
-
-
-
-
-
-:L:spring security - http://www.programming-free.com/search/label/Spring%20MVC
+Hibernate -
+------------
+http://www.j2eebrain.com/hibernate-tutorial
+http://www.javatpoint.com/hibernate-table-per-subclass-using-annotation-tutorial-example
+http://www.tutorialspoint.com/hibernate/orm_overview.htm
+	caching, 
+http://www.mkyong.com/tutorials/hibernate-tutorials/
+http://www.dineshonjava.com/p/crud-operations-using-hibernate-3.html#.V0Ge5Pl97IU
+ Inheritance - Table per class, Table per sub-class, concert class
+ Hibernate 4 = Hibernate 3 + Hibernate Search
+ 
 
 
 
