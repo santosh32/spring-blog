@@ -12,6 +12,8 @@ http://www.mkyong.com/tutorials/hibernate-tutorials/
 http://www.dineshonjava.com/p/crud-operations-using-hibernate-3.html#.V0Ge5Pl97IU
  Inheritance - Table per class, Table per sub-class, concert class
  Hibernate 4 = Hibernate 3 + Hibernate Search
+ http://javabeginnerstutorial.com/hibernate/entity-relations-with-hibernate-4/
+ http://howtodoinjava.com/hibernate-tutorials/
  
 
 
