@@ -3,7 +3,7 @@ package in.spring4buddies.application.sample.sort;
 public class BubbleSort {
 
 	public static void bubbleSort(int list[]) {
-		
+
 		int n = list.length;
 		for (int i = 0; i < n - 1; i++) {
 			for (int j = 0; j < n - 1 - i; j++) {
@@ -12,7 +12,7 @@ public class BubbleSort {
 					temp = list[j];
 					list[j] = list[j + 1];
 					list[j + 1] = temp;
-					
+
 				}
 				print(list);
 			}
@@ -21,9 +21,10 @@ public class BubbleSort {
 	}
 
 	public static void main(String[] args) {
-//		 int[] list = { 4, 2, 9, 6, 23, 12, 34, 0, 1 };
-		int[] list = { 5, 1, 12, -5, 16 };
+		// int[] list = { 4, 2, 9, 6, 23, 12, 34, 0, 1 };
+		int[] list = { 5, 1, 12, 16, -5 };
 		print(list);
+		System.out.println("---------");
 		bubbleSort(list);
 	}
 

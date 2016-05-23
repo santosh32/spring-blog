@@ -1,6 +1,6 @@
 package in.spring4buddies.application.sample.sort;
 
-public class InsertionSort {
+public class SelectionSort {
 
 	public static void insertionSort(int[] list) {
 		int n = list.length, key;
