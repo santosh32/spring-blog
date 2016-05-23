@@ -15,6 +15,18 @@ http://www.dineshonjava.com/p/crud-operations-using-hibernate-3.html#.V0Ge5Pl97I
  http://javabeginnerstutorial.com/hibernate/entity-relations-with-hibernate-4/
  http://howtodoinjava.com/hibernate-tutorials/
  
+ java 8 - http://www.javabrahman.com/design-patterns/iterator-design-pattern-in-java/
+
+spring tx - http://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
+
+Spring JMS- http://www.javatpoint.com/java-tutorial
+
+JMS - coderponda
+
+Hibernate - connect2java
+
+https://dzone.com/refcardz/core-java-concurrency
+ 
 
 
 
