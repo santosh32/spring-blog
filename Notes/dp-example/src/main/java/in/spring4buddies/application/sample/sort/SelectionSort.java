@@ -2,18 +2,23 @@ package in.spring4buddies.application.sample.sort;
 
 public class SelectionSort {
 
-	public static void insertionSort(int[] list) {
-		int n = list.length, key;
-		for (int i = 1; i < n; i++) {
-			int j = i - 1;
-			key = list[i];
-			while (j >= 0 && key < list[j]) {
-				int temp = list[j];
-				list[j] = list[j + 1];
-				list[j + 1] = list[j];
-				print(list);
+	public static void selectionSort(int[] list) {
+
+		int n = list.length;
+		for (int i = 0; i < n - 1; i++) {
+			int index = i;
+			for (int j = i + 1; j < n; j++) {
+				if (list[j] < list[index]) {
+					index = j;
+				}
 			}
-			j--;
+
+			int smallerNumber = list[index];
+			list[index] = list[i];
+			list[i] = smallerNumber;
+
+			print(list);
+
 			System.out.println("---------");
 		}
 	}
@@ -22,7 +27,7 @@ public class SelectionSort {
 		int[] list = { 10, 34, 2, 56, 7, 67, 88, 42 };
 		print(list);
 		System.out.println("---------");
-		insertionSort(list);
+		selectionSort(list);
 	}
 
 	private static void print(int[] list) {

@@ -3,17 +3,16 @@ package in.spring4buddies.application.sample.sort;
 public class InsertionSort {
 
 	public static void insertionSort(int[] list) {
-		int n = list.length, key;
+		int n = list.length;
 		for (int i = 1; i < n; i++) {
-			int j = i - 1;
-			key = list[i];
-			while (j >= 0 && key < list[j]) {
-				int temp = list[j];
-				list[j] = list[j + 1];
-				list[j + 1] = list[j];
-				print(list);
+			for (int j = i; j > 0; j--) {
+				if (list[j] < list[j - 1]) {
+					int temp = list[j];
+					list[j] = list[j - 1];
+					list[j - 1] = temp;
+					print(list);
+				}
 			}
-			j--;
 			System.out.println("---------");
 		}
 	}
@@ -30,6 +29,6 @@ public class InsertionSort {
 			System.out.print(i);
 			System.out.print(", ");
 		}
-		System.out.print("\n ");
+		System.out.println();
 	}
 }
