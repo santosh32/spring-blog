@@ -18,7 +18,7 @@ public class InsertionSort {
 	}
 
 	public static void main(String a[]) {
-		int[] list = { 10, 34, 2, 56, 7, 67, 88, 42 };
+		int[] list = { 5, 1, 12, 16, -5 };
 		print(list);
 		System.out.println("---------");
 		insertionSort(list);
