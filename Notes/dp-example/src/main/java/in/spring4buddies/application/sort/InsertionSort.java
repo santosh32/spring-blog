@@ -1,4 +1,4 @@
-package in.spring4buddies.application.sample.sort;
+package in.spring4buddies.application.sort;
 
 public class InsertionSort {
 
