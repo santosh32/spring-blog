@@ -1,11 +1,12 @@
 package in.spring4buddies.application.pyramid;
 
-public class Pyramid3 {
+public class Pyramid5 {
 
 	public static void main(String[] args) {
-		int n = 5;
-		for (int i = n; i >0; i--) {
-			for (int j = i; j > 0; j--) {
+		int n = 9;
+		int s = 5;
+		for (int i = n; i >= s; i--) {
+			for (int j = s; j < i + 1; j++) {
 				System.out.print(j + " ");
 			}
 			System.out.println("");
@@ -15,9 +16,9 @@ public class Pyramid3 {
 
 
 /*
-5 4 3 2 1 
-4 3 2 1 
-3 2 1 
-2 1 
-1
+5 6 7 8 9 
+5 6 7 8 
+5 6 7 
+5 6 
+5 
 * */
