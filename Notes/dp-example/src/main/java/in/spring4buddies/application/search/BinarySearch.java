@@ -8,7 +8,7 @@ public class BinarySearch {
 		int end = list.length - 1;
 
 		while (start <= end) {
-			int mid = start + end / 2;
+			int mid = (start + end) / 2;
 			if (key == list[mid]) {
 				return mid;
 			}
@@ -23,7 +23,7 @@ public class BinarySearch {
 
 	public static void main(String[] args) {
 		int[] list = { -5, 1, 5, 12, 16 };
-		System.out.println(binarySearch(list, 12));
-		System.out.println(binarySearch(list, 5));
+		System.out.println("Position of 12 is = " + binarySearch(list, 12));
+		System.out.println("Position of -5 is = " + binarySearch(list, -5));
 	}
 }
