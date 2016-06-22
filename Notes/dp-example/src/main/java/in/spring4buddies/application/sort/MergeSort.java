@@ -26,6 +26,8 @@ public class MergeSort {
 
 		if (lowerIndex < higherIndex) {
 			int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+			System.out.println("lowerIndex = " + lowerIndex + " middle = "
+					+ middle + " higherIndex = " + higherIndex);
 			// Below step sorts the left side of the array
 			doMergeSort(lowerIndex, middle);
 			// Below step sorts the right side of the array
