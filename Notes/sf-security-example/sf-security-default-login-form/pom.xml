@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>sf-security-basic</artifactId>
+	<artifactId>sf-security-default-login-form</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>sf-security-basic</name>
+	<name>sf-security-default-login-form</name>
 
 	<properties>
 		<springframework.version>4.1.6.RELEASE</springframework.version>
@@ -79,7 +79,7 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>sf-security-basic</warName>
+						<warName>sf-security-default-login-form</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
@@ -90,12 +90,12 @@
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
 						<webApp>
-							<contextPath>/sf-security-basic</contextPath>
+							<contextPath>/sf-security-default-login-form</contextPath>
 						</webApp>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>sf-security-basic</finalName>
+		<finalName>sf-security-default-login-form</finalName>
 	</build>
 </project>
