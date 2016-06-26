@@ -34,14 +34,19 @@ public class HelloWorldController {
 		return "dba";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage() {
+	    return "login";
+	}
+	 
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	   public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-	      Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	      if (auth != null){    
-	         new SecurityContextLogoutHandler().logout(request, response, auth);
-	      }
-	      return "welcome";
-	   }
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+	    return "redirect:/login?logout";
+	}
 
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
