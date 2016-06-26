@@ -25,5 +25,4 @@ public enum State {
 	public String getName() {
 		return this.name();
 	}
-
 }

@@ -66,5 +66,4 @@ public class UserProfile {
 	public String toString() {
 		return "UserProfile [id=" + id + ",  type=" + type + "]";
 	}
-
 }
