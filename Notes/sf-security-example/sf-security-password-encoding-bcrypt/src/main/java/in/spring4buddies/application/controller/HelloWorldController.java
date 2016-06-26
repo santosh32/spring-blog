@@ -127,5 +127,4 @@ public class HelloWorldController {
 	public List<UserProfile> initializeProfiles() {
 		return userProfileService.findAll();
 	}
-
 }
