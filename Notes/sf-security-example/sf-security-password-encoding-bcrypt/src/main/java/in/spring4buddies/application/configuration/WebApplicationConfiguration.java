@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springsecurity")
+@ComponentScan(basePackages = "in.spring4buddies.application")
 public class WebApplicationConfiguration extends WebMvcConfigurerAdapter {
 
 	@Autowired
