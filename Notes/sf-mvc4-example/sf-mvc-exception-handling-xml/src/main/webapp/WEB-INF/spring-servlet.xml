@@ -24,7 +24,7 @@
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="com.javacodegeeks.snippets.enterprise.CustomException">
+				<prop key="in.spring4buddies.application.exception.CustomException">
 					error
 				</prop>
 			</props>
