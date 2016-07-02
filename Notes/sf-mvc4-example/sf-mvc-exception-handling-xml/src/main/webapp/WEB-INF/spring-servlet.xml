@@ -1,7 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -16,43 +15,25 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- 1. BeanNameUrlHandlerMapping 
 	<bean
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
-	<bean name="/helloWorld.htm"
-		class="in.spring4buddies.application.controller.HelloWorldController" />
+	<bean class="in.spring4buddies.application.controller.FirstController" />
 
-	<bean name="/hello*.htm"
-		class="in.spring4buddies.application.controller.HelloWorldController" />
-      -->
-
-	<!-- 2. ControllerClassNameHandlerMapping 
 	<bean
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
-		<property name="caseSensitive" value="true" />
-		<property name="pathPrefix" value="/spring4buddies" />
-		<property name="order" value="1" />
-	</bean>
-
-	<bean class="in.spring4buddies.application.controller.HelloWorldController" />
-	-->
-
-	<!-- 3. SimpleUrlHandlerMapping -->
-	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="mappings">
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
 			<props>
-				<prop key="/helloWorld.htm">helloWorldController</prop>
-				<prop key="/*/hello.htm">helloWorldController</prop>
-				<prop key="/hello*.htm">helloWorldController</prop>
+				<prop key="com.javacodegeeks.snippets.enterprise.CustomException">
+					error
+				</prop>
 			</props>
 		</property>
-		<property name="order" value="0" />
 	</bean>
 
-	<bean id="helloWorldController"
-		class="in.spring4buddies.application.controller.HelloWorldController" />
-        
+	<context:component-scan base-package="in.spring4buddies.application.controller" />
+	<mvc:annotation-driven />
+
 </beans>
 
 
