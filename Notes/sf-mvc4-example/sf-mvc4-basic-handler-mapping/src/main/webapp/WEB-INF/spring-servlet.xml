@@ -16,7 +16,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!--BeanNameUrlHandlerMapping 
+	<!-- 1. BeanNameUrlHandlerMapping 
 	<bean
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
@@ -27,7 +27,7 @@
 		class="in.spring4buddies.application.controller.HelloWorldController" />
       -->
 
-	<!--ControllerClassNameHandlerMapping 
+	<!-- 2. ControllerClassNameHandlerMapping 
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
 		<property name="caseSensitive" value="true" />
@@ -38,7 +38,7 @@
 	<bean class="in.spring4buddies.application.controller.HelloWorldController" />
 	-->
 
-	<!-- SimpleUrlHandlerMapping -->
+	<!-- 3. SimpleUrlHandlerMapping -->
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
