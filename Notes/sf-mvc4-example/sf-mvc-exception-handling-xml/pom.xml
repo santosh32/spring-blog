@@ -3,18 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>sf-mvc4-basic-handler-mapping-interceptor</artifactId>
+	<artifactId>sf-mvc-exception-handling-xml</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>sf-mvc4-basic-handler-mapping-interceptor</name>
+	<name>sf-mvc-exception-handling-xml</name>
 
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<spring.version>4.0.2.RELEASE</spring.version>
-		<servlet.version>2.5</servlet.version>
-		<log4j.version>1.2.17</log4j.version>
 	</properties>
 
 	<dependencies>
@@ -31,12 +29,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>${servlet.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j.version}</version>
+			<version>2.5</version>
 		</dependency>
 	</dependencies>
 
@@ -59,12 +52,12 @@
 					<configuration>
 						<scanIntervalSeconds>10</scanIntervalSeconds>
 						<webApp>
-							<contextPath>/sf-mvc4-basic-handler-mapping-interceptor</contextPath>
+							<contextPath>/sf-mvc-exception-handling-xml</contextPath>
 						</webApp>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>sf-mvc4-basic-handler-mapping-interceptor</finalName>
+		<finalName>sf-mvc-exception-handling-xml</finalName>
 	</build>
 </project>
