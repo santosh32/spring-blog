@@ -43,4 +43,10 @@ public class DeepEmployee implements Cloneable {
 		this.department = department;
 	}
 
+	@Override
+	public String toString() {
+		return "DeepEmployee [empoyeeId=" + empoyeeId + ", employeeName="
+				+ employeeName + ", department=" + department + "]";
+	}
+
 }

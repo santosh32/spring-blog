@@ -28,9 +28,14 @@ public class TestDeepCloning {
 		
 		System.out.println("original.getDepartment() != cloned.getDepartment() ->" + (original.getDepartment() != cloned.getDepartment()));
 		
+		System.out.println("original - "+original);
+		System.out.println("cloned - "+cloned);
 		
 		cloned.getDepartment().setName("Finance");
+		cloned.setEmployeeName("IT");
 		
-		System.out.println("original.getDepartment().getName() ->"+original.getDepartment().getName());
+		System.out.println("original - "+original);
+		System.out.println("cloned - "+cloned);
+		
 	}
 }

@@ -30,4 +30,9 @@ public class DeepDepartment implements Cloneable {
 	protected Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
+
+	@Override
+	public String toString() {
+		return "DeepDepartment [id=" + id + ", name=" + name + "]";
+	}
 }
