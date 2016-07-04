@@ -40,4 +40,10 @@ public class ShallowEmployee implements Cloneable {
 	public void setDepartment(ShallowDepartment department) {
 		this.department = department;
 	}
+
+	@Override
+	public String toString() {
+		return "ShallowEmployee [empoyeeId=" + empoyeeId + ", employeeName="
+				+ employeeName + ", department=" + department + "]";
+	}
 }
