@@ -1,4 +1,4 @@
-package in.spring4buddies.application.queue;
+package in.spring4buddies.application.queue.asynchronous;
 
 import in.spring4buddies.application.utils.ActiveMQUtils;
 
