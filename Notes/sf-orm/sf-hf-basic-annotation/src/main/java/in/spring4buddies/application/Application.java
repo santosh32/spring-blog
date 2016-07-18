@@ -11,7 +11,7 @@ import org.joda.time.LocalDate;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
-public class AppMain {
+public class Application {
 
 	public static void main(String args[]) {
 
