@@ -1,6 +1,6 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.config.ApplicationConfiguration;
+import in.spring4buddies.application.config.ApplicationConfig;
 import in.spring4buddies.application.model.Employee;
 import in.spring4buddies.application.service.EmployeeService;
 
@@ -15,7 +15,7 @@ public class AppMain {
 
 	public static void main(String args[]) {
 
-		AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
 		EmployeeService service = (EmployeeService) context.getBean("employeeService");
 
