@@ -17,22 +17,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDao dao;
 
 	public void saveEmployee(Employee employee) {
-		dao.saveEmployee(employee);
+		dao.save(employee);
 	}
 
-	public List<Employee> findAllEmployees() {
-		return dao.findAllEmployees();
-	}
+//	public List<Employee> findAllEmployees() {
+//		return dao.findAllEmployees();
+//	}
+//
+//	public void deleteEmployeeBySsn(String ssn) {
+//		dao.delete(ssn);
+//	}
 
-	public void deleteEmployeeBySsn(String ssn) {
-		dao.deleteEmployeeBySsn(ssn);
-	}
-
-	public Employee findBySsn(String ssn) {
-		return dao.findBySsn(ssn);
-	}
+//	public Employee findBySsn(String ssn) {
+//		return dao.findBySsn(ssn);
+//	}
 
 	public void updateEmployee(Employee employee) {
-		dao.updateEmployee(employee);
+		dao.update(employee);
 	}
 }

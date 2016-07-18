@@ -36,25 +36,25 @@ public class Application {
 		System.out.println(" ****** Saving emplyee 2 to the database ****** ");
 		service.saveEmployee(employee2);
 
-		System.out.println(" ****** find all emplyees from database ****** ");
-		List<Employee> employees = service.findAllEmployees();
-		for (Employee emp : employees) {
-			System.out.println(emp);
-		}
+//		System.out.println(" ****** find all emplyees from database ****** ");
+//		List<Employee> employees = service.findAllEmployees();
+//		for (Employee emp : employees) {
+//			System.out.println(emp);
+//		}
 
-		System.out.println(" ****** delete emplyee 2 from database ****** ");
-		service.deleteEmployeeBySsn("ssn00000002");
-
-		System.out.println(" ****** update emplyee 1 to database ****** ");
-		Employee employee = service.findBySsn("ssn00000001");
-		employee.setSalary(new BigDecimal(50000));
-		service.updateEmployee(employee);
-
-		System.out.println(" ****** find all emplyees from database ****** ");
-		List<Employee> employeeList = service.findAllEmployees();
-		for (Employee emp : employeeList) {
-			System.out.println(emp);
-		}
+//		System.out.println(" ****** delete emplyee 2 from database ****** ");
+//		service.deleteEmployeeBySsn("ssn00000002");
+//
+//		System.out.println(" ****** update emplyee 1 to database ****** ");
+//		Employee employee = service.findBySsn("ssn00000001");
+//		employee.setSalary(new BigDecimal(50000));
+//		service.updateEmployee(employee);
+//
+//		System.out.println(" ****** find all emplyees from database ****** ");
+//		List<Employee> employeeList = service.findAllEmployees();
+//		for (Employee emp : employeeList) {
+//			System.out.println(emp);
+//		}
 
 		context.close();
 	}
