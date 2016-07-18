@@ -13,7 +13,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name = "EMPLOYEE")
 public class Employee {
 
 	@Id
@@ -24,13 +24,13 @@ public class Employee {
 	private String name;
 
 	@Column(name = "JOINING_DATE", nullable = false)
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate joiningDate;
 
 	@Column(name = "SALARY", nullable = false)
 	private BigDecimal salary;
-	
-	@Column(name = "SSN", unique=true, nullable = false)
+
+	@Column(name = "SSN", unique = true, nullable = false)
 	private String ssn;
 
 	public int getId() {
@@ -106,8 +106,5 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", joiningDate="
 				+ joiningDate + ", salary=" + salary + ", ssn=" + ssn + "]";
 	}
-	
-	
-	
 
 }

@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 @Repository("employeeDao")
-public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao{
+public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao {
 
 	public void saveEmployee(Employee employee) {
 		persist(employee);
@@ -28,15 +28,14 @@ public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao{
 		query.executeUpdate();
 	}
 
-	
-	public Employee findBySsn(String ssn){
+	public Employee findBySsn(String ssn) {
 		Criteria criteria = getSession().createCriteria(Employee.class);
-		criteria.add(Restrictions.eq("ssn",ssn));
+		criteria.add(Restrictions.eq("ssn", ssn));
 		return (Employee) criteria.uniqueResult();
 	}
-	
-	public void updateEmployee(Employee employee){
+
+	public void updateEmployee(Employee employee) {
 		getSession().update(employee);
 	}
-	
+
 }

@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("employeeService")
 @Transactional
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeDao dao;
-	
+
 	public void saveEmployee(Employee employee) {
 		dao.saveEmployee(employee);
 	}
@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return dao.findBySsn(ssn);
 	}
 
-	public void updateEmployee(Employee employee){
+	public void updateEmployee(Employee employee) {
 		dao.updateEmployee(employee);
 	}
 }
