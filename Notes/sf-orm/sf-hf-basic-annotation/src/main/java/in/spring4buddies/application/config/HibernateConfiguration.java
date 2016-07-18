@@ -26,11 +26,11 @@ public class HibernateConfiguration {
 	private Environment environment;
 
 	@Bean
-	public LocalSessionFactoryBean sessionFactory() {
+	public LocalSessionFactoryBean sessionFactory(DataSource dataSource, Properties hibernateProperties) {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource());
+		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setPackagesToScan(new String[] { "in.spring4buddies.application.model" });
-		sessionFactory.setHibernateProperties(hibernateProperties());
+		sessionFactory.setHibernateProperties(hibernateProperties);
 		return sessionFactory;
 	}
 
@@ -44,7 +44,8 @@ public class HibernateConfiguration {
 		return dataSource;
 	}
 
-	private Properties hibernateProperties() {
+	@Bean
+	public Properties hibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
 		properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
