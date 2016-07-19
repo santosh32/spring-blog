@@ -36,11 +36,11 @@ public class Application {
 		System.out.println(" ****** Saving emplyee 2 to the database ****** ");
 		service.saveEmployee(employee2);
 
-//		System.out.println(" ****** find all emplyees from database ****** ");
-//		List<Employee> employees = service.findAllEmployees();
-//		for (Employee emp : employees) {
-//			System.out.println(emp);
-//		}
+		System.out.println(" ****** find all emplyees from database ****** ");
+		List<Employee> employees = service.findAllEmployees();
+		for (Employee emp : employees) {
+			System.out.println(emp);
+		}
 
 //		System.out.println(" ****** delete emplyee 2 from database ****** ");
 //		service.deleteEmployeeBySsn("ssn00000002");

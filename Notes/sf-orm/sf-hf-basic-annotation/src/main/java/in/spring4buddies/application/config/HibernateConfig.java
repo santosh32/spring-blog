@@ -12,6 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -34,15 +37,36 @@ public class HibernateConfig {
 		return sessionFactory;
 	}
 
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+//		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
+//		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
+//		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+//		return dataSource;
+//	}
+	
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("org.hsqldb.jdbcDriver");
+//		dataSource.setUrl("jdbc:hsqldb:mem:testdb;sql.syntax_ora=true");
+//		dataSource.setUsername("sa");
+//		dataSource.setPassword("");
+//		return dataSource;
+//	}
+	
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
-		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+		// no need shutdown, EmbeddedDatabaseFactoryBean will take care of this
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		EmbeddedDatabase dataSource = builder.setType(EmbeddedDatabaseType.HSQL)
+				.addScript("sql-scripts/hsql/create-db-ddl.sql")
+			.build();
 		return dataSource;
 	}
+
 
 	@Bean
 	public Properties hibernateProperties() {

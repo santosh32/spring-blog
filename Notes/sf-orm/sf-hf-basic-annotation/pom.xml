@@ -13,7 +13,9 @@
 	<properties>
 		<springframework.version>4.0.6.RELEASE</springframework.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
-		<oracle.version>11.2.0</oracle.version>
+		<!-- <oracle.version>11.2.0</oracle.version> -->
+		<oracle.version>11.2.0.2.0</oracle.version>
+		<hsqldb.version>2.3.2</hsqldb.version>
 		<joda-time.version>2.3</joda-time.version>
 		<jdk.version>1.7</jdk.version>
 	</properties>
@@ -54,6 +56,13 @@
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>${oracle.version}</version>
+		</dependency>
+
+		<!-- HyperSQL DB -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
 		</dependency>
 
 		<!-- Joda-Time -->

@@ -8,11 +8,12 @@ public interface EmployeeService {
 
 	void saveEmployee(Employee employee);
 
-//	List<Employee> findAllEmployees();
-//
-//	void deleteEmployeeBySsn(String ssn);
-//
+	void updateEmployee(Employee employee);
+
+	void deleteEmployeeBySsn(String ssn);
+
+	List<Employee> findAllEmployees();
+
 //	Employee findBySsn(String ssn);
 
-	void updateEmployee(Employee employee);
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -17,7 +18,8 @@ import org.joda.time.LocalDate;
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator( name = "empSequence", sequenceName = "EMPLOYEE_SEQ", allocationSize = 1, initialValue = 1 )
+    @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "empSequence" )
 	private int id;
 
 	@Column(name = "NAME", nullable = false)
