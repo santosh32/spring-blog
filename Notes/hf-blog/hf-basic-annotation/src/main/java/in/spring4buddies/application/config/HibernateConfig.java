@@ -7,7 +7,6 @@ import in.spring4buddies.application.collection.Employee;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.dialect.HSQLDialect;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateConfig {
@@ -27,31 +26,32 @@ public class HibernateConfig {
 				.addAnnotatedClass(Address.class)
 				
 				// ORACLE
-//				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
-//				
-//				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
-//				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
-//				.setProperty("hibernate.connection.username", "srlp")
-//				.setProperty("hibernate.connection.password", "srlp")
+				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
+				
+				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
+				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
+				.setProperty("hibernate.connection.username", "srlp")
+				.setProperty("hibernate.connection.password", "srlp")
 				
 				// HSQL
-				.setProperty("hibernate.dialect", HSQLDialect.class.getName())
-				
-				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
-				.setProperty("hibernate.connection.url", "jdbc:hsqldb:mem:testdb")
-				.setProperty("hibernate.connection.username", "sa")
-				.setProperty("hibernate.connection.password", "")
+//				.setProperty("hibernate.dialect", org.hibernate.dialect.HSQLDialect.class.getName())
+//				
+//				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
+//				.setProperty("hibernate.connection.url", "jdbc:hsqldb:mem:testdb")
+//				.setProperty("hibernate.connection.username", "sa")
+//				.setProperty("hibernate.connection.password", "")
 				
 				.setProperty("show_sql", "true")
 				.setProperty("format_sql", "true")
 				
-//				.setProperty("connection.autocommit", "true")
+				.setProperty("connection.autocommit", "true")
 				
-				.setProperty("hibernate.hbm2ddl.auto", "update");
+				.setProperty("hibernate.hbm2ddl.auto", "update")
+			.configure();
 		
-		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-				.applySettings(configuration.getProperties()).build();
-		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		StandardServiceRegistryBuilder serviceRegistry = new StandardServiceRegistryBuilder()
+				.applySettings(configuration.getProperties());
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry.build());
 	}
 
 	public static SessionFactory getSessionFactory() {

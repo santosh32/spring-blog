@@ -21,7 +21,7 @@ public class Application {
 		System.out.println("Please select the above option >>>  ");
 		String input = scanner.next();
 		
-		switch (input) {
+		switch (input.toUpperCase()) {
 		case "S":
 			save();
 			break;
