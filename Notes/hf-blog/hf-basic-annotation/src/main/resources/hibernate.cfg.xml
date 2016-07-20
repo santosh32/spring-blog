@@ -3,15 +3,23 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
+		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
 		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1522:orcl</property>
 		<property name="hibernate.connection.username">srlp</property>
 		<property name="hibernate.connection.password">srlp</property>
+		
 		<property name="hibernate.connection.pool_size">10</property>
+		
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
-		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
+		<!-- this is for without tx'n even though you use flush will not commit to db -->
+		<!-- <property name="connection.autocommit">true</property> -->
+		
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		
 		<mapping class="in.spring4buddies.application.Student" />
 	</session-factory>
 </hibernate-configuration>

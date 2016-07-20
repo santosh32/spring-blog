@@ -26,8 +26,8 @@ public class Student {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "created_date")
-	private Date createdDt = new Date();
+	@Column(name = "CREATED_DATE")
+	private Date created_date = new Date();
 
 	public Student() {
 	}
