@@ -53,7 +53,7 @@ public class Application {
 		System.out.println(" ****** executing the save() ****** ");
 
 		Session session = HibernateConfig.getSessionFactory().openSession();
-		// Transaction transaction = session.beginTransaction();
+//		 Transaction transaction = session.beginTransaction();
 
 		Student student = new Student(22, "Ram");
 
@@ -61,7 +61,7 @@ public class Application {
 
 		System.out.println("Generated Identifier:" + sid);
 
-		// transaction.commit();
+//		 transaction.commit();
 		session.flush();
 
 		session.close();
@@ -75,11 +75,14 @@ public class Application {
 		Session session = HibernateConfig.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 
-		Student student = new Student(1100, 22, "Ram");
+//		Student student = new Student(3100, 23, "Ram updae ");
+		Student student = new Student(89, "Rajesh ");
 
 		session.saveOrUpdate(student);
+		
 		transaction.commit();
-
+//		session.flush();
+		
 		session.close();
 		System.out.println("===================================");
 	}
@@ -89,12 +92,13 @@ public class Application {
 		System.out.println(" ****** executing the update() ****** ");
 
 		Session session = HibernateConfig.getSessionFactory().openSession();
-		Transaction transaction = session.beginTransaction();
+//		Transaction transaction = session.beginTransaction();
 
-		Student student = new Student(1100, 22, "Mahesh");
+		Student student = new Student(3100, 22, "Mahesh");
 
 		session.update(student);
-		transaction.commit();
+		session.flush();
+//		transaction.commit();
 
 		session.close();
 		System.out.println("===================================");
@@ -127,7 +131,7 @@ public class Application {
 		Session session = HibernateConfig.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 
-		Student student = new Student(1100, 22, "Ram");
+		Student student = new Student(3100, 99, "santosh");
 
 		student = (Student) session.merge(student);
 

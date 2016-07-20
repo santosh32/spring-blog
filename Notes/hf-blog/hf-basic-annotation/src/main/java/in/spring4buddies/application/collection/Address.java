@@ -33,7 +33,7 @@ public class Address {
 	private String city;
 
 	@OneToOne
-	@PrimaryKeyJoinColumn
+//	@PrimaryKeyJoinColumn
 	private Employee employee;
 
 	public long getId() {

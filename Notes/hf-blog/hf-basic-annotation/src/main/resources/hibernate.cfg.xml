@@ -21,5 +21,7 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<mapping class="in.spring4buddies.application.basic.Student" />
+		<mapping class="in.spring4buddies.application.collection.Address" />
+		<mapping class="in.spring4buddies.application.collection.Employee" />
 	</session-factory>
 </hibernate-configuration>

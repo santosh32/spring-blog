@@ -19,7 +19,9 @@ public class HibernatePersist {
 		
 		Employee employee = HibernateSave.getTestEmployee();
 		
+		System.out.println("1. before Employee persist called , id=" + employee.getId());
 		session.persist(employee);
+		System.out.println("1. after Employee persist called , id=" + employee.getId());
 		
 		System.out.println("Persist called");
 		

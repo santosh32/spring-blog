@@ -18,10 +18,11 @@ public class HibernateSave {
 		
 		Employee employee = getTestEmployee();
 		
+		System.out.println("1. before Employee save called without transaction, id=" + employee.getId());
 		long id = (Long) session.save(employee);
-		System.out.println("1. Employee save called without transaction, id=" + id);
+		System.out.println("1. after Employee save called without transaction, id=" + employee.getId());
 
-		//session.flush(); // address will not get saved without this
+		session.flush(); // address will not get saved without this
 		
 		Employee loadedEmp = (Employee) session.load(Employee.class, new Long(id));
 		System.out.println("Employee ID - " + loadedEmp.getId());
@@ -51,16 +52,15 @@ public class HibernateSave {
 		Session session2 = sessionFactory.openSession();
 		Transaction tx2 = session2.beginTransaction();
 		
-		Employee employee2 = (Employee) session2.load(Employee.class, new Long(id1));
+		Employee employee2 = (Employee) session2.load(Employee.class, new Long(250));
 
 		// update some data
-		System.out.println("Employee Details=" + employee2);
-		employee2.setName("New Name");
+		employee2.setName("New Name 1");
 		employee2.getAddress().setCity("New City");
 
 		long id6 = (Long) session2.save(employee2);
 		
-		employee2.setName("New Name1"); // will get updated in database
+		employee2.setName("New Name12"); // will get updated in database
 		System.out.println("5. Employee save called with transaction, id="+ id6);
 		System.out.println("6. Before committing save transaction");
 		
