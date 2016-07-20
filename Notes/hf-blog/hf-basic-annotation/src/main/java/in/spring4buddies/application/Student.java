@@ -1,30 +1,44 @@
 package in.spring4buddies.application;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "student")
 public class Student {
-	
+
 	@Id
-	@Column(name = "id")
+	@Column(name = "sid")
+	@SequenceGenerator(name = "seq", sequenceName = "student_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	private long id;
-	
+
 	@Column(name = "age")
 	private int age;
-	
+
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "created_date")
+	private Date createdDt = new Date();
 
 	public Student() {
 	}
 
 	public Student(int id, int age, String name) {
 		this.id = id;
+		this.age = age;
+		this.name = name;
+	}
+
+	public Student(int age, String name) {
 		this.age = age;
 		this.name = name;
 	}

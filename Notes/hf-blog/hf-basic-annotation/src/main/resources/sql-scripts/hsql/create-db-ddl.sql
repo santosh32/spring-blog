@@ -7,3 +7,9 @@ CREATE TABLE employee (
    salary INTEGER ,
    ssn VARCHAR(30) 
 );
+
+CREATE TABLE student (
+   ID INTEGER PRIMARY KEY ,
+   NAME VARCHAR(30),
+   age INTEGER 
+);
