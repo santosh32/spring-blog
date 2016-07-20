@@ -1,4 +1,4 @@
-package in.spring4buddies.application;
+package in.spring4buddies.application.basic;
 
 import java.util.Date;
 
