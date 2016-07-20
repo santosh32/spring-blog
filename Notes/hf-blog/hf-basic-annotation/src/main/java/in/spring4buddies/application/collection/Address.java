@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ADDRESS")
- @Access(value = AccessType.FIELD)
+@Access(value = AccessType.FIELD)
 public class Address {
 
 	@Id

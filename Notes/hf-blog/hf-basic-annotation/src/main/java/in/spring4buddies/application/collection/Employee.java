@@ -15,7 +15,7 @@ import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "EMPLOYEE")
- @Access(value = AccessType.FIELD)
+@Access(value = AccessType.FIELD)
 public class Employee {
 
 	@Id

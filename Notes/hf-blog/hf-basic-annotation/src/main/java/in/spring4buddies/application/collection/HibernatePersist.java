@@ -14,19 +14,21 @@ public class HibernatePersist {
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
 
 		// persist example - with transaction
-		Session session2 = sessionFactory.openSession();
-		Transaction tx2 = session2.beginTransaction();
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
 		
-		Employee emp2 = HibernateSave.getTestEmployee();
-		session2.persist(emp2);
+		Employee employee = HibernateSave.getTestEmployee();
+		
+		session.persist(employee);
 		
 		System.out.println("Persist called");
 		
-		emp2.setName("Kumar"); // will be updated in database too
-		System.out.println("Employee Name updated");
-		System.out.println("8. Employee persist called with transaction, id=" + emp2.getId() + ", address id=" + emp2.getAddress().getId());
+		employee.setName("Kumar"); // will be updated in database too
 		
-		tx2.commit();
+		System.out.println("Employee Name updated");
+		System.out.println("8. Employee persist called with transaction, id=" + employee.getId() + ", address id=" + employee.getAddress().getId());
+		
+		tx.commit();
 		
 		System.out.println("************************************");
 

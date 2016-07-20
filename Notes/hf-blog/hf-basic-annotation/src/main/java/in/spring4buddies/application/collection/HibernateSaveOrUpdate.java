@@ -14,34 +14,39 @@ public class HibernateSaveOrUpdate {
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
 
 		// saveOrUpdate example - without transaction
-		Session session5 = sessionFactory.openSession();
-		Employee emp5 = HibernateSave.getTestEmployee();
-		session5.saveOrUpdate(emp5);
+		Session session = sessionFactory.openSession();
+		
+		Employee employee = HibernateSave.getTestEmployee();
+		session.saveOrUpdate(employee);
+		
 		System.out.println("***************************");
 
 		// saveOrUpdate example - with transaction
-		Session session3 = sessionFactory.openSession();
-		Transaction tx3 = session3.beginTransaction();
+		Session session1 = sessionFactory.openSession();
+		Transaction tx = session1.beginTransaction();
 		
-		Employee emp3 = HibernateSave.getTestEmployee();
-		session3.saveOrUpdate(emp3);
+		Employee employee1 = HibernateSave.getTestEmployee();
+		session1.saveOrUpdate(employee1);
 		
-		emp3.setName("Kumar"); // will be saved into DB
-		System.out.println("9. Before committing saveOrUpdate transaction. Id=" + emp3.getId());
+		employee1.setName("Kumar"); // will be saved into DB
+		System.out.println("9. Before committing saveOrUpdate transaction. Id=" + employee1.getId());
 		
-		tx3.commit();
+		tx.commit();
+		
 		System.out.println("10. After committing saveOrUpdate transaction");
 		System.out.println("***************************");
 
-		Transaction tx4 = session3.beginTransaction();
-		emp3.setName("Updated Test Name"); // Name changed
-		emp3.getAddress().setCity("Updated City");
+		Transaction tx1 = session1.beginTransaction();
+		employee1.setName("Updated Test Name"); // Name changed
+		employee1.getAddress().setCity("Updated City");
 		
-		session3.saveOrUpdate(emp3);
-		emp3.setName("Kumar"); // again changed to previous value, so no
+		session1.saveOrUpdate(employee1);
+		
+		employee1.setName("Kumar"); // again changed to previous value, so no
 								// Employee update
-		System.out.println("11. Before committing saveOrUpdate transaction. Id=" + emp3.getId());
-		tx4.commit();
+		System.out.println("11. Before committing saveOrUpdate transaction. Id=" + employee1.getId());
+		
+		tx1.commit();
 		
 		System.out.println("12. After committing saveOrUpdate transaction");
 		System.out.println("***************************");
