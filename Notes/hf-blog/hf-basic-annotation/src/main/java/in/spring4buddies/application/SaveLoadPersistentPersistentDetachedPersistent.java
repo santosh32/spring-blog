@@ -16,11 +16,11 @@ public class SaveLoadPersistentPersistentDetachedPersistent {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 
-		Employee employee = (Employee) session.load(Employee.class, 1600l);
+		Employee employee = (Employee) session.load(Employee.class, Long.valueOf(51));
 
 		System.out.println("\n1. before Employee 'save' called, id="+ employee.getId());
 
-		employee.setName("your name updated 1");
+		employee.setName("your name updated");
 		employee.getAddress().setCity("Hyd 1");
 		
 		// not required at this level
@@ -36,28 +36,28 @@ public class SaveLoadPersistentPersistentDetachedPersistent {
 
 		session.close();
 
-		System.out.println("==========================================");
+		System.out.println("----------------------------------------------");
 
-//		Session session1 = sessionFactory.openSession();
-//		Transaction tx1 = session1.beginTransaction();
-//
-//		employee.setName("your name updated");
-//		employee.getAddress().setCity("Hyd");
-//
-//		System.out.println("\n1. before Employee 'save' called, eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
-//
-////		session1.save(employee);
+		Session session1 = sessionFactory.openSession();
+		Transaction tx1 = session1.beginTransaction();
+
+		employee.setName("your name updated 1 ");
+		employee.getAddress().setCity("Hyd 1 ");
+
+		System.out.println("\n1. before Employee 'save' called, eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
+
+		session1.save(employee);
 //		session1.save(employee.getAddress());
-//
-//		System.out.println("\n2. after Employee 'save' called,  eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
-//		
-//		System.out.println("\n3. before Employee 'commit' called");
-//
-//		tx1.commit();
-//
-//		System.out.println("\n4. after Employee 'commit' called");
 
-//		session1.close();
+		System.out.println("\n2. after Employee 'save' called,  eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
+		
+		System.out.println("\n3. before Employee 'commit' called");
+
+		tx1.commit();
+
+		System.out.println("\n4. after Employee 'commit' called");
+
+		session1.close();
 
 		sessionFactory.close();
 

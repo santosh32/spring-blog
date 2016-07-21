@@ -16,7 +16,9 @@
 		<!-- <property name="format_sql">true</property> -->
 		
 		<!-- this is for without tx'n even though you use flush will not commit to db -->
-		<property name="connection.autocommit">true</property>
+		<!-- <property name="connection.autocommit">true</property> -->
+		
+		<!-- <property name="current_session_context_class">thread</property> -->
 		
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
