@@ -1,4 +1,4 @@
-package in.spring4buddies.application;
+package in.spring4buddies.application.persist;
 
 import in.spring4buddies.application.collection.Address;
 import in.spring4buddies.application.collection.Employee;
@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class SaveTransientPersistentDetachedPersistent {
+public class PersistTransientPersistentDetachedPersistent {
 
 	public static void main(String[] args) {
 
@@ -18,11 +18,11 @@ public class SaveTransientPersistentDetachedPersistent {
 
 		Employee employee = getTestEmployee();
 
-		System.out.println("\n1. before Employee 'save' called, id="+ employee.getId());
+		System.out.println("\n1. before Employee 'persist' called, id="+ employee.getId());
 
-		session.save(employee);
+		session.persist(employee);
 
-		System.out.println("\n2. after Employee 'save' called, id="+ employee.getId());
+		System.out.println("\n2. after Employee 'persist' called, id="+ employee.getId());
 
 		System.out.println("\n3. before Employee 'commit' called");
 
@@ -40,12 +40,15 @@ public class SaveTransientPersistentDetachedPersistent {
 		employee.setName("your name updated");
 		employee.getAddress().setCity("Hyd");
 
-		System.out.println("\n1. before Employee 'save' called, eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
+		System.out.println("\n1. before Employee 'persist' called, eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
+		
+		// you will not procced further from here 
+		// Exception in thread "main" org.hibernate.PersistentObjectException: detached entity passed to persist: 
+		// in.spring4buddies.application.collection.Employee
+		session1.persist(employee);
+//		session1.persist(employee.getAddress());
 
-		session1.save(employee);
-//		session1.save(employee.getAddress());
-
-		System.out.println("\n2. after Employee 'save' called,  eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
+		System.out.println("\n2. after Employee 'persist' called,  eid="+ employee.getId()+" aid="+ employee.getAddress().getId());
 		
 		System.out.println("\n3. before Employee 'commit' called");
 
@@ -79,12 +82,11 @@ public class SaveTransientPersistentDetachedPersistent {
 
 /*
 output:
+1. before Employee 'persist' called, id=0
+Hibernate: call next value for employee_seq
+Hibernate: call next value for address_seq
 
-1. before Employee 'save' called, id=0
-Hibernate: select employee_seq.nextval from dual
-Hibernate: select address_seq.nextval from dual
-
-2. after Employee 'save' called, id=1400
+2. after Employee 'persist' called, id=300
 
 3. before Employee 'commit' called
 Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
@@ -93,34 +95,7 @@ Hibernate: insert into ADDRESS (address_line1, city, employee_emp_id, zipcode, i
 4. after Employee 'commit' called
 ==========================================
 
-1. before Employee 'save' called, eid=1400 aid=1400
+1. before Employee 'persist' called, eid=300 aid=200
+Exception in thread "main" org.hibernate.PersistentObjectException: detached entity passed to persist: in.spring4buddies.application.collection.Employee
 
-2. after Employee 'save' called,  eid=1401 aid=1400
-
-3. before Employee 'commit' called
-Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
-Hibernate: update ADDRESS set address_line1=?, city=?, employee_emp_id=?, zipcode=? where id=?
-
-4. after Employee 'commit' called
-
-
-with out second save 
---------------------
-
-	1. before Employee 'save' called, id=0
-	Hibernate: select employee_seq.nextval from dual
-	Hibernate: select address_seq.nextval from dual
-
-	2. after Employee 'save' called, id=1350
-
-	3. before Employee 'commit' called
-	Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
-	Hibernate: insert into ADDRESS (address_line1, city, employee_emp_id, zipcode, id) values (?, ?, ?, ?, ?)
-
-	4. after Employee 'commit' called
-	==========================================
-
-	3. before Employee 'commit' called
-
-	4. after Employee 'commit' called
-	*/
+*/

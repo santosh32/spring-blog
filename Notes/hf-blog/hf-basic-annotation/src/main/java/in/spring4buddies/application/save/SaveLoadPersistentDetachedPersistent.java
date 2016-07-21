@@ -1,4 +1,4 @@
-package in.spring4buddies.application;
+package in.spring4buddies.application.save;
 
 import in.spring4buddies.application.collection.Address;
 import in.spring4buddies.application.collection.Employee;
@@ -8,7 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class SaveLoadPersistentPersistentDetachedPersistent {
+public class SaveLoadPersistentDetachedPersistent {
 
 	public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class SaveLoadPersistentPersistentDetachedPersistent {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 
-		Employee employee = (Employee) session.load(Employee.class, Long.valueOf(51));
+		Employee employee = (Employee) session.load(Employee.class, Long.valueOf(100));
 
 		System.out.println("\n1. before Employee 'save' called, id="+ employee.getId());
 
@@ -84,47 +84,27 @@ public class SaveLoadPersistentPersistentDetachedPersistent {
 /*
 output:
 
-1. before Employee 'save' called, id=0
-Hibernate: select employee_seq.nextval from dual
-Hibernate: select address_seq.nextval from dual
+Hibernate: select employee0_.emp_id as emp_id1_1_0_, employee0_.emp_name as emp_name2_1_0_, employee0_.emp_salary as emp_sala3_1_0_, address1_.id as id1_0_1_, address1_.address_line1 as address_2_0_1_, address1_.city as city3_0_1_, address1_.employee_emp_id as employee5_0_1_, address1_.zipcode as zipcode4_0_1_ from EMPLOYEE employee0_ left outer join ADDRESS address1_ on employee0_.emp_id=address1_.employee_emp_id where employee0_.emp_id=?
 
-2. after Employee 'save' called, id=1400
+1. before Employee 'save' called, id=100
+
+2. after Employee 'save' called, id=100
 
 3. before Employee 'commit' called
-Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
-Hibernate: insert into ADDRESS (address_line1, city, employee_emp_id, zipcode, id) values (?, ?, ?, ?, ?)
+Hibernate: update EMPLOYEE set emp_name=?, emp_salary=? where emp_id=?
+Hibernate: update ADDRESS set address_line1=?, city=?, employee_emp_id=?, zipcode=? where id=?
 
 4. after Employee 'commit' called
-==========================================
+----------------------------------------------
 
-1. before Employee 'save' called, eid=1400 aid=1400
+1. before Employee 'save' called, eid=100 aid=50
+Hibernate: call next value for employee_seq
 
-2. after Employee 'save' called,  eid=1401 aid=1400
+2. after Employee 'save' called,  eid=150 aid=50
 
 3. before Employee 'commit' called
 Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
 Hibernate: update ADDRESS set address_line1=?, city=?, employee_emp_id=?, zipcode=? where id=?
 
 4. after Employee 'commit' called
-
-
-with out second save 
---------------------
-
-	1. before Employee 'save' called, id=0
-	Hibernate: select employee_seq.nextval from dual
-	Hibernate: select address_seq.nextval from dual
-
-	2. after Employee 'save' called, id=1350
-
-	3. before Employee 'commit' called
-	Hibernate: insert into EMPLOYEE (emp_name, emp_salary, emp_id) values (?, ?, ?)
-	Hibernate: insert into ADDRESS (address_line1, city, employee_emp_id, zipcode, id) values (?, ?, ?, ?, ?)
-
-	4. after Employee 'commit' called
-	==========================================
-
-	3. before Employee 'commit' called
-
-	4. after Employee 'commit' called
 	*/
