@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "student")
-public class Student {
+public final class Student {
 
 	@Id
 	@Column(name = "sid")

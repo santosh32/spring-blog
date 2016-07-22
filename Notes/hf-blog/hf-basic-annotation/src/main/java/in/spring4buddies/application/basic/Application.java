@@ -53,16 +53,16 @@ public class Application {
 		System.out.println(" ****** executing the save() ****** ");
 
 		Session session = HibernateConfig.getSessionFactory().openSession();
-//		 Transaction transaction = session.beginTransaction();
+		 Transaction transaction = session.beginTransaction();
 
-		Student student = new Student(22, "Ram");
+		Student student = new Student(22, "Ram111");
 
 		long sid = (long) session.save(student);
 
 		System.out.println("Generated Identifier:" + sid);
 
-//		 transaction.commit();
-		session.flush();
+		 transaction.commit();
+//		session.flush();
 
 		session.close();
 		System.out.println("===================================");
