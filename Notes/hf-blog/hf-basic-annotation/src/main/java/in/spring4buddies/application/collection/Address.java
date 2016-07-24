@@ -4,6 +4,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,7 @@ public class Address {
 	@Column(name = "city")
 	private String city;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 //	@PrimaryKeyJoinColumn
 	private Employee employee;
 

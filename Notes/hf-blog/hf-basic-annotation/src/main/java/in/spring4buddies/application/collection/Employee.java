@@ -4,6 +4,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +31,7 @@ public class Employee {
 	@Column(name = "emp_salary")
 	private double salary;
 
-	@OneToOne(mappedBy = "employee")
+	@OneToOne(mappedBy = "employee", fetch = FetchType.LAZY)
 	@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private Address address;
 
