@@ -11,8 +11,8 @@ public class OneToOneMain {
 
 	public static void main(String[] args) {
 
-		// save();
-		load();
+		 save();
+//		load();
 
 	}
 
@@ -25,20 +25,20 @@ public class OneToOneMain {
 
 		Stock stock = new Stock();
 
-		stock.setStockCode("7052");
-		stock.setStockName("PADINI");
+		stock.setStockCode("ISBN-100");
+		stock.setStockName("Books");
 
 		StockDetail stockDetail = new StockDetail();
-		stockDetail.setCompName("PADINI Holding Malaysia");
-		stockDetail.setCompDesc("one shopping");
-		stockDetail.setRemark("vinci vinci");
+		stockDetail.setCompName("Java");
+		stockDetail.setCompDesc("Head first Java");
+		stockDetail.setRemark("Good");
 		stockDetail.setListedDate(new Date());
 
-//		stock.setStockDetail(stockDetail);
+		stock.setStockDetail(stockDetail);
 		stockDetail.setStock(stock);
 
-		// session.save(stock);
-		session.save(stockDetail);
+		 session.save(stock);
+//		session.save(stockDetail);
 
 		session.getTransaction().commit();
 
@@ -53,16 +53,18 @@ public class OneToOneMain {
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
-//		Stock stock = (Stock) session.load(Stock.class, 400);
-		
+//		Stock stock = (Stock) session.load(Stock.class, 900);
+//		
 //		System.out.println(stock);
 		
-		StockDetail stockDetail = (StockDetail) session.load(StockDetail.class, 400);
+//		if (stock.getStockDetail() != null){
+//			System.out.println(stock.getStockDetail());
+//		}
+		
+		StockDetail stockDetail = (StockDetail) session.load(StockDetail.class, 450);
 
 		System.out.println(stockDetail);
-
-//		if (stock.getStockDetail() != null)
-//			System.out.println(stock.getStockDetail());
+		System.out.println(stockDetail.getStock());
 
 		HibernateConfig.shuntdown();
 

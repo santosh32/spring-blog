@@ -3,6 +3,8 @@ package in.spring4buddies.application.relationship;
 import in.spring4buddies.application.config.HibernateConfig;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,12 +13,13 @@ public class OneToManyMain {
 
 	public static void main(String[] args) {
 
-		 save();
-//		load();
+		save();
+		// load();
 
 	}
 
 	private static void save() {
+		
 		System.out.println("Hibernate one to many (Annotation)");
 
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
@@ -26,29 +29,45 @@ public class OneToManyMain {
 
 		Stock stock = new Stock();
 
-		stock.setStockCode("ISBN-100");
+		stock.setStockCode("ISBN-101");
 		stock.setStockName("Books");
 
 		StockDetail stockDetail = new StockDetail();
 		stockDetail.setCompName("Java");
-		stockDetail.setCompDesc("Head first Java");
+		stockDetail.setCompDesc("Persistence in Java");
 		stockDetail.setRemark("Good");
 		stockDetail.setListedDate(new Date());
 
-		StockDetail stockDetail1 = new StockDetail();
-		stockDetail1.setCompName("Java");
-		stockDetail1.setCompDesc("Persistence in Java");
-		stockDetail1.setRemark("Good");
-		stockDetail1.setListedDate(new Date());
+//		stock.setStockDetail(stockDetail);
+//		stockDetail.setStock(stock);
 
-		stock.getStockDetail().add(stockDetail);
-		stock.getStockDetail().add(stockDetail1);
+		StockDailyRecord stockDailyRecords = new StockDailyRecord();
+		stockDailyRecords.setPriceOpen(new Float("1.21"));
+		stockDailyRecords.setPriceClose(new Float("1.11"));
+		stockDailyRecords.setPriceChange(new Float("10.1"));
+		stockDailyRecords.setVolume(3000000L);
+		stockDailyRecords.setDate(new Date());
+		
+		StockDailyRecord stockDailyRecords1 = new StockDailyRecord();
+		stockDailyRecords1.setPriceOpen(new Float("1.2"));
+		stockDailyRecords1.setPriceClose(new Float("1.1"));
+		stockDailyRecords1.setPriceChange(new Float("10.0"));
+		stockDailyRecords1.setVolume(3000000L);
+		stockDailyRecords1.setDate(new Date());
 
-		stockDetail.setStock(stock);
-		stockDetail1.setStock(stock);
-
-		 session.save(stock);
-//		session.save(stockDetail);
+//		stock.getStockDailyRecord().add(stockDailyRecords);
+//		stock.getStockDailyRecord().add(stockDailyRecords1);
+		
+		Set<StockDailyRecord> dailyRecords = new HashSet<StockDailyRecord>();
+		dailyRecords.add(stockDailyRecords); 
+		dailyRecords.add(stockDailyRecords1);
+		stock.setStockDailyRecord(dailyRecords);
+		
+		stockDailyRecords.setStock(stock);
+		stockDailyRecords1.setStock(stock);
+		
+		session.save(stock);
+		// session.save(stockDetail);
 
 		session.getTransaction().commit();
 
@@ -63,18 +82,19 @@ public class OneToManyMain {
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
-		 Stock stock = (Stock) session.load(Stock.class, 700);
-		
-		 System.out.println(stock);
+		Stock stock = (Stock) session.load(Stock.class, 700);
+
+		System.out.println(stock);
 
 		if (stock.getStockDetail() != null) {
 			System.out.println(stock.getStockDetail());
 		}
 
-//		StockDetail stockDetail = (StockDetail) session.load(StockDetail.class, 300);
-//
-//		System.out.println(stockDetail);
-//		System.out.println(stockDetail.getStock());
+		// StockDetail stockDetail = (StockDetail)
+		// session.load(StockDetail.class, 300);
+		//
+		// System.out.println(stockDetail);
+		// System.out.println(stockDetail.getStock());
 
 		HibernateConfig.shuntdown();
 

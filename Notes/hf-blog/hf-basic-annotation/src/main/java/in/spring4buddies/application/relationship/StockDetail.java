@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,7 +31,7 @@ public class StockDetail implements java.io.Serializable {
 	@Column(name = "STOCK_DTL_ID", unique = true, nullable = false)
 	private Integer StockDetailId;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	// @PrimaryKeyJoinColumn
 	@JoinColumn(name = "STOCK_ID", nullable = false)
 	private Stock stock;
@@ -52,14 +52,14 @@ public class StockDetail implements java.io.Serializable {
 	public StockDetail() {
 	}
 
-	public StockDetail(Stock stock, String compName, String compDesc,
-			String remark, Date listedDate) {
-		this.stock = stock;
-		this.compName = compName;
-		this.compDesc = compDesc;
-		this.remark = remark;
-		this.listedDate = listedDate;
-	}
+//	public StockDetail(Stock stock, String compName, String compDesc,
+//			String remark, Date listedDate) {
+//		this.stock = stock;
+//		this.compName = compName;
+//		this.compDesc = compDesc;
+//		this.remark = remark;
+//		this.listedDate = listedDate;
+//	}
 
 	public Integer getStockDetailId() {
 		return StockDetailId;
@@ -122,7 +122,6 @@ public class StockDetail implements java.io.Serializable {
 		result = prime * result
 				+ ((listedDate == null) ? 0 : listedDate.hashCode());
 		result = prime * result + ((remark == null) ? 0 : remark.hashCode());
-		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
 		return result;
 	}
 
@@ -160,19 +159,14 @@ public class StockDetail implements java.io.Serializable {
 				return false;
 		} else if (!remark.equals(other.remark))
 			return false;
-		if (stock == null) {
-			if (other.stock != null)
-				return false;
-		} else if (!stock.equals(other.stock))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "StockDetail [StockDetailId=" + StockDetailId 
-				 + ", compName=" + compName + ", compDesc=" + compDesc
-				+ ", remark=" + remark + ", listedDate=" + listedDate + "]";
+		return "StockDetail [StockDetailId=" + StockDetailId + ", compName="
+				+ compName + ", compDesc=" + compDesc + ", remark=" + remark
+				+ ", listedDate=" + listedDate + "]";
 	}
 
 }

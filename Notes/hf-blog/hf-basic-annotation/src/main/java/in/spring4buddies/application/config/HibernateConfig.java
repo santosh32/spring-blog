@@ -4,6 +4,7 @@ import in.spring4buddies.application.basic.Student;
 import in.spring4buddies.application.collection.Address;
 import in.spring4buddies.application.collection.Employee;
 import in.spring4buddies.application.relationship.Stock;
+import in.spring4buddies.application.relationship.StockDailyRecord;
 import in.spring4buddies.application.relationship.StockDetail;
 
 import org.hibernate.SessionFactory;
@@ -22,11 +23,12 @@ public class HibernateConfig {
 //		sessionFactory = configuration.buildSessionFactory(builder.build());
 
 		Configuration configuration = new Configuration()
-				.addAnnotatedClass(Student.class)
-				.addAnnotatedClass(Employee.class)
-				.addAnnotatedClass(Address.class)
+//				.addAnnotatedClass(Student.class)
+//				.addAnnotatedClass(Employee.class)
+//				.addAnnotatedClass(Address.class)
 				.addAnnotatedClass(Stock.class)
 				.addAnnotatedClass(StockDetail.class)
+				.addAnnotatedClass(StockDailyRecord.class)
 				.addPackage("in.spring4buddies.application.*")
 				
 				// ORACLE

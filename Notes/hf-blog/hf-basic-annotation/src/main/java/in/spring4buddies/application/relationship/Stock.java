@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -38,23 +39,25 @@ public class Stock implements java.io.Serializable {
 	@Column(name = "STOCK_NAME", /* unique = true, */nullable = false, length = 20)
 	private String stockName;
 
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "stock", cascade = CascadeType.ALL)
+	private StockDetail stockDetail;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "stock", cascade = CascadeType.ALL)
-	private Set<StockDetail> stockDetail = new HashSet<StockDetail>();
+	private Set<StockDailyRecord> stockDailyRecord = new HashSet<>();
 
 	public Stock() {
 	}
 
-	public Stock(String stockCode, String stockName) {
-		this.stockCode = stockCode;
-		this.stockName = stockName;
-	}
-
-	public Stock(String stockCode, String stockName,
-			Set<StockDetail> stockDetail) {
-		this.stockCode = stockCode;
-		this.stockName = stockName;
-		this.stockDetail = stockDetail;
-	}
+//	public Stock(String stockCode, String stockName) {
+//		this.stockCode = stockCode;
+//		this.stockName = stockName;
+//	}
+//
+//	public Stock(String stockCode, String stockName, StockDetail stockDetail) {
+//		this.stockCode = stockCode;
+//		this.stockName = stockName;
+//		this.stockDetail = stockDetail;
+//	}
 
 	public Integer getStockId() {
 		return this.stockId;
@@ -80,12 +83,20 @@ public class Stock implements java.io.Serializable {
 		this.stockName = stockName;
 	}
 
-	public Set<StockDetail> getStockDetail() {
+	public StockDetail getStockDetail() {
 		return this.stockDetail;
 	}
 
-	public void setStockDetail(Set<StockDetail> stockDetail) {
+	public void setStockDetail(StockDetail stockDetail) {
 		this.stockDetail = stockDetail;
+	}
+
+	public Set<StockDailyRecord> getStockDailyRecord() {
+		return stockDailyRecord;
+	}
+
+	public void setStockDailyRecord(Set<StockDailyRecord> stockDailyRecord) {
+		this.stockDailyRecord = stockDailyRecord;
 	}
 
 	@Override
@@ -129,7 +140,7 @@ public class Stock implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Stock = [stockId=" + stockId + ", stockCode=" + stockCode
+		return "Stock [stockId=" + stockId + ", stockCode=" + stockCode
 				+ ", stockName=" + stockName + "]";
 	}
 
