@@ -52,8 +52,8 @@ public class HibernateConfig {
 				
 //				.setProperty("connection.autocommit", "true")
 				
-				.setProperty("hibernate.hbm2ddl.auto", "update")
-			;
+				.setProperty("hibernate.hbm2ddl.auto", "update");
+			
 		
 		StandardServiceRegistryBuilder serviceRegistry = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());

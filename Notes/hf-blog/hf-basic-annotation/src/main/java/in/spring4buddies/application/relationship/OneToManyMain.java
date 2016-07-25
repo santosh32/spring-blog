@@ -3,8 +3,6 @@ package in.spring4buddies.application.relationship;
 import in.spring4buddies.application.config.HibernateConfig;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,8 +11,8 @@ public class OneToManyMain {
 
 	public static void main(String[] args) {
 
-		save();
-		// load();
+//		save();
+		 load();
 
 	}
 
@@ -38,8 +36,8 @@ public class OneToManyMain {
 		stockDetail.setRemark("Good");
 		stockDetail.setListedDate(new Date());
 
-//		stock.setStockDetail(stockDetail);
-//		stockDetail.setStock(stock);
+		stock.setStockDetail(stockDetail);
+		stockDetail.setStock(stock);
 
 		StockDailyRecord stockDailyRecords = new StockDailyRecord();
 		stockDailyRecords.setPriceOpen(new Float("1.21"));
@@ -55,15 +53,10 @@ public class OneToManyMain {
 		stockDailyRecords1.setVolume(3000000L);
 		stockDailyRecords1.setDate(new Date());
 
-//		stock.getStockDailyRecord().add(stockDailyRecords);
-//		stock.getStockDailyRecord().add(stockDailyRecords1);
-		
-		Set<StockDailyRecord> dailyRecords = new HashSet<StockDailyRecord>();
-		dailyRecords.add(stockDailyRecords); 
-		dailyRecords.add(stockDailyRecords1);
-		stock.setStockDailyRecord(dailyRecords);
-		
+		stock.getStockDailyRecord().add(stockDailyRecords);
 		stockDailyRecords.setStock(stock);
+		
+		stock.getStockDailyRecord().add(stockDailyRecords1);
 		stockDailyRecords1.setStock(stock);
 		
 		session.save(stock);
@@ -82,12 +75,18 @@ public class OneToManyMain {
 		SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
-		Stock stock = (Stock) session.load(Stock.class, 700);
+		Stock stock = (Stock) session.load(Stock.class, 3200);
 
 		System.out.println(stock);
 
 		if (stock.getStockDetail() != null) {
 			System.out.println(stock.getStockDetail());
+		}
+
+		if (stock.getStockDailyRecord() != null) {
+			for (StockDailyRecord stockDailyRecord : stock.getStockDailyRecord()) {
+				System.out.println(stockDailyRecord);
+			}
 		}
 
 		// StockDetail stockDetail = (StockDetail)
