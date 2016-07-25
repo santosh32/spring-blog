@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -45,6 +48,12 @@ public class Stock implements java.io.Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "stock", cascade = CascadeType.ALL)
 	private Set<StockDailyRecord> stockDailyRecord = new HashSet<>();
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "stock_category", 
+	joinColumns = { @JoinColumn(name = "STOCK_ID", nullable = false, updatable = false) },
+	inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID", nullable = false, updatable = false) })
+	private Set<StockCategory> categories = new HashSet<StockCategory>(0);
+	
 	public Stock() {
 	}
 
@@ -97,6 +106,14 @@ public class Stock implements java.io.Serializable {
 
 	public void setStockDailyRecord(Set<StockDailyRecord> stockDailyRecord) {
 		this.stockDailyRecord = stockDailyRecord;
+	}
+	
+	public Set<StockCategory> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Set<StockCategory> categories) {
+		this.categories = categories;
 	}
 
 	@Override
