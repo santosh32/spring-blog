@@ -31,7 +31,7 @@ public class StockCategory implements java.io.Serializable {
 	@Column(name = "DESC", nullable = false)
 	private String desc;
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
+	@ManyToMany(fetch = FetchType.LAZY)
 	private Set<Stock> stocks = new HashSet<Stock>(0);
 
 	public StockCategory() {

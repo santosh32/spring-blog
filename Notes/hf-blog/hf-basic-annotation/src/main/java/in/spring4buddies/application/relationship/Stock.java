@@ -50,9 +50,9 @@ public class Stock implements java.io.Serializable {
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "stock_category", 
-	joinColumns = { @JoinColumn(name = "STOCK_ID", nullable = false, updatable = false) },
-	inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID", nullable = false, updatable = false) })
-	private Set<StockCategory> categories = new HashSet<StockCategory>(0);
+		joinColumns = { @JoinColumn(name = "STOCK_ID", referencedColumnName = "STOCK_ID", nullable = false, updatable = false) }, 
+		inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID",  referencedColumnName = "CATEGORY_ID", nullable = false, updatable = false) })
+	private Set<StockCategory> stockCategories = new HashSet<StockCategory>(0);
 	
 	public Stock() {
 	}
@@ -108,12 +108,12 @@ public class Stock implements java.io.Serializable {
 		this.stockDailyRecord = stockDailyRecord;
 	}
 	
-	public Set<StockCategory> getCategories() {
-		return categories;
+	public Set<StockCategory> getStockCategories() {
+		return stockCategories;
 	}
 
-	public void setCategories(Set<StockCategory> categories) {
-		this.categories = categories;
+	public void setStockCategories(Set<StockCategory> stockCategories) {
+		this.stockCategories = stockCategories;
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import in.spring4buddies.application.basic.Student;
 import in.spring4buddies.application.collection.Address;
 import in.spring4buddies.application.collection.Employee;
 import in.spring4buddies.application.relationship.Stock;
+import in.spring4buddies.application.relationship.StockCategory;
 import in.spring4buddies.application.relationship.StockDailyRecord;
 import in.spring4buddies.application.relationship.StockDetail;
 
@@ -29,23 +30,24 @@ public class HibernateConfig {
 				.addAnnotatedClass(Stock.class)
 				.addAnnotatedClass(StockDetail.class)
 				.addAnnotatedClass(StockDailyRecord.class)
+				.addAnnotatedClass(StockCategory.class)
 				.addPackage("in.spring4buddies.application.*")
 				
 				// ORACLE
-				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
-				
-				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
-				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
-				.setProperty("hibernate.connection.username", "srlp")
-				.setProperty("hibernate.connection.password", "srlp")
+//				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
+//				
+//				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
+//				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
+//				.setProperty("hibernate.connection.username", "srlp")
+//				.setProperty("hibernate.connection.password", "srlp")
 				
 				// HSQL
-//				.setProperty("hibernate.dialect", org.hibernate.dialect.HSQLDialect.class.getName())
-//				
-//				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
-//				.setProperty("hibernate.connection.url", "jdbc:hsqldb:hsql://localhost:9001/mydb/xdb")
-//				.setProperty("hibernate.connection.username", "sa")
-//				.setProperty("hibernate.connection.password", "")
+				.setProperty("hibernate.dialect", org.hibernate.dialect.HSQLDialect.class.getName())
+				
+				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
+				.setProperty("hibernate.connection.url", "jdbc:hsqldb:hsql://localhost:9001/mydb/xdb")
+				.setProperty("hibernate.connection.username", "sa")
+				.setProperty("hibernate.connection.password", "")
 				
 				.setProperty("show_sql", "true")
 //				.setProperty("format_sql", "true")

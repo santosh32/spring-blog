@@ -1,15 +1,17 @@
-package in.spring4buddies.application.relationship;
+package in.spring4buddies.application.inverse;
 
 import in.spring4buddies.application.config.HibernateConfig;
+import in.spring4buddies.application.relationship.Stock;
+import in.spring4buddies.application.relationship.StockCategory;
+import in.spring4buddies.application.relationship.StockDailyRecord;
+import in.spring4buddies.application.relationship.StockDetail;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class manyToManyMain {
+public class inverseMain {
 
 	public static void main(String[] args) {
 
