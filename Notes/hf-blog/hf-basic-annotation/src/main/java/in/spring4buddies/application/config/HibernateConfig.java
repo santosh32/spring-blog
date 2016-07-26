@@ -1,12 +1,7 @@
 package in.spring4buddies.application.config;
 
-import in.spring4buddies.application.basic.Student;
-import in.spring4buddies.application.collection.Address;
-import in.spring4buddies.application.collection.Employee;
-import in.spring4buddies.application.relationship.Stock;
-import in.spring4buddies.application.relationship.StockCategory;
-import in.spring4buddies.application.relationship.StockDailyRecord;
-import in.spring4buddies.application.relationship.StockDetail;
+import in.spring4buddies.application.inverse.Blog;
+import in.spring4buddies.application.inverse.Comment;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -27,10 +22,12 @@ public class HibernateConfig {
 //				.addAnnotatedClass(Student.class)
 //				.addAnnotatedClass(Employee.class)
 //				.addAnnotatedClass(Address.class)
-				.addAnnotatedClass(Stock.class)
-				.addAnnotatedClass(StockDetail.class)
-				.addAnnotatedClass(StockDailyRecord.class)
-				.addAnnotatedClass(StockCategory.class)
+//				.addAnnotatedClass(Stock.class)
+//				.addAnnotatedClass(StockDetail.class)
+//				.addAnnotatedClass(StockDailyRecord.class)
+//				.addAnnotatedClass(StockCategory.class)
+				.addAnnotatedClass(Blog.class)
+				.addAnnotatedClass(Comment.class)
 				.addPackage("in.spring4buddies.application.*")
 				
 				// ORACLE
