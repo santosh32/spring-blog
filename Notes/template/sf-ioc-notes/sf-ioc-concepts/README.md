@@ -1,3 +1,5 @@
+Spring IOC
+----------
 1. Container overview
 	- Configuration metadata
 	- Instantiating a container
@@ -130,3 +132,25 @@
 18. 
 19.
 20.
+
+
+AOP Aspect Oriented Programming with Spring
+-------------------------------------------
+1. Introduction
+2. AspectJ support
+3. Schema-based AOP support
+4. Choosing which AOP declaration style to use
+	- Spring AOP or full AspectJ?
+	- @AspectJ or XML for Spring AOP?
+5. Mixing aspect types
+6. Proxying mechanisms
+7. Programmatic creation of @AspectJ Proxies
+8. Using AspectJ with Spring applications
+9. Spring AOP APIs
+10. Pointcut API in Spring
+11. Advice API in Spring
+12. Advisor API in Spring
+13. Using the ProxyFactoryBean to create AOP proxies
+14. Creating AOP proxies programmatically with the ProxyFactory
+15. Using the "auto-proxy" facility
+
