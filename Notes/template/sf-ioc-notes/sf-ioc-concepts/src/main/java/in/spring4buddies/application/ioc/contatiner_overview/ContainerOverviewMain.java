@@ -18,22 +18,25 @@ public class ContainerOverviewMain {
 
 	public static void main(String[] args) {
 		
-//		Resource resource = new FileSystemResource(Constant.APPLICATION_CONTEXT_XML);
-//		BeanFactory factory = new XmlBeanFactory(resource);
-//		HelloWorld helloWorld = (HelloWorld) factory.getBean("helloWorld");
-//		System.out.println(helloWorld.getMessage());
-		
 		Resource resource = new FileSystemResource(Constant.APPLICATION_CONTEXT_XML);
 		BeanFactory factory = new XmlBeanFactory(resource);
-		
-//		ClassPathResource resource = new ClassPathResource("ContainerOverviewBeans.xml");
-//		BeanFactory factory = new XmlBeanFactory(resource);
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"ContainerOverviewBeans.xml"});
-		BeanFactory factory = context;
-		
 		HelloWorld helloWorld = (HelloWorld) factory.getBean("helloWorld");
 		System.out.println(helloWorld.getMessage());
+		
+//		Resource resource = new FileSystemResource(Constant.APPLICATION_CONTEXT_XML);
+//		BeanFactory factory = new XmlBeanFactory(resource);
+//		
+//		ClassPathResource resource = new ClassPathResource("ContainerOverviewBeans.xml");
+//		BeanFactory factory = new XmlBeanFactory(resource);
+//		
+//		ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"ContainerOverviewBeans.xml"});
+//		BeanFactory factory = context;
+//		
+//		HelloWorld helloWorld = (HelloWorld) factory.getBean("helloWorld");
+//		System.out.println(helloWorld.getMessage());
+//		
+//		ApplicationContext applicationContext = new FileSystemXmlApplicationContext("beans.xml");
+//		HelloWorld helloWorld = (HelloWorld) context.getBean("helloWorld");
 
 	}
 }
