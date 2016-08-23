@@ -14,6 +14,7 @@ public class EmployeeController {
 
 	Employee employee = new Employee();
 
+	//Accept : application/xml application/json
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = {
 			"application/json", "application/xml" })
 	public @ResponseBody Employee getEmployeeInJSON(@PathVariable String name) {
