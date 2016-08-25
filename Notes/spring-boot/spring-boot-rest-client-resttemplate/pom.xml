@@ -5,10 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>spring-boot-rest-requestbody-responsebody</artifactId>
+	<artifactId>spring-boot-rest-client-resttemplate</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>spring-boot-rest-requestbody-responsebody application</name>
+	<name>spring-boot-rest-client-resttemplate application</name>
 
 	<properties>
 		<jdk.version>1.7</jdk.version>
