@@ -1,6 +1,6 @@
-package in.spring4buddies.application.jpa.web;
+package in.spring4buddies.application.rest.controller;
 
-import in.spring4buddies.application.jpa.domain.Employee;
+import in.spring4buddies.application.rest.model.Employee;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

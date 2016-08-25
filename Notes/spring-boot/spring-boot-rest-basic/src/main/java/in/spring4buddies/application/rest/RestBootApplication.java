@@ -1,4 +1,4 @@
-package in.spring4buddies.application.jpa;
+package in.spring4buddies.application.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

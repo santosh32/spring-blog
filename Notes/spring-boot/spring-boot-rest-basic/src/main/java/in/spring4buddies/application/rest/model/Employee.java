@@ -1,4 +1,4 @@
-package in.spring4buddies.application.jpa.domain;
+package in.spring4buddies.application.rest.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
