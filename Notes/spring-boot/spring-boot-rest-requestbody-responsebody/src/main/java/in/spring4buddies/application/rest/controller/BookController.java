@@ -34,7 +34,7 @@ public class BookController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public Book getBookByIdOrIsbn(@PathVariable("id") String id,
+	public Book getBookByIdOrIsbn(@PathVariable(value= "id") String id,
 			@RequestParam(value = "isbn", required = false) String isbn) {
 
 		for (Book book : books) {
