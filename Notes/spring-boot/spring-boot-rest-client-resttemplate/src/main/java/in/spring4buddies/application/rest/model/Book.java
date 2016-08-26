@@ -40,9 +40,9 @@ public class Book {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Book [id=" + id + ", isbn=" + isbn + ", title=" + title + "]";
+//	}
 
 }

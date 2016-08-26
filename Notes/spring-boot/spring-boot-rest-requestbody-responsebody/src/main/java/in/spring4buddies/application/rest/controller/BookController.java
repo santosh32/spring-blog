@@ -7,10 +7,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -18,12 +20,29 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @RequestMapping(value = "/book")
 public class BookController {
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	@ResponseBody
+//	public Book getBookById(@PathVariable String id) {
+//
+//		for (Book book : books) {
+//			if (id.equals(book.getId())) {
+//				return book;
+//			}
+//		}
+//		return null;
+//	}
+	
+	@RequestMapping(value = "/{id}?isbn={isbn}", method = RequestMethod.GET)
 	@ResponseBody
-	public Book getBookById(@PathVariable String id) {
+	public Book getBookByIdOrIsbn(@PathVariable String id, @RequestParam String isbn) {
 
 		for (Book book : books) {
-			if (id.equals(book.getId())) {
+			if (StringUtils.isEmpty(isbn)) {
+				if (id.equals(book.getId())) {
+					return book;
+				}
+
+			} else if (id.equals(book.getId()) && isbn.equals(book.getIsbn())) {
 				return book;
 			}
 		}
