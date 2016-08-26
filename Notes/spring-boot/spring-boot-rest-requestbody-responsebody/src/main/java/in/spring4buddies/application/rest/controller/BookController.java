@@ -32,9 +32,10 @@ public class BookController {
 //		return null;
 //	}
 	
-	@RequestMapping(value = "/{id}?isbn={isbn}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public Book getBookByIdOrIsbn(@PathVariable String id, @RequestParam String isbn) {
+	public Book getBookByIdOrIsbn(@PathVariable("id") String id,
+			@RequestParam(value = "isbn", required = false) String isbn) {
 
 		for (Book book : books) {
 			if (StringUtils.isEmpty(isbn)) {
