@@ -41,18 +41,29 @@ public class RestClientApplication {
 	    
 	    
 	    /****************** POST functionality **********************/
-		use_postForObject(restTemplate);
+//		use_postForObject(restTemplate);
+//		use_exchangeForGet(restTemplate);
+//	    use_getForEntity(restTemplate);
+		
+		
+	    /****************** PUT functionality **********************/
+//		use_put(restTemplate);
+//		use_exchangeForGet(restTemplate);
+//	    use_getForEntity(restTemplate);
+		
+	    /****************** DELETE functionality **********************/
+		use_delete(restTemplate);
 //		use_exchangeForGet(restTemplate);
 //	    use_getForEntity(restTemplate);
 	}
 
-	private static void use_getForObject(RestTemplate restTemplate) {
+	private static void use_getForObject(RestTemplate restTemplate) throws JsonProcessingException {
 		
 		Book[] books = restTemplate.getForObject(URI, Book[].class);
-		System.out.println(books);
+		printObjectAsJson(books);;
 
 		Book book = restTemplate.getForObject(URI + "/{id}", Book.class,"1000");
-		System.out.println(book);
+		printObjectAsJson(book);
 		
 		MultiValueMap<String,String> requestParamMap = new LinkedMultiValueMap<>();
 		requestParamMap.add("isbn", "isbn-1000");
@@ -61,14 +72,14 @@ public class RestClientApplication {
 		System.out.println(uriComponents.toUri());
 		
 		Book bookByReuestParam = restTemplate.getForObject(uriComponents.toString(), Book.class);
-		System.out.println(bookByReuestParam);
-	}
+		printObjectAsJson(bookByReuestParam);	
+		}
 	
-	private static void use_getForEntity(RestTemplate restTemplate) {
+	private static void use_getForEntity(RestTemplate restTemplate) throws JsonProcessingException {
 
 		ResponseEntity<Book[]> response = restTemplate.getForEntity(URI, Book[].class);
 		Book[] books = response.getBody();
-		System.out.println(books);
+		printObjectAsJson(books);
 
 		MultiValueMap<String, String> requestParamMap = new LinkedMultiValueMap<>();
 		requestParamMap.add("isbn", "isbn-1000");
@@ -80,10 +91,10 @@ public class RestClientApplication {
 
 		ResponseEntity<Book> response1 = restTemplate.getForEntity(uriComponents.toString(), Book.class);
 		Book book = response1.getBody();
-		System.out.println(book);
+		printObjectAsJson(book);
 	}
 
-	private static void use_exchangeForGet(RestTemplate restTemplate) {
+	private static void use_exchangeForGet(RestTemplate restTemplate) throws JsonProcessingException {
 		
 		HttpHeaders headers = new HttpHeaders();
 	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -92,11 +103,11 @@ public class RestClientApplication {
 
 		ResponseEntity<Book[]> response = restTemplate.exchange(URI, HttpMethod.GET, httpEntity, Book[].class);
 		Book[] books = response.getBody();
-		System.out.println(books);
+		printObjectAsJson(books);
 		
 		ResponseEntity<Book> response1 = restTemplate.exchange(URI + "/1000", HttpMethod.GET, httpEntity, Book.class);
 		Book book = response1.getBody();
-		System.out.println(book);
+		printObjectAsJson(book);
 	}
 
 	
@@ -109,6 +120,35 @@ public class RestClientApplication {
 
 		Book[] books = restTemplate.postForObject(URI, book, Book[].class);
 		
+		printObjectAsJson(books);
+
+	}
+	
+	private static void use_put(RestTemplate restTemplate) throws Exception {
+
+		Book[] books = restTemplate.getForObject(URI, Book[].class);
+		printObjectAsJson(books);
+
+		Book book = new Book();
+		book.setId("1000");
+		book.setIsbn("isbn-1000");
+		book.setTitle("Spring Framework Updated");
+
+		restTemplate.put(URI, book);
+		
+		books = restTemplate.getForObject(URI, Book[].class);
+		printObjectAsJson(books);
+
+	}
+	
+	private static void use_delete(RestTemplate restTemplate) throws Exception {
+
+		Book[] books = restTemplate.getForObject(URI, Book[].class);
+		printObjectAsJson(books);
+
+		restTemplate.delete(URI+"/2000");
+		
+		books = restTemplate.getForObject(URI, Book[].class);
 		printObjectAsJson(books);
 
 	}

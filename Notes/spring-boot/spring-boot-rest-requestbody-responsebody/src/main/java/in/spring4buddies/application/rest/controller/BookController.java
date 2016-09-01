@@ -74,12 +74,12 @@ public class BookController {
 		return books;
 	}
 
-	@RequestMapping(method = RequestMethod.DELETE, consumes = "application/json")
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public List<Book> deleteBook(@RequestBody Book book) {
+	public List<Book> deleteBook(@PathVariable(value= "id") String id) {
 
 		for (Book bk : books) {
-			if (book.getId().equals(bk.getId())) {
+			if (id.equals(bk.getId())) {
 				books.remove(bk);
 				return books;
 			}
