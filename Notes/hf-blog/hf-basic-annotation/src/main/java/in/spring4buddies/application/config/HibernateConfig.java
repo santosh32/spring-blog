@@ -1,11 +1,14 @@
 package in.spring4buddies.application.config;
 
-import in.spring4buddies.application.inverse.Blog;
-import in.spring4buddies.application.inverse.Comment;
+import in.spring4buddies.application.basic.Student;
+
+import java.util.Iterator;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.mapping.PersistentClass;
+import org.hibernate.mapping.RootClass;
 
 public class HibernateConfig {
 
@@ -19,40 +22,52 @@ public class HibernateConfig {
 //		sessionFactory = configuration.buildSessionFactory(builder.build());
 
 		Configuration configuration = new Configuration()
-//				.addAnnotatedClass(Student.class)
+				.addAnnotatedClass(Student.class)
 //				.addAnnotatedClass(Employee.class)
 //				.addAnnotatedClass(Address.class)
 //				.addAnnotatedClass(Stock.class)
 //				.addAnnotatedClass(StockDetail.class)
 //				.addAnnotatedClass(StockDailyRecord.class)
 //				.addAnnotatedClass(StockCategory.class)
-				.addAnnotatedClass(Blog.class)
-				.addAnnotatedClass(Comment.class)
+//				.addAnnotatedClass(Blog.class)
+//				.addAnnotatedClass(Comment.class)
 				.addPackage("in.spring4buddies.application.*")
 				
 				// ORACLE
-//				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
-//				
-//				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
-//				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
-//				.setProperty("hibernate.connection.username", "srlp")
-//				.setProperty("hibernate.connection.password", "srlp")
+				.setProperty("hibernate.dialect", org.hibernate.dialect.Oracle10gDialect.class.getName())
+				
+				.setProperty("hibernate.connection.driver_class", oracle.jdbc.driver.OracleDriver.class.getName())
+				.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1522:orcl")
+				.setProperty("hibernate.connection.username", "srlp")
+				.setProperty("hibernate.connection.password", "srlp")
 				
 				// HSQL
-				.setProperty("hibernate.dialect", org.hibernate.dialect.HSQLDialect.class.getName())
-				
-				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
-				.setProperty("hibernate.connection.url", "jdbc:hsqldb:hsql://localhost:9001/mydb/xdb")
-				.setProperty("hibernate.connection.username", "sa")
-				.setProperty("hibernate.connection.password", "")
+//				.setProperty("hibernate.dialect", org.hibernate.dialect.HSQLDialect.class.getName())
+//				
+//				.setProperty("hibernate.connection.driver_class", org.hsqldb.jdbcDriver.class.getName())
+//				.setProperty("hibernate.connection.url", "jdbc:hsqldb:hsql://localhost:9001/mydb/xdb")
+//				.setProperty("hibernate.connection.username", "sa")
+//				.setProperty("hibernate.connection.password", "")
 				
 				.setProperty("show_sql", "true")
 //				.setProperty("format_sql", "true")
 				
 //				.setProperty("connection.autocommit", "true")
 				
+				.setNamingStrategy(new MyNamingStrategy())
+				
 				.setProperty("hibernate.hbm2ddl.auto", "update");
 			
+		Iterator<PersistentClass> iterator = configuration.getClassMappings();
+		 while (iterator.hasNext()) {              
+             RootClass rootClass = (RootClass)iterator.next();
+             System.out.println("&&&&: "+rootClass.getTable().getName());
+             if (rootClass.getTable().getName().equals("CHA20P")){
+                rootClass.getTable().setSchema("testschema"); 
+                break;                           
+             }
+             
+           }
 		
 		StandardServiceRegistryBuilder serviceRegistry = new StandardServiceRegistryBuilder()
 				.applySettings(configuration.getProperties());

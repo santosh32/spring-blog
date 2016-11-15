@@ -1,0 +1,20 @@
+<modules>
+	<module name="sf-rest" alias="Spring REST">
+		<concept name="REST overview" alias="REST overview" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+		</concept>
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+			<sub-concept name="" alias="" type="all" generate="false">
+			</sub-concept>
+		</concept>
+	</module>
+</modules>

@@ -1,0 +1,47 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="modules">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="module" maxOccurs="unbounded"
+					minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="concept" maxOccurs="unbounded"
+								minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="sub-concept" maxOccurs="unbounded"
+											minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="name"
+															use="optional" />
+														<xs:attribute type="xs:string" name="alias"
+															use="optional" />
+														<xs:attribute type="xs:string" name="type"
+															use="optional" />
+														<xs:attribute type="xs:string" name="generate"
+															use="optional" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:string" name="name" use="optional" />
+									<xs:attribute type="xs:string" name="alias" use="optional" />
+									<xs:attribute type="xs:string" name="type" use="optional" />
+									<xs:attribute type="xs:string" name="generate"
+										use="optional" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:string" name="name" use="optional" />
+						<xs:attribute type="xs:string" name="alias" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

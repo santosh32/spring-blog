@@ -28,8 +28,8 @@ public class Blog {
 	@Column(name = "blog_name")
 	private String name;
 
-	@OneToMany(/* mappedBy = "blog", */fetch = FetchType.LAZY)
-	@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+	@OneToMany( mappedBy = "blog"/*, fetch = FetchType.LAZY*/)
+//	@Cascade(value = org.hibernate.annotations.CascadeType.ALL)
 	private Set<Comment> comments = new HashSet<Comment>();
 
 	public long getId() {
