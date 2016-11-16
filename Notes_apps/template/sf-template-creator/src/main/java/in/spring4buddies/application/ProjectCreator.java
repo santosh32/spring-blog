@@ -6,8 +6,10 @@ import in.spring4buddies.application.xsd.Modules.Module.Concept;
 import in.spring4buddies.application.xsd.Modules.Module.Concept.SubConcept;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -38,15 +40,19 @@ public class ProjectCreator {
 								String project_name = new StringBuffer().append(Constants.DEST_DIR).append(File.separatorChar)
 										.append(module.getName()).append(File.separatorChar).append(concept_name).toString();
 
+								if (new File(project_name).exists()) {
+									project_name = project_name +" " +new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
+								}
+								
 								FileUtils.forceMkdir(new File(project_name));
 
 								String inputTypes = concept.getType();
 								List<String> types = new ArrayList<>();
 								if (StringUtils.isEmpty(inputTypes) || StringUtils.equalsIgnoreCase(inputTypes, "all")) {
 									types = Constants.TYPES;
+								} else {
+									types = Arrays.asList(StringUtils.split(inputTypes));
 								}
-								
-								types = Arrays.asList(StringUtils.split(inputTypes));
 
 								for (String type : types) {
 
@@ -59,7 +65,7 @@ public class ProjectCreator {
 
 								}
 
-								File document = new File(project_name + File.separatorChar + document_name + ".doc");
+								File document = new File(project_name + File.separatorChar + document_name + ".docx");
 
 								StringBuffer content = new StringBuffer();
 								for (SubConcept subConcept : concept.getSubConcept()) {
