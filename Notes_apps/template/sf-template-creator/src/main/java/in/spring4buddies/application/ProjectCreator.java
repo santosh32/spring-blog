@@ -26,7 +26,7 @@ public class ProjectCreator {
 	}
 
 	private static void processModules(Modules moduleList) throws IOException {
-		
+
 		if (moduleList != null) {
 
 			List<Modules.Module> modules = moduleList.getModule();
@@ -87,7 +87,7 @@ public class ProjectCreator {
 
 	private static void processSubConcepts(Concept concept, String document_name, String project_name) throws IOException {
 
-		File document = new File(project_name + File.separator + document_name + ".docx");
+		File readme_file = new File(ProjectUtil.replace(Constants.README_FILE, new String[] { project_name, document_name }));
 
 		StringBuffer content = new StringBuffer();
 		for (SubConcept subConcept : concept.getSubConcept()) {
@@ -97,7 +97,7 @@ public class ProjectCreator {
 		}
 
 		if (StringUtils.isNotBlank(content)) {
-			FileUtils.writeStringToFile(document, content.toString(), "UTF-8");
+			FileUtils.writeStringToFile(readme_file, content.toString(), "UTF-8");
 		}
 	}
 }
