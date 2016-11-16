@@ -74,7 +74,9 @@ public class ProjectCreator {
 									}
 								}
 
-								FileUtils.writeStringToFile(document, content.toString(), "UTF-8");
+								if (StringUtils.isNotBlank(content)) {
+									FileUtils.writeStringToFile(document, content.toString(), "UTF-8");
+								}
 
 								System.out.println("'"+ StringUtils.substringAfterLast(project_name, File.separator) + "' generated successfully.");
 							}
