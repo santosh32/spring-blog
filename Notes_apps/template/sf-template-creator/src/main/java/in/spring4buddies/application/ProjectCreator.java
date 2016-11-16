@@ -75,6 +75,7 @@ public class ProjectCreator {
 								}
 
 								if (StringUtils.isNotBlank(content)) {
+									System.out.println("this is test commit man");
 									FileUtils.writeStringToFile(document, content.toString(), "UTF-8");
 								}
 
