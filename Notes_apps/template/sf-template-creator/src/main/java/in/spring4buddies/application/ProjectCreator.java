@@ -50,8 +50,7 @@ public class ProjectCreator {
 				String concept_name = WordUtils.capitalize(concept.getName());
 				String document_name = concept_name;
 
-				String project_name = new StringBuffer().append(Constants.DEST_DIR).append(File.separator).append(module.getName())
-						.append(File.separator).append(concept_name).toString();
+				String project_name = ProjectUtil.replace(ProjectConstant.PROJECT_NAME, new String[] { module.getName(), concept_name });
 
 				if (new File(project_name).exists()) {
 					project_name = project_name + " " + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
@@ -62,32 +61,28 @@ public class ProjectCreator {
 				String inputTypes = concept.getType();
 				List<String> types = new ArrayList<>();
 				if (StringUtils.isEmpty(inputTypes) || StringUtils.equalsIgnoreCase(inputTypes, "all")) {
-					types = Constants.TYPES;
+					types = ProjectConstant.TYPES;
 				} else {
 					types = Arrays.asList(StringUtils.split(inputTypes));
 				}
 
 				for (String type : types) {
 
-					String project_type = new StringBuffer().append(module.getName()).append("-").append(concept_name).append("-").append(type)
-							.toString().replace(" ", "-").toLowerCase();
+					String project_type = ProjectUtil.replace(ProjectConstant.PROJECT_TYPE, new String[] { module.getName(), concept_name, type });
 
-					File destDir = new File(project_name + File.separator + project_type);
-
-					FileUtils.copyDirectory(new File(Constants.SRC_DIR), destDir);
+					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
+							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { project_name, project_type })));
 
 				}
 
 				processSubConcepts(concept, document_name, project_name);
 
-				System.out.println("'" + StringUtils.substringAfterLast(project_name, File.separator) + "' generated successfully.");
+				System.out.println("'" + project_name + "' generated successfully.");
 			}
 		}
 	}
 
 	private static void processSubConcepts(Concept concept, String document_name, String project_name) throws IOException {
-
-		File readme_file = new File(ProjectUtil.replace(Constants.README_FILE, new String[] { project_name, document_name }));
 
 		StringBuffer content = new StringBuffer();
 		for (SubConcept subConcept : concept.getSubConcept()) {
@@ -97,6 +92,7 @@ public class ProjectCreator {
 		}
 
 		if (StringUtils.isNotBlank(content)) {
+			File readme_file = new File(ProjectUtil.replace(ProjectConstant.README_FILE, new String[] { project_name, document_name }));
 			FileUtils.writeStringToFile(readme_file, content.toString(), "UTF-8");
 		}
 	}

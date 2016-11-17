@@ -11,6 +11,6 @@ public class InputProcessor {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Modules.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		return (Modules) jaxbUnmarshaller.unmarshal(Application.class
-				.getClassLoader().getResourceAsStream(Constants.INPUT_FILE));
+				.getClassLoader().getResourceAsStream(ProjectConstant.INPUT_FILE));
 	}
 }
