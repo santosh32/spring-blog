@@ -91,6 +91,10 @@ public class ProjectCreator {
 	}
 
 	private static void processSubConcepts(Concept concept, String document_name, String project_name) throws IOException {
+		
+		
+		
+		
 
 		StringBuffer content = new StringBuffer();
 		for (SubConcept subConcept : concept.getSubConcept()) {
