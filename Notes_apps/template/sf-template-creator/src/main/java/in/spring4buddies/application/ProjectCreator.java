@@ -75,7 +75,8 @@ public class ProjectCreator {
 
 				for (String type : types) {
 
-					String project_type = ProjectUtil.replace(ProjectConstant.PROJECT_TYPE, new String[] { module.getName(), concept_name, type });
+					String project_type = ProjectUtil.replace(ProjectConstant.PROJECT_TYPE, true,
+							new String[] { module.getName(), concept_name, type });
 
 					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
 							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { project_name, project_type })));
@@ -84,17 +85,47 @@ public class ProjectCreator {
 
 				}
 
-				processSubConcepts(concept, document_name, project_name);
+				processSubConcepts(concept, document_name, project_name, module.getName());
 
 			}
 		}
 	}
 
-	private static void processSubConcepts(Concept concept, String document_name, String project_name) throws IOException {
-		
-		
-		
-		
+	private static void processSubConcepts(Concept concept, String document_name, String project_name, String module_name) throws IOException {
+
+		for (SubConcept subConcept : concept.getSubConcept()) {
+
+			boolean isGenerate = BooleanUtils.toBoolean(subConcept.getGenerate());
+
+			if (isGenerate) {
+				String inputTypes = subConcept.getType();
+				List<String> types = new ArrayList<>();
+				if (StringUtils.isEmpty(inputTypes) || StringUtils.equalsIgnoreCase(inputTypes, "all")) {
+					types = ProjectConstant.TYPES;
+				} else {
+					types = Arrays.asList(StringUtils.split(inputTypes, ","));
+				}
+
+				String sub_project_name = ProjectUtil.replace(ProjectConstant.SUB_PROJECT_NAME,
+						new String[] { module_name, project_name, subConcept.getName() });
+
+				if (new File(sub_project_name).exists()) {
+					sub_project_name = sub_project_name + " " + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
+				}
+
+				for (String type : types) {
+
+					String sub_project_type = ProjectUtil.replace(ProjectConstant.PROJECT_TYPE, true,
+							new String[] { module_name, subConcept.getName(), type });
+
+					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
+							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { sub_project_name, sub_project_type })));
+
+					System.out.println(sub_project_type + " generated successfully.");
+
+				}
+			}
+		}
 
 		StringBuffer content = new StringBuffer();
 		for (SubConcept subConcept : concept.getSubConcept()) {

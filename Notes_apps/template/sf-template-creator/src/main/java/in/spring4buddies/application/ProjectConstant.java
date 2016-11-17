@@ -22,6 +22,7 @@ public class ProjectConstant {
 
 	public static String PROJECT_NAME = DEST_DIR + File.separator + "{0}" + File.separator + "{1}";
 
-	public static String PROJECT_TYPE = "{0}-{1}-{2}".replace(" ", "-").toLowerCase();
+	public static String PROJECT_TYPE = "{0}-{1}-{2}";
 
+	public static String SUB_PROJECT_NAME = DEST_DIR + File.separator + "{0}" + File.separator + "{1}" + File.separator + "{2}";
 }

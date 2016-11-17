@@ -8,4 +8,12 @@ public class ProjectUtil {
 
 		return new MessageFormat(template).format(parameters);
 	}
+
+	public static String replace(String template, boolean isLowerCase, String... parameters) {
+		String str = replace(template, parameters);
+		if (isLowerCase) {
+			str = str.replace(" ", "-").toLowerCase();
+		}
+		return str;
+	}
 }

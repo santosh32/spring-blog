@@ -1,7 +1,7 @@
 <modules>
 	<module name="sf-ioc" alias="Spring IOC">
 		<concept name="container overview" alias="container overview" type="all" generate="true">
-			<sub-concept name="container overview 1" alias="" type="all" generate="false">
+			<sub-concept name="container overview 1" alias="" type="all" generate="true">
 			</sub-concept>
 			<sub-concept name="container overview 2" alias="" type="all" generate="false">
 			</sub-concept>
