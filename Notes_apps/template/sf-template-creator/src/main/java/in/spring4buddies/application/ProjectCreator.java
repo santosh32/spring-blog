@@ -81,7 +81,7 @@ public class ProjectCreator {
 					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
 							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { project_name, project_type })));
 
-					System.out.println(project_type + " generated successfully.");
+					System.out.println("- " + project_type + " generated successfully.");
 
 				}
 
@@ -106,12 +106,14 @@ public class ProjectCreator {
 					types = Arrays.asList(StringUtils.split(inputTypes, ","));
 				}
 
-				String sub_project_name = ProjectUtil.replace(ProjectConstant.SUB_PROJECT_NAME,
-						new String[] { module_name, project_name, subConcept.getName() });
+				String sub_project_name = ProjectUtil.replace(ProjectConstant.SUB_PROJECT_NAME, new String[] { module_name, concept.getName(),
+						WordUtils.capitalize(subConcept.getName()) });
 
 				if (new File(sub_project_name).exists()) {
 					sub_project_name = sub_project_name + " " + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
 				}
+
+				System.out.println("- " + StringUtils.substringAfterLast(sub_project_name, "/") + " created.");
 
 				for (String type : types) {
 
@@ -121,7 +123,7 @@ public class ProjectCreator {
 					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
 							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { sub_project_name, sub_project_type })));
 
-					System.out.println(sub_project_type + " generated successfully.");
+					System.out.println(" -- " + sub_project_type + " generated successfully.");
 
 				}
 			}
@@ -137,7 +139,7 @@ public class ProjectCreator {
 		if (StringUtils.isNotBlank(content)) {
 			File readme_file = new File(ProjectUtil.replace(ProjectConstant.README_FILE, new String[] { project_name, document_name }));
 			FileUtils.writeStringToFile(readme_file, content.toString(), "UTF-8");
-			System.out.println(document_name + ".docx created.\n");
+			System.out.println("- " + document_name + ".docx created.\n");
 		}
 	}
 }
