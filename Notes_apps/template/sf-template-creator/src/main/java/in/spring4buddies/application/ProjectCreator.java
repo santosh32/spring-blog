@@ -124,6 +124,8 @@ public class ProjectCreator {
 
 					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
 							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { sub_project_name, sub_project_type })));
+					
+					POMProcessor.process(sub_project_name, sub_project_type);
 
 					System.out.println(" -- " + sub_project_type + " generated successfully.");
 
