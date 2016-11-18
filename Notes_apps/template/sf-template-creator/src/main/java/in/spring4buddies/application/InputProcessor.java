@@ -30,6 +30,7 @@ public class InputProcessor {
 						.getResourceAsStream("./module/" + inputFile));
 				modules.add(module);
 			}
+			break;
 		}
 
 		return modules;

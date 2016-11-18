@@ -27,7 +27,7 @@ public class ProjectCreator {
 		processModules(moduleList);
 	}
 
-	private static void processModules(Modules moduleList) throws IOException {
+	private static void processModules(Modules moduleList) throws Exception {
 
 		if (moduleList != null) {
 
@@ -45,7 +45,7 @@ public class ProjectCreator {
 		}
 	}
 
-	private static void processConcepts(List<Modules.Module.Concept> concepts, Module module) throws IOException {
+	private static void processConcepts(List<Modules.Module.Concept> concepts, Module module) throws Exception {
 
 		for (Concept concept : concepts) {
 			if (StringUtils.isNotBlank(concept.getName())) {
@@ -81,6 +81,8 @@ public class ProjectCreator {
 					FileUtils.copyDirectory(new File(ProjectConstant.SRC_DIR),
 							new File(ProjectUtil.replace(ProjectConstant.DEST_PROJECT_PATH, new String[] { project_name, project_type })));
 
+					POMProcessor.process(project_name, project_type);
+
 					System.out.println("- " + project_type + " generated successfully.");
 
 				}
@@ -91,7 +93,7 @@ public class ProjectCreator {
 		}
 	}
 
-	private static void processSubConcepts(Concept concept, String document_name, String project_name, String module_name) throws IOException {
+	private static void processSubConcepts(Concept concept, String document_name, String project_name, String module_name) throws Exception {
 
 		for (SubConcept subConcept : concept.getSubConcept()) {
 
