@@ -8,7 +8,6 @@ import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,7 +18,7 @@ public class InputProcessor {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Modules.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-		List<String> inputFiles = IOUtils.readLines(InputProcessor.class.getClassLoader().getResourceAsStream("."), Charsets.UTF_8);
+		List<String> inputFiles = IOUtils.readLines(InputProcessor.class.getClassLoader().getResourceAsStream("./module"), "UTF-8");
 
 		List<Modules> modules = new ArrayList<Modules>();
 
@@ -27,7 +26,8 @@ public class InputProcessor {
 
 			if (StringUtils.startsWith(inputFile, "module") && StringUtils.endsWith(inputFile, "xml")) {
 
-				Modules module = (Modules) jaxbUnmarshaller.unmarshal(Application.class.getClassLoader().getResourceAsStream(inputFile));
+				Modules module = (Modules) jaxbUnmarshaller.unmarshal(InputProcessor.class.getClassLoader()
+						.getResourceAsStream("./module/" + inputFile));
 				modules.add(module);
 			}
 		}
