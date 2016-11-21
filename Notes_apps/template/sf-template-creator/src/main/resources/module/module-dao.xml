@@ -1,20 +1,105 @@
 <modules>
 	<module name="sf-dao" alias="Spring DAO">
-		<concept name="DAO overview" alias="DAO overview" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
-		</concept>
 		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
-			<sub-concept name="" alias="" type="all" generate="false">
-			</sub-concept>
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
 		</concept>
 	</module>
 </modules>
