@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class InputProcessor {
 
@@ -23,10 +24,15 @@ public class InputProcessor {
 
 		for (String inputFile : inputFiles) {
 
-			Modules module = (Modules) jaxbUnmarshaller.unmarshal(InputProcessor.class.getClassLoader()
-					.getResourceAsStream("./module/" + inputFile));
+			if (StringUtils.equalsAnyIgnoreCase("module.xml", inputFile)) {
+				continue;
+				// break;
+			}
+
+			System.out.println("unmarshalling and adding - " + inputFile);
+			Modules module = (Modules) jaxbUnmarshaller.unmarshal(InputProcessor.class.getClassLoader().getResourceAsStream("./module/" + inputFile));
 			modules.add(module);
-			break;
+			// break;
 		}
 
 		return modules;

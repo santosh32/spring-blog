@@ -124,7 +124,7 @@
 			<sub-concept name="Deploying a Spring ApplicationContext as a Java EE RAR file" alias="" type="all" generate="false"/>
 		</concept>
 		
-		<concept name="BeanFactory or ApplicationContext?" alias="" type="all" generate="true"/>
+		<concept name="BeanFactory or ApplicationContext" alias="" type="all" generate="true"/>
 		
 		<concept name="Resources" alias="" type="all" generate="true">
 			<sub-concept name="UrlResource" alias="" type="all" generate="false"/>
@@ -143,7 +143,7 @@
 			<sub-concept name="Bean manipulation and the BeanWrapper" alias="" type="all" generate="false"/>
 			<sub-concept name="Spring Type Conversion" alias="" type="all" generate="false"/>
 			<sub-concept name="Spring Field Formatting" alias="" type="all" generate="false"/>
-			<sub-concept name="Configuring a global date & time format" alias="" type="all" generate="false"/>
+			<sub-concept name="Configuring a global date and time format" alias="" type="all" generate="false"/>
 			<sub-concept name="Spring Validation" alias="" type="all" generate="false"/>
 		</concept>
 		

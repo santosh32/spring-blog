@@ -31,15 +31,15 @@
 			<sub-concept name="Using AspectJ with Spring applications" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Spring AOP APIs" alias="" type="all" generate="true"v
+		<concept name="Spring AOP APIs" alias="" type="all" generate="true"/>
 		
-		<concept name="Pointcut API in Spring" alias="" type="all" generate="true"v
+		<concept name="Pointcut API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="Advice API in Spring" alias="" type="all" generate="true"v
+		<concept name="Advice API in Spring" alias="" type="all" generate="true"/>
 		
 		<concept name="Advisor API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="Creating AOP proxies programmatically with the ProxyFactory" alias="" type="all" generate="true"v
+		<concept name="Creating AOP proxies programmatically with the ProxyFactory" alias="" type="all" generate="true"/>
 		
 		<concept name="Manipulating advised objects" alias="" type="all" generate="true"/>
 		
