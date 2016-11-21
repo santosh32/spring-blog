@@ -1,12 +1,12 @@
 <modules>
 	<module name="sf-aop" alias="Spring AOP">
-		<concept name="Introduction" alias="" type="all" generate="true">
+		<concept name="1_Introduction" alias="" type="all" generate="true">
 			<sub-concept name="AOP concepts" alias="" type="all" generate="false" />
 			<sub-concept name="Spring AOP capabilities and goals" alias="" type="all" generate="false" />
 			<sub-concept name="AOP Proxies" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="@AspectJ support" alias="" type="all" generate="true">
+		<concept name="2_@AspectJ support" alias="" type="all" generate="true">
 			<sub-concept name="Enabling @AspectJ Support" alias="" type="all" generate="false" />
 			<sub-concept name="Enabling @AspectJ Support with Java configuration" alias="" type="all" generate="false" />
 			<sub-concept name="Enabling @AspectJ Support with XML configuration" alias="" type="all" generate="false" />
@@ -19,7 +19,7 @@
 			<sub-concept name="Introductions" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Schema-based AOP support" alias="" type="all" generate="true">
+		<concept name="3_Schema-based AOP support" alias="" type="all" generate="true">
 			<sub-concept name="Declaring an aspect" alias="" type="all" generate="false" />
 			<sub-concept name="Declaring a pointcut" alias="" type="all" generate="false" />
 			<sub-concept name="Declaring advice" alias="" type="all" generate="false" />
@@ -31,21 +31,21 @@
 			<sub-concept name="Using AspectJ with Spring applications" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Spring AOP APIs" alias="" type="all" generate="true"/>
+		<concept name="4_Spring AOP APIs" alias="" type="all" generate="true"/>
 		
-		<concept name="Pointcut API in Spring" alias="" type="all" generate="true"/>
+		<concept name="5_Pointcut API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="Advice API in Spring" alias="" type="all" generate="true"/>
+		<concept name="6_Advice API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="Advisor API in Spring" alias="" type="all" generate="true"/>
+		<concept name="7_Advisor API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="Creating AOP proxies programmatically with the ProxyFactory" alias="" type="all" generate="true"/>
+		<concept name="8_Creating AOP proxies programmatically with the ProxyFactory" alias="" type="all" generate="true"/>
 		
-		<concept name="Manipulating advised objects" alias="" type="all" generate="true"/>
+		<concept name="9_Manipulating advised objects" alias="" type="all" generate="true"/>
 		
-		<concept name="Using the auto-proxy facility" alias="" type="all" generate="true"/>
+		<concept name="10_Using the auto-proxy facility" alias="" type="all" generate="true"/>
 		
-		<concept name="Using TargetSources" alias="" type="all" generate="true"/>
+		<concept name="11_Using TargetSources" alias="" type="all" generate="true"/>
 		
 	</module>
 </modules>

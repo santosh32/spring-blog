@@ -1,6 +1,6 @@
 <modules>
 	<module name="sf-dao" alias="Spring DAO">
-		<concept name="Transaction Management" alias="" type="all" generate="true">
+		<concept name="1_Transaction Management" alias="" type="all" generate="true">
 			<sub-concept name="Introduction to Spring Framework transaction management" alias="" type="all" generate="false" />
 			<sub-concept name="Advantages of the Spring Framework’s transaction support model" alias="" type="all" generate="false" />
 			<sub-concept name="Global transactions" alias="" type="all" generate="false" />
@@ -10,7 +10,7 @@
 			<sub-concept name="Synchronizing resources with transactions" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Declarative transaction management" alias="" type="all" generate="true">
+		<concept name="2_Declarative transaction management" alias="" type="all" generate="true">
 			<sub-concept name="Understanding the Spring Framework’s declarative transaction implementation" alias="" type="all" generate="false" />
 			<sub-concept name="Rolling back a declarative transaction" alias="" type="all" generate="false" />
 			<sub-concept name="Configuring different transactional semantics for different beans" alias="" type="all" generate="false" />
@@ -19,38 +19,38 @@
 			<sub-concept name="Advising transactional operations" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Programmatic transaction management" alias="" type="all" generate="true">
+		<concept name="3_Programmatic transaction management" alias="" type="all" generate="true">
 			<sub-concept name="Using the TransactionTemplate" alias="" type="all" generate="false" />
 			<sub-concept name="Using the PlatformTransactionManager" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="DAO support" alias="" type="all" generate="true">
+		<concept name="4_DAO support" alias="" type="all" generate="true">
 			<sub-concept name="Introduction" alias="" type="all" generate="false" />
 			<sub-concept name="Consistent exception hierarchy" alias="" type="all" generate="false" />
 			<sub-concept name="Annotations used for configuring DAO or Repository classes" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Data access with JDBC" alias="" type="all" generate="true">
+		<concept name="5_Data access with JDBC" alias="" type="all" generate="true">
 			<sub-concept name="Introduction to Spring Framework JDBC" alias="" type="all" generate="false" />
 			<sub-concept name="Choosing an approach for JDBC database access" alias="" type="all" generate="false" />
 			<sub-concept name="Package hierarchy" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="JdbcTemplate" alias="" type="all" generate="true"/>
+		<concept name="6_JdbcTemplate" alias="" type="all" generate="true"/>
 
-		<concept name="NamedParameterJdbcTemplate" alias="" type="all" generate="true"/>
+		<concept name="7_NamedParameterJdbcTemplate" alias="" type="all" generate="true"/>
 
-		<concept name="SQLExceptionTranslator" alias="" type="all" generate="true"/>
+		<concept name="8_SQLExceptionTranslator" alias="" type="all" generate="true"/>
 
-		<concept name="Executing statements" alias="" type="all" generate="true"/>
+		<concept name="9_Executing statements" alias="" type="all" generate="true"/>
 
-		<concept name="Running queries" alias="" type="all" generate="true"/>
+		<concept name="10_Running queries" alias="" type="all" generate="true"/>
 
-		<concept name="Updating the database" alias="" type="all" generate="true"/>
+		<concept name="11_Updating the database" alias="" type="all" generate="true"/>
 
-		<concept name="Retrieving auto-generated keys" alias="" type="all" generate="true"/>
+		<concept name="12_Retrieving auto-generated keys" alias="" type="all" generate="true"/>
 
-		<concept name="Controlling database connections" alias="" type="all" generate="true">
+		<concept name="13_Controlling database connections" alias="" type="all" generate="true">
 			<sub-concept name="DataSource" alias="" type="all" generate="false" />
 			<sub-concept name="DataSourceUtils" alias="" type="all" generate="false" />
 			<sub-concept name="SmartDataSource" alias="" type="all" generate="false" />
@@ -62,33 +62,33 @@
 			<sub-concept name="NativeJdbcExtractor" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="JDBC batch operations" alias="" type="all" generate="true">
+		<concept name="14_JDBC batch operations" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Simplifying JDBC operations with the SimpleJdbc classes" alias="" type="all" generate="true">
+		<concept name="15_Simplifying JDBC operations with the SimpleJdbc classes" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Modeling JDBC operations as Java objects" alias="" type="all" generate="true">
+		<concept name="16_Modeling JDBC operations as Java objects" alias="" type="all" generate="true">
 			<sub-concept name="SqlQuery" alias="" type="all" generate="false" />
 			<sub-concept name="MappingSqlQuery" alias="" type="all" generate="false" />
 			<sub-concept name="SqlUpdate" alias="" type="all" generate="false" />
 			<sub-concept name="StoredProcedure" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Common problems with parameter and data value handling" alias="" type="all" generate="true">
+		<concept name="17_Common problems with parameter and data value handling" alias="" type="all" generate="true">
 			<sub-concept name=" Providing SQL type information for parameters" alias="" type="all" generate="false" />
 			<sub-concept name="Handling BLOB and CLOB objects" alias="" type="all" generate="false" />
 			<sub-concept name="Passing in lists of values for IN clause" alias="" type="all" generate="false" />
 			<sub-concept name="Handling complex types for stored procedure calls" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Embedded database support" alias="" type="all" generate="true">
+		<concept name="18_Embedded database support" alias="" type="all" generate="true">
 			<sub-concept name="Why use an embedded database?" alias="" type="all" generate="false" />
 			<sub-concept name="Creating an embedded database using Spring XML" alias="" type="all" generate="false" />
 			<sub-concept name="Creating an embedded database programmatically" alias="" type="all" generate="false" />

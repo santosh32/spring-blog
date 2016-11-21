@@ -1,6 +1,6 @@
 <modules>
 	<module name="sf-rest" alias="Spring REST">
-		<concept name="RestTemplate" alias="Accessing RESTful services on the Client" type="all" generate="true">
+		<concept name="1_RestTemplate" alias="Accessing RESTful services on the Client" type="all" generate="true">
 			<sub-concept name="Working with the URI" alias="" type="all" generate="false" />
 			<sub-concept name="Dealing with request and response headers" alias="" type="all" generate="false" />
 			<sub-concept name="Jackson JSON Views support" alias="" type="all" generate="false" />
@@ -15,7 +15,7 @@
 			<sub-concept name="BufferedImageHttpMessageConverter" alias="" type="all" generate="false" />
 		</concept>
 
-		<concept name="Async RestTemplate" alias="" type="all" generate="true"/>
+		<concept name="2_Async RestTemplate" alias="" type="all" generate="true"/>
 
 		<concept name="" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />

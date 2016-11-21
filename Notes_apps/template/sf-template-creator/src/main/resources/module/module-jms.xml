@@ -1,13 +1,13 @@
 <modules>
 	<module name="sf-jms" alias="JMS">
 
-		<concept name="JMS" alias="" type="all" generate="true">
+		<concept name="1_JMS" alias="" type="all" generate="true">
 			<sub-concept name="Server-side configuration" alias="" type="all" generate="false" />
 			<sub-concept name="Client-side configuration" alias="" type="all" generate="false" />
 			<sub-concept name="AMQP" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="JmsTemplate" alias="" type="all" generate="true">
+		<concept name="2_JmsTemplate" alias="" type="all" generate="true">
 			<sub-concept name="Using Spring JMS" alias="" type="all" generate="false" />
 			<sub-concept name="Connections" alias="" type="all" generate="false" />
 			<sub-concept name="Caching Messaging Resources" alias="" type="all" generate="false" />
@@ -16,19 +16,19 @@
 			<sub-concept name="Destination Management" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Message Listener Containers" alias="" type="all" generate="true">
+		<concept name="3_Message Listener Containers" alias="" type="all" generate="true">
 			<sub-concept name="SimpleMessageListenerContainer" alias="" type="all" generate="false" />
 			<sub-concept name="DefaultMessageListenerContainer" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Transaction management" alias="" type="all" generate="true"/>
+		<concept name="4_Transaction management" alias="" type="all" generate="true"/>
 		
-		<concept name="Sending a Message" alias="" type="all" generate="true">
+		<concept name="5_Sending a Message" alias="" type="all" generate="true">
 			<sub-concept name="Using Message Converters" alias="" type="all" generate="false" />
 			<sub-concept name="SessionCallback and ProducerCallback" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Receiving a message" alias="" type="all" generate="true">
+		<concept name="6_Receiving a message" alias="" type="all" generate="true">
 			<sub-concept name="Synchronous Reception" alias="" type="all" generate="false" />
 			<sub-concept name="Asynchronous Reception - Message-Driven POJOs" alias="" type="all" generate="false" />
 			<sub-concept name="Asynchronous Reception - Message-Driven POJOs" alias="" type="all" generate="false" />
@@ -36,14 +36,14 @@
 			<sub-concept name="Processing messages within transactions" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Annotation-driven listener endpoints" alias="" type="all" generate="true">
+		<concept name="7_Annotation-driven listener endpoints" alias="" type="all" generate="true">
 			<sub-concept name="Enable listener endpoint annotations" alias="" type="all" generate="false" />
 			<sub-concept name=" Programmatic endpoints registration" alias="" type="all" generate="false" />
 			<sub-concept name="Annotated endpoint method signature" alias="" type="all" generate="false" />
 			<sub-concept name="Response management" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Email" alias="" type="all" generate="true">
+		<concept name="8_Email" alias="" type="all" generate="true">
 			<sub-concept name="Introduction" alias="" type="all" generate="false" />
 			<sub-concept name="Basic MailSender and SimpleMailMessage usage" alias="" type="all" generate="false" />
 			<sub-concept name="Using the JavaMailSender and the MimeMessagePreparator" alias="" type="all" generate="false" />
@@ -54,7 +54,7 @@
 			<sub-concept name="Creating email content using a templating library" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Task Execution and Scheduling" alias="" type="all" generate="true">
+		<concept name="9_Task Execution and Scheduling" alias="" type="all" generate="true">
 			<sub-concept name="Introduction" alias="" type="all" generate="false" />
 			<sub-concept name="The Spring TaskExecutor abstraction" alias="" type="all" generate="false" />
 			<sub-concept name="The Spring TaskScheduler abstraction" alias="" type="all" generate="false" />
@@ -63,7 +63,7 @@
 			<sub-concept name="Using the Quartz Scheduler" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="Cache Abstraction" alias="" type="all" generate="true">
+		<concept name="10_Cache Abstraction" alias="" type="all" generate="true">
 			<sub-concept name="Introduction" alias="" type="all" generate="false" />
 			<sub-concept name="Understanding the cache abstraction" alias="" type="all" generate="false" />
 			<sub-concept name="Declarative annotation-based caching" alias="" type="all" generate="false" />
