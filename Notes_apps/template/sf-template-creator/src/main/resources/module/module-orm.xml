@@ -1,94 +1,29 @@
 <modules>
 	<module name="sf-orm" alias="Spring ORM">
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Introduction to ORM with Spring" alias="" type="all" generate="true">
+			<sub-concept name=" General ORM integration considerations" alias="" type="all" generate="false" />
+			<sub-concept name="Resource and transaction management" alias="" type="all" generate="false" />
+			<sub-concept name="Exception translation" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Hibernate" alias="" type="all" generate="true">
+			<sub-concept name="SessionFactory setup in a Spring container" alias="" type="all" generate="false" />
+			<sub-concept name=" Implementing DAOs based on plain Hibernate API" alias="" type="all" generate="false" />
+			<sub-concept name="Declarative transaction demarcation" alias="" type="all" generate="false" />
+			<sub-concept name="Programmatic transaction demarcation" alias="" type="all" generate="false" />
+			<sub-concept name="Transaction management strategies" alias="" type="all" generate="false" />
+			<sub-concept name="Comparing container-managed and locally defined resources" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="JPA" alias="" type="all" generate="true">
+			<sub-concept name="Three options for JPA setup in a Spring environment" alias="" type="all" generate="false" />
+			<sub-concept name="LocalEntityManagerFactoryBean" alias="" type="all" generate="false" />
+			<sub-concept name="Implementing DAOs based on plain JPA" alias="" type="all" generate="false" />
+			<sub-concept name="Transaction Management" alias="" type="all" generate="false" />
+			<sub-concept name="JpaDialect" alias="" type="all" generate="false" />
+			<sub-concept name="Dealing with multiple persistence units" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
 		
 		<concept name="" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />

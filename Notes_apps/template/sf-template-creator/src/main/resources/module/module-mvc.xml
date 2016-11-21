@@ -1,94 +1,109 @@
 <modules>
-	<module name="sf-mvc" alias="Spring MVC">
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
+	<module name="sf-mvc" alias="Web MVC framework">
+		<concept name="Introduction to Spring Web MVC framework" alias="" type="all" generate="true">
+			<sub-concept name="Features of Spring Web MVC" alias="" type="all" generate="false" />
+			<sub-concept name="Pluggability of other MVC implementations" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="DispatcherServlet" alias="" type="all" generate="true">
+			<sub-concept name="Special Bean Types In the WebApplicationContext" alias="" type="all" generate="false" />
+			<sub-concept name="Default DispatcherServlet Configuration" alias="" type="all" generate="false" />
+			<sub-concept name="DispatcherServlet Processing Sequence" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Implementing Controllers" alias="" type="all" generate="true">
+			<sub-concept name="Defining a controller with @Controller" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping Requests With @RequestMapping" alias="" type="all" generate="false" />
+			<sub-concept name="Composed @RequestMapping Variants" alias="" type="all" generate="false" />
+			<sub-concept name="@Controller and AOP Proxying" alias="" type="all" generate="false" />
+			<sub-concept name="New Support Classes for @RequestMapping methods in Spring MVC 3.1" alias="" type="all" generate="false" />
+			<sub-concept name="URI Template Patterns" alias="" type="all" generate="false" />
+			<sub-concept name="URI Template Patterns with Regular Expressions" alias="" type="all" generate="false" />
+			<sub-concept name="Path Patterns" alias="" type="all" generate="false" />
+			<sub-concept name="Path Pattern Comparison" alias="" type="all" generate="false" />
+			<sub-concept name="Defining @RequestMapping handler methods" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Defining @RequestMapping handler methods" alias="" type="all" generate="true">
+			<sub-concept name="Supported method argument types" alias="" type="all" generate="false" />
+			<sub-concept name="Supported method return types" alias="" type="all" generate="false" />
+			<sub-concept name="Binding request parameters to method parameters with @RequestParam" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping the request body with the @RequestBody annotation" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping the response body with the @ResponseBody annotation" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping the response body with the @ResponseBody annotation" alias="" type="all" generate="false" />
+			<sub-concept name="Using HttpEntity" alias="" type="all" generate="false" />
+			<sub-concept name="Using @ModelAttribute on a method" alias="" type="all" generate="false" />
+			<sub-concept name="Using @ModelAttribute on a method argument" alias="" type="all" generate="false" />
+			<sub-concept name="Using @SessionAttributes to store model attributes in the HTTP session between requests" alias="" type="all" generate="false" />
+			<sub-concept name="Using @SessionAttribute to access pre-existing global session attributes" alias="" type="all" generate="false" />
+			<sub-concept name="Using @RequestAttribute to access request attributes" alias="" type="all" generate="false" />
+			<sub-concept name="Working with application/x-www-form-urlencoded data" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping cookie values with the @CookieValue annotation" alias="" type="all" generate="false" />
+			<sub-concept name="Mapping request header attributes with the @RequestHeader annotation" alias="" type="all" generate="false" />
+			<sub-concept name="Method Parameters And Type Conversion" alias="" type="all" generate="false" />
+			<sub-concept name="Customizing WebDataBinder initialization" alias="" type="all" generate="false" />
+			<sub-concept name="Advising controllers with @ControllerAdvice and @RestControllerAdvice" alias="" type="all" generate="false" />
+			<sub-concept name="Jackson Serialization View Support" alias="" type="all" generate="false" />
+			<sub-concept name="Jackson JSONP Support" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Asynchronous Request Processing" alias="" type="all" generate="true">
+			<sub-concept name="Exception Handling for Async Requests" alias="" type="all" generate="false" />
+			<sub-concept name="Intercepting Async Requests" alias="" type="all" generate="false" />
+			<sub-concept name="HTTP Streaming" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Handler mappings" alias="" type="all" generate="true">
+			<sub-concept name="Intercepting requests with a HandlerInterceptor" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Resolving views" alias="" type="all" generate="true">
+			<sub-concept name="Resolving views with the ViewResolver interface" alias="" type="all" generate="false" />
+			<sub-concept name="Chaining ViewResolvers" alias="" type="all" generate="false" />
+			<sub-concept name="Chaining ViewResolvers" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Using flash attributes" alias="" type="all" generate="true"/>
+		
+		<concept name="Using locales" alias="" type="all" generate="true"/>
+		
+		<concept name="Using themes" alias="" type="all" generate="true"/>
+		
+		<concept name="Spring multipart (file upload) support" alias="" type="all" generate="true"/>
+		
+		<concept name="Handling exceptions" alias="" type="all" generate="true"/>
+		
+		<concept name="Web Security" alias="" type="all" generate="true"/>
+		
+		<concept name="HTTP caching support" alias="" type="all" generate="true"/>
+		
+		<concept name="Code-based Servlet container initialization" alias="" type="all" generate="true"/>
+		
+		<concept name="Configuring Spring MVC" alias="" type="all" generate="true">
+			<sub-concept name="Enabling the MVC Java Config or the MVC XML Namespace" alias="" type="all" generate="false" />
+			<sub-concept name="Customizing the Provided Configuration" alias="" type="all" generate="false" />
+			<sub-concept name="Conversion and Formatting" alias="" type="all" generate="false" />
+			<sub-concept name="Validation" alias="" type="all" generate="false" />
+			<sub-concept name="Interceptors" alias="" type="all" generate="false" />
+			<sub-concept name="Content Negotiation" alias="" type="all" generate="false" />
+			<sub-concept name="View Controllers" alias="" type="all" generate="false" />
+			<sub-concept name="View Resolvers" alias="" type="all" generate="false" />
+			<sub-concept name="Serving of Resources" alias="" type="all" generate="false" />
+			<sub-concept name="Falling Back On the Default Servlet To Serve Resources" alias="" type="all" generate="false" />
+			<sub-concept name="Path Matching" alias="" type="all" generate="false" />
+			<sub-concept name="Message Converters" alias="" type="all" generate="false" />
+			<sub-concept name="Advanced Customizations with MVC Java Config" alias="" type="all" generate="false" />
+			<sub-concept name="Advanced Customizations with the MVC Namespace" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="view" alias="View technologies" type="all" generate="true">
+			<sub-concept name="Introduction" alias="" type="all" generate="false" />
+			<sub-concept name="Thymeleaf" alias="" type="all" generate="true" />
+			<sub-concept name="FreeMarker" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
 		
 		<concept name="" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />

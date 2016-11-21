@@ -1,108 +1,51 @@
 <modules>
 	<module name="sf-aop" alias="Spring AOP">
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Introduction" alias="" type="all" generate="true">
+			<sub-concept name="AOP concepts" alias="" type="all" generate="false" />
+			<sub-concept name="Spring AOP capabilities and goals" alias="" type="all" generate="false" />
+			<sub-concept name="AOP Proxies" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="@AspectJ support" alias="" type="all" generate="true">
+			<sub-concept name="Enabling @AspectJ Support" alias="" type="all" generate="false" />
+			<sub-concept name="Enabling @AspectJ Support with Java configuration" alias="" type="all" generate="false" />
+			<sub-concept name="Enabling @AspectJ Support with XML configuration" alias="" type="all" generate="false" />
+			<sub-concept name="Declaring an aspect" alias="" type="all" generate="false" />
+			<sub-concept name="Declaring a pointcut" alias="" type="all" generate="false" />
+			<sub-concept name="Supported Pointcut Designators" alias="" type="all" generate="false" />
+			<sub-concept name="Combining pointcut expressions" alias="" type="all" generate="false" />
+			<sub-concept name="Sharing common pointcut definitions" alias="" type="all" generate="false" />
+			<sub-concept name="Declaring advice" alias="" type="all" generate="false" />
+			<sub-concept name="Introductions" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
+		<concept name="Schema-based AOP support" alias="" type="all" generate="true">
+			<sub-concept name="Declaring an aspect" alias="" type="all" generate="false" />
+			<sub-concept name="Declaring a pointcut" alias="" type="all" generate="false" />
+			<sub-concept name="Declaring advice" alias="" type="all" generate="false" />
+			<sub-concept name="Choosing which AOP declaration style to use" alias="" type="all" generate="false" />
+			<sub-concept name="Spring AOP or full AspectJ?" alias="" type="all" generate="false" />
+			<sub-concept name="@AspectJ or XML for Spring AOP?" alias="" type="all" generate="false" />
+			<sub-concept name="Mixing aspect types" alias="" type="all" generate="false" />
+			<sub-concept name="Proxying mechanisms" alias="" type="all" generate="false" />
+			<sub-concept name="Using AspectJ with Spring applications" alias="" type="all" generate="false" />
 		</concept>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Spring AOP APIs" alias="" type="all" generate="true"v
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Pointcut API in Spring" alias="" type="all" generate="true"v
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Advice API in Spring" alias="" type="all" generate="true"v
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Advisor API in Spring" alias="" type="all" generate="true"/>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Creating AOP proxies programmatically with the ProxyFactory" alias="" type="all" generate="true"v
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Manipulating advised objects" alias="" type="all" generate="true"/>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		<concept name="Using the auto-proxy facility" alias="" type="all" generate="true"/>
 		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-		
-		
+		<concept name="Using TargetSources" alias="" type="all" generate="true"/>
 		
 	</module>
 </modules>

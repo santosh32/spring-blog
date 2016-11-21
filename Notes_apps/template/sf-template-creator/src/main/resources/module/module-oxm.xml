@@ -1,0 +1,45 @@
+<modules>
+	<module name="sf-oxm" alias="Marshalling XML using O/X Mappers">
+		<concept name="Introduction" alias="" type="all" generate="true">
+			<sub-concept name=" Ease of configuration" alias="" type="all" generate="false" />
+			<sub-concept name="Consistent Interfaces" alias="" type="all" generate="false" />
+			<sub-concept name="Consistent Exception Hierarchy" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="Marshaller and Unmarshaller" alias="" type="all" generate="true">
+			<sub-concept name="Marshaller" alias="" type="all" generate="false" />
+			<sub-concept name="Unmarshallerc" alias="" type="all" generate="false" />
+			<sub-concept name="XmlMappingException" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="Using Marshaller and Unmarshaller" alias="" type="all" generate="true"/>
+
+		<concept name="XML Schema-based Configuration" alias="" type="all" generate="true"/>
+
+		<concept name="JAXB" alias="" type="all" generate="true">
+			<sub-concept name="Jaxb2Marshaller" alias="" type="all" generate="false" />
+			<sub-concept name="XML Schema-based Configuration" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="Castor" alias="" type="all" generate="true">
+			<sub-concept name="CastorMarshaller" alias="" type="all" generate="false" />
+			<sub-concept name="XML Schema-based Configurationc" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="JiBX" alias="" type="all" generate="true">
+			<sub-concept name="JibxMarshaller" alias="" type="all" generate="false" />
+			<sub-concept name="XML Schema-based Configuration" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="XStream" alias="" type="all" generate="true">
+			<sub-concept name="XStreamMarshaller" alias="" type="all" generate="false" />
+			<sub-concept name="XML Schema-based Configuration" alias="" type="all" generate="false" />
+		</concept>
+
+		<concept name="" alias="" type="all" generate="true">
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+			<sub-concept name="" alias="" type="all" generate="false" />
+		</concept>
+	</module>
+</modules>

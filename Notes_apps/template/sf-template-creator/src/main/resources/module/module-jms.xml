@@ -1,105 +1,86 @@
 <modules>
-	<module name="sf-jms" alias="Spring JMS">
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+	<module name="sf-jms" alias="JMS">
 
+		<concept name="JMS" alias="" type="all" generate="true">
+			<sub-concept name="Server-side configuration" alias="" type="all" generate="false" />
+			<sub-concept name="Client-side configuration" alias="" type="all" generate="false" />
+			<sub-concept name="AMQP" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="JmsTemplate" alias="" type="all" generate="true">
+			<sub-concept name="Using Spring JMS" alias="" type="all" generate="false" />
+			<sub-concept name="Connections" alias="" type="all" generate="false" />
+			<sub-concept name="Caching Messaging Resources" alias="" type="all" generate="false" />
+			<sub-concept name="SingleConnectionFactory" alias="" type="all" generate="false" />
+			<sub-concept name="CachingConnectionFactory" alias="" type="all" generate="false" />
+			<sub-concept name="Destination Management" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Message Listener Containers" alias="" type="all" generate="true">
+			<sub-concept name="SimpleMessageListenerContainer" alias="" type="all" generate="false" />
+			<sub-concept name="DefaultMessageListenerContainer" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Transaction management" alias="" type="all" generate="true"/>
+		
+		<concept name="Sending a Message" alias="" type="all" generate="true">
+			<sub-concept name="Using Message Converters" alias="" type="all" generate="false" />
+			<sub-concept name="SessionCallback and ProducerCallback" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Receiving a message" alias="" type="all" generate="true">
+			<sub-concept name="Synchronous Reception" alias="" type="all" generate="false" />
+			<sub-concept name="Asynchronous Reception - Message-Driven POJOs" alias="" type="all" generate="false" />
+			<sub-concept name="Asynchronous Reception - Message-Driven POJOs" alias="" type="all" generate="false" />
+			<sub-concept name="the MessageListenerAdapter" alias="" type="all" generate="false" />
+			<sub-concept name="Processing messages within transactions" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Annotation-driven listener endpoints" alias="" type="all" generate="true">
+			<sub-concept name="Enable listener endpoint annotations" alias="" type="all" generate="false" />
+			<sub-concept name=" Programmatic endpoints registration" alias="" type="all" generate="false" />
+			<sub-concept name="Annotated endpoint method signature" alias="" type="all" generate="false" />
+			<sub-concept name="Response management" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Email" alias="" type="all" generate="true">
+			<sub-concept name="Introduction" alias="" type="all" generate="false" />
+			<sub-concept name="Basic MailSender and SimpleMailMessage usage" alias="" type="all" generate="false" />
+			<sub-concept name="Using the JavaMailSender and the MimeMessagePreparator" alias="" type="all" generate="false" />
+			<sub-concept name="Using the JavaMail MimeMessageHelper" alias="" type="all" generate="false" />
+			<sub-concept name="Sending attachments and inline resources" alias="" type="all" generate="false" />
+			<sub-concept name="Attachments" alias="" type="all" generate="false" />
+			<sub-concept name="Inline resources" alias="" type="all" generate="false" />
+			<sub-concept name="Creating email content using a templating library" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Task Execution and Scheduling" alias="" type="all" generate="true">
+			<sub-concept name="Introduction" alias="" type="all" generate="false" />
+			<sub-concept name="The Spring TaskExecutor abstraction" alias="" type="all" generate="false" />
+			<sub-concept name="The Spring TaskScheduler abstraction" alias="" type="all" generate="false" />
+			<sub-concept name="Annotation Support for Scheduling and Asynchronous Execution" alias="" type="all" generate="false" />
+			<sub-concept name="The task namespace" alias="" type="all" generate="false" />
+			<sub-concept name="Using the Quartz Scheduler" alias="" type="all" generate="false" />
+		</concept>
+		
+		<concept name="Cache Abstraction" alias="" type="all" generate="true">
+			<sub-concept name="Introduction" alias="" type="all" generate="false" />
+			<sub-concept name="Understanding the cache abstraction" alias="" type="all" generate="false" />
+			<sub-concept name="Declarative annotation-based caching" alias="" type="all" generate="false" />
+			<sub-concept name="JCache (JSR-107) annotations" alias="" type="all" generate="false" />
+			<sub-concept name="Declarative XML-based caching" alias="" type="all" generate="false" />
+			<sub-concept name="Configuring the cache storage" alias="" type="all" generate="false" />
+		</concept>
+		
+		
 		<concept name="" alias="" type="all" generate="true">
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 			<sub-concept name="" alias="" type="all" generate="false" />
 		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
-
-		<concept name="" alias="" type="all" generate="true">
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-			<sub-concept name="" alias="" type="all" generate="false" />
-		</concept>
+		
+		
+		
+		
 	</module>
 </modules>
