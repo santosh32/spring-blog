@@ -1,0 +1,8 @@
+Introduction
+Basic MailSender and SimpleMailMessage usage
+Using the JavaMailSender and the MimeMessagePreparator
+Using the JavaMail MimeMessageHelper
+Sending attachments and inline resources
+Attachments
+Inline resources
+Creating email content using a templating library

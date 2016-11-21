@@ -1,0 +1,6 @@
+Why use an embedded database?
+Creating an embedded database using Spring XML
+Creating an embedded database programmatically
+Selecting the embedded database type
+Using HSQL,Using H2,Using Derby
+Initializing a DataSource

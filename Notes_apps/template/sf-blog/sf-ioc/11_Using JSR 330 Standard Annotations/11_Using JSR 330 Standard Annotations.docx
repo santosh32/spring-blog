@@ -1,0 +1,3 @@
+Dependency Injection with @Inject and @Named
+@Named and @ManagedBean: standard equivalents to the @Component annotation
+Limitations of JSR-330 standard annotations

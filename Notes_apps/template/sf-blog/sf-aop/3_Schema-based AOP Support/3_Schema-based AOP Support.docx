@@ -1,0 +1,9 @@
+Declaring an aspect
+Declaring a pointcut
+Declaring advice
+Choosing which AOP declaration style to use
+Spring AOP or full AspectJ?
+@AspectJ or XML for Spring AOP?
+Mixing aspect types
+Proxying mechanisms
+Using AspectJ with Spring applications

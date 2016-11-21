@@ -1,0 +1,8 @@
+@Component and further stereotype annotations
+Meta-annotations
+Automatically detecting classes and registering bean definitions
+Using filters to customize scanning
+Defining bean metadata within components
+Naming autodetected components
+Providing a scope for autodetected components
+Providing qualifier metadata with annotations

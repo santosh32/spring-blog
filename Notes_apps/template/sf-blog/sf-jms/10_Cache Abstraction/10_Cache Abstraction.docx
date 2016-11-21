@@ -1,0 +1,6 @@
+Introduction
+Understanding the cache abstraction
+Declarative annotation-based caching
+JCache (JSR-107) annotations
+Declarative XML-based caching
+Configuring the cache storage

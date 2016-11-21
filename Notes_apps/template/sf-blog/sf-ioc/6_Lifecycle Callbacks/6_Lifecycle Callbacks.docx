@@ -1,0 +1,7 @@
+Initialization callbacks
+Destruction callbacks
+Default initialization and destroy methods
+Combining lifecycle mechanisms
+Startup and shutdown callbacks
+Shutting down the Spring IoC container gracefully in non-web applications
+ApplicationContextAware and BeanNameAware

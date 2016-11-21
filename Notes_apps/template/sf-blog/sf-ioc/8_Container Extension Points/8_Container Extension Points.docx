@@ -1,0 +1,6 @@
+Customizing beans using a BeanPostProcessor
+RequiredAnnotationBeanPostProcessor
+BeanFactoryPostProcessor
+PropertyPlaceholderConfigurer
+PropertyOverrideConfigurer
+Customizing instantiation logic with a FactoryBean

@@ -1,0 +1,18 @@
+Constructor-based dependency injection
+Setter-based dependency injection
+Dependency resolution process
+Examples of dependency injection
+Dependencies and configuration in detail
+Straight values (primitives, Strings, and so on)
+References to other beans (collaborators)
+Inner beans
+Collections
+Null and empty string values
+XML shortcut with the p-namespace
+XML shortcut with the c-namespace
+Compound property names
+Using depends-on
+Lazy-initialized beans
+Autowiring collaborators
+Limitations and disadvantages of autowiring
+Excluding a bean from autowiring

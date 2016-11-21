@@ -1,0 +1,6 @@
+UrlResource
+ClassPathResource
+FileSystemResource
+ServletContextResource
+InputStreamResource
+ByteArrayResource

@@ -1,0 +1,9 @@
+DataSource
+DataSourceUtils
+SmartDataSource
+AbstractDataSource
+SingleConnectionDataSource
+DriverManagerDataSource
+TransactionAwareDataSourceProxy
+DataSourceTransactionManager
+NativeJdbcExtractor

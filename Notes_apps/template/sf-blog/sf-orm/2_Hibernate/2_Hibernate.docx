@@ -1,0 +1,6 @@
+SessionFactory setup in a Spring container
+ Implementing DAOs based on plain Hibernate API
+Declarative transaction demarcation
+Programmatic transaction demarcation
+Transaction management strategies
+Comparing container-managed and locally defined resources

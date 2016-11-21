@@ -1,0 +1,6 @@
+Three options for JPA setup in a Spring environment
+LocalEntityManagerFactoryBean
+Implementing DAOs based on plain JPA
+Transaction Management
+JpaDialect
+Dealing with multiple persistence units

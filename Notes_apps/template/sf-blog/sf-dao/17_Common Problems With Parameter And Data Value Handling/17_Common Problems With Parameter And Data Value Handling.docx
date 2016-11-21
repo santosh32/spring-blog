@@ -1,0 +1,4 @@
+ Providing SQL type information for parameters
+Handling BLOB and CLOB objects
+Passing in lists of values for IN clause
+Handling complex types for stored procedure calls

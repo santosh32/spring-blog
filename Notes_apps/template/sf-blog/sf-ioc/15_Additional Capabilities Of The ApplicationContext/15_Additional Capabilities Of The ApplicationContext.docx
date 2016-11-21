@@ -1,0 +1,6 @@
+Internationalization using MessageSource
+Standard and Custom Events
+Annotation-based Event Listeners
+Convenient access to low-level resources
+Convenient ApplicationContext instantiation for web applications
+Deploying a Spring ApplicationContext as a Java EE RAR file

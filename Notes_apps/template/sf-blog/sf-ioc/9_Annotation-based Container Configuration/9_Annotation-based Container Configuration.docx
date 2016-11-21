@@ -1,0 +1,8 @@
+@Required
+@Autowired
+Fine-tuning annotation-based autowiring with @Primary
+@Required
+@Autowired
+CustomAutowireConfigurer
+@Resource
+@PostConstruct and @PreDestroy

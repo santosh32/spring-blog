@@ -1,0 +1,6 @@
+Understanding the Spring Framework’s declarative transaction implementation
+Rolling back a declarative transaction
+Configuring different transactional semantics for different beans
+Using @Transactional
+Transaction propagation
+Advising transactional operations

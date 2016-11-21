@@ -1,0 +1,6 @@
+Naming beans
+Aliasing a bean outside the bean definition
+Instantiating beans
+Instantiation with a constructor
+Instantiation with a static factory method
+Instantiation using an instance factory method

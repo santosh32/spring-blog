@@ -1,0 +1,6 @@
+Basic concepts: @Bean and @Configuration
+Instantiating the Spring container using AnnotationConfigApplicationContext
+Support for web applications with AnnotationConfigWebApplicationContext
+Using the @Bean annotation
+Using the @Configuration annotation
+Composing Java-based configurations

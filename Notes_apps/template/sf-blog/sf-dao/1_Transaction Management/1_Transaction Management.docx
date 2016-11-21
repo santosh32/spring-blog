@@ -1,0 +1,7 @@
+Introduction to Spring Framework transaction management
+Advantages of the Spring Framework’s transaction support model
+Global transactions
+Local transactions
+Spring Framework’s consistent programming model
+Understanding the Spring Framework transaction abstraction
+Synchronizing resources with transactions
