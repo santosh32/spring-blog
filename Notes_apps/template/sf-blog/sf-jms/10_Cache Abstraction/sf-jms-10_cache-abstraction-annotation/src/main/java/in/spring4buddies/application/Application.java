@@ -19,8 +19,8 @@ public class Application {
 		logger.info("IPhone ->" + service.getByName("IPhone"));
 		logger.info("IPhone ->" + service.getByName("IPhone"));
 		logger.info("IPhone ->" + service.getByName("IPhone"));
+		
 		logger.info("Refreshing all products");
-
 		service.refreshAllProducts();
 
 		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
