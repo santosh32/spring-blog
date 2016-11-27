@@ -15,18 +15,10 @@ public class Application {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
 		ProductService service = (ProductService) context.getBean("productService");
-
 		logger.info("IPhone ->" + service.getByName("IPhone"));
 		logger.info("IPhone ->" + service.getByName("IPhone"));
 		logger.info("IPhone ->" + service.getByName("IPhone"));
-		logger.info("Refreshing all products");
-
-		service.refreshAllProducts();
-
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
-
+		
 		((AbstractApplicationContext) context).close();
 	}
 }

@@ -5,4 +5,6 @@ import in.spring4buddies.application.model.Product;
 public interface ProductService {
 
 	Product getByName(String name);
+
+	void refreshAllProducts();
 }
