@@ -16,7 +16,6 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-//		ApplicationContext ctx = new AnnotationConfigApplicationContext(MailConfig.class);
 
 		SimpleMailMessageCreator simpleMailMessageCreator = context.getBean(SimpleMailMessageCreator.class);
 		MimeMailMessageCreator mimeMailMessageCreator = context.getBean(MimeMailMessageCreator.class);
