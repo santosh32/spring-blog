@@ -22,7 +22,7 @@
 		</property>
 	</bean>
 
-	<bean id="mailUtil" class="in.spring4buddies.application.mail.MailUtil">
+	<bean id="simpleMailMessageCreator" class="in.spring4buddies.application.mail.SimpleMailMessageCreator">
 		<property name="mailSender" ref="mailSender" />
 	</bean>
 </beans>

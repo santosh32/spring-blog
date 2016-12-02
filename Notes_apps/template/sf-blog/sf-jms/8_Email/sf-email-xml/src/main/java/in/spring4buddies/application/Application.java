@@ -12,15 +12,15 @@ public class Application {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-		SimpleMailMessageCreator mailUtil = context.getBean(SimpleMailMessageCreator.class);
+		SimpleMailMessageCreator simpleMailMessageCreator = context.getBean(SimpleMailMessageCreator.class);
 
-		MailContent mailData = new MailContent();
-		mailData.setFrom("do@gmail.com");
-		mailData.setTo("do1@gmail.com");
-		mailData.setSubject("Test Subject");
-		mailData.setContent("Text Content");
+		MailContent mailContent = new MailContent();
+		mailContent.setFrom("do-not-reply@gmail.com");
+		mailContent.setTo("test-user@gmail.com");
+		mailContent.setSubject("Test Subject");
+		mailContent.setContent("Text Content");
 		
-		mailUtil.sendMail(mailData);
+		simpleMailMessageCreator.sendMail(mailContent);
 
 		((AbstractApplicationContext) context).close();
 	}
