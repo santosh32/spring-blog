@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.spring4buddies.application</groupId>
-    <artifactId>sf-ioc-13_environment-abstraction-annotation</artifactId>
+    <artifactId>sf-ioc-environment-abstraction-xml</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sf-ioc-13_environment-abstraction-annotation</name>
+    <name>sf-ioc-environment-abstraction-xml</name>
     <properties>
         <jdk.version>1.7</jdk.version>
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
