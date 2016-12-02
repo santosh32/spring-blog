@@ -20,4 +20,22 @@
 		</property>
 	</bean>
 
+	<bean id="applicationProperties" class="in.spring4buddies.application.properties.ApplicationProperties">
+		<property name="googleUrl" value="${application.google.url}" />
+		<property name="yahooUrl" value="${application.yahoo.url}" />
+	</bean>
+
+	<bean id="databaseProperties" class="in.spring4buddies.application.properties.DatabaseProperties">
+		<property name="url" value="${datasource.url}" />
+		<property name="user" value="${datasource.username}" />
+		<property name="passcode" value="${datasource.password}" />
+		<property name="drivername" value="${datasource.driver-class-name}" />
+	</bean>
+
+	<bean id="mailProp" class="in.spring4buddies.application.properties.MailProperties">
+		<property name="host" value="${mail.smtp.host}" />
+		<property name="port" value="${mail.smtp.port}" />
+		<property name="username" value="${mail.smtp.username}" />
+		<property name="password" value="${mail.smtp.password}" />
+	</bean>	
 </beans>
