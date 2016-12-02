@@ -3,11 +3,12 @@
         <h3>Hi ${firstname}, welcome to the Spring4buddies message boards!</h3>
 
         <div>
-            Dear ${firstName} ${lastName}
+            Dear ${firstname} ${lastname}, <br>
  
-			Sending Email Using Spring Smtp Email + Velocity Template.
+			Sending Email Using Spring Smtp Email + Velocity Template.<br>
 
-			Thanks
+			Thanks<br>
+			Spring4Buddies Team
         </div>
     </body>
 </html>

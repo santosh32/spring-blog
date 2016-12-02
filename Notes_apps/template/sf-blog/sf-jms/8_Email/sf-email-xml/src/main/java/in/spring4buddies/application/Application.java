@@ -32,12 +32,14 @@ public class Application {
 //		mailContent.setContent("Text Content - Using MimeMessagePreparator");
 //		mimeMailMessageCreator.sendMail(mailContent);
 //
-		mailContent.setSubject("Test Subject - Using MimeMessageHelper");
-		mailContent.setContent("Text Content - Using MimeMessageHelper and which includes the inLine and attachement jpgs");
-		mimeMessageHelperCreator.sendMail(mailContent);
+//		mailContent.setSubject("Test Subject - Using MimeMessageHelper");
+//		mailContent.setContent("Text Content - Using MimeMessageHelper and which includes the inLine and attachement jpgs");
+//		mimeMessageHelperCreator.sendMail(mailContent);
 		
 		mailContent.setSubject("Test Subject - Using VelocityTemplates");
 		mailContent.setContent(null);
+		mailContent.setFirstName("Rahul");
+		mailContent.setLastName("Dravid");
 		velocityBasedMailMessageCreator.sendMail(mailContent);
 
 		((AbstractApplicationContext) context).close();

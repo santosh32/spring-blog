@@ -1,15 +1,14 @@
 package in.spring4buddies.application.mail;
 
-import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
@@ -34,21 +33,19 @@ public class VelocityBasedMailMessageCreator implements MailMessageCreator {
 
 			public void prepare(MimeMessage mimeMessage) throws Exception {
 
-				mimeMessage.setFrom(new InternetAddress(mailContent.getFrom()));
-				mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(mailContent.getTo()));
-				mimeMessage.setSubject(mailContent.getSubject());
+				MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
 
-				Template template = velocityEngine.getTemplate("./template/email.vm");
+				mimeMessageHelper.setFrom(new InternetAddress(mailContent.getFrom()));
+				mimeMessageHelper.setTo(new InternetAddress(mailContent.getTo()));
+				mimeMessageHelper.setSubject(mailContent.getSubject());
 
-				VelocityContext velocityContext = new VelocityContext();
-				velocityContext.put("firstname", mailContent.getFirstName());
-				velocityContext.put("lastname", mailContent.getLastName());
+				Map<String, Object> model = new HashMap<>();
+				model.put("firstname", mailContent.getFirstName());
+				model.put("lastname", mailContent.getLastName());
 
-				StringWriter stringWriter = new StringWriter();
+				String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, "template/email.vm", "UTF-8", model);
 
-				template.merge(velocityContext, stringWriter);
-
-				mimeMessage.setText(stringWriter.toString());
+				mimeMessageHelper.setText(text, true);
 			}
 		};
 
