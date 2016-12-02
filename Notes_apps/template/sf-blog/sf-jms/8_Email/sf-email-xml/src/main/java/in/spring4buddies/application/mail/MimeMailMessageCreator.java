@@ -16,7 +16,7 @@ public class MimeMailMessageCreator implements MailMessageCreator {
 	}
 
 	@Override
-	public void sendMail(final MailContent mailContent) {
+	public void sendMail(final MailContent mailContent) throws Exception {
 
 		MimeMessagePreparator mimeMessagePreparator = new MimeMessagePreparator() {
 

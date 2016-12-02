@@ -2,6 +2,7 @@ package in.spring4buddies.application;
 
 import in.spring4buddies.application.mail.MailContent;
 import in.spring4buddies.application.mail.MimeMailMessageCreator;
+import in.spring4buddies.application.mail.MimeMessageHelperCreator;
 import in.spring4buddies.application.mail.SimpleMailMessageCreator;
 
 import org.springframework.context.support.AbstractApplicationContext;
@@ -15,6 +16,7 @@ public class Application {
 
 		SimpleMailMessageCreator simpleMailMessageCreator = context.getBean(SimpleMailMessageCreator.class);
 		MimeMailMessageCreator mimeMailMessageCreator = context.getBean(MimeMailMessageCreator.class);
+		MimeMessageHelperCreator mimeMessageHelperCreator = context.getBean(MimeMessageHelperCreator.class);
 
 		MailContent mailContent = new MailContent();
 		mailContent.setFrom("do-not-reply@gmail.com");
@@ -24,6 +26,7 @@ public class Application {
 
 		simpleMailMessageCreator.sendMail(mailContent);
 		mimeMailMessageCreator.sendMail(mailContent);
+		mimeMessageHelperCreator.sendMail(mailContent);
 
 		((AbstractApplicationContext) context).close();
 	}

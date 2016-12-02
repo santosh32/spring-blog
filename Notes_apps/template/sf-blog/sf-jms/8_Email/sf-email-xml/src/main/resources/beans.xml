@@ -29,4 +29,8 @@
 	<bean id="mimeMailMessageCreator" class="in.spring4buddies.application.mail.MimeMailMessageCreator">
 		<property name="mailSender" ref="mailSender" />
 	</bean>
+
+	<bean id="mimeMessageHelperCreator" class="in.spring4buddies.application.mail.MimeMessageHelperCreator">
+		<property name="mailSender" ref="mailSender" />
+	</bean>
 </beans>

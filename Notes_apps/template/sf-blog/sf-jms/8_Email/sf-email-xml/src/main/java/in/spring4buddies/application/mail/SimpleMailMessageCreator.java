@@ -12,7 +12,7 @@ public class SimpleMailMessageCreator implements MailMessageCreator {
 	}
 
 	@Override
-	public void sendMail(final MailContent mailContent) {
+	public void sendMail(final MailContent mailContent) throws Exception {
 
 		SimpleMailMessage message = new SimpleMailMessage();
 
