@@ -33,12 +33,12 @@ public class MimeMessageHelperCreator implements MailMessageCreator {
 		mimeMessageHelper.setSubject(mailContent.getSubject());
 		mimeMessageHelper.setText(mailContent.getContent());
 
-		InputStream inputStream = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("cute-smile.jpg");
+		InputStream inputStream = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("images/cute-smile.jpg");
 		InputStreamSource inputStreamSource = new ByteArrayResource(IOUtils.toByteArray(inputStream));
 
 		mimeMessageHelper.addInline("inLine123", inputStreamSource, "image/png");
 
-		InputStream inputStream1 = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("smile.jpg");
+		InputStream inputStream1 = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("images/smile.jpg");
 		InputStreamSource inputStreamSource1 = new ByteArrayResource(IOUtils.toByteArray(inputStream1));
 
 		mimeMessageHelper.addAttachment("attachment123.jpg", inputStreamSource1);
