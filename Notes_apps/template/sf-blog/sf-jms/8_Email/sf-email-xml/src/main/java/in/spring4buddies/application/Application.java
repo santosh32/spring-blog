@@ -15,8 +15,8 @@ public class Application {
 		MailUtil mailUtil = context.getBean(MailUtil.class);
 
 		MailData mailData = new MailData();
-		mailData.setFrom("do-not-reply@gmail.com");
-		mailData.setTo("do-not-reply@gmail.com");
+		mailData.setFrom("do@gmail.com");
+		mailData.setTo("do1@gmail.com");
 		mailData.setSubject("Test Subject");
 		mailData.setContent("Text Content");
 		

@@ -5,20 +5,21 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:property-placeholder location="classpath:mail.properties" />
 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="localhost"/>
-        <property name="port" value="25"/>
-<!--         <property name="username" value="username"/>
-        <property name="password" value="password"/> -->
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.transport.protocol">smtp</prop>
-                <prop key="mail.smtp.auth">false</prop>
-                <prop key="mail.smtp.starttls.enable">false</prop>
-                <prop key="mail.debug">true</prop>
-            </props>
-        </property>
+		<property name="host" value="${mail.smtp.host}" />
+		<property name="port" value="${mail.smtp.port}" />
+		<!-- <property name="username" value="${mail.smtp.username}"/> 
+		<property name="password" value="${mail.smtp.password}"/> -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">${mail.transport.protocol}</prop>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+				<prop key="mail.debug">${mail.debug}</prop>
+			</props>
+		</property>
 	</bean>
 
 	<bean id="mailUtil" class="in.spring4buddies.application.mail.MailUtil">
