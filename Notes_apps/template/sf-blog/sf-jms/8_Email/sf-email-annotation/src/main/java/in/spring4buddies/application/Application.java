@@ -6,8 +6,6 @@ import in.spring4buddies.application.mail.MimeMessageHelperCreator;
 import in.spring4buddies.application.mail.SimpleMailMessageCreator;
 import in.spring4buddies.application.mail.VelocityBasedMailMessageCreator;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
