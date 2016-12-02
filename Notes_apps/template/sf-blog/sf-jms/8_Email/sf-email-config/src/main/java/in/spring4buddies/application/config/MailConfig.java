@@ -6,14 +6,23 @@ import in.spring4buddies.application.mail.SimpleMailMessageCreator;
 
 import java.util.Properties;
 
+import org.apache.commons.lang.math.NumberUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.ui.velocity.VelocityEngineFactoryBean;
 
 @SuppressWarnings("deprecation")
 @Configurable
+// @ComponentScan(basePackages = { "in.spring4buddies.application.*" })
+@PropertySource("classpath:mail.properties")
 public class MailConfig {
+
+	@Autowired
+	private Environment env;
 
 	@Bean
 	public MimeMailMessageCreator mimeMailMessageCreator() {
@@ -42,18 +51,19 @@ public class MailConfig {
 	}
 
 	@Bean
-	public JavaMailSenderImpl javaMailSenderImpl() {
+	public JavaMailSenderImpl javaMailSender() {
 		JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
-		javaMailSender.setHost(null);
-		javaMailSender.setPort(0);
+		javaMailSender.setHost(env.getProperty("mail.smtp.host"));
+		javaMailSender.setPort(NumberUtils.toInt(env.getProperty("mail.smtp.port")));
 
 		Properties javaMailProperties = new Properties();
-		javaMailProperties.put("mail.transport.protocol", null);
-		javaMailProperties.put("mail.smtp.auth", null);
-		javaMailProperties.put("mail.smtp.auth", null);
-		javaMailProperties.put("mail.debug", null);
+		javaMailProperties.put("mail.transport.protocol", env.getProperty("mail.transport.protocol"));
+		javaMailProperties.put("mail.smtp.auth", env.getProperty("mail.smtp.auth"));
+		javaMailProperties.put("mail.smtp.starttls.enable", env.getProperty("mail.smtp.starttls.enable"));
+		javaMailProperties.put("mail.debug", env.getProperty("mail.debug"));
 		javaMailSender.setJavaMailProperties(javaMailProperties);
 
 		return javaMailSender;
 	}
+
 }
