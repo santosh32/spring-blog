@@ -21,11 +21,17 @@ public class Application {
 		MailContent mailContent = new MailContent();
 		mailContent.setFrom("do-not-reply@gmail.com");
 		mailContent.setTo("test-user@gmail.com");
-		mailContent.setSubject("Test Subject");
-		mailContent.setContent("Text Content");
 
-//		simpleMailMessageCreator.sendMail(mailContent);
-//		mimeMailMessageCreator.sendMail(mailContent);
+		mailContent.setSubject("Test Subject - Using SimpleMailMessageCreator");
+		mailContent.setContent("Text Content - Using SimpleMailMessageCreator");
+		// simpleMailMessageCreator.sendMail(mailContent);
+
+		mailContent.setSubject("Test Subject - Using MimeMailMessageCreator");
+		mailContent.setContent("Text Content - Using MimeMailMessageCreator");
+		// mimeMailMessageCreator.sendMail(mailContent);
+
+		mailContent.setSubject("Test Subject - Using MimeMessageHelperCreator");
+		mailContent.setContent("Text Content - Using MimeMessageHelperCreator and which includes the line and attachement jpgs");
 		mimeMessageHelperCreator.sendMail(mailContent);
 
 		((AbstractApplicationContext) context).close();

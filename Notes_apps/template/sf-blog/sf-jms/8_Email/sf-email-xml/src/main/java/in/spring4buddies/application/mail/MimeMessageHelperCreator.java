@@ -1,14 +1,11 @@
 package in.spring4buddies.application.mail;
 
-import java.io.File;
 import java.io.InputStream;
 
 import javax.mail.internet.MimeMessage;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -25,21 +22,28 @@ public class MimeMessageHelperCreator implements MailMessageCreator {
 	public void sendMail(final MailContent mailContent) throws Exception {
 
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+
+		// MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage);
+
+		// use the true flag to indicate you need a multipart message
+		MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
+
 		mimeMessageHelper.setFrom(mailContent.getFrom());
 		mimeMessageHelper.setTo(mailContent.getTo());
 		mimeMessageHelper.setSubject(mailContent.getSubject());
 		mimeMessageHelper.setText(mailContent.getContent());
 
-		InputStream inputStream = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("Smile.jpg");
-		FileSystemResource inLineFileResource = new FileSystemResource(new File("Smile.jpeg"));
-//		InputStreamSource imageSource = new ByteArrayResource(IOUtils.toByteArray(getClass().getResourceAsStream("/images/logo.png")));
-		mimeMessageHelper.addInline("inLine123",inLineFileResource);
+		InputStream inputStream = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("cute-smile.jpg");
+		InputStreamSource inputStreamSource = new ByteArrayResource(IOUtils.toByteArray(inputStream));
 
-//		FileSystemResource attachmentFileResource = new FileSystemResource(new File("Smile.jpeg"));
-//		mimeMessageHelper.addAttachment("attachment123.jpg", attachmentFileResource);
+		mimeMessageHelper.addInline("inLine123", inputStreamSource, "image/png");
 
-//		javaMailSender.send(mimeMessage);
+		InputStream inputStream1 = MimeMessageHelperCreator.class.getClassLoader().getResourceAsStream("smile.jpg");
+		InputStreamSource inputStreamSource1 = new ByteArrayResource(IOUtils.toByteArray(inputStream1));
+
+		mimeMessageHelper.addAttachment("attachment123.jpg", inputStreamSource1);
+
+		javaMailSender.send(mimeMessage);
 
 		System.out.println("Mail Sent Successfully (MimeMessageHelper) ...!");
 	}
