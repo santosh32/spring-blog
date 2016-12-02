@@ -1,6 +1,6 @@
 package in.spring4buddies.application.mail;
 
-public class MailData {
+public class MailContent {
 
 	private String from;
 	private String to;

@@ -3,7 +3,7 @@ package in.spring4buddies.application.mail;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 
-public class MailUtil {
+public class SimpleMailMessageCreator implements MailMessageCreator {
 
 	private MailSender mailSender;
 
@@ -11,7 +11,8 @@ public class MailUtil {
 		this.mailSender = mailSender;
 	}
 
-	public void sendMail(MailData mailData) {
+	@Override
+	public void sendMail(MailContent mailData) {
 
 		SimpleMailMessage message = new SimpleMailMessage();
 
@@ -22,6 +23,6 @@ public class MailUtil {
 
 		mailSender.send(message);
 
-		System.out.println("Mail Sent Successfully...!");
+		System.out.println("Mail Sent Successfully (SimpleMailMessage) ...!");
 	}
 }
