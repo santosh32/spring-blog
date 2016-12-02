@@ -5,8 +5,19 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- <context:property-placeholder location="classpath:mail.properties" /> -->
 
-	<!--<bean id="application"
-		class="in.spring4buddies.application.Application" />-->
+	<bean id="mailProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:mail.properties" />
+	</bean>
+
+	<bean id="appProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+				<value>classpath:database.properties</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>
