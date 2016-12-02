@@ -7,19 +7,19 @@ public class SimpleMailMessageCreator implements MailMessageCreator {
 
 	private MailSender mailSender;
 
-	public void setMailSender(MailSender mailSender) {
+	public void setMailSender(final MailSender mailSender) {
 		this.mailSender = mailSender;
 	}
 
 	@Override
-	public void sendMail(MailContent mailData) {
+	public void sendMail(final MailContent mailContent) {
 
 		SimpleMailMessage message = new SimpleMailMessage();
 
-		message.setFrom(mailData.getFrom());
-		message.setTo(mailData.getTo());
-		message.setSubject(mailData.getSubject());
-		message.setText(mailData.getContent());
+		message.setFrom(mailContent.getFrom());
+		message.setTo(mailContent.getTo());
+		message.setSubject(mailContent.getSubject());
+		message.setText(mailContent.getContent());
 
 		mailSender.send(message);
 
