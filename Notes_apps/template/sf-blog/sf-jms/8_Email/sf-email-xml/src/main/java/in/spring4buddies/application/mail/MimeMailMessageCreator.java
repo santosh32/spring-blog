@@ -25,7 +25,7 @@ public class MimeMailMessageCreator implements MailMessageCreator {
 				mimeMessage.setFrom(new InternetAddress(mailContent.getFrom()));
 				mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(mailContent.getTo()));
 				mimeMessage.setSubject(mailContent.getSubject());
-				mimeMessage.setText("Dear " + mailContent.getTo() + ", thank you for placing order. Your order number is 100");
+				mimeMessage.setText("Dear " + mailContent.getTo() + ", thank you for placing order.");
 			}
 		};
 
