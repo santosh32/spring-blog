@@ -6,6 +6,8 @@ import in.spring4buddies.application.mail.MimeMessageHelperCreator;
 import in.spring4buddies.application.mail.SimpleMailMessageCreator;
 import in.spring4buddies.application.mail.VelocityBasedMailMessageCreator;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,6 +16,7 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+//		ApplicationContext ctx = new AnnotationConfigApplicationContext(MailConfig.class);
 
 		SimpleMailMessageCreator simpleMailMessageCreator = context.getBean(SimpleMailMessageCreator.class);
 		MimeMailMessageCreator mimeMailMessageCreator = context.getBean(MimeMailMessageCreator.class);

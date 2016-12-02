@@ -7,7 +7,9 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MimeMailMessageCreator implements MailMessageCreator {
 
 	@Autowired
