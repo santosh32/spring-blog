@@ -24,8 +24,8 @@ public class Application {
 		mailContent.setSubject("Test Subject");
 		mailContent.setContent("Text Content");
 
-		simpleMailMessageCreator.sendMail(mailContent);
-		mimeMailMessageCreator.sendMail(mailContent);
+//		simpleMailMessageCreator.sendMail(mailContent);
+//		mimeMailMessageCreator.sendMail(mailContent);
 		mimeMessageHelperCreator.sendMail(mailContent);
 
 		((AbstractApplicationContext) context).close();
