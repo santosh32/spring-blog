@@ -7,6 +7,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.apache.velocity.app.VelocityEngine;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -15,8 +16,10 @@ import org.springframework.ui.velocity.VelocityEngineUtils;
 @SuppressWarnings("deprecation")
 public class VelocityBasedMailMessageCreator implements MailMessageCreator {
 
+	@Autowired
 	private JavaMailSender javaMailSender;
 
+	@Autowired
 	private VelocityEngine velocityEngine;
 
 	public void setMailSender(final JavaMailSender javaMailSender) {
