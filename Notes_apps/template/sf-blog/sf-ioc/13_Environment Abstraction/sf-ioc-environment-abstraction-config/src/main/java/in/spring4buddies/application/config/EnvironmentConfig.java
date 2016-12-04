@@ -4,42 +4,23 @@ import in.spring4buddies.application.properties.ApplicationProperties;
 import in.spring4buddies.application.properties.DatabaseProperties;
 import in.spring4buddies.application.properties.MailProperties;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan
 @PropertySources({ @PropertySource("classpath:application.properties"), @PropertySource("classpath:database.properties") })
-public class PropertyConfig {
+public class EnvironmentConfig {
 
-	@Value("${application.google.url}")
-	private String googleUrl;
-	@Value("${application.yahoo.url}")
-	private String yahooUrl;
-
-	@Value("${datasource.url}")
-	private String url;
-	@Value("${datasource.username}")
-	private String user;
-	@Value("${datasource.password}")
-	private String passcode;
-	@Value("${datasource.driver-class-name}")
-	private String drivername;
-
-	@Value("${mail.smtp.host}")
-	private String host;
-	@Value("${mail.smtp.port}")
-	private String port;
-	@Value("${mail.smtp.username}")
-	private String username;
-	@Value("${mail.smtp.password}")
-	private String password;
-
+	@Autowired
+	private Environment env;
+	
 //	@Bean
 //	public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
 //		PropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertyPlaceholderConfigurer();
@@ -73,28 +54,28 @@ public class PropertyConfig {
 	@Bean
 	public ApplicationProperties applicationProperties() {
 		ApplicationProperties applicationProperties = new ApplicationProperties();
-		applicationProperties.setGoogleUrl(googleUrl);
-		applicationProperties.setYahooUrl(yahooUrl);
+		applicationProperties.setGoogleUrl(env.getProperty("application.google.url"));
+		applicationProperties.setYahooUrl(env.getProperty("application.yahoo.url"));
 		return applicationProperties;
 	}
 
 	@Bean
 	public DatabaseProperties databaseProperties() {
 		DatabaseProperties databaseProperties = new DatabaseProperties();
-		databaseProperties.setUrl(url);
-		databaseProperties.setUser(user);
-		databaseProperties.setPasscode(passcode);
-		databaseProperties.setDrivername(drivername);
+		databaseProperties.setUrl(env.getProperty("datasource.url"));
+		databaseProperties.setUser(env.getProperty("datasource.username"));
+		databaseProperties.setPasscode(env.getProperty("datasource.password"));
+		databaseProperties.setDrivername(env.getProperty("datasource.driver-class-name"));
 		return databaseProperties;
 	}
-
+	
 	@Bean
 	public MailProperties mailProperties() {
 		MailProperties mailProperties = new MailProperties();
-		mailProperties.setHost(host);
-		mailProperties.setPort(port);
-		mailProperties.setUsername(username);
-		mailProperties.setPassword(password);
+		mailProperties.setHost(env.getProperty("mail.smtp.host"));
+		mailProperties.setPort(env.getProperty("mail.smtp.port"));
+		mailProperties.setUsername(env.getProperty("mail.smtp.username"));
+		mailProperties.setPassword(env.getProperty("mail.smtp.password"));
 		return mailProperties;
 	}
 }
