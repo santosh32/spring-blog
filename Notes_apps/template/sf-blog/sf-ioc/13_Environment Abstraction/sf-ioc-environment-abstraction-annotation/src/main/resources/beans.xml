@@ -12,12 +12,25 @@
 		location="classpath:application.properties, classpath:database.properties"
 		order="2" ignore-unresolvable="false" />
 
-	<context:annotation-config />
-	<context:component-scan base-package="in.spring4buddies.application.properties" />
-	<bean id="applicationFields"
-		class="in.spring4buddies.application.properties.ApplicationFields" />
+<!-- 	<context:annotation-config />
+	<context:component-scan base-package="in.spring4buddies.application.properties" /> -->
+	<bean id="applicationFields" class="in.spring4buddies.application.properties.ApplicationFields">
+		<property name="googleUrl" value="${application.google.url}" />
+		<property name="yahooUrl" value="${application.yahoo.url}" />
+	</bean>
 
-	<bean id="databaseFields" class="in.spring4buddies.application.properties.DatabaseFields" />
+	<bean id="databaseFields" class="in.spring4buddies.application.properties.DatabaseFields">
+		<property name="url" value="${datasource.url}" />
+		<property name="user" value="${datasource.username}" />
+		<property name="passcode" value="${datasource.password}" />
+		<property name="drivername" value="${datasource.driver-class-name}" />
+	</bean>
 
-	<bean id="mailFields" class="in.spring4buddies.application.properties.MailFields" />
+	<bean id="mailFields" class="in.spring4buddies.application.properties.MailFields">
+		<property name="host" value="${mail.smtp.host}" />
+		<property name="port" value="${mail.smtp.port}" />
+		<property name="username" value="${mail.smtp.username}" />
+		<property name="password" value="${mail.smtp.password}" />
+	</bean>
+
 </beans>
