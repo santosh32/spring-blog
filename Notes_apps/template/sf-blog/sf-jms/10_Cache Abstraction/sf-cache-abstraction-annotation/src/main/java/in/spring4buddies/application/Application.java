@@ -12,7 +12,7 @@ public class Application {
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(BuddiesCacheConfig.class);
 
 		ProductService service = (ProductService) context.getBean("productService");
 

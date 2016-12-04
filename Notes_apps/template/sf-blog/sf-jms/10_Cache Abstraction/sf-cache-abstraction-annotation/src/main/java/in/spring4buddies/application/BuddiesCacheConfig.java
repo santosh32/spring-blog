@@ -12,7 +12,7 @@ import org.springframework.core.io.ClassPathResource;
 @EnableCaching
 @Configuration
 @ComponentScan(basePackages = "in.spring4buddies.application")
-public class AppConfig {
+public class BuddiesCacheConfig {
 
 	// Suitable for basic use cases, no persistence capabilities or eviction  contracts.
 //	@Bean
