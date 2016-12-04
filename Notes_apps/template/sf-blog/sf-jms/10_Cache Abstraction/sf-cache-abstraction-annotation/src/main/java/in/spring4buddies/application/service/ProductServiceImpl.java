@@ -9,7 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
-@Service("productService")
+@Service("productServiceImpl")
 public class ProductServiceImpl implements ProductService {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);

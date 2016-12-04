@@ -1,5 +1,6 @@
 package in.spring4buddies.application;
 
+import in.spring4buddies.application.service.ProductService;
 import in.spring4buddies.application.service.ProductServiceImpl;
 
 import org.slf4j.Logger;
