@@ -13,6 +13,7 @@
 	</bean>
 
 	<bean id="appProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="ignoreUnresolvablePlaceholders" value="false"/>
 		<property name="locations">
 			<list>
 				<value>classpath:application.properties</value>
