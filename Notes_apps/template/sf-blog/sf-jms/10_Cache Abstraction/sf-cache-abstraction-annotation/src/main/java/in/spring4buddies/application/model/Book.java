@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Book implements Serializable {
 	private static final long serialVersionUID = -4456140130010381102L;
 	private String isbn;
-	private String title;
+	private String name;
 
-	public Book(String isbn, String title) {
+	public Book(String isbn, String name) {
 		this.isbn = isbn;
-		this.title = title;
+		this.name = name;
 	}
 
 	public String getIsbn() {
@@ -20,16 +20,17 @@ public class Book implements Serializable {
 		this.isbn = isbn;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Book{" + "isbn='" + isbn + '\'' + ", title='" + title + '\'' + '}';
+		return "Book [isbn=" + isbn + ", name=" + name + "]";
 	}
+
 }

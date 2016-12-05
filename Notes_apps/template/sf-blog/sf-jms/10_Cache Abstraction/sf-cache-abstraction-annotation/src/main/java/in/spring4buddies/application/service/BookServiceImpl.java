@@ -31,6 +31,14 @@ public class BookServiceImpl implements BookService {
 		return new Book(isbn, name);
 	}
 
+
+	@Override
+	@Cacheable(cacheNames = "getBookByIsbnAndBasedOnCondition", condition = "#name.length < 10")
+	public Book getBookByIsbnAndBasedOnCondition(String isbn, String name) {
+		logger.info("in getBookByIsbnAndBasedOnCondition({},{})", isbn, name);
+		return new Book(isbn, name);
+	}
+
 	public void slowLookupOperation() {
 		try {
 			long time = 5000L;
