@@ -41,4 +41,11 @@ public class BookServiceImpl implements BookService {
 		logger.info("in refreshAllBooks()");
 	}
 
+	@Override
+	public Book getBookByIsbnWithOutCachekey(String isbn, String name) {
+		slowLookupOperation();
+		logger.info("in getBookByIsbnWithOutCachekey({},{})", isbn, name);
+		return new Book(isbn, name);
+	}
+
 }
