@@ -29,7 +29,7 @@ public class AnnotationApplication {
 		logger.info("Book ->" + service.updateBook("isbn-300", "Spring 2"));
 		logger.info("Book ->" + service.updateBook("isbn-300", "Spring 3"));
 		
-		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC 1"));
+		logger.info("Book updateBook ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC 1"));
 
 
 		logger.info("Refreshing all Books");
@@ -44,6 +44,8 @@ public class AnnotationApplication {
 		logger.info("Book [after refresh]->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC- getBookByCacheKeyIsbn"));
 		
 		logger.info("Book ->" + service.updateBook("isbn-300", "Spring MVC - getBookByCacheKeyIsbn to Spring update 1"));
+		
+		logger.info("Book updateBook ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC 1"));
 
 		context.close();
 	}
