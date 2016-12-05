@@ -1,33 +1,32 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.service.ProductService;
-import in.spring4buddies.application.service.ProductServiceImpl;
+import in.spring4buddies.application.service.BookService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Application {
 
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-		ProductServiceImpl service =  context.getBean(ProductServiceImpl.class);
+		GenericXmlApplicationContext context = new GenericXmlApplicationContext("beans.xml");
 
-		logger.info("IPhone ->" + service.getByName("IPhone"));
-		logger.info("IPhone ->" + service.getByName("IPhone"));
-		logger.info("IPhone ->" + service.getByName("IPhone"));
-		
-		logger.info("Refreshing all products");
-		service.refreshAllProducts();
+		BookService service = context.getBean(BookService.class);
 
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
-		logger.info("IPhone [after refresh]->" + service.getByName("IPhone"));
+		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
 
-		((AbstractApplicationContext) context).close();
+		logger.info("Refreshing all Books");
+		service.refreshAllBooks();
+
+		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
+
+		context.close();
 	}
 }

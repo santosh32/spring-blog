@@ -7,17 +7,14 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="in.spring4buddies.application.service" />
-
-	<bean id="productServiceImpl" class="in.spring4buddies.application.service.ProductServiceImpl"/>
+	<context:component-scan base-package="in.spring4buddies.application.*" />
 
 	<cache:annotation-driven cache-manager="cacheManager" />
 
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
 		p:cache-manager-ref="ehcacheManager" />
 
-	<bean id="ehcacheManager"
-		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
 		p:config-location="classpath:ehcache.xml" p:shared="true" />
 
 </beans>
