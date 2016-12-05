@@ -9,4 +9,6 @@ public interface BookService {
 	Book getBookByCacheKeyIsbn(String isbn, String name);
 
 	void refreshAllBooks();
+
+	Book updateBook(String isbn, String name);
 }
