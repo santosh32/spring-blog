@@ -6,9 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class Application {
+public class ComplexApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(Application.class);
+	private static final Logger logger = LoggerFactory.getLogger(ComplexApplication.class);
 
 	public static void main(String[] args) {
 
@@ -19,11 +19,15 @@ public class Application {
 		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
 		logger.info("Book ->" + service.getBookByIsbn("isbn-200", "Spring Boot"));
 		logger.info("Book ->" + service.getBookByIsbn("isbn-300", "Spring MVC"));
+		
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-200", "Spring Boot"));
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC"));
+		// observe carefully
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring 1"));
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring 2"));
+		logger.info("Book ->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring 3"));
 
-		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
-		logger.info("Book ->" + service.getBookByIsbn("isbn-200", "Spring Boot"));
-		logger.info("Book ->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
-		logger.info("Book ->" + service.getBookByIsbn("isbn-300", "Spring MVC"));
 
 		logger.info("Refreshing all Books");
 		service.refreshAllBooks();
@@ -32,10 +36,9 @@ public class Application {
 		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-200", "Spring Boot"));
 		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-300", "Spring MVC"));
 
-		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
-		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-200", "Spring Boot"));
-		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-100", "Spring Framework"));
-		logger.info("Book [after refresh]->" + service.getBookByIsbn("isbn-300", "Spring MVC"));
+		logger.info("Book [after refresh]->" + service.getBookByCacheKeyIsbn("isbn-100", "Spring Framework"));
+		logger.info("Book [after refresh]->" + service.getBookByCacheKeyIsbn("isbn-200", "Spring Boot"));
+		logger.info("Book [after refresh]->" + service.getBookByCacheKeyIsbn("isbn-300", "Spring MVC"));
 
 		context.close();
 	}

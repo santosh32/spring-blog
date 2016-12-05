@@ -21,6 +21,14 @@ public class BookServiceImpl implements BookService {
 		return new Book(isbn, name);
 	}
 
+	@Override
+	@Cacheable(cacheNames = "getBookByCacheKeyIsbn", key = "#isbn")
+	public Book getBookByCacheKeyIsbn(String isbn, String name) {
+		slowLookupOperation();
+		logger.info("in getBookByCacheKeyIsbn({},{})", isbn, name);
+		return new Book(isbn, name);
+	}
+
 	public void slowLookupOperation() {
 		try {
 			long time = 5000L;
@@ -33,7 +41,7 @@ public class BookServiceImpl implements BookService {
 	@CacheEvict(value = "getBookByIsbn", allEntries = true)
 	// @Caching (evict = { @CacheEvict(value= "books", allEntries=true) })
 	public void refreshAllBooks() {
-		// This method will remove all 'products' from cache, say as a result of
+		// This method will remove all 'books' from cache, say as a result of
 		// flush API call.
 		logger.info("in refreshAllBooks()");
 	}

@@ -6,5 +6,7 @@ public interface BookService {
 
 	Book getBookByIsbn(String isbn, String name);
 
+	Book getBookByCacheKeyIsbn(String isbn, String name);
+
 	void refreshAllBooks();
 }
