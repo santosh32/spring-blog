@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.spring4buddies.application</groupId>
-    <artifactId>sf-jms-2_jmstemplate-annotation</artifactId>
+    <artifactId>sf-jmstemplate-xml</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sf-jms-2_jmstemplate-annotation</name>
+    <name>sf-jmstemplate-xml</name>
     <properties>
         <jdk.version>1.7</jdk.version>
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
