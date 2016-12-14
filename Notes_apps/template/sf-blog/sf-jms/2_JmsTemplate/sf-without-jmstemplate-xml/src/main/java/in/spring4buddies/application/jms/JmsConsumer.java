@@ -1,7 +1,5 @@
 package in.spring4buddies.application.jms;
 
-import java.net.URISyntaxException;
-
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.MessageConsumer;
@@ -13,16 +11,17 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JmsConsumer {
+public class JmsConsumer extends JmsHelper {
+
 	public void consumer() throws Exception {
 
-		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(getBrokerUrl());
 		Connection connection = connectionFactory.createConnection();
 		connection.start();
 
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		try {
-			Queue queue = session.createQueue("CUSTOMER_QUEUE");
+			Queue queue = session.createQueue(getCustomerQueue());
 
 			// Consumer
 			MessageConsumer consumer = session.createConsumer(queue);

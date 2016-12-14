@@ -23,11 +23,7 @@ public class Application {
 		JmsProducer jmsProducer = applicationContext.getBean(JmsProducer.class);
 		JmsConsumer jmsConsumer = applicationContext.getBean(JmsConsumer.class);
 
-		
-		for (int i = 1; i <= 3; i++) {
-			jmsProducer.produce(i);
-//			Thread.sleep(5000);
-		}
+		jmsProducer.produce();
 
 		jmsConsumer.consumer();
 

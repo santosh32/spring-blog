@@ -11,19 +11,19 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JmsProducer {
+public class JmsProducer extends JmsHelper {
 
-	public void produce(int count) throws Exception {
-		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616");
+	public void produce() throws Exception {
+		ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(getBrokerUrl());
 		Connection connection = connectionFactory.createConnection();
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		try {
 			// Producer
-			Queue queue = session.createQueue("CUSTOMER_QUEUE");
+			Queue queue = session.createQueue(getCustomerQueue());
 
 			MessageProducer producer = session.createProducer(queue);
 
-			String payload = "SomeTask : " + count;
+			String payload = "SomeTask  ";
 			Message msg = session.createTextMessage(payload);
 
 			System.out.println("Sending text '" + payload + "'");
