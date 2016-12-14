@@ -23,7 +23,7 @@ public class JmsProducer {
 
 		this.jmsTemplate.send(new MessageCreator() {
 			public Message createMessage(Session session) throws JMSException {
-				return session.createTextMessage("Msg Sent Using JmsTemplate ");
+				return session.createTextMessage("Msg Using JmsTemplate and Spring annotations");
 			}
 		});
 	}
