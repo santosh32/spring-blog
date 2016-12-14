@@ -25,5 +25,4 @@
 		<property name="defaultDestination" ref="destination" />
 	</bean>
 
-
 </beans>
