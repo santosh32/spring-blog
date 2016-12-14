@@ -1,7 +1,8 @@
 package in.spring4buddies.application.jms;
 
+import javax.jms.TextMessage;
+
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.messaging.Message;
 
 public class JmsConsumer {
 
@@ -11,10 +12,10 @@ public class JmsConsumer {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	public void consumer() {
+	public void consumer() throws Exception {
 
-		Message message = (Message) jmsTemplate.receive();
+		TextMessage message = (TextMessage) jmsTemplate.receive();
 
-		System.out.println("Received: " + message.getPayload());
+		System.out.println("Received: " + message.getText());
 	}
 }
