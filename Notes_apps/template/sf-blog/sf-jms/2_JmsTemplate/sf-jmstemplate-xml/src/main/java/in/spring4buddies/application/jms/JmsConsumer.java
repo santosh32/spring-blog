@@ -1,15 +1,7 @@
 package in.spring4buddies.application.jms;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.MessageConsumer;
-import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.messaging.Message;
 
 public class JmsConsumer {
 
@@ -19,11 +11,10 @@ public class JmsConsumer {
 		this.jmsTemplate = jmsTemplate;
 	}
 
-	public void consumer() throws Exception {
+	public void consumer() {
 
-		TextMessage textMsg = new TextMessage();
+		Message message = (Message) jmsTemplate.receive();
 
-		System.out.println(textMsg);
-		System.out.println("Received: " + textMsg.getText());
+		System.out.println("Received: " + message.getPayload());
 	}
 }
