@@ -62,7 +62,7 @@
 						<goals>
 							<goal>run</goal>
 						</goals>
-						<phase>process-test-classes</phase> <!-- or other phase before the test phase -->
+						<phase>process-test-classes</phase>
 					</execution>
 				</executions>
 			</plugin>

@@ -5,8 +5,25 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:annotation-config />
+	
+	<context:component-scan base-package="in.spring4buddies.application.*" />
+	
+	<context:property-placeholder
+		ignore-unresolvable="true" ignore-resource-not-found="false"
+		location="classpath:activemq.properties" />
 
-	<!--<bean id="application"
-		class="in.spring4buddies.application.Application" />-->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${broker.url}" />
+	</bean>
+	<bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="${cutomer.queue}" />
+	</bean>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="destination" />
+	</bean>
+
 
 </beans>
