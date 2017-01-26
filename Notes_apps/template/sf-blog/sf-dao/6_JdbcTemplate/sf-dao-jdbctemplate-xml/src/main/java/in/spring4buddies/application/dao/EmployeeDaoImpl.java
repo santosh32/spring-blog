@@ -1,5 +1,7 @@
 package in.spring4buddies.application.dao;
 
+import java.util.List;
+
 import in.spring4buddies.application.model.Employee;
 
 import javax.sql.DataSource;
@@ -42,5 +44,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		Object[] inputs = new Object[] { empId };
 		Employee employee = jdbcTemplate.queryForObject(query, inputs, new EmployeeRowMapper());
 		return employee;
+	}
+
+	@Override
+	public List<Employee> findAll() {
+		String query = "select * from employee";
+		List<Employee> employees = jdbcTemplate.query(query, new EmployeeRowMapper());
+		return employees;
 	}
 }

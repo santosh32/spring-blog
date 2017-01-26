@@ -40,8 +40,12 @@ public class Application {
 		empDao.removeEmployee(1);
 
 		System.out.println(" *****  Select employee by id ******");
-		employee = empDao.findEmployeeById(1);
-		System.out.println(employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
+		try {
+			employee = empDao.findEmployeeById(1);
+			System.out.println(employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
+		} catch (Exception e) {
+			System.out.println("No Records found ? ");
+		}
 
 		context.close();
 	}
