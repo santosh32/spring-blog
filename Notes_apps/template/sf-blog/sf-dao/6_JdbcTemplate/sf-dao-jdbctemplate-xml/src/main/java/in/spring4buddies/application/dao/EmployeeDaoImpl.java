@@ -12,32 +12,35 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	private JdbcTemplate jdbcTemplate;
 
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
 	public void insertEmployee(Employee emp) {
-		String query = "insert into employee (name,salary,dept) values (?,?,?)";
-		jdbcTemplate = new JdbcTemplate(dataSource);
-		Object[] inputs = new Object[] { emp.getName(), emp.getSalary(), emp.getDept() };
+		String query = "insert into employee (emp_id, name, salary, dept) values (?, ?, ?, ?)";
+		Object[] inputs = new Object[] { emp.getEmpId(), emp.getName(), emp.getSalary(), emp.getDept() };
 		jdbcTemplate.update(query, inputs);
 	}
 
 	@Override
 	public void updateEmployee(Employee emp) {
-		// TODO Auto-generated method stub
-
+		String query = "update employee set salary = ? where emp_id = ?";
+		Object[] inputs = new Object[] { emp.getSalary(), emp.getEmpId() };
+		jdbcTemplate.update(query, inputs);
 	}
 
 	@Override
 	public void removeEmployee(int empId) {
-		// TODO Auto-generated method stub
-
+		String query = "delete from employee where emp_id = ?";
+		Object[] inputs = new Object[] { empId };
+		jdbcTemplate.update(query, inputs);
 	}
 
 	@Override
 	public Employee findEmployeeById(int empId) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "select * from employee where emp_id=?";
+		Object[] inputs = new Object[] { empId };
+		Employee employee = jdbcTemplate.queryForObject(query, inputs, new EmployeeRowMapper());
+		return employee;
 	}
 }
