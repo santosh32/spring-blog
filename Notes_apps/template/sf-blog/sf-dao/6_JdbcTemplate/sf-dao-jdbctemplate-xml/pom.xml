@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>in.spring4buddies.application</groupId>
 	<artifactId>sf-dao-jdbctemplate-xml</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	
 	<name>sf-dao-jdbctemplate-xml</name>
+	
 	<properties>
 		<jdk.version>1.7</jdk.version>
 		<spring.boot.version>1.4.0.RELEASE</spring.boot.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<oracle.version>11.2.0.2.0</oracle.version>
 	</properties>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.0.RELEASE</version>
 	</parent>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -27,6 +32,7 @@
 			<version>${oracle.version}</version>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
