@@ -13,8 +13,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
-import scala.annotation.meta.setter;
-
 public class CustomerDaoImpl implements CustomerDao {
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
