@@ -1,7 +1,7 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.dao.EmployeeDao;
-import in.spring4buddies.application.model.Employee;
+import in.spring4buddies.application.dao.CustomerDao;
+import in.spring4buddies.application.model.Customer;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public class BeanPropertyRowMapperEx {
 		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		EmployeeDao empDao = (EmployeeDao) context.getBean("employeeDao");
+		CustomerDao customerDao = (CustomerDao) context.getBean("customerDao");
 
-		System.out.println(" *****  Select employees ******");
-		List<Employee> employees = empDao.findAll();
-		for (Employee employee : employees) {
-			System.out.println(employee.getName() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
+		System.out.println(" *****  Select customer ******");
+		List<Customer> customers = customerDao.findAll();
+		for (Customer customer : customers) {
+			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
 
 		context.close();
