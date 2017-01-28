@@ -1,6 +1,8 @@
 package in.spring4buddies.application;
 
+import in.spring4buddies.application.dao.CustomerDao;
 import in.spring4buddies.application.dao.EmployeeDao;
+import in.spring4buddies.application.model.Customer;
 import in.spring4buddies.application.model.Employee;
 
 import java.util.List;
@@ -15,17 +17,7 @@ public class MultiRecords {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
 		EmployeeDao empDao = (EmployeeDao) context.getBean("employeeDao");
-
-		System.out.println(" *****  Insert new employees ******");
-		for (int i = 1; i <= 10; i++) {
-			Employee newEmployee = new Employee();
-			newEmployee.setEmpId(i);
-			newEmployee.setDept("DB " + i);
-			newEmployee.setName("Garav " + i);
-			newEmployee.setSalary(1000 + i);
-			System.out.println(" *****  Insert new employee ****** " + i);
-			empDao.insertEmployee(newEmployee);
-		}
+		CustomerDao customerDao = (CustomerDao) context.getBean("customerDao");
 
 		System.out.println(" *****  Select employees ******");
 		List<Employee> employees = empDao.findAll();
@@ -33,6 +25,11 @@ public class MultiRecords {
 			System.out.println(employee.getEmpId() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 		}
 
+		System.out.println(" *****  Select customer using ResultSetExtractor() ******");
+		List<Customer> customers = customerDao.findCustomerByDept_query_ResultSetExtractor("DBA");
+		for (Customer customer : customers) {
+			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
+		}
 		context.close();
 	}
 }

@@ -19,6 +19,6 @@ INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (6,'Franklin',1006,'hr');
 INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (7,'Martin',1007,'DBA');
 INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (8,'Douglas',1008,'back office');
 INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (9,'Frederick',1009,'DBA');
-INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (10,'David ',1010,'sales');
+INSERT INTO customer (cust_id,NAME,salary,dept) VALUES (10,'David',1010,'sales');
 
 COMMIT;

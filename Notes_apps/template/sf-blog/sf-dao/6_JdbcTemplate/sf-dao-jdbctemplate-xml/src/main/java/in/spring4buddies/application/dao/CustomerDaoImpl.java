@@ -47,4 +47,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		return jdbcTemplate.queryForMap(query, args);
 	}
 
+	@Override
+	public List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept) {
+		String query = "select * from Customer where dept=?";
+		Object[] args = new Object[] { dept };
+		return jdbcTemplate.query(query, args, new CustomerResultSetExtractor());
+	}
+
 }

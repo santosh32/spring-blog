@@ -15,4 +15,6 @@ public interface CustomerDao {
 
 	Map<String, Object> findCustomerByName_queryForMap(String name);
 
+	List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept);
+
 }
