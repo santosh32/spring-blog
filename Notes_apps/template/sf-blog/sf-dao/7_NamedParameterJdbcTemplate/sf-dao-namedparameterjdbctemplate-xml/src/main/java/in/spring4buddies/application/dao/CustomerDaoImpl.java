@@ -1,8 +1,6 @@
 package in.spring4buddies.application.dao;
 
-import in.spring4buddies.application.dao.helper.CustomerPreparedStatementCallback;
 import in.spring4buddies.application.dao.helper.CustomerResultSetExtractor;
-import in.spring4buddies.application.dao.helper.CustomerRowCallbackHandler;
 import in.spring4buddies.application.model.Customer;
 
 import java.util.HashMap;
@@ -10,7 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+
+import scala.annotation.meta.setter;
 
 public class CustomerDaoImpl implements CustomerDao {
 
@@ -34,15 +37,16 @@ public class CustomerDaoImpl implements CustomerDao {
 		String query = "select * from Customer where dept=:dept";
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("dept", dept);
-		return namedParameterJdbcTemplate.queryForList(query, parameters);
+		SqlParameterSource paramSource = new MapSqlParameterSource(parameters);
+		return namedParameterJdbcTemplate.queryForList(query, paramSource);
 	}
 
 	@Override
 	public Map<String, Object> findCustomerByName_queryForMap(String name) {
 		String query = "select * from Customer where name like :name";
-		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("name", name);
-		return namedParameterJdbcTemplate.queryForMap(query, parameters);
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		paramSource.addValue("name", name);
+		return namedParameterJdbcTemplate.queryForMap(query, paramSource);
 	}
 
 	@Override
@@ -55,9 +59,12 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept) {
 		String query = "select * from Customer where dept=:dept";
-		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("dept", dept);
-		return namedParameterJdbcTemplate.query(query, parameters, new CustomerResultSetExtractor());
+		
+		Customer customer = new Customer();
+		customer.setDept(dept);
+		BeanPropertySqlParameterSource beanParamSource = new BeanPropertySqlParameterSource(customer);
+
+		return namedParameterJdbcTemplate.query(query, beanParamSource, new CustomerResultSetExtractor());
 	}
 
 }

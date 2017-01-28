@@ -27,7 +27,7 @@ public class ExploreQueryApi {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
 
-		System.out.println(" *****  Select customer using queryForList() ******");
+		System.out.println(" *****  Select customer using queryForList() : MapSqlParameterSource******");
 		List<Map<String, Object>> list = customerDao.findCustomerByDept_queryForList("DBA");
 		for (Map<String, Object> row : list) {
 			System.out.println(row.get("cust_id") + " | " + row.get("name") + " | " + row.get("salary") + " | " + row.get("dept"));
