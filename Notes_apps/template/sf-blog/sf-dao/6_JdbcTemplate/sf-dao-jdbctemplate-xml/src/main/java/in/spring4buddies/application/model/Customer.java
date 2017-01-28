@@ -11,6 +11,9 @@ public class Customer {
 		return cust_Id;
 	}
 
+	public Customer() {
+	}
+
 	public Customer(int cust_Id, String name, int salary, String dept) {
 		super();
 		this.cust_Id = cust_Id;

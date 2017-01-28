@@ -1,20 +1,17 @@
 package in.spring4buddies.application.dao;
 
-import java.util.List;
-
 import in.spring4buddies.application.model.Employee;
 
-import javax.sql.DataSource;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
-	public void setDataSource(DataSource dataSource) {
-		jdbcTemplate = new JdbcTemplate(dataSource);
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	@Override
