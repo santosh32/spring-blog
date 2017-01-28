@@ -32,30 +32,6 @@ public class ExploreCallbackHandlerApi {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
 
-		System.out.println(" *****  Select customer using PreparedStatementCallback() ******");
-		customers = customerDao.findCustomerBySalary_query_PreparedStatementCallback(1005);
-		for (Customer customer : customers) {
-			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
-		}
-
-		System.out.println(" *****  Select customer using RowCallbackHandler() ******");
-		customers = customerDao.findCustomerBySalary_query_RowCallbackHandler(1005);
-		for (Customer customer : customers) {
-			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
-		}
-
-		System.out.println(" *****  insert customer using PreparedStatementCreator() ******");
-		int cust_id = RandomUtils.nextInt(10, 100);
-		customerDao.insertCustomer_PreparedStatementCreator(new Customer(cust_id, "Joseph", 10000, "VP"));
-
-		System.out.println(customerDao.findCustomerById_queryForObject(cust_id));
-
-		System.out.println(" *****  insert customer using PreparedStatementSetter() ******");
-		cust_id = RandomUtils.nextInt(10, 100);
-		customerDao.insertCustomer_PreparedStatementSetter(new Customer(cust_id, "Greg", 10000, "SVP"));
-
-		System.out.println(customerDao.findCustomerById_queryForObject(cust_id));
-
 		context.close();
 	}
 }

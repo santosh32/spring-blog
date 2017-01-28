@@ -3,6 +3,7 @@ package in.spring4buddies.application;
 import in.spring4buddies.application.dao.EmployeeDao;
 import in.spring4buddies.application.model.Employee;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,32 +17,33 @@ public class ExploreCurdApi {
 
 		System.out.println(" *****  Insert new employee ******");
 		Employee newEmployee = new Employee();
-		newEmployee.setEmpId(1);
+		int empId = RandomUtils.nextInt(10, 100);
+		newEmployee.setEmpId(empId);
 		newEmployee.setDept("DB");
 		newEmployee.setName("Garav");
 		newEmployee.setSalary(1000);
 		empDao.insertEmployee(newEmployee);
 
 		System.out.println(" *****  Select employee by id ******");
-		Employee employee = empDao.findEmployeeById(1);
-		System.out.println(employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
+		Employee employee = empDao.findEmployeeById(empId);
+		System.out.println(employee.getEmpId() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 
 		System.out.println(" *****  Update employee ******");
 		Employee updateEmployee = new Employee();
-		updateEmployee.setEmpId(1);
+		updateEmployee.setEmpId(empId);
 		updateEmployee.setSalary(2000);
 		empDao.updateEmployee(updateEmployee);
 
 		System.out.println(" *****  Select employee by id ******");
-		employee = empDao.findEmployeeById(1);
+		employee = empDao.findEmployeeById(empId);
 		System.out.println(employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 
 		System.out.println(" *****  Delete employee ******");
-		empDao.removeEmployee(1);
+		empDao.removeEmployee(empId);
 
 		System.out.println(" *****  Select employee by id ******");
 		try {
-			employee = empDao.findEmployeeById(1);
+			employee = empDao.findEmployeeById(empId);
 			System.out.println(employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 		} catch (Exception e) {
 			System.out.println("No Records found ? ");
