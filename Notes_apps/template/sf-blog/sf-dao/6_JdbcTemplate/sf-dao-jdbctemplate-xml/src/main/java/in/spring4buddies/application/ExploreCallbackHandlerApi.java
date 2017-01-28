@@ -6,7 +6,6 @@ import in.spring4buddies.application.model.Customer;
 import in.spring4buddies.application.model.Employee;
 
 import java.util.List;
-import java.util.Random;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
