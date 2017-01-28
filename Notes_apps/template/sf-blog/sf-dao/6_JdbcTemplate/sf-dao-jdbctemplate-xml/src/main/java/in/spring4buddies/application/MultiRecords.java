@@ -30,7 +30,7 @@ public class MultiRecords {
 		System.out.println(" *****  Select employees ******");
 		List<Employee> employees = empDao.findAll();
 		for (Employee employee : employees) {
-			System.out.println(employee.getName() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
+			System.out.println(employee.getEmpId() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 		}
 
 		context.close();
