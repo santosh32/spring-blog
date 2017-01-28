@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MultiRecords {
+public class CallbackHandlerApi {
 
 	public static void main(String[] args) throws Exception {
 		String confFile = "beans.xml";
@@ -19,8 +19,8 @@ public class MultiRecords {
 		EmployeeDao empDao = (EmployeeDao) context.getBean("employeeDao");
 		CustomerDao customerDao = (CustomerDao) context.getBean("customerDao");
 
-		System.out.println(" *****  Select employees ******");
-		List<Employee> employees = empDao.findAll();
+		System.out.println(" *****  Select employees using RowMapper ******");
+		List<Employee> employees = empDao.findAll_query_RowMapper();
 		for (Employee employee : employees) {
 			System.out.println(employee.getEmpId() + " | " + employee.getName() + " | " + employee.getSalary() + " | " + employee.getDept());
 		}
@@ -30,6 +30,13 @@ public class MultiRecords {
 		for (Customer customer : customers) {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
+
+		System.out.println(" *****  Select customer using PreparedStatementCallback() ******");
+		customers = customerDao.findCustomerByDept_query_PreparedStatementCallback("DBA");
+		for (Customer customer : customers) {
+			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
+		}
+
 		context.close();
 	}
 }

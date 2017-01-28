@@ -22,7 +22,7 @@ public class ExploreQueryApi {
 		System.out.println(cust.getCust_Id() + " | " + cust.getName() + " | " + cust.getSalary() + " | " + cust.getDept());
 
 		System.out.println(" *****  Select customer using query(): BeanPropertyRowMapper ******");
-		List<Customer> customers = customerDao.findAll_query();
+		List<Customer> customers = customerDao.findAll_query_BeanPropertyRowMapper();
 		for (Customer customer : customers) {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}

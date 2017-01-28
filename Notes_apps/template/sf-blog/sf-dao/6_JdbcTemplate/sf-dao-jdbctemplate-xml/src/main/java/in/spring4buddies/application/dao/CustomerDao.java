@@ -9,12 +9,14 @@ public interface CustomerDao {
 
 	Customer findCustomerById_queryForObject(int custId);
 
-	List<Customer> findAll_query();
+	List<Customer> findAll_query_BeanPropertyRowMapper();
 
 	List<Map<String, Object>> findCustomerByDept_queryForList(String dept);
 
 	Map<String, Object> findCustomerByName_queryForMap(String name);
 
 	List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept);
+
+	List<Customer> findCustomerByDept_query_PreparedStatementCallback(String dept);
 
 }

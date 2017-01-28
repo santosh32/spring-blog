@@ -1,4 +1,4 @@
-package in.spring4buddies.application.dao;
+package in.spring4buddies.application.dao.helper;
 
 import in.spring4buddies.application.model.Customer;
 

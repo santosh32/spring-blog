@@ -1,5 +1,7 @@
 package in.spring4buddies.application.dao;
 
+import in.spring4buddies.application.dao.helper.CustomerPreparedStatementCallback;
+import in.spring4buddies.application.dao.helper.CustomerResultSetExtractor;
 import in.spring4buddies.application.model.Customer;
 
 import java.util.List;
@@ -25,13 +27,6 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public List<Customer> findAll_query() {
-		String query = "select * from Customer";
-		List<Customer> customers = jdbcTemplate.query(query, new BeanPropertyRowMapper<Customer>(Customer.class));
-		return customers;
-	}
-
-	@Override
 	public List<Map<String, Object>> findCustomerByDept_queryForList(String dept) {
 		String query = "select * from Customer where dept=?";
 		Object[] args = new Object[] { dept };
@@ -46,10 +41,23 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
+	public List<Customer> findAll_query_BeanPropertyRowMapper() {
+		String query = "select * from Customer";
+		List<Customer> customers = jdbcTemplate.query(query, new BeanPropertyRowMapper<Customer>(Customer.class));
+		return customers;
+	}
+
+	@Override
 	public List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept) {
 		String query = "select * from Customer where dept=?";
 		Object[] args = new Object[] { dept };
 		return jdbcTemplate.query(query, args, new CustomerResultSetExtractor());
+	}
+
+	@Override
+	public List<Customer> findCustomerByDept_query_PreparedStatementCallback(String dept) {
+		String query = "select * from Customer where dept='" + dept + "'";
+		return jdbcTemplate.execute(query, new CustomerPreparedStatementCallback());
 	}
 
 }

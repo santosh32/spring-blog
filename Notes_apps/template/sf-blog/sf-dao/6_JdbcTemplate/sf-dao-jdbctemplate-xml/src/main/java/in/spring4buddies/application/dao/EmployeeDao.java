@@ -14,6 +14,6 @@ public interface EmployeeDao {
 
 	Employee findEmployeeById(int empId);
 
-	List<Employee> findAll();
+	List<Employee> findAll_query_RowMapper();
 
 }
