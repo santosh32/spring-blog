@@ -2,6 +2,7 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.dao.helper.CustomerPreparedStatementCallback;
 import in.spring4buddies.application.dao.helper.CustomerResultSetExtractor;
+import in.spring4buddies.application.dao.helper.CustomerRowCallbackHandler;
 import in.spring4buddies.application.model.Customer;
 
 import java.util.List;
@@ -55,9 +56,18 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public List<Customer> findCustomerByDept_query_PreparedStatementCallback(String dept) {
-		String query = "select * from Customer where dept='" + dept + "'";
+	public List<Customer> findCustomerBySalary_query_PreparedStatementCallback(int salary) {
+		String query = "select * from Customer where salary > " + salary;
 		return jdbcTemplate.execute(query, new CustomerPreparedStatementCallback());
+	}
+
+	@Override
+	public List<Customer> findCustomerBySalary_query_RowCallbackHandler(int salary) {
+		String query = "select * from Customer where salary < ?";
+		Object[] args = new Object[] { salary };
+		CustomerRowCallbackHandler callbackHandler = new CustomerRowCallbackHandler();
+		jdbcTemplate.query(query, args, callbackHandler);
+		return callbackHandler.getCustomers();
 	}
 
 }

@@ -32,11 +32,17 @@ public class CallbackHandlerApi {
 		}
 
 		System.out.println(" *****  Select customer using PreparedStatementCallback() ******");
-		customers = customerDao.findCustomerByDept_query_PreparedStatementCallback("DBA");
+		customers = customerDao.findCustomerBySalary_query_PreparedStatementCallback(1005);
 		for (Customer customer : customers) {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
 
+		System.out.println(" *****  Select customer using RowCallbackHandler() ******");
+		customers = customerDao.findCustomerBySalary_query_RowCallbackHandler(1005);
+		for (Customer customer : customers) {
+			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
+		}
+		
 		context.close();
 	}
 }
