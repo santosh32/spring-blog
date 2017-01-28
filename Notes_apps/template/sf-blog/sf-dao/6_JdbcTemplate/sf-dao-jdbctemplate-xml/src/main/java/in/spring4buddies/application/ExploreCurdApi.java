@@ -6,7 +6,7 @@ import in.spring4buddies.application.model.Employee;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class CurdApi {
+public class ExploreCurdApi {
 
 	public static void main(String[] args) throws Exception {
 		String confFile = "beans.xml";

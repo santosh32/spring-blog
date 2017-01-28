@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class CallbackHandlerApi {
+public class ExploreCallbackHandlerApi {
 
 	public static void main(String[] args) throws Exception {
 		String confFile = "beans.xml";
