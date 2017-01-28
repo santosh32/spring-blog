@@ -6,7 +6,9 @@ import in.spring4buddies.application.model.Customer;
 import in.spring4buddies.application.model.Employee;
 
 import java.util.List;
+import java.util.Random;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -42,7 +44,19 @@ public class ExploreCallbackHandlerApi {
 		for (Customer customer : customers) {
 			System.out.println(customer.getCust_Id() + " | " + customer.getName() + " | " + customer.getSalary() + " | " + customer.getDept());
 		}
-		
+
+		System.out.println(" *****  insert customer using PreparedStatementCreator() ******");
+		int cust_id = RandomUtils.nextInt(10, 100);
+		customerDao.insertCustomer_PreparedStatementCreator(new Customer(cust_id, "Joseph", 10000, "VP"));
+
+		System.out.println(customerDao.findCustomerById_queryForObject(cust_id));
+
+		System.out.println(" *****  insert customer using PreparedStatementSetter() ******");
+		cust_id = RandomUtils.nextInt(10, 100);
+		customerDao.insertCustomer_PreparedStatementSetter(new Customer(cust_id, "Greg", 10000, "SVP"));
+
+		System.out.println(customerDao.findCustomerById_queryForObject(cust_id));
+
 		context.close();
 	}
 }

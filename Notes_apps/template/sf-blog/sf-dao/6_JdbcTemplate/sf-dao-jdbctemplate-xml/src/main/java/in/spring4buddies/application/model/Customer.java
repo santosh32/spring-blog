@@ -49,4 +49,10 @@ public class Customer {
 	public void setDept(String dept) {
 		this.dept = dept;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [cust_Id=" + cust_Id + ", name=" + name + ", salary=" + salary + ", dept=" + dept + "]";
+	}
+
 }

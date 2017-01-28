@@ -18,7 +18,11 @@ public interface CustomerDao {
 	List<Customer> findCustomerByDept_query_ResultSetExtractor(String dept);
 
 	List<Customer> findCustomerBySalary_query_PreparedStatementCallback(int salary);
-	
+
 	List<Customer> findCustomerBySalary_query_RowCallbackHandler(int salary);
+
+	void insertCustomer_PreparedStatementCreator(Customer customer);
+
+	void insertCustomer_PreparedStatementSetter(final Customer customer);
 
 }
