@@ -3,17 +3,16 @@ package in.spring4buddies.application.dao;
 import in.spring4buddies.application.model.Customer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomerDao {
 
-	void insertCustomer(Customer customer);
+	Customer findCustomerById_queryForObject(int custId);
 
-	void updateCustomer(Customer customer);
+	List<Customer> findAll_query();
 
-	void removeCustomer(int custId);
+	List<Map<String, Object>> findCustomerByDept_queryForList(String dept);
 
-	Customer findCustomerById(int custId);
-
-	List<Customer> findAll();
+	Map<String, Object> findCustomerByName_queryForMap(String name);
 
 }

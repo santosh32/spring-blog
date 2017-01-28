@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 public class EmployeeRowMapper implements RowMapper<Employee> {
+	
 	public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Employee employee = new Employee();
 		employee.setEmpId(rs.getInt("EMP_ID"));
