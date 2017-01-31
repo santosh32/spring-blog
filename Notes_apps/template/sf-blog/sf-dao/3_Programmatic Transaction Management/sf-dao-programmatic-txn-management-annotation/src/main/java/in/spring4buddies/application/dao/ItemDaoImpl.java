@@ -13,8 +13,10 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 public class ItemDaoImpl implements ItemDao {
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+
 	@Autowired
 	PlatformTransactionManager transactionManager;
 
@@ -30,7 +32,7 @@ public class ItemDaoImpl implements ItemDao {
 		TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
 		TransactionStatus transactionStatus = transactionManager.getTransaction(transactionDefinition);
 		try {
-			String sql = "INSERT INTO items(item_id, item_name, item_desc, item_price) VALUES (?, ?, ?, ?);";
+			String sql = "INSERT INTO items(item_id, item_name, item_desc, item_price) VALUES (?, ?, ?, ?)";
 			jdbcTemplate.update(sql, new Object[] { item.getItemId(), item.getItemName(), item.getItemDesc(), item.getItemPrice() });
 			transactionManager.commit(transactionStatus);
 		} catch (Exception ex) {
@@ -43,7 +45,7 @@ public class ItemDaoImpl implements ItemDao {
 		TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
 		TransactionStatus transactionStatus = transactionManager.getTransaction(transactionDefinition);
 		try {
-			String sql = "UPDATE items SET item_name=?, item_desc=?, item_price=? WHERE item_id=?;";
+			String sql = "UPDATE items SET item_name=?, item_desc=?, item_price=? WHERE item_id=?";
 			jdbcTemplate.update(sql, new Object[] { item.getItemName(), item.getItemDesc(), item.getItemPrice(), item.getItemId() });
 			transactionManager.commit(transactionStatus);
 		} catch (Exception ex) {
@@ -56,7 +58,7 @@ public class ItemDaoImpl implements ItemDao {
 		TransactionDefinition transactionDefinition = new DefaultTransactionDefinition(TransactionDefinition.PROPAGATION_REQUIRED);
 		TransactionStatus transactionStatus = transactionManager.getTransaction(transactionDefinition);
 		try {
-			String sql = "DELETE FROM items WHERE item_id=?;";
+			String sql = "DELETE FROM items WHERE item_id=?";
 			jdbcTemplate.update(sql, new Object[] { item.getItemId() });
 			transactionManager.commit(transactionStatus);
 		} catch (Exception ex) {

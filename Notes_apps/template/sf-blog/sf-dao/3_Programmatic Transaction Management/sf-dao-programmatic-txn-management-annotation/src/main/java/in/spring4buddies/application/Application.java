@@ -8,12 +8,13 @@ import java.util.List;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
 
 	public static void main(String[] args) throws Exception {
 		String confFile = "beans.xml";
-		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(confFile);
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
 		ItemService itemService = (ItemService) context.getBean("itemService");
 
