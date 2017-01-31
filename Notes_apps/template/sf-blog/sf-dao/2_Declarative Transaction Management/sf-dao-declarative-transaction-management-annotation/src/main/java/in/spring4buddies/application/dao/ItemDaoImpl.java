@@ -7,17 +7,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.TransactionCallbackWithoutResult;
-import org.springframework.transaction.support.TransactionTemplate;
 
 public class ItemDaoImpl implements ItemDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-
-	@Autowired
-	TransactionTemplate transactionTemplate;
 
 	@Override
 	public List<Item> getItems() {
@@ -26,47 +20,21 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	@Override
-	public void addItem(final Item item) {
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
-			@Override
-			protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
-				try {
-					String sql = "INSERT INTO items(item_id, item_name, item_desc, item_price) VALUES (?, ?, ?, ?)";
-					jdbcTemplate.update(sql, new Object[] { item.getItemId(), item.getItemName(), item.getItemDesc(), item.getItemPrice() });
-				} catch (Exception e) {
-					transactionStatus.setRollbackOnly();
-				}
-			}
-		});
+	public void addItem(Item item) {
+		String sql = "INSERT INTO items(item_id, item_name, item_desc, item_price) VALUES (?, ?, ?, ?)";
+		jdbcTemplate.update(sql, new Object[] { item.getItemId(), item.getItemName(), item.getItemDesc(), item.getItemPrice() });
 	}
 
 	@Override
-	public void updateItem(final Item item) {
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
-			@Override
-			protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
-				try {
-					String sql = "UPDATE items SET item_name=?, item_desc=?, item_price=? WHERE item_id=?";
-					jdbcTemplate.update(sql, new Object[] { item.getItemName(), item.getItemDesc(), item.getItemPrice(), item.getItemId() });
-				} catch (Exception e) {
-					transactionStatus.setRollbackOnly();
-				}
-			}
-		});
+	public void updateItem(Item item) {
+		String sql = "UPDATE items SET item_name=?, item_desc=?, item_price=? WHERE item_id=?";
+		jdbcTemplate.update(sql, new Object[] { item.getItemName(), item.getItemDesc(), item.getItemPrice(), item.getItemId() });
 	}
 
 	@Override
-	public void deleteItem(final Item item) throws Exception {
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
-			@Override
-			protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
-				try {
-					String sql = "DELETE FROM items WHERE item_id=?";
-					jdbcTemplate.update(sql, new Object[] { item.getItemId() });
-				} catch (Exception e) {
-					transactionStatus.setRollbackOnly();
-				}
-			}
-		});
+	public void deleteItem(Item item) throws Exception {
+		String sql = "DELETE FROM items WHERE item_id=?";
+		jdbcTemplate.update(sql, new Object[] { item.getItemId() });
+		throw new Exception();
 	}
 }

@@ -6,11 +6,15 @@ import in.spring4buddies.application.model.Item;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(propagation = Propagation.REQUIRED)
 public class ItemServiceImpl implements ItemService {
 	@Autowired
 	ItemDao itemDao;
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Item> getItems() {
 		return itemDao.getItems();
@@ -26,6 +30,7 @@ public class ItemServiceImpl implements ItemService {
 		itemDao.updateItem(item);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void deleteItem(Item item) throws Exception {
 		itemDao.deleteItem(item);
