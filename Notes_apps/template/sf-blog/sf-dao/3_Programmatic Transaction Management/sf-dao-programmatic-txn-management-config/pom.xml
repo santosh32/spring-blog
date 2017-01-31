@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.spring4buddies.application</groupId>
-    <artifactId>sf-dao-3_programmatic-transaction-management-xml</artifactId>
+    <artifactId>sf-dao-programmatic-txn-management-config</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sf-dao-3_programmatic-transaction-management-xml</name>
+    <name>sf-dao-programmatic-txn-management-config</name>
     <properties>
         <jdk.version>1.7</jdk.version>
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
