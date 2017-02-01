@@ -5,30 +5,16 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1522:orcl" />
 		<property name="username" value="srlp" />
 		<property name="password" value="srlp" />
 	</bean>
 
-	<bean id="pooledDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1522:orcl" />
-		<property name="username" value="srlp" />
-		<property name="password" value="srlp" />
-	</bean>
-
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<bean id="productJdbcCall" class="in.spring4buddies.application.dao.ProductJdbcCall">
 		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="employeeDao" class="in.spring4buddies.application.dao.EmployeeDaoImpl">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
-
-	<bean id="customerDao" class="in.spring4buddies.application.dao.CustomerDaoImpl">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 
 </beans>
