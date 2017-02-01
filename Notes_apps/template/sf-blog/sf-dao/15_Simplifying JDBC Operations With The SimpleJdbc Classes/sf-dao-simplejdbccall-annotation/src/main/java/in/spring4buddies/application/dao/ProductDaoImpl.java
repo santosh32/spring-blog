@@ -12,14 +12,14 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
-public class ProductJdbcCall {
+public class ProductDaoImpl {
 	
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall jdbcCall;
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
-		this.jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("insert_product_procedure");
+		this.jdbcCall = new SimpleJdbcCall(dataSource).withProcedureName("insert_product");
 	}
 
 	public List<Product> getAllProducts() {

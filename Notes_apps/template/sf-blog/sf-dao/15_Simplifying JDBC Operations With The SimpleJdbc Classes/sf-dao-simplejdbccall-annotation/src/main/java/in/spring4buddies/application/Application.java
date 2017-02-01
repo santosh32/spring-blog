@@ -1,6 +1,6 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.dao.ProductJdbcCall;
+import in.spring4buddies.application.dao.ProductDaoImpl;
 import in.spring4buddies.application.model.Product;
 
 import java.util.List;
@@ -12,7 +12,7 @@ public class Application {
 	public static void main(String args[]) {
 		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
-		ProductJdbcCall productJdbcCall = (ProductJdbcCall) context.getBean("productJdbcCall");
+		ProductDaoImpl productJdbcCall = (ProductDaoImpl) context.getBean("productJdbcCall");
 		productJdbcCall.callProcedure(104, "Product A", "Brand A", 230);
 		productJdbcCall.callProcedure(105, "Product B", "Brand B", 130);
 		List<Product> products = productJdbcCall.getAllProducts();
