@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 public class ProductJdbcCall {
+	
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall jdbcCall;
 
@@ -35,5 +36,4 @@ public class ProductJdbcCall {
 		inputMap.put("brand", brand);
 		jdbcCall.execute(inputMap);
 	}
-
 }
