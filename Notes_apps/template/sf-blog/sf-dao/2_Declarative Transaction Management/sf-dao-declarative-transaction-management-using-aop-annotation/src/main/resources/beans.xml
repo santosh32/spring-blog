@@ -24,12 +24,13 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="itemServiceTxPointcut" />
 	</aop:config>
 
-
-	<bean id="propertyConfigurer"
+<!-- 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="jdbc.properties" />
-	</bean>
+	</bean> -->
 
+ 	<context:property-placeholder location="jdbc.properties" />
+ 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
