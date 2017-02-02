@@ -23,7 +23,7 @@ public class Application {
 		int prod_id = RandomUtils.nextInt(10, 100);
 		Product product = new Product(prod_id, "VCD", 4500, "CD");
 
-//		productDao.insertProduct(product);
+		productDao.insertProduct(product);
 
 		product = productDao.getProductById(prod_id);
 		System.out.println(product);
