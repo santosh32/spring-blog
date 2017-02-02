@@ -3,7 +3,7 @@ package in.spring4buddies.application.model;
 public class Product {
 
 	private int productId;
-	private String productName;
+	private String name;
 	private int price;
 	private String brand;
 
@@ -15,12 +15,12 @@ public class Product {
 		this.productId = productId;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
 	public int getPrice() {
@@ -41,7 +41,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", price=" + price + ", brand=" + brand + "]";
+		return "Product [productId=" + productId + ", productName=" + name + ", price=" + price + ", brand=" + brand + "]";
 	}
 
 }
