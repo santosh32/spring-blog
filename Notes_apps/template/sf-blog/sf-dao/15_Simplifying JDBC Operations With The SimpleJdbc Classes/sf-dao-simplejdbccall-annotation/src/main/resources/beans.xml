@@ -32,7 +32,7 @@
 	</bean>
 
 	<bean id="productDao" class="in.spring4buddies.application.dao.ProductDaoImpl">
-		<property name="dataSource" ref="dataSource" />
+		<property name="simpleJdbcCall" ref="simpleJdbcCall" />
 	</bean>
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

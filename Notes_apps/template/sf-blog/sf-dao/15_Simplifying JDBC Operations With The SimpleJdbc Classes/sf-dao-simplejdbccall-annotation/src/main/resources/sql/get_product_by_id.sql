@@ -1,9 +1,8 @@
-CREATE OR REPLACE PROCEDURE get_product_by_id 
-(
-  inout_prod_id IN out NUMBER  
-, out_name out VARCHAR2 
-, out_brand out VARCHAR2  
-, out_price out NUMBER  
+CREATE OR REPLACE PROCEDURE get_product_by_id (
+  inout_prod_id IN out NUMBER , 
+  out_name out VARCHAR2, 
+  out_brand out VARCHAR2, 
+  out_price out NUMBER  
 ) AS 
 BEGIN
   FOR c IN (SELECT prod_id, name, brand, price

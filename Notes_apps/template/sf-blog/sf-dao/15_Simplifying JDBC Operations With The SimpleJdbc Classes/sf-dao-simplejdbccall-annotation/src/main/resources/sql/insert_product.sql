@@ -1,5 +1,4 @@
-create or replace 
-PROCEDURE insert_product(
+CREATE OR REPLACE PROCEDURE insert_product(
     in_prod_id IN NUMBER ,
     in_name    IN VARCHAR2 ,
     in_brand   IN VARCHAR2 ,
