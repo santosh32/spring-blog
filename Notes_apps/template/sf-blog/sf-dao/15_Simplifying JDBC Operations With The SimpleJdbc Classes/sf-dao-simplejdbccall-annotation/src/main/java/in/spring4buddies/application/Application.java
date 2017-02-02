@@ -6,6 +6,7 @@ import in.spring4buddies.application.model.Product;
 
 import java.util.List;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,10 +17,15 @@ public class Application {
 
 		ProductDao productDao = (ProductDaoImpl) context.getBean("productDao");
 
-		List<Product> products = productDao.getAllProducts();
-		System.out.println("list of products - " + products);
+//		List<Product> products = productDao.getAllProducts();
+//		System.out.println("list of products - " + products);
 
-		Product product = productDao.getProductById(100);
+		int prod_id = RandomUtils.nextInt(10, 100);
+		Product product = new Product(prod_id, "VCD", 4500, "CD");
+
+//		productDao.insertProduct(product);
+
+		product = productDao.getProductById(prod_id);
 		System.out.println(product);
 
 		context.close();

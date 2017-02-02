@@ -10,5 +10,5 @@ public interface ProductDao {
 
 	Product getProductById(int prod_id);
 
-	void insertProduct(int prod_id, String name, String brand, int price);
+	void insertProduct(Product product);
 }
