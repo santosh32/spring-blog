@@ -1,0 +1,11 @@
+package in.spring4buddies.application.helper;
+
+public interface SQLQuery {
+
+	String NEW_CUSTOMER = "INSERT INTO CUSTOMER(NAME, ADDRESS, CITY, STATE, ZIP_CD) VALUES(?,?,?,?,?)";
+	String UPDATE_CUSTOMER = "UPDATE CUSTOMER SET NAME = ?, ADDRESS = ?, CITY = ?, STATE = ?, ZIP_CD = ? WHERE CUST_ID = ?";
+	String DELETE_CUSTOMER = "DELETE FROM CUSTOMER WHERE CUST_ID = ?";
+	String FIND_ALL_CUSTOMERS = "SELECT * FROM CUSTOMER";
+	String FIND_BY_CUST_ID = "SELECT * FROM CUSTOMER WHERE CUST_ID = ?";
+
+}
