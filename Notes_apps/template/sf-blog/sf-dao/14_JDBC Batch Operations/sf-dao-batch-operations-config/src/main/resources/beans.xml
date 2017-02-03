@@ -31,14 +31,4 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-	<bean id="productDao" class="in.spring4buddies.application.dao.ProductDaoImpl" />
-
-	<bean id="simpleJdbcCallForGet" class="org.springframework.jdbc.core.simple.SimpleJdbcCall">
-		<constructor-arg ref="dataSource" />
-	</bean>
-
-	<bean id="simpleJdbcCallForStore" class="org.springframework.jdbc.core.simple.SimpleJdbcCall">
-		<constructor-arg ref="dataSource" />
-	</bean>
-
 </beans>

@@ -1,32 +1,19 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.dao.ProductDao;
-import in.spring4buddies.application.dao.ProductDaoImpl;
-import in.spring4buddies.application.model.Product;
+import java.io.IOException;
 
-import java.util.List;
+import in.spring4buddies.application.dao.StaffDao;
 
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		ProductDao productDao = (ProductDaoImpl) context.getBean("productDao");
-
-//		List<Product> products = productDao.getAllProducts();
-//		System.out.println("list of products - " + products);
-
-		int prod_id = RandomUtils.nextInt(10, 100);
-		Product product = new Product(prod_id, "VCD", 4500, "CD");
-
-		productDao.insertProduct(product);
-
-		List<Product> products = productDao.getProductById(prod_id);
-		System.out.println(products);
+		StaffDao staffDao = (StaffDao) context.getBean("staffDao");
+		staffDao.insert(CSVRearder.getStaffData());
 
 		context.close();
 	}
