@@ -3,6 +3,7 @@ package in.spring4buddies.application.dao;
 import in.spring4buddies.application.dao.helper.EmployeeRowMapper;
 import in.spring4buddies.application.model.Employee;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,8 +45,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public void removeEmployee(int empId) {
 		String query = "delete from employee where emp_id = :emp_id";
-		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("emp_id", empId);
+//		Map<String, Object> parameters = new HashMap<>();
+//		parameters.put("emp_id", empId);
+		Map<String, Integer> parameters = Collections.singletonMap("emp_id", empId);
 		namedParameterJdbcTemplate.update(query, parameters);
 	}
 
