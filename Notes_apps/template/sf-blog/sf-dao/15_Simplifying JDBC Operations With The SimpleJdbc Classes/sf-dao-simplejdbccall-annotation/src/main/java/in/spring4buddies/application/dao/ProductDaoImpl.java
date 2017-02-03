@@ -35,6 +35,7 @@ public class ProductDaoImpl implements ProductDao {
 		this.simpleJdbcCallForStore = simpleJdbcCallForStore;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getProductById(int prod_id) {
 
