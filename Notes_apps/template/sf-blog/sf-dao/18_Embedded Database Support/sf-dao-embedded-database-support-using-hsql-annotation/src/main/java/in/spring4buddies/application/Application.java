@@ -32,11 +32,11 @@ public class Application {
 		System.out.println();
 		System.out.println("Add new Customer");
 		Customer customer = new Customer();
-		customer.setCustomerName("Soumitra Roy");
-		customer.setCustomerAddress("Tiruvanmiyur");
-		customer.setCustomerCity("Chennai");
-		customer.setCustomerState("Tamil Nadu");
-		customer.setCustomerZip("600020");
+		customer.setName("Soumitra Roy");
+		customer.setAddress("Tiruvanmiyur");
+		customer.setCity("Chennai");
+		customer.setState("Tamil Nadu");
+		customer.setZipCd("600020");
 		customerService.saveCustomer(customer);
 
 		System.out.println();
@@ -57,10 +57,10 @@ public class Application {
 		System.out.println("Update customer information for Customer Id = 6");
 
 		Customer customerUpdate = customerService.findByCustomerId(6);
-		customerUpdate.setCustomerAddress("Chingrihata");
-		customerUpdate.setCustomerCity("Kolkata");
-		customerUpdate.setCustomerState("West Bengal");
-		customerUpdate.setCustomerZip("700105");
+		customerUpdate.setAddress("Chingrihata");
+		customerUpdate.setCity("Kolkata");
+		customerUpdate.setState("West Bengal");
+		customerUpdate.setZipCd("700105");
 		customerService.updateCustomer(customerUpdate);
 
 		System.out.println();

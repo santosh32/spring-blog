@@ -2,67 +2,64 @@ package in.spring4buddies.application.model;
 
 public class Customer {
 
-    private Long customerId;
-    private String customerName;
-    private String customerAddress;
-    private String customerCity;
-    private String customerState;
-    private String customerZip;
+	private Long custId;
+	private String name;
+	private String address;
+	private String city;
+	private String state;
+	private String zipCd;
 
-    public Long getCustomerId() {
-        return customerId;
-    }
+	public Long getCustId() {
+		return custId;
+	}
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+	public void setCustId(Long custId) {
+		this.custId = custId;
+	}
 
-    public String getCustomerName() {
-        return customerName;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getCustomerCity() {
-        return customerCity;
-    }
+	public String getCity() {
+		return city;
+	}
 
-    public void setCustomerCity(String customerCity) {
-        this.customerCity = customerCity;
-    }
+	public void setCity(String city) {
+		this.city = city;
+	}
 
-    public String getCustomerState() {
-        return customerState;
-    }
+	public String getState() {
+		return state;
+	}
 
-    public void setCustomerState(String customerState) {
-        this.customerState = customerState;
-    }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    public String getCustomerZip() {
-        return customerZip;
-    }
+	public String getZipCd() {
+		return zipCd;
+	}
 
-    public void setCustomerZip(String customerZip) {
-        this.customerZip = customerZip;
-    }
+	public void setZipCd(String zipCd) {
+		this.zipCd = zipCd;
+	}
 
-    @Override
-    public String toString() {
-        return "[ Customer Id : " + customerId + ", Customer Name : "
-                + customerName + ", Customer Address : " + customerAddress
-                + ", Customer City : " + customerCity + ", Customer State : "
-                + customerState + ", Customer Zip Code : " + customerZip + "]";
-    }
-
+	@Override
+	public String toString() {
+		return "Customer [custId=" + custId + ", name=" + name + ", address=" + address + ", city=" + city + ", state=" + state + ", zipCd=" + zipCd
+				+ "]";
+	}
 }
