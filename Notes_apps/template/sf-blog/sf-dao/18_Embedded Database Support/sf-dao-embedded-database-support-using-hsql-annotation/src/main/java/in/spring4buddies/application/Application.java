@@ -1,5 +1,6 @@
 package in.spring4buddies.application;
 
+import in.spring4buddies.application.model.Address;
 import in.spring4buddies.application.model.Customer;
 import in.spring4buddies.application.service.CustomerService;
 
@@ -33,10 +34,12 @@ public class Application {
 		System.out.println("Add new Customer");
 		Customer customer = new Customer();
 		customer.setName("Soumitra Roy");
-		customer.setAddress("Tiruvanmiyur");
-		customer.setCity("Chennai");
-		customer.setState("Tamil Nadu");
-		customer.setZipCd("600020");
+		Address address = new Address();
+		address.setLine1("Tiruvanmiyur");
+		address.setCity("Chennai");
+		address.setState("Tamil Nadu");
+		address.setZipCd("600020");
+		customer.setAddress(address);
 		customerService.saveCustomer(customer);
 
 		System.out.println();
@@ -57,10 +60,10 @@ public class Application {
 		System.out.println("Update customer information for Customer Id = 6");
 
 		Customer customerUpdate = customerService.findByCustomerId(6);
-		customerUpdate.setAddress("Chingrihata");
-		customerUpdate.setCity("Kolkata");
-		customerUpdate.setState("West Bengal");
-		customerUpdate.setZipCd("700105");
+		customerUpdate.getAddress().setLine1("Chingrihata");
+		customerUpdate.getAddress().setCity("Kolkata");
+		customerUpdate.getAddress().setState("West Bengal");
+		customerUpdate.getAddress().setZipCd("700105");
 		customerService.updateCustomer(customerUpdate);
 
 		System.out.println();

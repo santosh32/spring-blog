@@ -34,14 +34,14 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public void saveCustomer(Customer customer) {
-		jdbcTemplate.update(SQL_NEW_CUSTOMER, new Object[] { customer.getName(), customer.getAddress(), customer.getCity(), customer.getState(),
-				customer.getZipCd() });
+		jdbcTemplate.update(SQL_NEW_CUSTOMER, new Object[] { customer.getName(), customer.getAddress().getLine1(), customer.getAddress().getCity(),
+				customer.getAddress().getState(), customer.getAddress().getZipCd() });
 	}
 
 	@Override
 	public void updateCustomer(Customer customer) {
-		jdbcTemplate.update(SQL_UPDATE_CUSTOMER, new Object[] { customer.getName(), customer.getAddress(), customer.getCity(), customer.getState(),
-				customer.getZipCd(), customer.getCustId() });
+		jdbcTemplate.update(SQL_UPDATE_CUSTOMER, new Object[] { customer.getName(), customer.getAddress().getLine1(),
+				customer.getAddress().getCity(), customer.getAddress().getState(), customer.getAddress().getZipCd(), customer.getCustId() });
 	}
 
 	@Override
