@@ -25,8 +25,8 @@ public class Application {
 
 		productDao.insertProduct(product);
 
-		product = productDao.getProductById(prod_id);
-		System.out.println(product);
+		List<Product> products = productDao.getProductById(prod_id);
+		System.out.println(products);
 
 		context.close();
 	}

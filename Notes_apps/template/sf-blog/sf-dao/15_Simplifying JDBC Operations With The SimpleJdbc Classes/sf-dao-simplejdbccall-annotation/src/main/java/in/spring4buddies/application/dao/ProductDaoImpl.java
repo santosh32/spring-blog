@@ -8,12 +8,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import oracle.jdbc.OracleTypes;
+
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.SqlInOutParameter;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -21,67 +22,61 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 public class ProductDaoImpl implements ProductDao {
 
 	@Autowired
-	private SimpleJdbcCall simpleJdbcCall;
+	private SimpleJdbcCall simpleJdbcCallForGet;
+
+	@Autowired
+	private SimpleJdbcCall simpleJdbcCallForStore;
+
+	public void setSimpleJdbcCallForGet(SimpleJdbcCall simpleJdbcCallForGet) {
+		this.simpleJdbcCallForGet = simpleJdbcCallForGet;
+	}
+
+	public void setSimpleJdbcCallForStore(SimpleJdbcCall simpleJdbcCallForStore) {
+		this.simpleJdbcCallForStore = simpleJdbcCallForStore;
+	}
 
 	@Override
-	public Product getProductById(int prod_id) {
+	public List<Product> getProductById(int prod_id) {
 
-		SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("prod_id", prod_id);
+		SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+			.addValue("in_prod_id", prod_id, Types.INTEGER);
 
-		Map<String, Object> out = simpleJdbcCall.withProcedureName("get_product_by_id")
-				.declareParameters(new SqlInOutParameter("inout_prod_id", Types.INTEGER))
-				.declareParameters(new SqlOutParameter("out_name", Types.VARCHAR))
-				.declareParameters(new SqlOutParameter("out_brand", Types.VARCHAR))
-				.declareParameters(new SqlOutParameter("out_price", Types.INTEGER))
+		Map<String, Object> simpleJdbcCallResult = simpleJdbcCallForGet.withProcedureName("get_product_by_id")
+				.declareParameters(new SqlInOutParameter("in_prod_id", Types.INTEGER))
+				.declareParameters(new SqlOutParameter("out_recordset", OracleTypes.CURSOR, new ProductRowMapper()))
+			.execute(sqlParameterSource);
 
-				.returningResultSet("products", new ProductRowMapper())
-				.execute(sqlParameterSource);
-
-		Product product = null;
-		if (MapUtils.isNotEmpty(out)) {
-			product = new Product();
-			product.setProductId(prod_id);
-			product.setName((String) out.get("out_name"));
-			product.setPrice((Integer) out.get("out_price"));
-			product.setBrand((String) out.get("out_brand"));
+		List<Product> products = Collections.emptyList();
+		if (MapUtils.isNotEmpty(simpleJdbcCallResult)) {
+			products = (List<Product>) simpleJdbcCallResult.get("out_recordset");
 		}
-		return product;
+
+		return products;
 	}
 
 	@Override
 	public List<Product> getAllProducts() {
-
-		Map<String, Object> out = simpleJdbcCall.withProcedureName("get_product_by_id")
-				.declareParameters(new SqlInOutParameter("inout_prod_id", Types.INTEGER))
-				.declareParameters(new SqlOutParameter("out_name", Types.VARCHAR))
-				.declareParameters(new SqlOutParameter("out_brand", Types.VARCHAR))
-				.declareParameters(new SqlOutParameter("out_price", Types.INTEGER))
-
-				.returningResultSet("products", new ProductRowMapper())
-				.execute();
-
-		Product product = null;
-		if (MapUtils.isNotEmpty(out)) {
-			product = new Product();
-			product.setName((String) out.get("out_name"));
-			product.setPrice((Integer) out.get("out_price"));
-			product.setBrand((String) out.get("out_brand"));
-		}
 		return Collections.emptyList();
 	}
 
 	@Override
 	public void insertProduct(Product product) {
 
-		SqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(product);
+		// SqlParameterSource sqlParameterSource = new
+		// BeanPropertySqlParameterSource(product);
 
-		simpleJdbcCall.withProcedureName("insert_product")
-			.declareParameters(new SqlParameter("inprod_id", Types.INTEGER))
+		SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
+			.addValue("in_prod_id", product.getProductId(), Types.INTEGER)
+			.addValue("in_name", product.getName(), Types.VARCHAR)
+			.addValue("in_brand", product.getBrand(), Types.VARCHAR)
+			.addValue("in_price", product.getPrice(), Types.INTEGER);
+
+		simpleJdbcCallForStore.withProcedureName("insert_product")
+			.declareParameters(new SqlParameter("in_prod_id", Types.INTEGER))
 			.declareParameters(new SqlParameter("in_name", Types.VARCHAR))
 			.declareParameters(new SqlParameter("in_brand", Types.VARCHAR))
 			.declareParameters(new SqlParameter("in_price", Types.INTEGER))
-			
-			.execute(sqlParameterSource);
+		.execute(sqlParameterSource);
 
 	}
 }
