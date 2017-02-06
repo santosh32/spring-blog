@@ -1,19 +1,24 @@
 package in.spring4buddies.application;
 
-import java.io.IOException;
-
 import in.spring4buddies.application.dao.StaffDao;
+import in.spring4buddies.application.model.Staff;
+
+import java.util.List;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
-	public static void main(String args[]) throws IOException {
+
+	public static void main(String args[]) throws Exception {
+
 		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
 		StaffDao staffDao = (StaffDao) context.getBean("staffDao");
-		staffDao.insert(CSVRearder.getStaffData());
+
+		List<Staff> staffs = CSVRearder.getStaffData(Staff.class, new String[] { "staffId", "lLame", "fName", "city", "state", "hPhone" });
+		staffDao.insert(staffs);
 
 		context.close();
 	}
