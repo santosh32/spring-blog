@@ -17,7 +17,9 @@ public class Application {
 
 		StaffDao staffDao = (StaffDao) context.getBean("staffDao");
 
-		List<Staff> staffs = CSVRearder.getStaffData(Staff.class, new String[] { "staffId", "lLame", "fName", "city", "state", "hPhone" });
+		List<Staff> staffs = CSVRearder.getDataByCSV(Staff.class, "staff.csv",
+				new String[] { "staffId", "lLame", "fName", "city", "state", "hPhone" });
+
 		staffDao.insert(staffs);
 
 		context.close();
