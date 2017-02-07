@@ -12,10 +12,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
-		String confFile = "beans.xml";
+		String confFile = "beans-hsql.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		ItemService itemService = (ItemService) context.getBean("itemService");
+		ItemService itemService =  context.getBean(ItemService.class);
 
 		System.out.println(" *****  Insert new item ******");
 		int itemId = RandomUtils.nextInt(1, 100);

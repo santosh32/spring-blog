@@ -5,4 +5,3 @@ INSERT INTO items (item_id, item_name, item_desc, item_price) VALUES (4,'XYZ','X
 INSERT INTO items (item_id, item_name, item_desc, item_price) VALUES (5,'CD Player','CD player is used to play CD',30.02);
 INSERT INTO items (item_id, item_name, item_desc, item_price) VALUES (6,'New Item1','New Item1 Desc',125);
 
-COMMIT;
