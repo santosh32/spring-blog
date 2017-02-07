@@ -1,6 +1,5 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.model.Account;
 import in.spring4buddies.application.service.BankService;
 
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,12 +14,23 @@ public class Application {
 		BankService bankService = context.getBean(BankService.class);
 
 		System.out.println(" *****  getBalance for primary holder ******");
-		Account primary = bankService.getBalance(1);
-		System.out.println(primary.getAccountId() + " | " + primary.getName() + " | " + primary.getBalance());
+		double primaryHolderBal = bankService.getBalance(1);
+		System.out.println(1 + " | " + primaryHolderBal);
 
 		System.out.println(" *****  getBalance for beneficiary ******");
-		Account beneficiary = bankService.getBalance(2);
-		System.out.println(beneficiary.getAccountId() + " | " + beneficiary.getName() + " | " + beneficiary.getBalance());
+		double beneficiaryHolderBal = bankService.getBalance(2);
+		System.out.println(2 + " | " + beneficiaryHolderBal);
+
+		System.out.println(" *****  transfer amount from primary to beneficiary ******");
+		bankService.transfer(1, 2, 500);
+
+		System.out.println(" ***** after transfer primary holder Balance******");
+		primaryHolderBal = bankService.getBalance(1);
+		System.out.println(1 + " | " + primaryHolderBal);
+
+		System.out.println(" ***** after transfer beneficiary holder Balance******");
+		beneficiaryHolderBal = bankService.getBalance(2);
+		System.out.println(2 + " | " + beneficiaryHolderBal);
 
 		context.close();
 	}

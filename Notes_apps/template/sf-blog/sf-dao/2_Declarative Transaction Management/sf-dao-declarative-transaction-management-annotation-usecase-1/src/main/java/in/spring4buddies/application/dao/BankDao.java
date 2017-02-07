@@ -1,14 +1,12 @@
 package in.spring4buddies.application.dao;
 
-import in.spring4buddies.application.model.Account;
-
 public interface BankDao {
 
-	Account getBalance(int accountId);
+	double getBalance(int accountId);
 
-	void withdraw(Account account);
+	void withdraw(int accountId, double amount);
 
-	void deposit(Account account);
+	void deposit(int accountId, double amount);
 
-	void transfer(Account primary, Account beneficiary);
+	void transfer(int primaryAccId, int beneficiaryAccId, double amount);
 }

@@ -1,7 +1,6 @@
 package in.spring4buddies.application.service;
 
 import in.spring4buddies.application.dao.BankDao;
-import in.spring4buddies.application.model.Account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,22 +14,22 @@ public class BankServiceImpl implements BankService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Account getBalance(int accountId) {
+	public double getBalance(int accountId) {
 		return bankDao.getBalance(accountId);
 	}
 
 	@Override
-	public void withdraw(Account account) {
-		bankDao.withdraw(account);
+	public void withdraw(int accountId, double amount) {
+		bankDao.withdraw(accountId, amount);
 	}
 
 	@Override
-	public void deposit(Account account) {
-		bankDao.deposit(account);
+	public void deposit(int accountId, double amount) {
+		bankDao.deposit(accountId, amount);
 	}
 
 	@Override
-	public void transfer(Account primary, Account beneficiary) {
-		bankDao.transfer(primary, beneficiary);
+	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) {
+		bankDao.transfer(primaryAccId, beneficiaryAccId, amount);
 	}
 }
