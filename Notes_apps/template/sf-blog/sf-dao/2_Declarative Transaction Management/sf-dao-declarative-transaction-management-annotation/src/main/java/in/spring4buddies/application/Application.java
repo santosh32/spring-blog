@@ -15,7 +15,7 @@ public class Application {
 		String confFile = "beans-hsql.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		ItemService itemService =  context.getBean(ItemService.class);
+		ItemService itemService = context.getBean(ItemService.class);
 
 		System.out.println(" *****  Insert new item ******");
 		int itemId = RandomUtils.nextInt(1, 100);
@@ -26,8 +26,29 @@ public class Application {
 		item.setItemPrice(1000);
 		itemService.addItem(item);
 
-		System.out.println(" *****  Select item by id ******");
+		System.out.println(" *****  Select items ******");
 		List<Item> items = itemService.getItems();
+		for (Item item1 : items) {
+			System.out.println(item1.getItemId() + " | " + item1.getItemName() + " | " + item1.getItemDesc() + " | " + item1.getItemPrice());
+		}
+
+		item.setItemPrice(2000);
+		itemService.updateItem(item);
+
+		System.out.println(" *****  Select items  ******");
+		items = itemService.getItems();
+		for (Item item1 : items) {
+			System.out.println(item1.getItemId() + " | " + item1.getItemName() + " | " + item1.getItemDesc() + " | " + item1.getItemPrice());
+		}
+
+		try {
+			itemService.deleteItem(item);
+		} catch (Exception e) {
+			System.out.println("Error Occred while deletion");
+		}
+
+		System.out.println(" *****  Select items  ******");
+		items = itemService.getItems();
 		for (Item item1 : items) {
 			System.out.println(item1.getItemId() + " | " + item1.getItemName() + " | " + item1.getItemDesc() + " | " + item1.getItemPrice());
 		}
