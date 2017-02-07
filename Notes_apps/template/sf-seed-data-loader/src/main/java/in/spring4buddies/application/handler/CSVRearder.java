@@ -23,4 +23,8 @@ public class CSVRearder<T> {
 	public static <T> List<T> getDataByCSV(Class<T> clazz, String[] columns) throws Exception {
 		return getDataByCSV(clazz, clazz.getSimpleName() + ".csv", columns);
 	}
+
+	public static <T> List<T> getDataByCSV(Class<T> clazz) throws Exception {
+		return getDataByCSV(clazz, CSVHeader.load(clazz));
+	}
 }

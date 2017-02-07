@@ -11,13 +11,17 @@ import java.util.Map;
 
 public class CSVHeader {
 
-	public static Map<Class<?>, String[]> csvheader = new HashMap<>();
+	public static Map<Class<?>, String[]> header = new HashMap<>();
 
 	static {
-		csvheader.put(Customer.class, new String[] { "customerId", "contact", "address", "city", "firstOrder", "state", "zipCode", "country", "phone", "name" });
-		csvheader.put(Employee.class, new String[] { "empId", "hireDate", "salary", "dept", "jobcode", "sex", "birthDate", "lastName", "firstName", "middleName", "phone" });
-		csvheader.put(Invoice.class, new String[] { "invoiceId", "billedTo", "amtBilled", "country", "amtInUS", "billedBy", "billedOn", "paidOn" });
-		csvheader.put(Order.class, new String[] { "orderId", "stockId", "length", "fabCharges", "shipTo", "orderDate", "shipped", "takenBy", "proccessdBy", "specinstr" });
-		csvheader.put(Staff.class, new String[] { "staffId", "lLame", "fName", "city", "state", "hPhone" });
+		header.put(Customer.class, new String[] { "customerId", "contact", "address", "city", "firstOrder", "state", "zipCode", "country", "phone", "name" });
+		header.put(Employee.class, new String[] { "empId", "hireDate", "salary", "dept", "jobcode", "sex", "birthDate", "lastName", "firstName", "middleName", "phone" });
+		header.put(Invoice.class, new String[] { "invoiceId", "billedTo", "amtBilled", "country", "amtInUS", "billedBy", "billedOn", "paidOn" });
+		header.put(Order.class, new String[] { "orderId", "stockId", "length", "fabCharges", "shipTo", "orderDate", "shipped", "takenBy", "proccessdBy", "specinstr" });
+		header.put(Staff.class, new String[] { "staffId", "lLame", "fName", "city", "state", "hPhone" });
+	}
+
+	public static <T> String[] load(Class<T> clazz) {
+		return header.get(clazz);
 	}
 }
