@@ -15,21 +15,21 @@ public class BankDaoImpl implements BankDao {
 	}
 
 	@Override
-	public void withdraw(int accountId, double amount) {
+	public void withdraw(int accountId, double amount) throws Exception {
 		double balance = getBalance(accountId);
 		String sql = "UPDATE ACCOUNT SET BALANCE=? WHERE ACC_ID=?";
 		jdbcTemplate.update(sql, new Object[] { balance - amount, accountId });
 	}
 
 	@Override
-	public void deposit(int accountId, double amount) {
+	public void deposit(int accountId, double amount) throws Exception {
 		double balance = getBalance(accountId);
 		String sql = "UPDATE ACCOUNT SET BALANCE=? WHERE ACC_ID=?";
 		jdbcTemplate.update(sql, new Object[] { balance + amount, accountId });
 	}
 
 	@Override
-	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) {
+	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) throws Exception {
 		withdraw(primaryAccId, amount);
 		deposit(beneficiaryAccId, amount);
 	}

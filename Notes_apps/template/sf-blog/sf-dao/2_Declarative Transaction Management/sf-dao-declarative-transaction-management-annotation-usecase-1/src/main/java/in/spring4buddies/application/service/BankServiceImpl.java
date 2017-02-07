@@ -19,17 +19,17 @@ public class BankServiceImpl implements BankService {
 	}
 
 	@Override
-	public void withdraw(int accountId, double amount) {
+	public void withdraw(int accountId, double amount) throws Exception {
 		bankDao.withdraw(accountId, amount);
 	}
 
 	@Override
-	public void deposit(int accountId, double amount) {
+	public void deposit(int accountId, double amount) throws Exception {
 		bankDao.deposit(accountId, amount);
 	}
 
 	@Override
-	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) {
+	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) throws Exception {
 		bankDao.transfer(primaryAccId, beneficiaryAccId, amount);
 	}
 }
