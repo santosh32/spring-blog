@@ -16,13 +16,6 @@
 		<jdbc:script location="classpath:sql/insert-db.sql" />
 	</jdbc:embedded-database>
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
-
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>

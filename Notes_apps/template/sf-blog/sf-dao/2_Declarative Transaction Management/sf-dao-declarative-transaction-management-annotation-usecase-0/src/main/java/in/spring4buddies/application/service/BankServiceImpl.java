@@ -3,16 +3,12 @@ package in.spring4buddies.application.service;
 import in.spring4buddies.application.dao.BankDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = Propagation.REQUIRED)
 public class BankServiceImpl implements BankService {
 
 	@Autowired
 	BankDao bankDao;
 
-	@Transactional(readOnly = true)
 	@Override
 	public double getBalance(int accountId) {
 		return bankDao.getBalance(accountId);
@@ -28,7 +24,6 @@ public class BankServiceImpl implements BankService {
 		bankDao.deposit(accountId, amount);
 	}
 
-	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
 	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) throws Exception {
 		bankDao.transfer(primaryAccId, beneficiaryAccId, amount);
