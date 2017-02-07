@@ -1,4 +1,4 @@
-package in.spring4buddies.application.model;
+package in.spring4buddies.application.seeddata;
 
 public class Staff {
 

@@ -1,4 +1,4 @@
-package in.spring4buddies.application;
+package in.spring4buddies.application.handler;
 
 import java.io.InputStreamReader;
 import java.util.List;
@@ -15,12 +15,12 @@ public class CSVRearder<T> {
 		strategy.setType(clazz);
 		strategy.setColumnMapping(columns);
 
-		CSVReader csvReader = new CSVReader(new InputStreamReader(CSVRearder.class.getClassLoader().getResourceAsStream(filename)));
+		CSVReader csvReader = new CSVReader(new InputStreamReader(CSVRearder.class.getClassLoader().getResourceAsStream(filename.toLowerCase())));
 
 		return new CsvToBean<T>().parse(strategy, csvReader);
 	}
 
 	public static <T> List<T> getDataByCSV(Class<T> clazz, String[] columns) throws Exception {
-		return getDataByCSV(clazz, clazz.getName() + ".csv", columns);
+		return getDataByCSV(clazz, clazz.getSimpleName() + ".csv", columns);
 	}
 }
