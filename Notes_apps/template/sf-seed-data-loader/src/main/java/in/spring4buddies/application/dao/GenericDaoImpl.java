@@ -15,7 +15,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 	@Override
 	public void insert(List<T> data, Class<T> clazz) {
 		String query = "insert into employee (emp_id, name, salary, dept) values (:emp_id, :, :, :)";
-		namedParameterJdbcTemplate.update(query, new HashMap());
+		namedParameterJdbcTemplate.update(query, new HashMap<String, Object>());
 	}
 
 	@Override

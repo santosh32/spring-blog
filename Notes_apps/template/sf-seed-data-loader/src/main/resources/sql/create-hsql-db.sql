@@ -8,7 +8,7 @@
     zipCode varchar(50) not null,
     country varchar(255),
     phone varchar(50) not null,
-    name varchar(30) not null
+    name varchar(500) not null
 );
 
   CREATE TABLE Employee (
