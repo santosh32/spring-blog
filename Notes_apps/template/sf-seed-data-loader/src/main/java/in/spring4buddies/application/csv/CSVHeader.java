@@ -1,4 +1,4 @@
-package in.spring4buddies.application.handler;
+package in.spring4buddies.application.csv;
 
 import in.spring4buddies.application.seeddata.Customer;
 import in.spring4buddies.application.seeddata.Employee;

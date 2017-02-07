@@ -1,6 +1,6 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.handler.CSVRearder;
+import in.spring4buddies.application.csv.CSVRearder;
 import in.spring4buddies.application.seeddata.Customer;
 import in.spring4buddies.application.seeddata.Employee;
 import in.spring4buddies.application.seeddata.Invoice;

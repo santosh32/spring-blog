@@ -1,4 +1,4 @@
-package in.spring4buddies.application.handler;
+package in.spring4buddies.application.csv;
 
 import java.io.InputStreamReader;
 import java.util.List;
