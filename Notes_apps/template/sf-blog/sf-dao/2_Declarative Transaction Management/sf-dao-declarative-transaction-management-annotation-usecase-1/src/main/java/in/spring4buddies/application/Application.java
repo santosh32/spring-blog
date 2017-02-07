@@ -22,7 +22,11 @@ public class Application {
 		System.out.println(2 + " | " + beneficiaryHolderBal);
 
 		System.out.println(" *****  transfer amount from primary to beneficiary ******");
-		bankService.transfer(1, 2, 500);
+		try {
+			bankService.transfer(1, 2, 500);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 		System.out.println(" ***** after transfer primary holder Balance******");
 		primaryHolderBal = bankService.getBalance(1);

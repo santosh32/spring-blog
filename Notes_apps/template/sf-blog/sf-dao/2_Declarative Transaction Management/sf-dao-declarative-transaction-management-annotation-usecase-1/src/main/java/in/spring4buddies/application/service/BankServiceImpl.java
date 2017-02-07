@@ -28,6 +28,7 @@ public class BankServiceImpl implements BankService {
 		bankDao.deposit(accountId, amount);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void transfer(int primaryAccId, int beneficiaryAccId, double amount) throws Exception {
 		bankDao.transfer(primaryAccId, beneficiaryAccId, amount);
