@@ -1,6 +1,6 @@
 package in.spring4buddies.application.seeddata;
 
-public class Order {
+public class OrderItem {
 
 	private int orderId;
 	private String stockId;
@@ -13,11 +13,11 @@ public class Order {
 	private String proccessdBy;
 	private String specinstr;
 
-	public Order() {
+	public OrderItem() {
 
 	}
 
-	public Order(int orderId, String stockId, String length, String fabCharges, String shipTo, String orderDate, String shipped, String takenBy,
+	public OrderItem(int orderId, String stockId, String length, String fabCharges, String shipTo, String orderDate, String shipped, String takenBy,
 			String proccessdBy, String specinstr) {
 		super();
 		this.orderId = orderId;
@@ -114,7 +114,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", stockId=" + stockId + ", length=" + length + ", fabCharges=" + fabCharges + ", shipTo=" + shipTo
+		return "OrderItem [orderId=" + orderId + ", stockId=" + stockId + ", length=" + length + ", fabCharges=" + fabCharges + ", shipTo=" + shipTo
 				+ ", orderDate=" + orderDate + ", shipped=" + shipped + ", takenBy=" + takenBy + ", proccessdBy=" + proccessdBy + ", specinstr="
 				+ specinstr + "]";
 	}

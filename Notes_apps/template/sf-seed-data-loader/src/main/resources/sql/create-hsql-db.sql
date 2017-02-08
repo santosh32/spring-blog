@@ -25,4 +25,34 @@
     phone varchar(30) not null
 );
 
+CREATE TABLE Invoice (invoiceId integer identity primary key, 
+  billedTo varchar(500) not null, 
+  amtBilled varchar(500) not null, 
+  country varchar(500) not null, 
+  amtInUS varchar(500) not null, 
+  billedBy varchar(500) not null, 
+  billedOn varchar(500) not null, 
+  paidOn varchar(500) not null );
+  
+  
+CREATE TABLE Staff (staffId integer identity primary key, 
+  lLame varchar(500) not null, 
+  fName varchar(500) not null, 
+  city varchar(500) not null, 
+  state varchar(500) not null, 
+  hPhone varchar(500) not null );
+  
+  CREATE TABLE OrderItem (orderId integer identity primary key, 
+  stockId varchar(500) not null, 
+  length varchar(500) not null, 
+  fabCharges varchar(500) not null, 
+  shipTo varchar(500) not null, 
+  orderDate varchar(500) not null, 
+  shipped varchar(500) not null, 
+  takenBy varchar(500) not null, 
+  proccessdBy varchar(500) not null, 
+  specinstr varchar(500) not null );
+
+
+
  
