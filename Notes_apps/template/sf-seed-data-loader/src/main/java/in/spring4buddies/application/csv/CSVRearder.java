@@ -15,7 +15,8 @@ public class CSVRearder<T> {
 		strategy.setType(clazz);
 		strategy.setColumnMapping(columns);
 
-		CSVReader csvReader = new CSVReader(new InputStreamReader(CSVRearder.class.getClassLoader().getResourceAsStream(filename.toLowerCase())));
+		CSVReader csvReader = new CSVReader(new InputStreamReader(CSVRearder.class.getClassLoader()
+				.getResourceAsStream("csv/" + filename.toLowerCase())));
 
 		return new CsvToBean<T>().parse(strategy, csvReader);
 	}
