@@ -1,4 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Mon Jul 18 21:01:36 IST 2016
-http\://repo.maven.apache.org/maven2/.error=Could not transfer artifact com.oracle\:ojdbc6\:pom\:${oracle.version} from/to central (http\://repo.maven.apache.org/maven2)\: Illegal character in path at index 55\: http\://repo.maven.apache.org/maven2/com/oracle/ojdbc6/${oracle.version}/ojdbc6-${oracle.version}.pom
-@default-http\://repo.maven.apache.org/maven2/.lastUpdated=1468855896197
