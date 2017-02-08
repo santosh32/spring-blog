@@ -19,7 +19,7 @@ public class BankDaoImpl implements BankDao {
 		double balance = getBalance(accountId);
 		String sql = "UPDATE ACCOUNT SET BALANCE=? WHERE ACC_ID=?";
 		jdbcTemplate.update(sql, new Object[] { balance - amount, accountId });
-		throw new Exception("WithDraw failed");
+//		throw new Exception("WithDraw failed");
 	}
 
 	@Override
@@ -27,6 +27,7 @@ public class BankDaoImpl implements BankDao {
 		double balance = getBalance(accountId);
 		String sql = "UPDATE ACCOUNT SET BALANCE=? WHERE ACC_ID=?";
 		jdbcTemplate.update(sql, new Object[] { balance + amount, accountId });
+		throw new Exception("Deposit failed");
 	}
 
 	@Override
