@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class FlightRowMapper implements RowMapper<Flight> {
 
 	public Flight mapRow(ResultSet rs, int rowNum) throws SQLException {
+		
 		Flight flight = new Flight();
 		flight.setFlightId(rs.getInt("flight_id"));
 		flight.setName(rs.getString("name"));

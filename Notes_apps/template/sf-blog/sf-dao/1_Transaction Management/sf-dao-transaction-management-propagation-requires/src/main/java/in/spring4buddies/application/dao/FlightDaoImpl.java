@@ -18,15 +18,13 @@ public class FlightDaoImpl implements FlightDao {
 
 	@Override
 	public List<Flight> getFlightsFor(Date from, Date to) {
-//		String sql = "SELECT * FROM Flight WHERE BOOKED_FROM = ? AND BOOKED_TO TO = ?";
-		String sql = "SELECT * FROM Flight";
-//		return jdbcTemplate.query(sql, new Object[] { from, to }, new FlightRowMapper());
-		return jdbcTemplate.query(sql, new FlightRowMapper());
+		String sql = "SELECT * FROM Flight WHERE BOOKED_FROM = ? AND BOOKED_TO = ?";
+		return jdbcTemplate.query(sql, new Object[] { from, to }, new FlightRowMapper());
 	}
 
 	@Override
 	public void bookFlight(Flight flight) {
-		String sql = "INSERT INTO Flight (flight_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?);";
+		String sql = "INSERT INTO Flight (flight_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?)";
 		jdbcTemplate.update(sql,
 				new Object[] { flight.getFlightId(), flight.getName(), flight.getType(), flight.getBookedFrom(), flight.getBookedTo() });
 	}

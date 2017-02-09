@@ -10,9 +10,6 @@
       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
 	<context:annotation-config />
-	
-	<context:component-scan base-package="in.spring4buddies.application.dao"/>
-	<context:component-scan base-package="in.spring4buddies.application.service"/>
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location="classpath:sql/create-hsql-db.sql" />
@@ -30,11 +27,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-<!-- 	<bean id="flightDao" class="in.spring4buddies.application.dao.FlightDaoImpl" />
-	<bean id="hotelDao" class="in.spring4buddies.application.dao.HotelDaoImpl" />
-
-	<bean id="flightService" class="in.spring4buddies.application.service.FlightServiceImpl" />
-	<bean id="hotelService" class="in.spring4buddies.application.service.HotelServiceImpl" />
-	<bean id="travelServiceImpl" class="in.spring4buddies.application.service.TravelServiceImpl" /> -->
+	<context:component-scan base-package="in.spring4buddies.application.dao" />
+	<context:component-scan base-package="in.spring4buddies.application.service" />
 
 </beans>
