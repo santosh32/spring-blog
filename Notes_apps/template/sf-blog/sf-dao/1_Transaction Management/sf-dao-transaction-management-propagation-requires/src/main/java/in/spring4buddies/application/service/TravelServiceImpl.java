@@ -19,6 +19,6 @@ public class TravelServiceImpl {
 
 	public void getFlightsAndHotels(Date from, Date to) {
 		List<Flight> flights = flightService.getFlightsFor(from, to);
-		List<Hotel> hotels = hotelService.getHotelFor(from, to);
+		List<Hotel> hotels = hotelService.getHotelsFor(from, to);
 	}
 }

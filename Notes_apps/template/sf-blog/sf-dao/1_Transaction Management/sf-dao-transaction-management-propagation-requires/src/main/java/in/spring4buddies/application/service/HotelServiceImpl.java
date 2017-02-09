@@ -20,7 +20,7 @@ public class HotelServiceImpl implements HotelService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<Hotel> getHotelFor(Date from, Date to) {
+	public List<Hotel> getHotelsFor(Date from, Date to) {
 		return hotelDao.getHotelNamesFor(from, to);
 	}
 

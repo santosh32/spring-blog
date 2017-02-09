@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface HotelService {
 
-	List<Hotel> getHotelFor(Date from, Date to);
+	List<Hotel> getHotelsFor(Date from, Date to);
 
 	void bookHotel(Hotel hotel);
 }

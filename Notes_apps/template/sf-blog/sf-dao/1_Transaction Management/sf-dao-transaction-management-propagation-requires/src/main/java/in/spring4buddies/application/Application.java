@@ -21,7 +21,7 @@ public class Application {
 		Date date = new Date();
 
 		System.out.println(flightService.getFlightsFor(date, date));
-		System.out.println(hotelService.getHotelFor(date, date));
+		System.out.println(hotelService.getHotelsFor(date, date));
 
 		context.close();
 	}
