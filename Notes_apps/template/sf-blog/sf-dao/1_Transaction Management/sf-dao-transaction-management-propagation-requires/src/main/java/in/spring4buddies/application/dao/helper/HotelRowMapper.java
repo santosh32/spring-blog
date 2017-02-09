@@ -14,8 +14,8 @@ public class HotelRowMapper implements RowMapper<Hotel> {
 		hotel.setHotelId(rs.getInt("hotel_id"));
 		hotel.setName(rs.getString("name"));
 		hotel.setType(rs.getString("type"));
-		hotel.setBookedFrom(rs.getDate("bookedFrom"));
-		hotel.setBookedTo(rs.getDate("bookedTo"));
+		hotel.setBookedFrom(rs.getDate("booked_from"));
+		hotel.setBookedTo(rs.getDate("booked_to"));
 		return hotel;
 	}
 }

@@ -14,8 +14,8 @@ public class FlightRowMapper implements RowMapper<Flight> {
 		flight.setFlightId(rs.getInt("flight_id"));
 		flight.setName(rs.getString("name"));
 		flight.setType(rs.getString("type"));
-		flight.setBookedFrom(rs.getDate("bookedFrom"));
-		flight.setBookedTo(rs.getDate("bookedTo"));
+		flight.setBookedFrom(rs.getDate("booked_from"));
+		flight.setBookedTo(rs.getDate("booked_to"));
 		return flight;
 	}
 }

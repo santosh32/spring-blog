@@ -1,2 +1,1 @@
-INSERT INTO ACCOUNT (ACC_ID, NAME, BALANCE) VALUES (1,'Santosh',1000);
-INSERT INTO ACCOUNT (ACC_ID, NAME, BALANCE) VALUES (2,'Sandeep',2000);
+INSERT INTO Flight (flight_Id, name, type, booked_from, booked_to) VALUES (1,'King Fisher', 'business', '2017-02-09', '2017-02-09')

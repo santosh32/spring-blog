@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class HotelDaoImpl implements HotelDao {
 
 	@Autowired
@@ -16,13 +18,13 @@ public class HotelDaoImpl implements HotelDao {
 
 	@Override
 	public List<Hotel> getHotelNamesFor(Date from, Date to) {
-		String sql = "SELECT * FROM HOTEL WHERE BOOKED_FROM=? AND BOOKED_TO= ?";
-		return jdbcTemplate.query(sql, new Object[]{from, to},new HotelRowMapper());
+		String sql = "SELECT * FROM HOTEL WHERE FROM=? AND TO= ?;";
+		return jdbcTemplate.query(sql, new Object[] { from, to }, new HotelRowMapper());
 	}
 
 	@Override
 	public void bookHotel(Hotel hotel) {
-		// TODO Auto-generated method stub
-
+		String sql = "INSERT INTO HOTEL (hotel_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?);";
+		jdbcTemplate.update(sql, new Object[] { hotel.getHotelId(), hotel.getName(), hotel.getType(), hotel.getBookedFrom(), hotel.getBookedTo() });
 	}
 }
