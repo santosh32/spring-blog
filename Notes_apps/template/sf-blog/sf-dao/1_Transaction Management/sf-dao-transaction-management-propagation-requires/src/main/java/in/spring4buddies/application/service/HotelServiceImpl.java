@@ -7,17 +7,22 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(propagation = Propagation.REQUIRED)
 public class HotelServiceImpl implements HotelService {
 
 	@Autowired
 	HotelDao hotelDao;
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Hotel> getHotelNamesFor(Date from, Date to) {
 		return hotelDao.getHotelNamesFor(from, to);
 	}
 
+	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
 	public void bookHotel(Hotel hotel) {
 		hotelDao.bookHotel(hotel);

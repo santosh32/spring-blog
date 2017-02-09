@@ -7,17 +7,22 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(propagation = Propagation.REQUIRED)
 public class FlightServiceImpl implements FlightService {
 
 	@Autowired
 	FlightDao flightDao;
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Flight> getFlightsFor(Date from, Date to) {
 		return flightDao.getFlightsFor(from, to);
 	}
 
+	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
 	public void bookFlight(Flight flight) {
 		flightDao.bookFlight(flight);
