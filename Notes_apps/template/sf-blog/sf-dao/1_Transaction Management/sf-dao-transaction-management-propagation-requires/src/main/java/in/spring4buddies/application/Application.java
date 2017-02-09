@@ -1,6 +1,7 @@
 package in.spring4buddies.application;
 
 import in.spring4buddies.application.service.FlightService;
+import in.spring4buddies.application.service.HotelService;
 
 import java.util.Date;
 
@@ -13,14 +14,14 @@ public class Application {
 		String confFile = "beans-hsql.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-//		HotelService hotelService = context.getBean(HotelService.class);
+		HotelService hotelService = context.getBean(HotelService.class);
 
 		FlightService flightService = context.getBean(FlightService.class);
 
-//		System.out.println(hotelService);
 		Date date = new Date();
-		
-		System.out.println(flightService.getFlightsFor(date,date));
+
+		System.out.println(flightService.getFlightsFor(date, date));
+		System.out.println(hotelService.getHotelFor(date, date));
 
 		context.close();
 	}
