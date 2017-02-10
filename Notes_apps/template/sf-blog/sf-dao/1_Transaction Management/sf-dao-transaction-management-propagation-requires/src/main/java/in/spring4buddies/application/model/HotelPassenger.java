@@ -2,23 +2,31 @@ package in.spring4buddies.application.model;
 
 import java.util.Date;
 
-public class Passenger {
+public class HotelPassenger {
 
+	private int hotelId;
 	private int passengerId;
-	private String name;
 	private Date bookedFrom;
 	private Date bookedTo;
 
-	public Passenger() {
+	public HotelPassenger() {
 
 	}
 
-	public Passenger(int passengerId, String name, Date bookedFrom, Date bookedTo) {
+	public HotelPassenger(int hotelId, int passengerId, Date bookedFrom, Date bookedTo) {
 		super();
+		this.hotelId = hotelId;
 		this.passengerId = passengerId;
-		this.name = name;
 		this.bookedFrom = bookedFrom;
 		this.bookedTo = bookedTo;
+	}
+
+	public int getHotelId() {
+		return hotelId;
+	}
+
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
 	}
 
 	public int getPassengerId() {
@@ -27,14 +35,6 @@ public class Passenger {
 
 	public void setPassengerId(int passengerId) {
 		this.passengerId = passengerId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Date getBookedFrom() {
@@ -55,7 +55,7 @@ public class Passenger {
 
 	@Override
 	public String toString() {
-		return "Passenger [passengerId=" + passengerId + ", name=" + name + ", bookedFrom=" + bookedFrom + ", bookedTo=" + bookedTo + "]";
+		return "HotelPassenger [hotelId=" + hotelId + ", passengerId=" + passengerId + ", bookedFrom=" + bookedFrom + ", bookedTo=" + bookedTo + "]";
 	}
 
 }

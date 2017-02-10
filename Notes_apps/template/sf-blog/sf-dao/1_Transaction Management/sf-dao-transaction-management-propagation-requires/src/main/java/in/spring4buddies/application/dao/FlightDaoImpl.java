@@ -23,9 +23,9 @@ public class FlightDaoImpl implements FlightDao {
 	}
 
 	@Override
-	public void bookFlight(Flight flight, Passenger passenger) {
-		String sql = "INSERT INTO Flight (flight_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?)";
+	public void bookFlightWithPassenger(Flight flight, Passenger passenger) {
+		String sql = "INSERT INTO FLIGHT_PASSENGER (flight_id, passenger_Id, booked_from, booked_to) VALUES (?, ?, ?, ?)";
 		jdbcTemplate.update(sql,
-				new Object[] { flight.getFlightId(), flight.getName(), flight.getType(), flight.getBookedFrom(), flight.getBookedTo() });
+				new Object[] { flight.getFlightId(), passenger.getPassengerId(), passenger.getBookedFrom(), passenger.getBookedTo() });
 	}
 }

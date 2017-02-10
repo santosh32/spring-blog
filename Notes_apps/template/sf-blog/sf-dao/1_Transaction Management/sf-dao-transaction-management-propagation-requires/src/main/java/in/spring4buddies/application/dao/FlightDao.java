@@ -9,5 +9,5 @@ public interface FlightDao {
 
 	List<Flight> getAllFlights();
 
-	void bookFlight(Flight flight, Passenger passenger);
+	void bookFlightWithPassenger(Flight flight, Passenger passenger);
 }

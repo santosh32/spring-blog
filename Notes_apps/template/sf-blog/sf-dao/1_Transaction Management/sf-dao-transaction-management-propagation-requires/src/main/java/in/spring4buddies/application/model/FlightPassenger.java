@@ -2,23 +2,31 @@ package in.spring4buddies.application.model;
 
 import java.util.Date;
 
-public class Passenger {
+public class FlightPassenger {
 
+	private int flightId;
 	private int passengerId;
-	private String name;
 	private Date bookedFrom;
 	private Date bookedTo;
 
-	public Passenger() {
+	public FlightPassenger() {
 
 	}
 
-	public Passenger(int passengerId, String name, Date bookedFrom, Date bookedTo) {
+	public FlightPassenger(int flightId, int passengerId, Date bookedFrom, Date bookedTo) {
 		super();
+		this.flightId = flightId;
 		this.passengerId = passengerId;
-		this.name = name;
 		this.bookedFrom = bookedFrom;
 		this.bookedTo = bookedTo;
+	}
+
+	public int getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(int flightId) {
+		this.flightId = flightId;
 	}
 
 	public int getPassengerId() {
@@ -27,14 +35,6 @@ public class Passenger {
 
 	public void setPassengerId(int passengerId) {
 		this.passengerId = passengerId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Date getBookedFrom() {
@@ -55,7 +55,8 @@ public class Passenger {
 
 	@Override
 	public String toString() {
-		return "Passenger [passengerId=" + passengerId + ", name=" + name + ", bookedFrom=" + bookedFrom + ", bookedTo=" + bookedTo + "]";
+		return "FlightPassenger [flightId=" + flightId + ", passengerId=" + passengerId + ", bookedFrom=" + bookedFrom + ", bookedTo=" + bookedTo
+				+ "]";
 	}
 
 }

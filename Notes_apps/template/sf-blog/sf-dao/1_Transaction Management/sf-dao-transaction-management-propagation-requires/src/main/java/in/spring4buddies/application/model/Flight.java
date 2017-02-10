@@ -1,26 +1,20 @@
 package in.spring4buddies.application.model;
 
-import java.util.Date;
-
 public class Flight {
 
 	private int flightId;
 	private String name;
 	private String type;
-	private Date bookedFrom;
-	private Date bookedTo;
 
 	public Flight() {
 
 	}
 
-	public Flight(int flightId, String name, String type, Date bookedFrom, Date bookedTo) {
+	public Flight(int flightId, String name, String type) {
 		super();
 		this.flightId = flightId;
 		this.name = name;
 		this.type = type;
-		this.bookedFrom = bookedFrom;
-		this.bookedTo = bookedTo;
 	}
 
 	public int getFlightId() {
@@ -47,25 +41,9 @@ public class Flight {
 		this.type = type;
 	}
 
-	public Date getBookedFrom() {
-		return bookedFrom;
-	}
-
-	public void setBookedFrom(Date bookedFrom) {
-		this.bookedFrom = bookedFrom;
-	}
-
-	public Date getBookedTo() {
-		return bookedTo;
-	}
-
-	public void setBookedTo(Date bookedTo) {
-		this.bookedTo = bookedTo;
-	}
-
 	@Override
 	public String toString() {
-		return "Flight [flightId=" + flightId + ", name=" + name + ", type=" + type + ", bookedFrom=" + bookedFrom + ", bookedTo=" + bookedTo + "]";
+		return "Flight [flightId=" + flightId + ", name=" + name + ", type=" + type + "]";
 	}
 
 }

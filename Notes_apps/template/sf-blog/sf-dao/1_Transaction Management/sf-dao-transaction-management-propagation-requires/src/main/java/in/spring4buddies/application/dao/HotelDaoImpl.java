@@ -23,8 +23,8 @@ public class HotelDaoImpl implements HotelDao {
 	}
 
 	@Override
-	public void bookHotel(Hotel hotel, Passenger passenger) {
-		String sql = "INSERT INTO HOTEL (hotel_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?)";
-		jdbcTemplate.update(sql, new Object[] { hotel.getHotelId(), hotel.getName(), hotel.getType(), hotel.getBookedFrom(), hotel.getBookedTo() });
+	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) {
+		String sql = "INSERT INTO HOTEL_PASSENGER (hotel_id, passenger_Id, booked_from, booked_to) VALUES (?, ?, ?, ?)";
+		jdbcTemplate.update(sql, new Object[] { hotel.getHotelId(), passenger.getPassengerId(), passenger.getBookedFrom(), passenger.getBookedTo() });
 	}
 }
