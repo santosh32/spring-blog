@@ -11,5 +11,6 @@ public interface TravelService {
 
 	Map<String, List<?>> getFlightsAndHotels(Date from, Date to);
 
-	void bookFlightsAndHotels(Date from, Date to);
+	void bookFlightAndHotel(Date from, Date to);
+	
 }

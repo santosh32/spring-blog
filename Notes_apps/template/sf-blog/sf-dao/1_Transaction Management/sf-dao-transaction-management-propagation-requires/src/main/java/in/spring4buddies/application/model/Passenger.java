@@ -4,14 +4,14 @@ public class Passenger {
 
 	private int passengerId;
 	private String name;
-	private String flightId;
-	private String hotelId;
+	private int flightId;
+	private int hotelId;
 
 	public Passenger() {
 
 	}
 
-	public Passenger(int passengerId, String name, String flightId, String hotelId) {
+	public Passenger(int passengerId, String name, int flightId, int hotelId) {
 		super();
 		this.passengerId = passengerId;
 		this.name = name;
@@ -35,19 +35,19 @@ public class Passenger {
 		this.name = name;
 	}
 
-	public String getFlightId() {
+	public int getFlightId() {
 		return flightId;
 	}
 
-	public void setFlightId(String flightId) {
+	public void setFlightId(int flightId) {
 		this.flightId = flightId;
 	}
 
-	public String getHotelId() {
+	public int getHotelId() {
 		return hotelId;
 	}
 
-	public void setHotelId(String hotelId) {
+	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
 	}
 

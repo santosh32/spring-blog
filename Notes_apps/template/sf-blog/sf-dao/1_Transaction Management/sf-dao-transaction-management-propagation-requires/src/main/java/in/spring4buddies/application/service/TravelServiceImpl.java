@@ -30,6 +30,6 @@ public class TravelServiceImpl implements TravelService {
 	}
 
 	@Override
-	public void bookFlightsAndHotels(Date from, Date to) {
+	public void bookFlightAndHotel(Date from, Date to) {
 	}
 }
