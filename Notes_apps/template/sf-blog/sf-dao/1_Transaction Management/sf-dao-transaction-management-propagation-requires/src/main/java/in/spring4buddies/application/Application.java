@@ -1,8 +1,6 @@
 package in.spring4buddies.application;
 
 import in.spring4buddies.application.dao.helper.DateUtil;
-import in.spring4buddies.application.service.FlightService;
-import in.spring4buddies.application.service.HotelService;
 import in.spring4buddies.application.service.TravelService;
 
 import java.util.Date;
@@ -16,16 +14,12 @@ public class Application {
 		String confFile = "beans-hsql.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		HotelService hotelService = context.getBean(HotelService.class);
-		FlightService flightService = context.getBean(FlightService.class);
 		TravelService travelService = context.getBean(TravelService.class);
 
 		Date date = new Date();
 		Date plus5days = DateUtil.addDays(date, 5);
 
-		System.out.println(flightService.getFlightsFor(date, plus5days));
-		System.out.println(hotelService.getHotelsFor(date, plus5days));
-		System.out.println(travelService.getFlightsAndHotels(date, plus5days));
+		System.out.println(travelService.getTravelTripByPassengerId(1));
 
 		context.close();
 	}

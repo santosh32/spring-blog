@@ -2,8 +2,8 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.dao.helper.FlightRowMapper;
 import in.spring4buddies.application.model.Flight;
+import in.spring4buddies.application.model.Passenger;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +17,13 @@ public class FlightDaoImpl implements FlightDao {
 	JdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<Flight> getFlightsFor(Date from, Date to) {
-		String sql = "SELECT * FROM Flight WHERE (BOOKED_FROM >= ? AND BOOKED_TO <= ?) OR (BOOKED_TO >= ? AND BOOKED_FROM <= ?)";
-		return jdbcTemplate.query(sql, new Object[] { from, to, to, from }, new FlightRowMapper());
+	public List<Flight> getAllFlights() {
+		String sql = "SELECT * FROM Flight";
+		return jdbcTemplate.query(sql, new FlightRowMapper());
 	}
 
 	@Override
-	public void bookFlight(Flight flight) {
+	public void bookFlight(Flight flight, Passenger passenger) {
 		String sql = "INSERT INTO Flight (flight_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?)";
 		jdbcTemplate.update(sql,
 				new Object[] { flight.getFlightId(), flight.getName(), flight.getType(), flight.getBookedFrom(), flight.getBookedTo() });

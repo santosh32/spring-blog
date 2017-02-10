@@ -2,8 +2,8 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.dao.helper.HotelRowMapper;
 import in.spring4buddies.application.model.Hotel;
+import in.spring4buddies.application.model.Passenger;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +17,13 @@ public class HotelDaoImpl implements HotelDao {
 	JdbcTemplate jdbcTemplate;
 
 	@Override
-	public List<Hotel> getHotelNamesFor(Date from, Date to) {
-		String sql = "SELECT * FROM HOTEL WHERE (BOOKED_FROM >= ? AND BOOKED_TO <= ?) OR (BOOKED_TO >= ? AND BOOKED_FROM <= ?)";
-		return jdbcTemplate.query(sql, new Object[] { from, to, to, from }, new HotelRowMapper());
+	public List<Hotel> getAllHotels() {
+		String sql = "SELECT * FROM HOTEL";
+		return jdbcTemplate.query(sql, new HotelRowMapper());
 	}
 
 	@Override
-	public void bookHotel(Hotel hotel) {
+	public void bookHotel(Hotel hotel, Passenger passenger) {
 		String sql = "INSERT INTO HOTEL (hotel_id, name, type, booked_from, booked_to) VALUES (?, ?, ?, ?)";
 		jdbcTemplate.update(sql, new Object[] { hotel.getHotelId(), hotel.getName(), hotel.getType(), hotel.getBookedFrom(), hotel.getBookedTo() });
 	}

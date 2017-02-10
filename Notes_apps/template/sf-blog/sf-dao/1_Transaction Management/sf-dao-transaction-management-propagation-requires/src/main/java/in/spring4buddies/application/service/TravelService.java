@@ -1,16 +1,17 @@
 package in.spring4buddies.application.service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import in.spring4buddies.application.model.Flight;
+import in.spring4buddies.application.model.Hotel;
+import in.spring4buddies.application.model.Passenger;
+import in.spring4buddies.application.model.TravelTrip;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public interface TravelService {
 
-	Map<String, List<?>> getFlightsAndHotels(Date from, Date to);
+	TravelTrip getTravelTripByPassengerId(int passengerId);
 
-	void bookFlightAndHotel(Date from, Date to);
-	
+	TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger);
+
 }

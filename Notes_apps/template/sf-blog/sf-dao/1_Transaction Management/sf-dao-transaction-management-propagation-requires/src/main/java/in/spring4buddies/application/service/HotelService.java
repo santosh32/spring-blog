@@ -1,13 +1,13 @@
 package in.spring4buddies.application.service;
 
 import in.spring4buddies.application.model.Hotel;
+import in.spring4buddies.application.model.Passenger;
 
-import java.util.Date;
 import java.util.List;
 
 public interface HotelService {
 
-	List<Hotel> getHotelsFor(Date from, Date to);
+	List<Hotel> getAllHotels();
 
-	void bookHotel(Hotel hotel);
+	void bookHotel(Hotel hotel, Passenger passenger);
 }

@@ -2,8 +2,8 @@ package in.spring4buddies.application.service;
 
 import in.spring4buddies.application.dao.FlightDao;
 import in.spring4buddies.application.model.Flight;
+import in.spring4buddies.application.model.Passenger;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,13 @@ public class FlightServiceImpl implements FlightService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public List<Flight> getFlightsFor(Date from, Date to) {
-		return flightDao.getFlightsFor(from, to);
+	public List<Flight> getAllFlights() {
+		return flightDao.getAllFlights();
 	}
 
 	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
-	public void bookFlight(Flight flight) {
-		flightDao.bookFlight(flight);
+	public void bookFlight(Flight flight, Passenger passenger) {
+		flightDao.bookFlight(flight, passenger);
 	}
 }
