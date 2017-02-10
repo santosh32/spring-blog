@@ -19,6 +19,7 @@ public class TravelServiceImpl implements TravelService {
 
 	@Override
 	public TravelTrip getTravelTripByPassengerId(int passengerId) {
+		System.out.println("Travel Trip details are...");
 		return null;
 	}
 

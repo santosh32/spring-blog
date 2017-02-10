@@ -15,10 +15,21 @@
 );
  
   CREATE TABLE Passenger (
-    passenger_Id integer  not null,
-    name varchar(200) not null,
-    flight_Id varchar(50) not null,
-    hotel_Id integer not null
+    passenger_Id integer not null,
+    name varchar(200) not null
 );
 
+  CREATE TABLE Flight_Passenger (
+    flight_Id integer not null,
+    passenger_Id integer not null,
+    booked_from date not null,
+    booked_to date not null
+);
+
+  CREATE TABLE Hotel_Passenger (
+    hotel_Id integer not null,
+    passenger_Id integer not null,
+    booked_from date not null,
+    booked_to date not null
+);
  
