@@ -1,5 +1,6 @@
 package in.spring4buddies.application.service;
 
+import in.spring4buddies.application.dao.TravelDao;
 import in.spring4buddies.application.model.Flight;
 import in.spring4buddies.application.model.Hotel;
 import in.spring4buddies.application.model.Passenger;
@@ -17,10 +18,12 @@ public class TravelServiceImpl implements TravelService {
 	@Autowired
 	private FlightService flightService;
 
+	@Autowired
+	TravelDao travelDao;
+
 	@Override
 	public TravelTrip getTravelTripByPassengerId(int passengerId) {
-		System.out.println("Travel Trip details are...");
-		return null;
+		return travelDao.getTravelTripByPassengerId(passengerId);
 	}
 
 	@Override
@@ -29,6 +32,5 @@ public class TravelServiceImpl implements TravelService {
 		flightService.bookFlight(flight, passenger);
 		System.out.println("Booked Flight and Hotel Successfully");
 		return getTravelTripByPassengerId(passenger.getPassengerId());
-
 	}
 }
