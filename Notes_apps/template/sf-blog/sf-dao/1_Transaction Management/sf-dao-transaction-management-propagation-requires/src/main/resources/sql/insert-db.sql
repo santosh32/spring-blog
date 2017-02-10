@@ -22,6 +22,11 @@ INSERT INTO Hotel (Hotel_Id, name, type) VALUES (208,'San Diego Marriott Hotel a
 INSERT INTO Hotel (Hotel_Id, name, type) VALUES (209,'Downtown Standard Hotel', 'business')
 INSERT INTO Hotel (Hotel_Id, name, type) VALUES (210,'Park Plaza Hotel', 'business')
 
+INSERT INTO Passenger (passenger_Id, name) VALUES (1000,'James Bond')
+INSERT INTO Hotel_Passenger (Hotel_Id, passenger_Id) VALUES (208, 1000)
+INSERT INTO Flight_Passenger (flight_Id, passenger_Id) VALUES (209, 1000)
+
+
 
 
 

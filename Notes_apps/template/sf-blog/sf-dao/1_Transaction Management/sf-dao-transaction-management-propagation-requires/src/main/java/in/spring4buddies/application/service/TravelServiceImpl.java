@@ -8,7 +8,10 @@ import in.spring4buddies.application.model.TravelTrip;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(propagation = Propagation.REQUIRED)
 @Service
 public class TravelServiceImpl implements TravelService {
 

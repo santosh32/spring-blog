@@ -15,7 +15,6 @@ public class TravelDaoImpl implements TravelDao {
 
 	@Override
 	public TravelTrip getTravelTripByPassengerId(int passengerId) {
-		System.out.println("Travel Trip details are...");
 
 		String sql = "select p.name p_name, h.name h_name, f.name f_name, fp.booked_from, fp.booked_to "
 				+ "from Flight f, Hotel h, Passenger p, Flight_Passenger fp, Hotel_Passenger hp where p.passenger_Id = fp.passenger_Id "

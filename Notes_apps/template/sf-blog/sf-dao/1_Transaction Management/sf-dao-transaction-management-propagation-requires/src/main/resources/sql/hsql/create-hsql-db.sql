@@ -18,14 +18,14 @@
   CREATE TABLE Flight_Passenger (
     flight_Id integer not null,
     passenger_Id integer not null,
-    booked_from date not null,
-    booked_to date not null
+    booked_from date,
+    booked_to date
 );
 
   CREATE TABLE Hotel_Passenger (
     hotel_Id integer not null,
     passenger_Id integer not null,
-    booked_from date not null,
-    booked_to date not null
+    booked_from date,
+    booked_to date
 );
  

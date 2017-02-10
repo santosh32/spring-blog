@@ -19,7 +19,7 @@ public class Application {
 
 		TravelService travelService = context.getBean(TravelService.class);
 
-		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger());
+//		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger());
 		System.out.println(travelService.getTravelTripByPassengerId(1));
 
 		context.close();
@@ -32,10 +32,10 @@ public class Application {
 	}
 
 	private static Flight getFlight() {
-		return new Flight(1, null, null);
+		return new Flight(100, null, null);
 	}
 
 	private static Hotel getHotel() {
-		return new Hotel(1, null, null);
+		return new Hotel(200, null, null);
 	}
 }
