@@ -9,5 +9,5 @@ public interface HotelService {
 
 	List<Hotel> getAllHotels();
 
-	void bookHotel(Hotel hotel, Passenger passenger);
+	void bookHotelWithPassenger(Hotel hotel, Passenger passenger);
 }

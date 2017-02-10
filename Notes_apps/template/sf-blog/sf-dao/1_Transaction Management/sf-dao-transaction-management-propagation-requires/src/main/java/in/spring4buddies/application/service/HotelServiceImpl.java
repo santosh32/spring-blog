@@ -24,9 +24,9 @@ public class HotelServiceImpl implements HotelService {
 		return hotelDao.getAllHotels();
 	}
 
-	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
+	@Transactional//(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
-	public void bookHotel(Hotel hotel, Passenger passenger) {
+	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) {
 		hotelDao.bookHotelWithPassenger(hotel, passenger);
 	}
 }

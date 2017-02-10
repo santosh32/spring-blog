@@ -24,9 +24,9 @@ public class FlightServiceImpl implements FlightService {
 		return flightDao.getAllFlights();
 	}
 
-	@Transactional(rollbackFor = Exception.class, noRollbackFor = Exception.class)
+	@Transactional//(rollbackFor = Exception.class, noRollbackFor = Exception.class)
 	@Override
-	public void bookFlight(Flight flight, Passenger passenger) {
+	public void bookFlightWithPassenger(Flight flight, Passenger passenger) {
 		flightDao.bookFlightWithPassenger(flight, passenger);
 	}
 }
