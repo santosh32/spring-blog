@@ -18,8 +18,8 @@ public class FlightDaoImpl implements FlightDao {
 
 	@Override
 	public List<Flight> getFlightsFor(Date from, Date to) {
-		String sql = "SELECT * FROM Flight WHERE BOOKED_FROM = ? AND BOOKED_TO = ?";
-		return jdbcTemplate.query(sql, new Object[] { from, to }, new FlightRowMapper());
+		String sql = "SELECT * FROM Flight WHERE (BOOKED_FROM >= ? AND BOOKED_TO <= ?) OR (BOOKED_TO >= ? AND BOOKED_FROM <= ?)";
+		return jdbcTemplate.query(sql, new Object[] { from, to, to, from }, new FlightRowMapper());
 	}
 
 	@Override

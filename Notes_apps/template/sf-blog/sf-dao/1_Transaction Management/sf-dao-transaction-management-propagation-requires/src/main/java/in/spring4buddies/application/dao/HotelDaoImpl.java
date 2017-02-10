@@ -18,8 +18,8 @@ public class HotelDaoImpl implements HotelDao {
 
 	@Override
 	public List<Hotel> getHotelNamesFor(Date from, Date to) {
-		String sql = "SELECT * FROM HOTEL WHERE BOOKED_FROM = ? AND BOOKED_TO = ?";
-		return jdbcTemplate.query(sql, new Object[] { from, to }, new HotelRowMapper());
+		String sql = "SELECT * FROM HOTEL WHERE (BOOKED_FROM >= ? AND BOOKED_TO <= ?) OR (BOOKED_TO >= ? AND BOOKED_FROM <= ?)";
+		return jdbcTemplate.query(sql, new Object[] { from, to, to, from }, new HotelRowMapper());
 	}
 
 	@Override

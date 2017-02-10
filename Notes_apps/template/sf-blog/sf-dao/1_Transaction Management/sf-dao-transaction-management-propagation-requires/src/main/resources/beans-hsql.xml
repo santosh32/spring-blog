@@ -12,7 +12,7 @@
 	<context:annotation-config />
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
-		<jdbc:script location="classpath:sql/create-hsql-db.sql" />
+		<jdbc:script location="classpath:sql/hsql/create-hsql-db.sql" />
 		<jdbc:script location="classpath:sql/insert-db.sql" />
 	</jdbc:embedded-database>
 

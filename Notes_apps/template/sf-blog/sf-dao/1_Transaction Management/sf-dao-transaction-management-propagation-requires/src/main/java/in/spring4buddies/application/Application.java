@@ -1,5 +1,6 @@
 package in.spring4buddies.application;
 
+import in.spring4buddies.application.dao.helper.DateUtil;
 import in.spring4buddies.application.service.FlightService;
 import in.spring4buddies.application.service.HotelService;
 
@@ -19,9 +20,10 @@ public class Application {
 		FlightService flightService = context.getBean(FlightService.class);
 
 		Date date = new Date();
+		Date plus5days = DateUtil.addDays(date, 5);
 
-		System.out.println(flightService.getFlightsFor(date, date));
-		System.out.println(hotelService.getHotelsFor(date, date));
+		System.out.println(flightService.getFlightsFor(date, plus5days));
+		System.out.println(hotelService.getHotelsFor(date, plus5days));
 
 		context.close();
 	}
