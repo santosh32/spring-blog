@@ -27,7 +27,8 @@ public class FlightServiceImpl implements FlightService {
 
 	@Transactional(rollbackFor = FlightNotAvailbleException.class, noRollbackFor = FlightNotAvailbleException.class)
 	@Override
-	public void bookFlightWithPassenger(Flight flight, Passenger passenger) {
+	public void bookFlightWithPassenger(Flight flight, Passenger passenger) throws FlightNotAvailbleException {
 		flightDao.bookFlightWithPassenger(flight, passenger);
+		throw new FlightNotAvailbleException("Flights Not Availble For Specified details");
 	}
 }

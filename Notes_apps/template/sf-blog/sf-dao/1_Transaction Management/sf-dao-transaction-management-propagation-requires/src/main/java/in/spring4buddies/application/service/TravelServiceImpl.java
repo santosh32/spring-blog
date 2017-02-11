@@ -30,7 +30,7 @@ public class TravelServiceImpl implements TravelService {
 	}
 
 	@Override
-	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) {
+	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception {
 		travelDao.insertPassenger(passenger);
 		hotelService.bookHotelWithPassenger(hotel, passenger);
 		flightService.bookFlightWithPassenger(flight, passenger);

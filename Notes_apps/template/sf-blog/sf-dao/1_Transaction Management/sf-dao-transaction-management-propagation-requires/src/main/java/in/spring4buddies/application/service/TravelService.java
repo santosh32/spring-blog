@@ -12,6 +12,6 @@ public interface TravelService {
 
 	TravelTrip getTravelTripByPassengerId(int passengerId);
 
-	TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger);
+	TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception;
 
 }

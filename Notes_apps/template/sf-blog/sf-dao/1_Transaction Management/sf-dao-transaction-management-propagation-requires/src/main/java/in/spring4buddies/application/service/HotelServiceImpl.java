@@ -27,7 +27,8 @@ public class HotelServiceImpl implements HotelService {
 
 	@Transactional(rollbackFor = HotelNotAvailbleException.class, noRollbackFor = HotelNotAvailbleException.class)
 	@Override
-	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) {
+	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) throws HotelNotAvailbleException {
 		hotelDao.bookHotelWithPassenger(hotel, passenger);
+		throw new HotelNotAvailbleException("Hotels Not Availble For Specified details");
 	}
 }
