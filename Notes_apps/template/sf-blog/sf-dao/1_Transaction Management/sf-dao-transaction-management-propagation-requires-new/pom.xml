@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>sf-dao-transaction-management-propagation-required</artifactId>
+	<artifactId>sf-dao-transaction-management-propagation-requires-new</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>sf-dao-transaction-management-propagation-required</name>
+	<name>sf-dao-transaction-management-propagation-requires-new</name>
 
 	<properties>
 		<jdk.version>1.7</jdk.version>
