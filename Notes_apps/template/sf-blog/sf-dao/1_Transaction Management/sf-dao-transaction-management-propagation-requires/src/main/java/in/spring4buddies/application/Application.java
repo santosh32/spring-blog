@@ -20,7 +20,7 @@ public class Application {
 		TravelService travelService = context.getBean(TravelService.class);
 
 //		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger());
-		System.out.println(travelService.getTravelTripByPassengerId(1));
+		System.out.println(travelService.getTravelTripByPassengerId(1000));
 
 		context.close();
 	}

@@ -16,9 +16,21 @@ public class TravelDaoImpl implements TravelDao {
 	@Override
 	public TravelTrip getTravelTripByPassengerId(int passengerId) {
 
-		String sql = "select p.name p_name, h.name h_name, f.name f_name, fp.booked_from, fp.booked_to "
-				+ "from Flight f, Hotel h, Passenger p, Flight_Passenger fp, Hotel_Passenger hp where p.passenger_Id = fp.passenger_Id "
-				+ "and p.passenger_Id = hp.passenger_Id and f.flight_Id = fp.flight_Id and h.hotel_Id = hp.hotel_Id and p.passenger_Id = ?";
+		String sql = "SELECT p.NAME p_name, "+
+						  "h.NAME h_name, "+
+						  "f.NAME f_name, "+
+						  "fp.booked_from, "+
+						  "fp.booked_to "+
+						"FROM flight f, "+
+						  "hotel h, "+
+						  "passenger p, "+
+						  "flight_passenger fp, "+
+						  "hotel_passenger hp "+
+						"WHERE p.passenger_id = fp.passenger_id "+
+						"AND p.passenger_id   = hp.passenger_id "+
+						"AND f.flight_id      = fp.flight_id "+
+						"AND h.hotel_id       = hp.hotel_id "+
+						"AND p.passenger_id   = ?";
 
 		return jdbcTemplate.queryForObject(sql, new Object[] { passengerId }, new TravelTripRowMapper());
 	}

@@ -1,34 +1,28 @@
-INSERT INTO Flight (flight_Id, name, type) VALUES (100,'Lufthansa', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (101,'Emirates Air', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (102,'Swiss International Airlines', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (103,'Singapore Airlines', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (104,'Thai Airways', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (105,'Cathay Pacific Airways', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (106,'Air New Zealand', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (107,'British airways', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (108,'China Southern Airlines', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (109,'Airasia', 'business')
-INSERT INTO Flight (flight_Id, name, type) VALUES (110,'Virgin Atlantic', 'business')
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (100,'Lufthansa', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (101,'Emirates Air', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (102,'Swiss International Airlines', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (103,'Singapore Airlines', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (104,'Thai Airways', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (105,'Cathay Pacific Airways', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (106,'Air New Zealand', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (107,'British airways', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (108,'China Southern Airlines', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (109,'Airasia', 'business');
+INSERT INTO FLIGHT (FLIGHT_ID, NAME, TYPE) VALUES (110,'Virgin Atlantic', 'business');
 
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (200,'Radisson Montevideo Victoria Plaza Hotel', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (201,'Hotel Carrasco', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (202,'Casapueblo', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (203,'Emirates Towers', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (204,'Burj Al Arab', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (205,'Claremont Resort', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (206,'Colony Palms Hotel', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (207,'Hilton Waterfront Beach Resort', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (208,'San Diego Marriott Hotel and Marina', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (209,'Downtown Standard Hotel', 'business')
-INSERT INTO Hotel (Hotel_Id, name, type) VALUES (210,'Park Plaza Hotel', 'business')
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (200,'Radisson Montevideo Victoria Plaza Hotel', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (201,'Hotel Carrasco', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (202,'Casapueblo', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (203,'Emirates Towers', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (204,'Burj Al Arab', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (205,'Claremont Resort', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (206,'Colony Palms Hotel', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (207,'Hilton Waterfront Beach Resort', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (208,'San Diego Marriott Hotel and Marina', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (209,'Downtown Standard Hotel', 'business');
+INSERT INTO HOTEL (HOTEL_ID, NAME, TYPE) VALUES (210,'Park Plaza Hotel', 'business');
 
-INSERT INTO Passenger (passenger_Id, name) VALUES (1000,'James Bond')
-INSERT INTO Hotel_Passenger (Hotel_Id, passenger_Id) VALUES (208, 1000)
-INSERT INTO Flight_Passenger (flight_Id, passenger_Id) VALUES (209, 1000)
-
-
-
-
-
-
-
+INSERT INTO PASSENGER (PASSENGER_ID, NAME) VALUES (1000,'James Bond');
+INSERT INTO HOTEL_PASSENGER (HOTEL_ID, PASSENGER_ID) VALUES (200, 1000);
+INSERT INTO FLIGHT_PASSENGER (FLIGHT_ID, PASSENGER_ID) VALUES (100, 1000);
+COMMIT;
