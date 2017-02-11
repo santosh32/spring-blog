@@ -29,6 +29,6 @@ public class FlightServiceImpl implements FlightService {
 	@Override
 	public void bookFlightWithPassenger(Flight flight, Passenger passenger) throws FlightNotAvailbleException {
 		flightDao.bookFlightWithPassenger(flight, passenger);
-//		throw new FlightNotAvailbleException("Flights Not Available For Specified details");
+		throw new FlightNotAvailbleException("Flights Not Available For Specified details");
 	}
 }

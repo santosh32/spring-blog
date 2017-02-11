@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 @Service
 public class HotelServiceImpl implements HotelService {
 
@@ -25,7 +25,7 @@ public class HotelServiceImpl implements HotelService {
 		return hotelDao.getAllHotels();
 	}
 
-	@Transactional(rollbackFor = HotelNotAvailbleException.class, noRollbackFor = HotelNotAvailbleException.class)
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = HotelNotAvailbleException.class, noRollbackFor = HotelNotAvailbleException.class)
 	@Override
 	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) throws HotelNotAvailbleException {
 		hotelDao.bookHotelWithPassenger(hotel, passenger);

@@ -29,9 +29,14 @@ public class TravelServiceImpl implements TravelService {
 	@Override
 	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception {
 		travelDao.insertPassenger(passenger);
-		flightService.bookFlightWithPassenger(flight, passenger);
-		hotelService.bookHotelWithPassenger(hotel, passenger);
-		System.out.println("Booked Flight and Hotel Successfully");
-		return getTravelTripByPassengerId(passenger.getPassengerId());
+		try {
+			flightService.bookFlightWithPassenger(flight, passenger);
+			hotelService.bookHotelWithPassenger(hotel, passenger);
+			System.out.println("Booked Flight and Hotel Successfully");
+			return getTravelTripByPassengerId(passenger.getPassengerId());
+		} catch (Exception e) {
+			System.out.println("==> " + e.getMessage());
+		}
+		return null;
 	}
 }

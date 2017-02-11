@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = Propagation.REQUIRED)
 @Service
 public class TravelServiceImpl implements TravelService {
 
@@ -29,12 +28,18 @@ public class TravelServiceImpl implements TravelService {
 		return travelDao.getTravelTripByPassengerId(passengerId);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	@Override
 	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception {
 		travelDao.insertPassenger(passenger);
-		flightService.bookFlightWithPassenger(flight, passenger);
-		hotelService.bookHotelWithPassenger(hotel, passenger);
-		System.out.println("Booked Flight and Hotel Successfully");
-		return getTravelTripByPassengerId(passenger.getPassengerId());
+		try {
+			flightService.bookFlightWithPassenger(flight, passenger);
+			hotelService.bookHotelWithPassenger(hotel, passenger);
+			System.out.println("Booked Flight and Hotel Successfully");
+			return getTravelTripByPassengerId(passenger.getPassengerId());
+		} catch (Exception e) {
+			System.out.println("==> " + e.getMessage());
+		}
+		return null;
 	}
 }

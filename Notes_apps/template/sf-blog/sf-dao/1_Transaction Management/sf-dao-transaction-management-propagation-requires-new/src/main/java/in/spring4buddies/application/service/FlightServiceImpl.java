@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 @Service
 public class FlightServiceImpl implements FlightService {
 
@@ -25,7 +25,7 @@ public class FlightServiceImpl implements FlightService {
 		return flightDao.getAllFlights();
 	}
 
-	@Transactional(rollbackFor = FlightNotAvailbleException.class, noRollbackFor = FlightNotAvailbleException.class)
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = FlightNotAvailbleException.class, noRollbackFor = FlightNotAvailbleException.class)
 	@Override
 	public void bookFlightWithPassenger(Flight flight, Passenger passenger) throws FlightNotAvailbleException {
 		flightDao.bookFlightWithPassenger(flight, passenger);
