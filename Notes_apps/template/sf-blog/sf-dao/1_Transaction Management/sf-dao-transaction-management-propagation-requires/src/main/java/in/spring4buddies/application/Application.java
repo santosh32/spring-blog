@@ -15,7 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
-		String confFile = "beans-hsql.xml";
+		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
 		TravelService travelService = context.getBean(TravelService.class);

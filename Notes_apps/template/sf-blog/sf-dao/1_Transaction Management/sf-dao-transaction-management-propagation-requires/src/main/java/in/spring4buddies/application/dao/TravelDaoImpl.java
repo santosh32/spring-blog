@@ -21,7 +21,10 @@ public class TravelDaoImpl implements TravelDao {
 						  "h.NAME h_name, "+
 						  "f.NAME f_name, "+
 						  "fp.booked_from, "+
-						  "fp.booked_to "+
+						  "fp.booked_to, "+
+						  "p.passenger_id, "+
+						  "f.flight_id, "+
+						  "h.hotel_id "+
 						"FROM flight f, "+
 						  "hotel h, "+
 						  "passenger p, "+

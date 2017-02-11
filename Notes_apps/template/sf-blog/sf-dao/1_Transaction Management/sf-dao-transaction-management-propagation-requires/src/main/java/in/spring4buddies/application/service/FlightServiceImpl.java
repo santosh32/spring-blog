@@ -1,6 +1,7 @@
 package in.spring4buddies.application.service;
 
 import in.spring4buddies.application.dao.FlightDao;
+import in.spring4buddies.application.exception.FlightNotAvailbleException;
 import in.spring4buddies.application.model.Flight;
 import in.spring4buddies.application.model.Passenger;
 
@@ -24,7 +25,7 @@ public class FlightServiceImpl implements FlightService {
 		return flightDao.getAllFlights();
 	}
 
-	@Transactional//(rollbackFor = Exception.class, noRollbackFor = Exception.class)
+	@Transactional(rollbackFor = FlightNotAvailbleException.class, noRollbackFor = FlightNotAvailbleException.class)
 	@Override
 	public void bookFlightWithPassenger(Flight flight, Passenger passenger) {
 		flightDao.bookFlightWithPassenger(flight, passenger);

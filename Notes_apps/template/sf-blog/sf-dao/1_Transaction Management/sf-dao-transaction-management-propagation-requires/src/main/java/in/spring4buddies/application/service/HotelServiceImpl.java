@@ -1,6 +1,7 @@
 package in.spring4buddies.application.service;
 
 import in.spring4buddies.application.dao.HotelDao;
+import in.spring4buddies.application.exception.HotelNotAvailbleException;
 import in.spring4buddies.application.model.Hotel;
 import in.spring4buddies.application.model.Passenger;
 
@@ -24,7 +25,7 @@ public class HotelServiceImpl implements HotelService {
 		return hotelDao.getAllHotels();
 	}
 
-	@Transactional//(rollbackFor = Exception.class, noRollbackFor = Exception.class)
+	@Transactional(rollbackFor = HotelNotAvailbleException.class, noRollbackFor = HotelNotAvailbleException.class)
 	@Override
 	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) {
 		hotelDao.bookHotelWithPassenger(hotel, passenger);
