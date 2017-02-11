@@ -21,8 +21,11 @@ public class Application {
 		TravelService travelService = context.getBean(TravelService.class);
 
 		int passengerID = RandomUtils.nextInt(1000, 1500);
-		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger(passengerID));
-		System.out.println(travelService.getTravelTripByPassengerId(passengerID));
+		try {
+			System.out.println(travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger(passengerID)));
+		} catch (Exception e) {
+			System.out.println("Error: Passenger Booking Failed - " + e.getMessage());
+		}
 
 		context.close();
 	}
@@ -34,7 +37,7 @@ public class Application {
 	}
 
 	private static Flight getFlight() {
-		return new Flight( RandomUtils.nextInt(100, 110), null, null);
+		return new Flight(RandomUtils.nextInt(100, 110), null, null);
 	}
 
 	private static Hotel getHotel() {

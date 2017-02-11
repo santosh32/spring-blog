@@ -29,6 +29,6 @@ public class HotelServiceImpl implements HotelService {
 	@Override
 	public void bookHotelWithPassenger(Hotel hotel, Passenger passenger) throws HotelNotAvailbleException {
 		hotelDao.bookHotelWithPassenger(hotel, passenger);
-		throw new HotelNotAvailbleException("Hotels Not Availble For Specified details");
+//		throw new HotelNotAvailbleException("Hotels Not Available For Specified details");
 	}
 }
