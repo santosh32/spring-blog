@@ -28,7 +28,7 @@ public class TravelServiceImpl implements TravelService {
 		return travelDao.getTravelTripByPassengerId(passengerId);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception {
 		travelDao.insertPassenger(passenger);
