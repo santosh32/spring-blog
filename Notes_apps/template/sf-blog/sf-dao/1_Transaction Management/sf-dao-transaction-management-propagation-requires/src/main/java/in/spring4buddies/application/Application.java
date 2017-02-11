@@ -8,6 +8,7 @@ import in.spring4buddies.application.service.TravelService;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,23 +20,24 @@ public class Application {
 
 		TravelService travelService = context.getBean(TravelService.class);
 
-//		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger());
-		System.out.println(travelService.getTravelTripByPassengerId(1000));
+		int passengerID = RandomUtils.nextInt(1000, 1500);
+		travelService.bookFlightAndHotel(getHotel(), getFlight(), getPassenger(passengerID));
+		System.out.println(travelService.getTravelTripByPassengerId(passengerID));
 
 		context.close();
 	}
 
-	private static Passenger getPassenger() {
+	private static Passenger getPassenger(int passengerID) {
 		Date date = new Date();
 		Date plus5days = DateUtil.addDays(date, 5);
-		return new Passenger(1, "James", date, plus5days);
+		return new Passenger(passengerID, "James Bond", date, plus5days);
 	}
 
 	private static Flight getFlight() {
-		return new Flight(100, null, null);
+		return new Flight( RandomUtils.nextInt(100, 110), null, null);
 	}
 
 	private static Hotel getHotel() {
-		return new Hotel(200, null, null);
+		return new Hotel(RandomUtils.nextInt(200, 210), null, null);
 	}
 }

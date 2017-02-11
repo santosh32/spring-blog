@@ -31,6 +31,7 @@ public class TravelServiceImpl implements TravelService {
 
 	@Override
 	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) {
+		travelDao.insertPassenger(passenger);
 		hotelService.bookHotelWithPassenger(hotel, passenger);
 		flightService.bookFlightWithPassenger(flight, passenger);
 		System.out.println("Booked Flight and Hotel Successfully");

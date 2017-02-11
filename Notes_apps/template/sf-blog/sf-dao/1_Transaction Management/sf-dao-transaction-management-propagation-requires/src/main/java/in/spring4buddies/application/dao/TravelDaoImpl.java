@@ -1,6 +1,7 @@
 package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.dao.helper.TravelTripRowMapper;
+import in.spring4buddies.application.model.Passenger;
 import in.spring4buddies.application.model.TravelTrip;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,12 @@ public class TravelDaoImpl implements TravelDao {
 						"AND p.passenger_id   = ?";
 
 		return jdbcTemplate.queryForObject(sql, new Object[] { passengerId }, new TravelTripRowMapper());
+	}
+
+	@Override
+	public void insertPassenger(Passenger passenger) {
+		String sql = "INSERT INTO PASSENGER (passenger_Id, name) VALUES (?, ?)";
+		jdbcTemplate.update(sql,
+				new Object[] { passenger.getPassengerId(), passenger.getName()});		
 	}
 }
