@@ -8,10 +8,7 @@ import in.spring4buddies.application.model.TravelTrip;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(propagation = Propagation.REQUIRED)
 @Service
 public class TravelServiceImpl implements TravelService {
 
@@ -32,8 +29,8 @@ public class TravelServiceImpl implements TravelService {
 	@Override
 	public TravelTrip bookFlightAndHotel(Hotel hotel, Flight flight, Passenger passenger) throws Exception {
 		travelDao.insertPassenger(passenger);
-		hotelService.bookHotelWithPassenger(hotel, passenger);
 		flightService.bookFlightWithPassenger(flight, passenger);
+		hotelService.bookHotelWithPassenger(hotel, passenger);
 		System.out.println("Booked Flight and Hotel Successfully");
 		return getTravelTripByPassengerId(passenger.getPassengerId());
 	}
