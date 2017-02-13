@@ -15,32 +15,27 @@ public class StaffDaoImpl implements StaffDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final int INSERT_BATCH_SIZE = 2;
-	private final String SQL_STAFF_INSERT = "INSERT INTO staff(staff_id, lname, fname, city, state, hphone) values(?, ?, ?, ?, ?, ?)";
+	private final String SQL_STAFF_INSERT = "INSERT INTO STAFF(STAFF_ID, LAST_NAME, FIRST_NAME, CITY, STATE, HOME_PHONE) values(?, ?, ?, ?, ?, ?)";
 
 	@Override
-	public void insert(List<Staff> staffs) {
-		for (int i = 0; i < staffs.size(); i += INSERT_BATCH_SIZE) {
+	public void insert(final List<Staff> staffs) {
 
-			final List<Staff> batchList = staffs.subList(i, i + INSERT_BATCH_SIZE > staffs.size() ? staffs.size() : i + INSERT_BATCH_SIZE);
+		jdbcTemplate.batchUpdate(SQL_STAFF_INSERT, new BatchPreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement pStmt, int i) throws SQLException {
+				Staff staff = staffs.get(i);
+				pStmt.setInt(1, staff.getStaff_Id());
+				pStmt.setString(2, staff.getLast_name());
+				pStmt.setString(3, staff.getFirst_Name());
+				pStmt.setString(4, staff.getCity());
+				pStmt.setString(5, staff.getState());
+				pStmt.setString(6, staff.getHome_phone());
+			}
 
-			jdbcTemplate.batchUpdate(SQL_STAFF_INSERT, new BatchPreparedStatementSetter() {
-				@Override
-				public void setValues(PreparedStatement pStmt, int j) throws SQLException {
-					Staff staff = batchList.get(j);
-					pStmt.setInt(1, staff.getStaffId());
-					pStmt.setString(2, staff.getlLame());
-					pStmt.setString(3, staff.getfName());
-					pStmt.setString(4, staff.getCity());
-					pStmt.setString(5, staff.getState());
-					pStmt.setString(6, staff.gethPhone());
-				}
-
-				@Override
-				public int getBatchSize() {
-					return batchList.size();
-				}
-			});
-		}
+			@Override
+			public int getBatchSize() {
+				return staffs.size();
+			}
+		});
 	}
 }

@@ -2,45 +2,49 @@ package in.spring4buddies.application.model;
 
 public class Staff {
 
-	private int staffId;
-	private String lLame;
-	private String fName;
+	private int staff_Id;
+	private String last_name;
+	private String first_Name;
 	private String city;
 	private String state;
-	private String hPhone;
+	private String home_phone;
 
-	public Staff(int staffId, String lLame, String fName, String city, String state, String hPhone) {
+	public Staff() {
+
+	}
+
+	public Staff(int staff_Id, String last_name, String first_Name, String city, String state, String home_phone) {
 		super();
-		this.staffId = staffId;
-		this.lLame = lLame;
-		this.fName = fName;
+		this.staff_Id = staff_Id;
+		this.last_name = last_name;
+		this.first_Name = first_Name;
 		this.city = city;
 		this.state = state;
-		this.hPhone = hPhone;
+		this.home_phone = home_phone;
 	}
 
-	public int getStaffId() {
-		return staffId;
+	public int getStaff_Id() {
+		return staff_Id;
 	}
 
-	public void setStaffId(int staffId) {
-		this.staffId = staffId;
+	public void setStaff_Id(int staff_Id) {
+		this.staff_Id = staff_Id;
 	}
 
-	public String getlLame() {
-		return lLame;
+	public String getLast_name() {
+		return last_name;
 	}
 
-	public void setlLame(String lLame) {
-		this.lLame = lLame;
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
 
-	public String getfName() {
-		return fName;
+	public String getFirst_Name() {
+		return first_Name;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setFirst_Name(String first_Name) {
+		this.first_Name = first_Name;
 	}
 
 	public String getCity() {
@@ -59,16 +63,18 @@ public class Staff {
 		this.state = state;
 	}
 
-	public String gethPhone() {
-		return hPhone;
+	public String getHome_phone() {
+		return home_phone;
 	}
 
-	public void sethPhone(String hPhone) {
-		this.hPhone = hPhone;
+	public void setHome_phone(String home_phone) {
+		this.home_phone = home_phone;
 	}
 
-	public Staff() {
-
+	@Override
+	public String toString() {
+		return "Staff [staff_Id=" + staff_Id + ", last_name=" + last_name + ", first_Name=" + first_Name + ", city=" + city + ", state=" + state
+				+ ", home_phone=" + home_phone + "]";
 	}
 
 }
