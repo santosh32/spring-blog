@@ -7,7 +7,7 @@ public class Movie {
 	private String director;
 	private String genre;
 	private String raiting;
-	private String status;
+	private String boxOffice;
 
 	public Movie() {
 	}
@@ -52,27 +52,27 @@ public class Movie {
 		this.raiting = raiting;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getBoxOffice() {
+		return boxOffice;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setBoxOffice(String boxOffice) {
+		this.boxOffice = boxOffice;
 	}
 
-	public Movie(long id, String title, String director, String genre, String raiting, String status) {
+	public Movie(long id, String title, String director, String genre, String raiting, String boxOffice) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.director = director;
 		this.genre = genre;
 		this.raiting = raiting;
-		this.status = status;
+		this.boxOffice = boxOffice;
 	}
 
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", title=" + title + ", director=" + director + ", genre=" + genre + ", raiting=" + raiting + ", status=" + status
+		return "Movie [id=" + id + ", title=" + title + ", director=" + director + ", genre=" + genre + ", raiting=" + raiting + ", boxOffice=" + boxOffice
 				+ "]";
 	}
 
