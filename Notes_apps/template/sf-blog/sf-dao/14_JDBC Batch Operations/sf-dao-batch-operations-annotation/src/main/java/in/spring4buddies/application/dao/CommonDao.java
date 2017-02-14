@@ -16,8 +16,7 @@ public interface CommonDao {
 
 	int[] insertEmployee(List<Employee> employees);
 
-	void insertInvoice(List<Invoice> invoices);
+	int[][] insertInvoice(List<Invoice> invoices);
 
-	void insertOrder(List<Order> orders);
-
+	int[] insertOrder(List<Order> orders);
 }

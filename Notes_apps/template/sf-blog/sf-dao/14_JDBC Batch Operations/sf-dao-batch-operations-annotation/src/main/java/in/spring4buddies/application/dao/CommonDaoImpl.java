@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ParameterizedPreparedStatementSetter;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
@@ -27,11 +28,12 @@ public class CommonDaoImpl implements CommonDao {
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
 	private final String SQL_STAFF_INSERT = "INSERT INTO STAFF(STAFF_ID, LAST_NAME, FIRST_NAME, CITY, STATE, HOME_PHONE) values(?, ?, ?, ?, ?, ?)";
-	private final String SQL_CUSTOMER_INSERT = "Insert into customer (customerId, contact, address, city, firstOrder, state, zipCode, country, phone, name ) values (?,?,?,?,?,?,?,?,?,?)";
-	private final String SQL_EMPLOYEE_INSERT = "insert into Employee (empId, hireDate, salary, dept, jobcode, sex, birthDate, lastName, firstName, middleName, phone ) "
+	private final String SQL_CUSTOMER_INSERT = "Insert into customer (customer_Id, contact, address, city, firstOrder, state, zipCode, country, phone, name ) values (?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_EMPLOYEE_INSERT = "insert into Employee (emp_Id, hireDate, salary, dept, jobcode, sex, birthDate, lastName, firstName, middleName, phone ) "
 			+ "values (:empId, :hireDate, :salary, :dept, :jobcode, :sex, :birthDate, :lastName, :firstName, :middleName, :phone )";
-	private final String SQL_INVOICE_INSERT = "insert into Invoice (invoiceId, billedTo, amtBilled, country, amtInUS, billedBy, billedOn, paidOn ) values ( ?,?,?,?,?,?,?,? )";
-	private final String SQL_ORDER_INSERT = "insert into OrderItem (orderId, stockId, length, fabCharges, shipTo, orderDate, shipped, takenBy, proccessdBy, specinstr ) values (?,?,?,?,?,?,?,?,?,?)";
+	private final String SQL_INVOICE_INSERT = "insert into Invoice (invoice_Id, billedTo, amtBilled, country, amtInUS, billedBy, billedOn, paidOn ) values ( ?,?,?,?,?,?,?,? )";
+	private final String SQL_ORDER_INSERT = "insert into OrderItem (order_Id, stockId, length, fabCharges, shipTo, orderDate, shipped, takenBy, proccessdBy, specinstr ) "
+			+ "values (:orderId, :stockId, :length, :fabCharges, :shipTo, :orderDate, :shipped, :takenBy, :proccessdBy, :specinstr)";
 
 	@Override
 	public int[] insertCustomer(List<Customer> customers) {
@@ -52,15 +54,26 @@ public class CommonDaoImpl implements CommonDao {
 	}
 
 	@Override
-	public void insertInvoice(List<Invoice> invoices) {
-		// TODO Auto-generated method stub
-
+	public int[][] insertInvoice(List<Invoice> invoices) {
+		return jdbcTemplate.batchUpdate(SQL_INVOICE_INSERT, invoices, 100, new ParameterizedPreparedStatementSetter<Invoice>() {
+			@Override
+			public void setValues(PreparedStatement pStmt, Invoice invoice) throws SQLException {
+				pStmt.setInt(1, invoice.getInvoiceId());
+				pStmt.setString(2, invoice.getBilledTo());
+				pStmt.setString(3, invoice.getAmtBilled());
+				pStmt.setString(4, invoice.getCountry());
+				pStmt.setString(5, invoice.getAmtInUS());
+				pStmt.setString(6, invoice.getBilledBy());
+				pStmt.setString(7, invoice.getBilledOn());
+				pStmt.setString(8, invoice.getPaidOn());
+			}
+		});
 	}
 
 	@Override
-	public void insertOrder(List<Order> orders) {
-		// TODO Auto-generated method stub
-
+	public int[] insertOrder(List<Order> orders) {
+		SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(orders.toArray());
+		return namedParameterJdbcTemplate.batchUpdate(SQL_ORDER_INSERT, batch);
 	}
 
 	@Override
