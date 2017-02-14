@@ -4,6 +4,6 @@ import in.spring4buddies.application.model.Book;
 
 public interface BookDao {
 
-	Book getBookById(int bookId);
+	void update(Book book);
 
 }

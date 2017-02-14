@@ -18,9 +18,8 @@ public class Application {
 		BookDao bookDao = (BookDaoImpl) context.getBean("bookDao");
 
 		int bookId = RandomUtils.nextInt(10, 100);
-
-		Book book = bookDao.getBookById(bookId);
-		System.out.println(book);
+		Book book = new Book();
+		bookDao.update(book);
 
 		context.close();
 	}
