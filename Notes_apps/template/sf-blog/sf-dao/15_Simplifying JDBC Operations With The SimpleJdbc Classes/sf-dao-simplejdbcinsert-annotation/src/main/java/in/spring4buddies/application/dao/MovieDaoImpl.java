@@ -20,13 +20,17 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public long addMovie(final Movie movie) {
 
-		simpleJdbcInsert.withTableName("movie").usingGeneratedKeyColumns("id");
-		
-		Map<String, Object> parameters = new HashMap<String, Object>(2);
+		simpleJdbcInsert.withTableName("movie").usingGeneratedKeyColumns("movie_id");
+
+		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("title", movie.getTitle());
 		parameters.put("director", movie.getDirector());
-		
+		parameters.put("genre", movie.getGenre());
+		parameters.put("rating", movie.getRaiting());
+		parameters.put("box_office", movie.getBoxOffice());
+
 		Number insertedId = simpleJdbcInsert.executeAndReturnKey(parameters);
+		
 		return insertedId.longValue();
 	}
 }

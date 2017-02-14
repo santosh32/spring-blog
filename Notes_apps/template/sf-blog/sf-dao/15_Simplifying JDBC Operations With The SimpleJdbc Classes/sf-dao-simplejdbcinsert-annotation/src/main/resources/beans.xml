@@ -38,7 +38,7 @@
 	</bean>
 
 	<bean id="simpleJdbcInsert" class="org.springframework.jdbc.core.simple.SimpleJdbcInsert">
-		<constructor-arg ref="jdbcTemplate" />
+		<constructor-arg ref="dataSource" />
 	</bean>
 
 </beans>

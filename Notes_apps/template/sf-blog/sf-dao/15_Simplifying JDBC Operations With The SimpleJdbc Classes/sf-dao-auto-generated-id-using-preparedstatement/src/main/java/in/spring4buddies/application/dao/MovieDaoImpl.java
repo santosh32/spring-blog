@@ -17,7 +17,7 @@ public class MovieDaoImpl implements MovieDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final String SQL_INSERT_MOVIE = "insert into movie (MOVIE_ID, title, director) values(MOVIE_SEQ.NEXTVAL, :title, :director)";
+	private final String SQL_INSERT_MOVIE = "insert into movie (MOVIE_ID, title, director) values (MOVIE_SEQ.NEXTVAL, :title, :director)";
 
 	@Override
 	public long addMovie(final Movie movie) {
