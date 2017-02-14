@@ -1,14 +1,9 @@
 package in.spring4buddies.application.dao;
 
-import in.spring4buddies.application.dao.helper.ProductRowMapper;
-
 import java.sql.Types;
-
-import oracle.jdbc.OracleTypes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.SqlInOutParameter;
-import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -28,9 +23,8 @@ public class ProductDaoImpl implements ProductDao {
 		SqlParameterSource sqlParameterSource = new MapSqlParameterSource()
 			.addValue("in_prod_id", prod_id, Types.INTEGER);
 
-		Double price = simpleJdbcCall.withFunctionName("get_product_by_id")
-				.declareParameters(new SqlInOutParameter("in_prod_id", Types.INTEGER))
-				.declareParameters(new SqlOutParameter("out_recordset", OracleTypes.CURSOR, new ProductRowMapper()))
+		Double price = simpleJdbcCall.withFunctionName("get_price_by_id")
+				.declareParameters(new SqlInOutParameter("price", Types.INTEGER))
 			.executeFunction(Double.class, sqlParameterSource);
 
 		return price;
