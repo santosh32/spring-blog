@@ -1,32 +1,26 @@
 package in.spring4buddies.application;
 
-import in.spring4buddies.application.dao.ProductDao;
-import in.spring4buddies.application.dao.ProductDaoImpl;
-import in.spring4buddies.application.model.Product;
-
-import java.util.List;
+import in.spring4buddies.application.dao.BookDao;
+import in.spring4buddies.application.dao.BookDaoImpl;
+import in.spring4buddies.application.model.Book;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
+
 	public static void main(String args[]) {
+
 		String confFile = "beans.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(confFile);
 
-		ProductDao productDao = (ProductDaoImpl) context.getBean("productDao");
+		BookDao bookDao = (BookDaoImpl) context.getBean("bookDao");
 
-//		List<Product> products = productDao.getAllProducts();
-//		System.out.println("list of products - " + products);
+		int bookId = RandomUtils.nextInt(10, 100);
 
-		int prod_id = RandomUtils.nextInt(10, 100);
-		Product product = new Product(prod_id, "Organic Cotton Android T-Shirt", 4500, "black");
-
-		productDao.insertProduct(product);
-
-		List<Product> products = productDao.getProductById(prod_id);
-		System.out.println(products);
+		Book book = bookDao.getBookById(bookId);
+		System.out.println(book);
 
 		context.close();
 	}

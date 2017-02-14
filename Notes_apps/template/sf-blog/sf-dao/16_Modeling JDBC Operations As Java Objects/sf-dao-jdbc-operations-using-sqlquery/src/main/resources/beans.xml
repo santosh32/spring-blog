@@ -7,21 +7,7 @@
 
 	<context:annotation-config />
 
-	<bean id="jdbcProperties"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		name="configProperties">
-		<property name="order" value="99999" />
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-		<property name="properties">
-			<value>
-				jdbc.url=jdbc:oracle:thin:@localhost:1522:orcl
-				jdbc.username=srlp
-				jdbc.password=srlp
-				jdbc.driverClassName=oracle.jdbc.driver.OracleDriver
-			</value>
-		</property>
-	</bean>
+	<context:property-placeholder location="application.properties" />
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -31,14 +17,6 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-	<bean id="productDao" class="in.spring4buddies.application.dao.ProductDaoImpl" />
-
-	<bean id="simpleJdbcCallForGet" class="org.springframework.jdbc.core.simple.SimpleJdbcCall">
-		<constructor-arg ref="dataSource" />
-	</bean>
-
-	<bean id="simpleJdbcCallForStore" class="org.springframework.jdbc.core.simple.SimpleJdbcCall">
-		<constructor-arg ref="dataSource" />
-	</bean>
+	<bean id="bookDao" class="in.spring4buddies.application.dao.BookDaoImpl" />
 
 </beans>
