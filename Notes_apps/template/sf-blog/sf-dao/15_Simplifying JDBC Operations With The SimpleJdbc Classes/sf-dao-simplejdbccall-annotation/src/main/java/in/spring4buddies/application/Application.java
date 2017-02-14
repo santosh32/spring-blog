@@ -21,7 +21,7 @@ public class Application {
 //		System.out.println("list of products - " + products);
 
 		int prod_id = RandomUtils.nextInt(10, 100);
-		Product product = new Product(prod_id, "VCD", 4500, "CD");
+		Product product = new Product(prod_id, "Organic Cotton Android T-Shirt", 4500, "black");
 
 		productDao.insertProduct(product);
 

@@ -5,6 +5,6 @@ CREATE OR REPLACE PROCEDURE insert_product(
     in_price   IN NUMBER)
 AS
 BEGIN
-  INSERT INTO products (prod_id, name, brand, price) VALUES  (in_prod_id, in_name, in_brand, in_price);
+  INSERT INTO product (prod_id, name, brand, price) VALUES  (in_prod_id, in_name, in_brand, in_price);
   COMMIT;
 END insert_product;
