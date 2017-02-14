@@ -16,16 +16,17 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public long addMovie(final Movie movie) {
 
-		simpleJdbcInsert.withSchemaName("srlp").withTableName("movie").usingGeneratedKeyColumns("movie_id");
+		simpleJdbcInsert.withSchemaName("srlp").withTableName("movie");
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("movie_id", movie.getId());
 		parameters.put("title", movie.getTitle());
 		parameters.put("director", movie.getDirector());
 		parameters.put("genre", movie.getGenre());
 		parameters.put("raiting", movie.getRaiting());
 		parameters.put("box_office", movie.getBoxOffice());
 
-		Number insertedId = simpleJdbcInsert.executeAndReturnKey(parameters);
+		Number insertedId = simpleJdbcInsert.execute(parameters);
 
 		return insertedId.longValue();
 	}
