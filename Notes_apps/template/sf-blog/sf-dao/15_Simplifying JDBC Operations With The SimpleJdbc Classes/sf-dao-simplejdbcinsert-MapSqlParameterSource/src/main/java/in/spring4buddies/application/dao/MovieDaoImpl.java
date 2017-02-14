@@ -2,10 +2,9 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.model.Movie;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 public class MovieDaoImpl implements MovieDao {
@@ -16,16 +15,16 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public long addMovie(final Movie movie) {
 
-		simpleJdbcInsert.withSchemaName("srlp").withTableName("movie")
-				.usingColumns("title", "director", "genre")
-				.usingGeneratedKeyColumns("movie_id");
+		simpleJdbcInsert.withSchemaName("srlp")
+			.withTableName("movie")
+			.usingGeneratedKeyColumns("movie_id");
 
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("title", movie.getTitle());
-		parameters.put("director", movie.getDirector());
-		parameters.put("genre", movie.getGenre());
-//		parameters.put("raiting", movie.getRaiting());
-//		parameters.put("box_office", movie.getBoxOffice());
+		SqlParameterSource parameters = new MapSqlParameterSource()
+			.addValue("title", movie.getTitle())
+			.addValue("director", movie.getDirector())
+			.addValue("genre", movie.getGenre())
+			.addValue("raiting", movie.getRaiting())
+			.addValue("box_office", movie.getBoxOffice());
 
 		Number insertedId = simpleJdbcInsert.executeAndReturnKey(parameters);
 

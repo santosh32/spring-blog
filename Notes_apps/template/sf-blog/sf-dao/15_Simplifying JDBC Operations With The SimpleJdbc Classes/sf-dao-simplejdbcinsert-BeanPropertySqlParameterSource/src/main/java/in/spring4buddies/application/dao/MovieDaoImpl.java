@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 public class MovieDaoImpl implements MovieDao {
@@ -20,12 +22,7 @@ public class MovieDaoImpl implements MovieDao {
 				.usingColumns("title", "director", "genre")
 				.usingGeneratedKeyColumns("movie_id");
 
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("title", movie.getTitle());
-		parameters.put("director", movie.getDirector());
-		parameters.put("genre", movie.getGenre());
-//		parameters.put("raiting", movie.getRaiting());
-//		parameters.put("box_office", movie.getBoxOffice());
+		SqlParameterSource parameters = new BeanPropertySqlParameterSource(movie);
 
 		Number insertedId = simpleJdbcInsert.executeAndReturnKey(parameters);
 
