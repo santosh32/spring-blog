@@ -2,9 +2,6 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.model.Movie;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -18,9 +15,9 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public long addMovie(final Movie movie) {
 
-		simpleJdbcInsert.withSchemaName("srlp").withTableName("movie")
-				.usingColumns("title", "director", "genre")
-				.usingGeneratedKeyColumns("movie_id");
+		simpleJdbcInsert.withSchemaName("srlp")
+			.withTableName("movie")
+			.usingGeneratedKeyColumns("movie_id");
 
 		SqlParameterSource parameters = new BeanPropertySqlParameterSource(movie);
 

@@ -19,7 +19,7 @@ public class Application {
 		movie.setGenre("Action & Adventure, Science Fiction & Fantasy");
 		movie.setRaiting("4.1");
 		movie.setBoxOffice("$408,080,554.00");
-		movieDao.addMovie(movie);
+		System.out.println("Movie ID ==> "+movieDao.addMovie(movie));
 		
 		context.close();
 	}
