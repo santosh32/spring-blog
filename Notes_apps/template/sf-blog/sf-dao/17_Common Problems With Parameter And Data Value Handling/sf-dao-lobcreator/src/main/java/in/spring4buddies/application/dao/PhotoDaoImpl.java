@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
 import org.springframework.jdbc.support.lob.LobCreator;
+import org.springframework.jdbc.support.lob.LobHandler;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,7 +22,10 @@ public class PhotoDaoImpl implements PhotoDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private String SQL_INSERT_PHOTO = "INSERT INTO Photo (photo_id, clob_data, blog_data) VALUES (?, ?, ?)";
+	@Autowired
+	private LobHandler lobHandler;
+
+	private String SQL_INSERT_PHOTO = "INSERT INTO Photo (photo_id, clob_data, blob_data) VALUES (?, ?, ?)";
 
 	@Override
 	public void addPhoto(final Photo photo) throws Exception {
@@ -33,7 +37,7 @@ public class PhotoDaoImpl implements PhotoDao {
 		final InputStream clobIs = new FileInputStream(clobIn);
 		final InputStreamReader clobReader = new InputStreamReader(clobIs);
 
-		jdbcTemplate.execute(SQL_INSERT_PHOTO, new AbstractLobCreatingPreparedStatementCallback(null) {
+		jdbcTemplate.execute(SQL_INSERT_PHOTO, new AbstractLobCreatingPreparedStatementCallback(lobHandler) {
 			protected void setValues(PreparedStatement ps, LobCreator lobCreator) throws SQLException {
 				ps.setLong(1, photo.getPhotoId());
 				lobCreator.setClobAsCharacterStream(ps, 2, clobReader, (int) clobIn.length());
