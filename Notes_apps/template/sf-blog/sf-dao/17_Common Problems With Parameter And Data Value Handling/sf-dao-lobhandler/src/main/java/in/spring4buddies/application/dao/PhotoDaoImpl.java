@@ -2,12 +2,14 @@ package in.spring4buddies.application.dao;
 
 import in.spring4buddies.application.model.Photo;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -23,25 +25,31 @@ public class PhotoDaoImpl implements PhotoDao {
 	@Autowired
 	private LobHandler lobHandler;
 
-	private String SQL_SELECT_PHOTO = "select photo_id, clobImage, blogImage from Photo";
+	private String SQL_SELECT_PHOTO = "select photo_id, clob_data, blob_data from Photo";
 
 	@Override
 	public Photo getById(long photoId) throws Exception {
 
-		List<Map<String, Object>> list = jdbcTemplate.query(SQL_SELECT_PHOTO, new RowMapper<Map<String, Object>>() {
-			public Map<String, Object> mapRow(ResultSet rs, int i) throws SQLException {
+		System.out.println();
 
-				Map<String, Object> results = new HashMap<String, Object>();
+		Photo photo = jdbcTemplate.queryForObject(SQL_SELECT_PHOTO, new RowMapper<Photo>() {
+			public Photo mapRow(ResultSet rs, int i) throws SQLException {
+				Photo photo = new Photo();
+				photo.setPhotoId(rs.getLong("photo_id"));
+				Reader clobData = lobHandler.getClobAsCharacterStream(rs, "clob_data");
+				try {
+					File blobFile = new File("/output/blob.jpeg");
+					FileUtils.copyInputStreamToFile(lobHandler.getBlobAsBinaryStream(rs, "blob_data"), blobFile);
+					photo.setBlogImage(blobFile);
+					// FileUtils.copyInputStreamToFile(clobData, new
+					// File("/output/clob.jpeg"));
 
-				String clobText = lobHandler.getClobAsString(rs, "clobImage");
-				results.put("CLOB", clobText);
-
-				byte[] blobBytes = lobHandler.getBlobAsBytes(rs, "blogImage");
-				results.put("BLOB", blobBytes);
-				return results;
+				} catch (IOException e) {
+				}
+				return photo;
 			}
 		});
 
-		return null;
+		return photo;
 	}
 }

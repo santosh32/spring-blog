@@ -15,7 +15,7 @@ public class Application {
 
 		PhotoDao photoDao = (PhotoDao) context.getBean("photoDao");
 
-		Photo photo = photoDao.getById(1);
+		Photo photo = photoDao.getById(55);
 		System.out.println(photo);
 
 		context.close();
