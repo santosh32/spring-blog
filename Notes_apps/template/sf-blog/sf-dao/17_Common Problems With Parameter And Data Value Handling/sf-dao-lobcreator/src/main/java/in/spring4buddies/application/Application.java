@@ -22,12 +22,9 @@ public class Application {
 
 		photo.setPhotoId(RandomUtils.nextLong(1, 100));
 
-		photo.setUserProfile(new File("D:/poc/spring-blog/Notes_apps/template/sf-blog"
-				+ "/sf-dao/17_Common Problems With Parameter And Data Value Handling"
-				+ "/sf-dao-lobcreator/src/main/resources/application.properties"));
+		photo.setUserProfile(new File("./src/main/resources/application.properties"));
 
-		photo.setUserImage(new File("D:/poc/spring-blog/Notes_apps/template/sf-blog"
-				+ "/sf-dao/17_Common Problems With Parameter And Data Value Handling" + "/sf-dao-lobcreator/src/main/resources/images/blobImage.jpg"));
+		photo.setUserImage(new File("./src/main/resources/images/blobImage.jpg"));
 		photoDao.addPhoto(photo);
 
 		context.close();
