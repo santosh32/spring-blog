@@ -3,19 +3,19 @@ package in.spring4buddies.application.model;
 import java.io.File;
 
 public class Photo {
-
+	
 	private long photoId;
-	private File clobImage;
-	private File blogImage;
+	private File userProfile;
+	private File userImage;
 
 	public Photo() {
 	}
 
-	public Photo(long photoId, File clobImage, File blogImage) {
+	public Photo(long photoId, File userProfile, File userImage) {
 		super();
 		this.photoId = photoId;
-		this.clobImage = clobImage;
-		this.blogImage = blogImage;
+		this.userProfile = userProfile;
+		this.userImage = userImage;
 	}
 
 	public long getPhotoId() {
@@ -26,25 +26,25 @@ public class Photo {
 		this.photoId = photoId;
 	}
 
-	public File getClobImage() {
-		return clobImage;
+	public File getUserProfile() {
+		return userProfile;
 	}
 
-	public void setClobImage(File clobImage) {
-		this.clobImage = clobImage;
+	public void setUserProfile(File userProfile) {
+		this.userProfile = userProfile;
 	}
 
-	public File getBlogImage() {
-		return blogImage;
+	public File getUserImage() {
+		return userImage;
 	}
 
-	public void setBlogImage(File blogImage) {
-		this.blogImage = blogImage;
+	public void setUserImage(File userImage) {
+		this.userImage = userImage;
 	}
 
 	@Override
 	public String toString() {
-		return "Photo [photoId=" + photoId + ", clobImage=" + clobImage + ", blogImage=" + blogImage + "]";
+		return "Photo [photoId=" + photoId + ", userProfile=" + userProfile + ", userImage=" + userImage + "]";
 	}
 
 }

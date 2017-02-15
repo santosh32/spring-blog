@@ -18,6 +18,8 @@
 	</bean>
 
 	<bean id="photoDao" class="in.spring4buddies.application.dao.PhotoDaoImpl" />
+	
+	<context:component-scan base-package="in.spring4buddies.application.dao"/>
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />

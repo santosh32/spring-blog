@@ -4,8 +4,6 @@ import in.spring4buddies.application.model.Photo;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -25,31 +23,30 @@ public class PhotoDaoImpl implements PhotoDao {
 	@Autowired
 	private LobHandler lobHandler;
 
-	private String SQL_SELECT_PHOTO = "select photo_id, clob_data, blob_data from Photo";
+	private String SQL_SELECT_PHOTO = "select photo_id, clob_data, blob_data, b_file_name, c_file_name from Photo";
 
 	@Override
 	public Photo getById(long photoId) throws Exception {
 
-		System.out.println();
-
-		Photo photo = jdbcTemplate.queryForObject(SQL_SELECT_PHOTO, new RowMapper<Photo>() {
-			public Photo mapRow(ResultSet rs, int i) throws SQLException {
+		return jdbcTemplate.queryForObject(SQL_SELECT_PHOTO, new RowMapper<Photo>() {
+			public Photo mapRow(ResultSet rs, int rowNum) throws SQLException {
+				
 				Photo photo = new Photo();
 				photo.setPhotoId(rs.getLong("photo_id"));
-				Reader clobData = lobHandler.getClobAsCharacterStream(rs, "clob_data");
 				try {
-					File blobFile = new File("/output/blob.jpeg");
-					FileUtils.copyInputStreamToFile(lobHandler.getBlobAsBinaryStream(rs, "blob_data"), blobFile);
+					File blobFile = new File(rs.getString("c_file_name"));
+					FileUtils.writeByteArrayToFile(blobFile, lobHandler.getBlobAsBytes(rs, "blob_data"));
 					photo.setBlogImage(blobFile);
-					// FileUtils.copyInputStreamToFile(clobData, new
-					// File("/output/clob.jpeg"));
 
+					File clobFile = new File(rs.getString("b_file_name"));
+					FileUtils.writeStringToFile(clobFile, lobHandler.getClobAsString(rs, "clob_data"));
+					photo.setClobImage(clobFile);
 				} catch (IOException e) {
+					System.out.println(e.getMessage());
 				}
+
 				return photo;
 			}
 		});
-
-		return photo;
 	}
 }
