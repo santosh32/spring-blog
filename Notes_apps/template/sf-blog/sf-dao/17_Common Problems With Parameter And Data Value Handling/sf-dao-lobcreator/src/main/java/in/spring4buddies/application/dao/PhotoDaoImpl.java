@@ -21,7 +21,7 @@ public class PhotoDaoImpl implements PhotoDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private String SQL_INSERT_PHOTO = "INSERT INTO Photo (id, clobImage, blogImage) VALUES (?, ?, ?)";
+	private String SQL_INSERT_PHOTO = "INSERT INTO Photo (photo_id, clob_data, blog_data) VALUES (?, ?, ?)";
 
 	@Override
 	public void addPhoto(final Photo photo) throws Exception {
