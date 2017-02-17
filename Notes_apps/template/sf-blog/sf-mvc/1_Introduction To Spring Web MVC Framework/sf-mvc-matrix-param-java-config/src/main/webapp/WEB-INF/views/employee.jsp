@@ -3,7 +3,7 @@
 	<title>Employee page</title>
 	</head>
 	<body>
-	Employee Details Using Request Params - <br>
+	Employee Details Using Matrix Params - <br>
 		Name : ${employee.getName()} <br>
 		Address : ${employee.getAddress()} <br>
 		City : ${employee.getCity()} <br>
