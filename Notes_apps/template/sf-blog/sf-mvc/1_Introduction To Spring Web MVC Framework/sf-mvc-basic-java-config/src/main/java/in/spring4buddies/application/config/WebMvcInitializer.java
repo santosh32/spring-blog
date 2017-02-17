@@ -1,4 +1,4 @@
-/*package in.spring4buddies.application.config;
+package in.spring4buddies.application.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -21,4 +21,4 @@ public class WebMvcInitializer implements WebApplicationInitializer {
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
 	}
-}*/
+}
