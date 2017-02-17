@@ -11,7 +11,8 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="in.spring4buddies.application" />
-	<context:component-scan base-package="in.spring4buddies.application.controller" />
+	<context:component-scan base-package="in.spring4buddies.application.*" />
+	
+	<context:property-placeholder location="application.properties"/>
 
 </beans>
