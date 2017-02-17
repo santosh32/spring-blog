@@ -6,7 +6,7 @@ public class WebMvcDispatcherServletInitializer extends AbstractAnnotationConfig
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { WebMvcConfiguration.class };
+		return new Class[] { ApplicationContextConfiguration.class };
 	}
 
 	@Override

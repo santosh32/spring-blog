@@ -1,4 +1,4 @@
-package in.spring4buddies.application.config;
+/*package in.spring4buddies.application.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ public class WebMvcInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext container) throws ServletException {
 
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-		ctx.register(WebMvcConfiguration.class);
+		ctx.register(ApplicationContextConfiguration.class);
 		ctx.setServletContext(container);
 
 		ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
@@ -21,4 +21,4 @@ public class WebMvcInitializer implements WebApplicationInitializer {
 		servlet.setLoadOnStartup(1);
 		servlet.addMapping("/");
 	}
-}
+}*/
