@@ -7,17 +7,11 @@
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<import resource="classpath:/META-INF/spring-mvc.xml" />
+
+	<context:annotation-config />
+
 	<context:component-scan base-package="in.spring4buddies.application" />
 	<context:component-scan base-package="in.spring4buddies.application.controller" />
-
-	<mvc:annotation-driven />
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 
 </beans>
