@@ -1,4 +1,4 @@
-package in.spring4buddies.application.config;
+/*package in.spring4buddies.application.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -19,4 +19,4 @@ public class WebMvcDispatcherServletInitializer extends AbstractAnnotationConfig
 		return new String[] { "/" };
 	}
 
-}
+}*/
