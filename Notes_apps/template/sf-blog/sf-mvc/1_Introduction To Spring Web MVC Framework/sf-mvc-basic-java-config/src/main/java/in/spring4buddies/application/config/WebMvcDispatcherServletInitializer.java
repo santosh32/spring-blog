@@ -1,12 +1,12 @@
-/*package in.spring4buddies.application.config;
+package in.spring4buddies.application.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { HelloWorldConfiguration.class };
+		return new Class[] { WebMvcConfiguration.class };
 	}
 
 	@Override
@@ -19,4 +19,4 @@ public class HelloWorldInitializer extends AbstractAnnotationConfigDispatcherSer
 		return new String[] { "/" };
 	}
 
-}*/
+}
