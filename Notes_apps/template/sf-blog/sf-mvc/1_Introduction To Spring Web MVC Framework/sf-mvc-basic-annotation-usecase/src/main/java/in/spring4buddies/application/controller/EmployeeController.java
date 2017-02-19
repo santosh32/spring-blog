@@ -12,10 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class EmployeeController {
 
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
-	public ModelAndView getEmployee() {
-		Employee employee = new Employee();
+	public ModelAndView newEmployee() {
 		ModelAndView mv = new ModelAndView("employee");
-		mv.addObject("command", employee);
+		mv.addObject("command", new Employee());
 		return mv;
 	}
 
