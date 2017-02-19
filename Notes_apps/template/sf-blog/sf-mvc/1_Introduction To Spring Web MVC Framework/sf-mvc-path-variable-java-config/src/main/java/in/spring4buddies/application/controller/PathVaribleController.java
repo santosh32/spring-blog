@@ -9,18 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/{name}/{address}/{city}/{state}/{country}")
 public class PathVaribleController {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String showEmployeeDetails(ModelMap model, @PathVariable(value = "name") String name, 
+	@RequestMapping(value = "/{name}/{address}/{city}/{state}/{country}", method = RequestMethod.GET)
+	public String showEmployeeDetails(ModelMap model, 
+			@PathVariable(value = "name") String name, 
 			@PathVariable(value = "address") String address,
-			@PathVariable(value = "city") String city,
+			@PathVariable(value = "city") String city, 
 			@PathVariable(value = "state") String state, 
 			@PathVariable(value = "country") String country) {
-		
-		Employee employee= new Employee(name, address, city, state, country);
+
+		Employee employee = new Employee(name, address, city, state, country);
 		model.addAttribute("employee", employee);
+		return "employee";
+	}
+	
+	@RequestMapping(value = "/employee/{name}/{email:.+}", method = RequestMethod.GET)
+	public String addEmployee(ModelMap model,
+			@PathVariable(value = "name") String name, 
+			@PathVariable(value = "email") String email) {
+
 		return "employee";
 	}
 
