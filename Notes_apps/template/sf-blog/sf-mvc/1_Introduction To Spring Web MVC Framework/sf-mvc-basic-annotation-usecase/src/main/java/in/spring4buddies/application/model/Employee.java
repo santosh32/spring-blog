@@ -1,4 +1,4 @@
-package com.kscodes.sampleproject.model;
+package in.spring4buddies.application.model;
 
 public class Employee {
 
