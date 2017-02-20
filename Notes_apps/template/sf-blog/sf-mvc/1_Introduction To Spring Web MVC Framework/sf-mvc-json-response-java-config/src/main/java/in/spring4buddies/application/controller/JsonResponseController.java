@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/xml")
-public class XmlResponseController {
+@RequestMapping(value = "/json")
+public class JsonResponseController {
 
-	@RequestMapping(value = "/employee", method = RequestMethod.GET)
+	@RequestMapping(value = "/employee", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Employee getEmployeeData() {
 		return getEmployee();
 	}
@@ -27,7 +27,7 @@ public class XmlResponseController {
 		return employee;
 	}
 
-	@RequestMapping(value = "/employees", method = RequestMethod.GET)
+	@RequestMapping(value = "/employees", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Employees getEmployeesData() {
 
 		Employees employees = new Employees();
