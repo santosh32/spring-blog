@@ -3,13 +3,9 @@ package in.spring4buddies.application.model;
 public class Employee {
 
 	private String firstName;
-
 	private String lastName;
-
 	private int age;
-
 	private double salary;
-
 	private String department;
 
 	public String getFirstName() {
