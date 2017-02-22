@@ -2,6 +2,8 @@ package in.spring4buddies.application.controller;
 
 import in.spring4buddies.application.command.Employee;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,6 +68,11 @@ public class UserController {
 	public Employee consumeUserXml(@RequestBody Employee employee, Model model) {
 
 		return employee;
+	}
+
+	@RequestMapping("/**/users/**/path")
+	public void handleUsersRequest(HttpServletRequest request) {
+		System.out.println(request.getRequestURL());
 	}
 
 }
