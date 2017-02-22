@@ -1,9 +1,7 @@
 package in.spring4buddies.application.controller;
 
-import in.spring4buddies.application.command.Employee;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,20 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserController {
 
-	@RequestMapping(value = "/{name}/{address}/{city}/{state}/{country}", method = RequestMethod.GET)
-	public String showEmployee(ModelMap model, 
-			@PathVariable(value = "name") String name, @PathVariable(value = "address") String address,
-			@PathVariable(value = "city") String city, @PathVariable(value = "state") String state, 
-			@PathVariable(value = "country") String country) {
+	@RequestMapping(value = "/{name}/{email:.+}", method = { RequestMethod.GET, RequestMethod.DELETE })
+	public String showUser(@PathVariable(value = "name") String name, @PathVariable(value = "email") String email, Model model) {
 
-		Employee employee = new Employee(name, address, city, state, country, null);
-		model.addAttribute("employee", employee);
-		return "employee";
-	}
+		model.addAttribute("msg", "Provided details are - <br> Name - " + name + "<br> Email - " + email);
 
-	@RequestMapping(value = "/{name}/{email:.+}", method = RequestMethod.GET)
-	public String addEmployee(ModelMap model, @PathVariable(value = "name") String name, @PathVariable(value = "email") String email) {
-
-		return "employee";
+		return "user";
 	}
 }

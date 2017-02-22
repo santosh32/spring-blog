@@ -7,7 +7,7 @@
 
 	<table>
 		<tr>
-			<td>User : ${msg}</td>
+			<td>${msg}</td>
 		</tr>
 	</table>
 </body>
