@@ -17,4 +17,12 @@ public class UserController {
 
 		return "user";
 	}
+
+	@RequestMapping(value = "/{userId:[0-9]+}", method = { RequestMethod.GET, RequestMethod.DELETE })
+	public String showUser(@PathVariable(value = "userId") int userId, Model model) {
+
+		model.addAttribute("msg", "Provided details are - <br> userId - " + userId);
+
+		return "user";
+	}
 }

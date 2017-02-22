@@ -17,13 +17,8 @@ public class EmployeeController {
 			@PathVariable(value = "city") String city, @PathVariable(value = "state") String state, 
 			@PathVariable(value = "country") String country) {
 
-		Employee employee = new Employee(name, address, city, state, country, null);
+		Employee employee = new Employee(1, name, address, city, state, country, null);
 		model.addAttribute("employee", employee);
-		return "employee";
-	}
-
-	@RequestMapping(value = "/{name}/{email:.+}", method = RequestMethod.GET)
-	public String showEmployee(ModelMap model, @PathVariable(value = "name") String name, @PathVariable(value = "email") String email) {
 		return "employee";
 	}
 }

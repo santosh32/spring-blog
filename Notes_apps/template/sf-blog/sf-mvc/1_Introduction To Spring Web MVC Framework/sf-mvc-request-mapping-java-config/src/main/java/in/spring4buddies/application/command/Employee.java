@@ -1,6 +1,7 @@
 package in.spring4buddies.application.command;
 
 public class Employee {
+	private int empId;
 	private String name;
 	private String address;
 	private String city;
@@ -11,8 +12,9 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(String name, String address, String email, String city, String state, String country) {
+	public Employee(int empId, String name, String address, String email, String city, String state, String country) {
 		super();
+		this.empId = empId;
 		this.name = name;
 		this.address = address;
 		this.city = city;
@@ -69,9 +71,18 @@ public class Employee {
 		this.email = email;
 	}
 
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", address=" + address + ", city=" + city + ", state=" + state + ", country=" + country + ", email="
-				+ email + "]";
+		return "Employee [empId=" + empId + ", name=" + name + ", address=" + address + ", city=" + city + ", state=" + state + ", country="
+				+ country + ", email=" + email + "]";
 	}
+
 }
