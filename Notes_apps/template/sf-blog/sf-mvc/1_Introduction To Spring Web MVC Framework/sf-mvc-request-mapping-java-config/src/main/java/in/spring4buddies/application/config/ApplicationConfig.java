@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @ComponentScan(basePackages = "in.spring4buddies.application.*")
-public class ApplicationContextConfiguration {
+public class ApplicationConfig {
 
 	@Bean
 	public ViewResolver viewResolver() {

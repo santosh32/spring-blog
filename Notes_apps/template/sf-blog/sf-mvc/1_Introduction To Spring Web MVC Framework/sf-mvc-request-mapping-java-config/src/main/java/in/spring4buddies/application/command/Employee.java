@@ -6,17 +6,19 @@ public class Employee {
 	private String city;
 	private String state;
 	private String country;
+	private String email;
 
 	public Employee() {
 	}
 
-	public Employee(String name, String address, String city, String state, String country) {
+	public Employee(String name, String address, String email, String city, String state, String country) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.country = country;
+		this.email = email;
 	}
 
 	public String getName() {
@@ -59,9 +61,17 @@ public class Employee {
 		this.country = country;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee [name=" + name + ", address=" + address + ", city=" + city + ", state=" + state + ", country=" + country + "]";
+	public String getEmail() {
+		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", address=" + address + ", city=" + city + ", state=" + state + ", country=" + country + ", email="
+				+ email + "]";
+	}
 }
