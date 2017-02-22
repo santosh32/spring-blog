@@ -1,5 +1,8 @@
 package in.spring4buddies.application.command;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Employee {
 	private int empId;
 	private String name;
