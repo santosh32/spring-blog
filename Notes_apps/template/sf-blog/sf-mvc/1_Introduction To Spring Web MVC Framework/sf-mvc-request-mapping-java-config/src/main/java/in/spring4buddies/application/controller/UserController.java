@@ -25,4 +25,13 @@ public class UserController {
 
 		return "user";
 	}
+
+	@RequestMapping(value = "/{name}", params = { "state=TS", "country=IN" })
+	public String showUser(@PathVariable(value = "name") String name, Model model) {
+
+		model.addAttribute("msg", "Provided details are - <br> name - " + name);
+
+		return "user";
+	}
+
 }
