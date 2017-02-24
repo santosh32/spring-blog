@@ -1,27 +1,31 @@
 package in.spring4buddies.application.controller;
 
-import in.spring4buddies.application.command.Employee;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import in.spring4buddies.application.command.Employee;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String showEmployeeDetails(ModelMap model, @RequestParam(value = "name") String name,
-			@RequestParam(value = "address") String address,
-			@RequestParam(value = "city") String city, 
-			@RequestParam(value = "state") String state, 
-			@RequestParam(value = "country") String country) {
+	public String showEmployeeDetailsByRequestParam(Employee employee, Model model) {
 
-		Employee employee = new Employee(100l, name, address, city, state, country);
+		model.addAttribute("message", "RequestParam");
 		model.addAttribute("employee", employee);
+
 		return "employee";
 	}
 
+	@RequestMapping(value = "/{name}/{address}/{city}/{state}/{country}", method = RequestMethod.GET)
+	public String showEmployeeDetailsByPathVariable(Employee employee, Model model) {
+
+		model.addAttribute("message", "PathVariable");
+		model.addAttribute("employee", employee);
+
+		return "employee";
+	}
 }
