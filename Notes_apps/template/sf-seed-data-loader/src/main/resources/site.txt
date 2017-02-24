@@ -1,19 +1,20 @@
-# nice one
-# http://springcert.sourceforge.net/study-notes-3.html
+nice one
+http://springcert.sourceforge.net/study-notes-3.html
 
-# http://javarticles.com/category/spring-data-access
-# http://www.roytuts.com/programmatic-transaction-management-example-in-spring/
-# http://www.jmdoudoux.fr/java/dej/chap-spring_core.htm
+http://www.jmdoudoux.fr/java/dej/chap-spring_core.htm
 
-# seed data
-# http://www.okstate.edu/sas/v8/sashtml/accdb/z0389375.htm
+seed data
+----------
+http://www.okstate.edu/sas/v8/sashtml/accdb/z0389375.htm
 
-#Tx
-# http://www.byteslounge.com/subcategory/spring-core
-# http://www.javablog.fr/spring-transaction-visibility-proxy-propagation-required-and-requires_new.html
-# http://www.ibm.com/developerworks/library/j-ts1/
-# http://springcert.sourceforge.net/2.5/4-study-transaction-management.html
-# http://www.wideskills.com/spring-tutorial
+Tx
+http://www.byteslounge.com/subcategory/spring-core
+http://www.javablog.fr/spring-transaction-visibility-proxy-propagation-required-and-requires_new.html
+http://www.ibm.com/developerworks/library/j-ts1/
+http://springcert.sourceforge.net/2.5/4-study-transaction-management.html
+http://www.wideskills.com/spring-tutorial
+http://javarticles.com/category/spring-data-access
+http://www.roytuts.com/programmatic-transaction-management-example-in-spring/
 
 http://www.tutorialpoint.in/codes/java/Spring/use-lobhandler-to-handle-large-chunk-of-data.htm
 
@@ -21,3 +22,11 @@ mvc
 http://www.kscodes.com/category/spring-mvc/page/2/
 https://geowarin.github.io/complete-example-of-a-spring-mvc-3-2-project.html
 http://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/
+http://howtodoinjava.com/spring-mvc-tutorial/
+http://www.concretepage.com/spring/spring-mvc/
+http://www.javatips.net/blog/category/spring
+
+
+Security
+http://howtodoinjava.com/spring-security-tutorial/
+http://www.concretepage.com/spring/spring-security/
