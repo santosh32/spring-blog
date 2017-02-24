@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class PathVaribleController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
 	@RequestMapping(value = "/{name}/{address}/{city}/{state}/{country}", method = RequestMethod.GET)
-	public String showEmployeeDetails(ModelMap model, 
-			@PathVariable(value = "name") String name, 
+	public String showEmployeeDetails(ModelMap model, @PathVariable(value = "name") String name, 
 			@PathVariable(value = "address") String address,
 			@PathVariable(value = "city") String city, 
 			@PathVariable(value = "state") String state, 
@@ -23,13 +23,4 @@ public class PathVaribleController {
 		model.addAttribute("employee", employee);
 		return "employee";
 	}
-	
-	@RequestMapping(value = "/employee/{name}/{email:.+}", method = RequestMethod.GET)
-	public String addEmployee(ModelMap model,
-			@PathVariable(value = "name") String name, 
-			@PathVariable(value = "email") String email) {
-
-		return "employee";
-	}
-
 }
