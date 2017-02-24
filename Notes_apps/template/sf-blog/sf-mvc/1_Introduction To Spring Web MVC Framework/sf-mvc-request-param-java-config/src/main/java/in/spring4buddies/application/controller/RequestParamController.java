@@ -18,8 +18,8 @@ public class RequestParamController {
 	public String showEmployeeDetails(@RequestParam(value = "name") String name, 
 			@RequestParam(value = "address") String line,
 			@RequestParam String city,
-			@RequestParam(value = "state") String state, 
-			@RequestParam(value = "country") String country, ModelMap model) {
+			@RequestParam(value = "state", defaultValue="AP") String state, 
+			@RequestParam(value = "country", required = false) String country, ModelMap model) {
 
 		String message = String.format("%s, %s, %s, %s, %s", name, line, city, state, country);
 		model.addAttribute("message", message);
@@ -42,6 +42,38 @@ public class RequestParamController {
 
 		String message = String.format("DateOfBirth: %s<br> HireDate: %s", dateOfBirth, hireDate);
 		model.addAttribute("message", message);
+
+		return "displayRequestParam";
+	}
+	
+//	@RequestMapping(value = "/ambiguous", method = RequestMethod.GET)
+//	public String showEmployeeByName(@RequestParam(value = "name") String name, ModelMap model) {
+//
+//		model.addAttribute("message", "This is from showEmployeeByName() - " + name);
+//
+//		return "displayRequestParam";
+//	}
+//
+//	@RequestMapping(value = "/ambiguous", method = RequestMethod.GET)
+//	public String showEmployeeByAddress(@RequestParam(value = "address") String line, ModelMap model) {
+//
+//		model.addAttribute("message", "This is from showEmployeeByAddress() - " + line);
+//
+//		return "displayRequestParam";
+//	}
+	
+	@RequestMapping(value = "/ambiguous", method = RequestMethod.GET, params = "name")
+	public String showEmployeeByName(@RequestParam(value = "name") String name, ModelMap model) {
+
+		model.addAttribute("message", "This is from showEmployeeByName() - " + name);
+
+		return "displayRequestParam";
+	}
+
+	@RequestMapping(value = "/ambiguous", method = RequestMethod.GET, params = "address")
+	public String showEmployeeByAddress(@RequestParam(value = "address") String line, ModelMap model) {
+
+		model.addAttribute("message", "This is from showEmployeeByAddress() - " + line);
 
 		return "displayRequestParam";
 	}
