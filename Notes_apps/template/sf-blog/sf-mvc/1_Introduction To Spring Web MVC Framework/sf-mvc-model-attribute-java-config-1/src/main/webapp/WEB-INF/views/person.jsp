@@ -1,19 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head>
-<title>Insert title here</title>
-</head>
 <body>
 
-	<h1>Edit Person</h1>
+	<h1>save Person</h1>
 
-	<c:url var="saveUrl" value="/person/edit/${personAttribute.id}" />
-	<form:form modelAttribute="personAttribute" method="POST" action="${saveUrl}">
+	<form:form commandName="person" method="POST" action="/sf-mvc-model-attribute-java-config-1/person">
 		<table>
 			<tr>
 				<td><form:label path="id">Id:</form:label></td>
-				<td><form:input path="id" disabled="true" /></td>
+				<td><form:input path="id" /></td>
 			</tr>
 
 			<tr>

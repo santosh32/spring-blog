@@ -8,9 +8,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import in.spring4buddies.application.command.Person;
 import in.spring4buddies.application.service.PersonService;
@@ -39,28 +39,15 @@ public class PersonController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String getAllPage(Model model) {
-
-		return "personspage";
+	public ModelAndView country() {
+		return new ModelAndView("person", "person", new Person());
 	}
 
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public String getEdit(@PathVariable Integer id, Model model) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String save(@ModelAttribute("person") Person person, Model model) {
 
-		model.addAttribute("personAttribute", personService.get(id));
+		model.addAttribute("persons", person);
 
-		return "editpage";
-	}
-
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-	public String saveEdit(@ModelAttribute("personAttribute") Person person, @PathVariable Integer id, Model model) {
-
-		person.setId(id);
-
-		personService.edit(person);
-
-		model.addAttribute("persons", personService.getAll());
-
-		return "personspage";
+		return "displayPersons";
 	}
 }
