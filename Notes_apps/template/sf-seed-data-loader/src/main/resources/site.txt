@@ -29,6 +29,7 @@ http://howtodoinjava.com/spring-mvc-tutorial/
 http://www.concretepage.com/spring/spring-mvc/
 http://www.javatips.net/blog/category/spring
 
+http://viralpatel.net/blogs/spring-mvc-flash-attribute-example/
 
 Security
 ========
