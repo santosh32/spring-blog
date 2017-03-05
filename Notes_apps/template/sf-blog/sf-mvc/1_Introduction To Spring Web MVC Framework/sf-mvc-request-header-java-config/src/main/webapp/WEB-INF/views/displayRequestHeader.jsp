@@ -3,7 +3,7 @@
 <title>Employee page</title>
 </head>
 <body>
-	<h2>Employee Details Using Path Variables -</h2>
+	<h2>Employee Details Using Request Headers -</h2>
 	<table>
 		<tr>
 			<td>${message}</td>
