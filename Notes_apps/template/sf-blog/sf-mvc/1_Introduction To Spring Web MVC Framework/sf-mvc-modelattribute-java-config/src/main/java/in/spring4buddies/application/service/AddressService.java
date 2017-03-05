@@ -3,28 +3,16 @@ package in.spring4buddies.application.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import in.spring4buddies.application.command.Address;
 
-/**
- * Service for processing Address.
- */
 @Service("addressService")
 @Transactional
 public class AddressService {
 
-	protected static Logger logger = Logger.getLogger("service");
-
-	/**
-	 * Retrieves all available addresses
-	 * 
-	 * @return list of addresses
-	 */
 	public List<Address> getAll() {
-		logger.debug("Retrieving all addresses");
 
 		// Create an in-memory list of addresses
 		// You can instead retrieve the data from a database
