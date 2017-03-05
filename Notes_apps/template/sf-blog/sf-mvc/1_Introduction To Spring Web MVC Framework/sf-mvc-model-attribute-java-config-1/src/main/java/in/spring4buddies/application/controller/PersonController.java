@@ -46,7 +46,10 @@ public class PersonController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String save(@ModelAttribute("person") Person person, Model model) {
 
-		model.addAttribute("persons", person);
+		List<Person> persons = personService.getAll();
+		persons.add(person);
+		
+		model.addAttribute("persons", persons);
 
 		return "displayPersons";
 	}
