@@ -2,9 +2,6 @@ package in.spring4buddies.application.command;
 
 import java.io.Serializable;
 
-/**
- * A simple POJO representing a Person
- */
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = -5527566248002296042L;

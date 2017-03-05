@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,39 +15,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import in.spring4buddies.application.command.Person;
 import in.spring4buddies.application.service.PersonService;
 
-/**
- * Handles and retrieves Person related requests
- */
 @Controller
-@RequestMapping("/main")
-public class MainController {
-
-	protected static Logger logger = Logger.getLogger("controller");
+@RequestMapping("/person")
+public class PersonController {
 
 	@Resource(name = "personService")
 	private PersonService personService;
 
-	/**
-	 * Retrieves all persons and allows them to be used as a model
-	 * 
-	 * @return a model attribute containing persons
-	 */
 	@ModelAttribute("persons")
 	public List<Person> getAllPersons() {
-		logger.debug("Retrieving all persons and adding it to ModelAttribute");
-
-		// Delegate to PersonService
 		return personService.getAll();
 	}
 
-	/**
-	 * Retrieves all currency types
-	 * 
-	 * @return
-	 */
 	@ModelAttribute("currencies")
 	public List<String> getAllCurrencies() {
-		logger.debug("Retrieving all currencies and adding it to ModelAttribute");
 
 		// Prepare data
 		List<String> currencies = new ArrayList<String>();
@@ -61,32 +41,20 @@ public class MainController {
 		return currencies;
 	}
 
-	/**
-	 * Handles and retrieves a JSP page containing all persons
-	 * 
-	 * @return the name of the JSP page
-	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String getAllPage(Model model) {
-		logger.debug("Received request to show all persons page");
 
 		// The personspage.jsp referecences a model attribute named "persons"
 		// We don't need to add the model here manually
 		// It has been automatically added when we used
 		// @ModelAttribute("persons") earlier
 
-		// This will resolve to /WEB-INF/jsp/personspage.jsp
+		// This will resolve to /WEB-INF/views/personspage.jsp
 		return "personspage";
 	}
 
-	/**
-	 * Retrieves the edit page
-	 * 
-	 * @return the name of the JSP page
-	 */
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String getEdit(@PathVariable Integer id, Model model) {
-		logger.debug("Received request to show edit page");
 
 		// Retrieve person with matching id then add this person to the model
 		// The editpage.jsp references a model attribute named "personAttribute"
@@ -103,18 +71,12 @@ public class MainController {
 		// This model attribute is passed automatically when used
 		// @ModelAttribute("currencies") earlier
 
-		// This will resolve to /WEB-INF/jsp/editpage.jsp
+		// This will resolve to /WEB-INF/views/editpage.jsp
 		return "editpage";
 	}
 
-	/**
-	 * Saves the edited person and display all persons again
-	 * 
-	 * @return
-	 */
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
 	public String saveEdit(@ModelAttribute("personAttribute") Person person, @PathVariable Integer id, Model model) {
-		logger.debug("Received request to update person");
 
 		// The "personAttribute" model has been passed to the controller from
 		// the JSP
@@ -153,7 +115,7 @@ public class MainController {
 		// However, your JSP page references the same name so it won't care
 		model.addAttribute("persons", personService.getAll());
 
-		// This will resolve to /WEB-INF/jsp/personspage.jsp
+		// This will resolve to /WEB-INF/views/personspage.jsp
 		return "personspage";
 	}
 }

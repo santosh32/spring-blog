@@ -2,9 +2,6 @@ package in.spring4buddies.application.command;
 
 import java.io.Serializable;
 
-/**
- * A simple POJO representing an Address
- */
 public class Address implements Serializable {
 
 	private static final long serialVersionUID = -4480758500585143259L;

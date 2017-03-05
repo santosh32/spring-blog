@@ -14,12 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import in.spring4buddies.application.command.Address;
 import in.spring4buddies.application.service.AddressService;
 
-/**
- * Handles and retrieves Addresses related requests.
- * <p>
- * This demonstrates how we can populate a JSP page using @ModelAttribute and
- * Model
- */
 @Controller
 @RequestMapping("/address")
 public class AddressController {
@@ -29,26 +23,14 @@ public class AddressController {
 	@Resource(name = "addressService")
 	private AddressService addressService;
 
-	/**
-	 * Retrieves all addresses and allows them to be used as a model
-	 * 
-	 * @return a model attribute containing addresses
-	 */
 	@ModelAttribute("addresses")
 	public List<Address> getAllAddresses() {
 		// Delegate to service
 		return addressService.getAll();
 	}
 
-	/**
-	 * Handles and retrieves a JSP page containing all addresses. We use
-	 * the @ModelAttribute to pass the data to the view
-	 * 
-	 * @return the name of the JSP page
-	 */
 	@RequestMapping(value = "list1", method = RequestMethod.GET)
 	public String getAllUsingModelAttribute() {
-		logger.debug("Received request to show all addresses page");
 
 		// No need to add the model here
 		// It has been automatically added when we used the @ModelAttribute
@@ -56,19 +38,12 @@ public class AddressController {
 		// The name of the ModelAttribute is "addresses". Your JSP should
 		// reference "addresses"
 
-		// This will resolve to /WEB-INF/jsp/addressespage.jsp
+		// This will resolve to /WEB-INF/views/addressespage.jsp
 		return "addressespage";
 	}
 
-	/**
-	 * Handles and retrieves a JSP page containing all addresses. We use the
-	 * Model to pass the data to the view
-	 * 
-	 * @return the name of the JSP page
-	 */
 	@RequestMapping(value = "list2", method = RequestMethod.GET)
 	public String getAllUsingModel(Model model) {
-		logger.debug("Received request to show all addresses page");
 
 		// Here we add the model manually
 		// This should give the same result with the extra greetings
@@ -77,7 +52,7 @@ public class AddressController {
 		model.addAttribute("addresses", addressService.getAll());
 		model.addAttribute("greetings", "I came from Model not ModelAttribute");
 
-		// This will resolve to /WEB-INF/jsp/addressespage.jsp
+		// This will resolve to /WEB-INF/views/addressespage.jsp
 		return "addressespage";
 	}
 
