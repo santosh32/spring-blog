@@ -22,6 +22,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	${msg}
 </body>
 </html>

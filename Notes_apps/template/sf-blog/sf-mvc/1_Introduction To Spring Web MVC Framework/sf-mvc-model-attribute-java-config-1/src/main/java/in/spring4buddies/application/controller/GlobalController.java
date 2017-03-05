@@ -9,6 +9,6 @@ public final class GlobalController {
 
 	@ModelAttribute
 	public void addAttributes(Model model) {
-		model.addAttribute("msg", "Welcome to Global Msg");
+		model.addAttribute("msg", "This is Global Message");
 	}
 }
