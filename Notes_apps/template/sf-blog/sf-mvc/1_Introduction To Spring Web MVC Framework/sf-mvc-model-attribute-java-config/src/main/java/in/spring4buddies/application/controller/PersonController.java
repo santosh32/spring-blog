@@ -29,25 +29,20 @@ public class PersonController {
 
 	@ModelAttribute("currencies")
 	public List<String> getAllCurrencies() {
-
-		// Prepare data
 		List<String> currencies = new ArrayList<String>();
 		currencies.add("Dollar");
 		currencies.add("Yen");
 		currencies.add("Pound");
 		currencies.add("Euro");
 		currencies.add("Dinar");
-
 		return currencies;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getAllPage(Model model) {
 
-		// The personspage.jsp referecences a model attribute named "persons"
-		// We don't need to add the model here manually
-		// It has been automatically added when we used
-		// @ModelAttribute("persons") earlier
+		// The personspage.jsp referecences a model attribute named "persons"  We don't need to add the model here manually
+		// It has been automatically added when we used @ModelAttribute("persons") earlier
 
 		// This will resolve to /WEB-INF/views/personspage.jsp
 		return "personspage";

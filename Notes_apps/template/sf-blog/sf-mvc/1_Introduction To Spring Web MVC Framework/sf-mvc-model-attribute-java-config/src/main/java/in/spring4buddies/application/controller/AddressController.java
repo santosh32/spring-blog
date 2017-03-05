@@ -22,7 +22,6 @@ public class AddressController {
 
 	@ModelAttribute("addresses")
 	public List<Address> getAllAddresses() {
-		// Delegate to service
 		return addressService.getAll();
 	}
 
@@ -30,10 +29,8 @@ public class AddressController {
 	public String getAllUsingModelAttribute() {
 
 		// No need to add the model here
-		// It has been automatically added when we used the @ModelAttribute
-		// annotation earlier
-		// The name of the ModelAttribute is "addresses". Your JSP should
-		// reference "addresses"
+		// It has been automatically added when we used the @ModelAttribute annotation earlier
+		// The name of the ModelAttribute is "addresses". Your JSP should reference "addresses"
 
 		// This will resolve to /WEB-INF/views/addressespage.jsp
 		return "addressespage";
@@ -44,8 +41,8 @@ public class AddressController {
 
 		// Here we add the model manually
 		// This should give the same result with the extra greetings
-		// The name of the Model is "addresses". Your JSP should reference
-		// "addresses" as well
+		// The name of the Model is "addresses". Your JSP should reference "addresses" as well
+		// will work with out this .
 		model.addAttribute("addresses", addressService.getAll());
 		model.addAttribute("greetings", "I came from Model not ModelAttribute");
 
