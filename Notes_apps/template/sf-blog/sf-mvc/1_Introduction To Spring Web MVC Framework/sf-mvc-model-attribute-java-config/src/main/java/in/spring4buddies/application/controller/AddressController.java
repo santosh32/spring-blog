@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +16,6 @@ import in.spring4buddies.application.service.AddressService;
 @Controller
 @RequestMapping("/address")
 public class AddressController {
-
-	protected static Logger logger = Logger.getLogger("controller");
 
 	@Resource(name = "addressService")
 	private AddressService addressService;
