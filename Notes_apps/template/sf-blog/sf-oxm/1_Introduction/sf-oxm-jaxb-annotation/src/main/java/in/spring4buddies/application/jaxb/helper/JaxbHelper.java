@@ -2,7 +2,6 @@ package in.spring4buddies.application.jaxb.helper;
 
 import in.spring4buddies.application.jaxb.Students;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -44,14 +43,6 @@ public class JaxbHelper {
 	}
 
 	public Students unmarshal(String filename) throws IOException {
-		FileInputStream inputStream = null;
-		try {
-			inputStream = new FileInputStream(filename);
-			return (Students) unmarshaller.unmarshal(new StreamSource(inputStream));
-		} finally {
-			if (inputStream != null) {
-				inputStream.close();
-			}
-		}
+		return (Students) unmarshaller.unmarshal(new StreamSource(JaxbHelper.class.getClassLoader().getResourceAsStream(filename)));
 	}
 }

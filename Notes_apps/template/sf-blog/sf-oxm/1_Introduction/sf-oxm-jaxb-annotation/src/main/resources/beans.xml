@@ -9,7 +9,7 @@
             http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
 	<context:annotation-config />
-	
+
 	<context:component-scan base-package="in.spring4buddies.application.jaxb.*" />
 
 	<oxm:jaxb2-marshaller id="jaxbMarshaller">

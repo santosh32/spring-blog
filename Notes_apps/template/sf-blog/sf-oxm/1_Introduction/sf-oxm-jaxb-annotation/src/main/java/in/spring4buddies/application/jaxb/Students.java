@@ -27,4 +27,10 @@ public class Students {
 	public void addStudent(Student student) {
 		students.add(student);
 	}
+
+	@Override
+	public String toString() {
+		return "Students [students=" + students + "]";
+	}
+
 }
