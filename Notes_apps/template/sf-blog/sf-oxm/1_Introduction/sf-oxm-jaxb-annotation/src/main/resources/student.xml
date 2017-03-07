@@ -5,7 +5,7 @@
 			<area>Madhapur</area>
 			<city>HYD</city>
 			<state>TS</state>
-			<zip>510103</zip>
+			<zip>510101</zip>
 		</address>
 		<email>suresh.b@gmail.com</email>
 		<name>suresh</name>
@@ -20,6 +20,6 @@
 		</address>
 		<email>suresh.k@gmail.com</email>
 		<name>mahesh</name>
-		<sid>1</sid>
+		<sid>2</sid>
 	</student>
 </students>

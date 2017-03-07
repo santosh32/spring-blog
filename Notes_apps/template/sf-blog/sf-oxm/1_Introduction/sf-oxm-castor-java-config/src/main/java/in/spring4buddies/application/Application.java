@@ -16,7 +16,7 @@ public class Application {
 
 		CastorHelper castorHelper = context.getBean(CastorHelper.class);
 
-		Address address = new Address("TS", "HYD", "Madhapur", "510103");
+		Address address = new Address("TS", "HYD", "Madhapur", "510101");
 		Student student = new Student(1, "suresh", "suresh.b@gmail.com", address);
 
 		Address address1 = new Address("TS", "HYD", "Hitech city", "510102");
@@ -26,8 +26,8 @@ public class Application {
 		students.addStudent(student);
 		students.addStudent(student1);
 		castorHelper.marshal(students, "student-out.xml");
-//
-//		System.out.println(castorHelper.unmarshal("student.xml"));
+
+		System.out.println(castorHelper.unmarshal("student.xml"));
 
 		context.close();
 	}
