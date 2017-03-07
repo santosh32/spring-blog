@@ -1,25 +1,52 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<students>
-	<student>
-		<address>
-			<area>Madhapur</area>
-			<city>HYD</city>
-			<state>TS</state>
-			<zip>510103</zip>
-		</address>
-		<email>suresh.b@gmail.com</email>
-		<name>suresh</name>
-		<sid>1</sid>
-	</student>
-	<student>
-		<address>
-			<area>Hitech city</area>
-			<city>HYD</city>
-			<state>TS</state>
-			<zip>510102</zip>
-		</address>
-		<email>suresh.k@gmail.com</email>
-		<name>mahesh</name>
-		<sid>1</sid>
-	</student>
-</students>
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" 
+     "http://castor.org/mapping.dtd">
+<mapping>
+	<description>
+		Spring OXM and Castor
+	</description>
+
+	<class name="in.spring4buddies.application.jaxb.Students">
+		<map-to xml="students" />
+		<field name="students" collection="arraylist" container="false"
+			type="in.spring4buddies.application.jaxb.Student">
+			<bind-xml name="students" />
+		</field>
+	</class>
+
+	<class name="in.spring4buddies.application.jaxb.Student">
+		<map-to xml="student" />
+
+		<field name="sid" type="integer">
+			<bind-xml name="sid" node="element" />
+		</field>
+
+		<field name="name" type="string">
+			<bind-xml name="name" node="element" />
+		</field>
+
+		<field name="email" type="string">
+			<bind-xml name="email" node="element" />
+		</field>
+	</class>
+
+	<class name="in.spring4buddies.application.jaxb.Address">
+		<map-to xml="address" />
+
+		<field name="state" type="string">
+			<bind-xml name="state" node="element" />
+		</field>
+
+		<field name="city" type="string">
+			<bind-xml name="city" node="element" />
+		</field>
+
+		<field name="area" type="string">
+			<bind-xml name="area" node="element" />
+		</field>
+
+		<field name="zip" type="string">
+			<bind-xml name="zip" node="element" />
+		</field>
+	</class>
+</mapping>  

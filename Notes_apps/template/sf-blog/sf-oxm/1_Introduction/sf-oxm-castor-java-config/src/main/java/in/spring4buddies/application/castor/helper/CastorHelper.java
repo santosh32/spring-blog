@@ -1,4 +1,4 @@
-package in.spring4buddies.application.jaxb.helper;
+package in.spring4buddies.application.castor.helper;
 
 import in.spring4buddies.application.jaxb.Students;
 
