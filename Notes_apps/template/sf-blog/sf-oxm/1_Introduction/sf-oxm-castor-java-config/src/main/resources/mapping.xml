@@ -7,14 +7,18 @@
 	</description>
 
 	<class name="in.spring4buddies.application.jaxb.Students">
-		<map-to xml="students" />
+	
+		<!-- <map-to xml="students" /> -->
+	
 		<field name="students" collection="arraylist" container="false"
 			type="in.spring4buddies.application.jaxb.Student">
-			<bind-xml name="students" />
+			<!-- <bind-xml name="students" /> -->
 		</field>
+	
 	</class>
 
 	<class name="in.spring4buddies.application.jaxb.Student">
+		
 		<map-to xml="student" />
 
 		<field name="sid" type="integer">
@@ -28,6 +32,11 @@
 		<field name="email" type="string">
 			<bind-xml name="email" node="element" />
 		</field>
+
+		<field name="address" type="in.spring4buddies.application.jaxb.Address">
+			<bind-xml name="address" />
+		</field>
+
 	</class>
 
 	<class name="in.spring4buddies.application.jaxb.Address">
