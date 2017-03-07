@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<students>
+	<student>
+		<address>
+			<area>Madhapur</area>
+			<city>HYD</city>
+			<state>TS</state>
+			<zip>510103</zip>
+		</address>
+		<email>suresh.b@gmail.com</email>
+		<name>suresh</name>
+		<sid>1</sid>
+	</student>
+	<student>
+		<address>
+			<area>Hitech city</area>
+			<city>HYD</city>
+			<state>TS</state>
+			<zip>510102</zip>
+		</address>
+		<email>suresh.k@gmail.com</email>
+		<name>mahesh</name>
+		<sid>1</sid>
+	</student>
+</students>
