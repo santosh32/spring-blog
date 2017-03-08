@@ -2,9 +2,7 @@ package in.spring4buddies.application.jibx.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.oxm.castor.CastorMarshaller;
+import org.springframework.oxm.jibx.JibxMarshaller;
 
 import in.spring4buddies.application.jibx.helper.JibxHelper;
 
@@ -12,18 +10,17 @@ import in.spring4buddies.application.jibx.helper.JibxHelper;
 public class JibxConfig {
 
 	@Bean
-	public JibxHelper castorHelper(CastorMarshaller castorMarshaller) {
-		JibxHelper castorHelper = new JibxHelper();
-		castorHelper.setMarshaller(castorMarshaller);
-		castorHelper.setUnmarshaller(castorMarshaller);
-		return castorHelper;
+	public JibxHelper castorHelper(JibxMarshaller jibxMarshaller) {
+		JibxHelper jibxHelper = new JibxHelper();
+		jibxHelper.setMarshaller(jibxMarshaller);
+		jibxHelper.setUnmarshaller(jibxMarshaller);
+		return jibxHelper;
 	}
 
 	@Bean
-	public CastorMarshaller getCastorMarshaller() {
-		CastorMarshaller castorMarshaller = new CastorMarshaller();
-		Resource resource = new ClassPathResource("mapping.xml");
-		castorMarshaller.setMappingLocation(resource);
-		return castorMarshaller;
+	public JibxMarshaller getJibxMarshaller() {
+		JibxMarshaller jibxMarshaller = new JibxMarshaller();
+		jibxMarshaller.setTargetPackage("in.spring4buddies.application.jaxb");
+		return jibxMarshaller;
 	}
 }

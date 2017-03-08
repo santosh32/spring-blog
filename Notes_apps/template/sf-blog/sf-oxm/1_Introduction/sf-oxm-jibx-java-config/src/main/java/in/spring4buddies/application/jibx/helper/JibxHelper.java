@@ -11,8 +11,6 @@ import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.stereotype.Component;
 
-import in.spring4buddies.application.jaxb.Flight;
-
 @Component
 public class JibxHelper {
 
@@ -42,7 +40,7 @@ public class JibxHelper {
 		}
 	}
 
-	public Flight unmarshal(String filename) throws IOException {
-		return (Flight) unmarshaller.unmarshal(new StreamSource(JibxHelper.class.getClassLoader().getResourceAsStream(filename)));
+	public Object unmarshal(String filename) throws IOException {
+		return unmarshaller.unmarshal(new StreamSource(JibxHelper.class.getClassLoader().getResourceAsStream(filename)));
 	}
 }

@@ -1,5 +1,10 @@
 package in.spring4buddies.application;
 
+import java.util.GregorianCalendar;
+
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import in.spring4buddies.application.jaxb.Airport;
@@ -13,15 +18,20 @@ public class Application {
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JibxConfig.class);
 
-		JibxHelper castorHelper = context.getBean(JibxHelper.class);
+		JibxHelper jibxHelper = context.getBean(JibxHelper.class);
 
-		Airport from = new Airport();
-		Flight flight = new Flight();
-		flight.setFrom(from);
+		Airport from = new Airport("MUM", "Etihad Airways", "Mumbai");
+		Airport to = new Airport("NY", "Etihad Airways", "New York");
 
-		castorHelper.marshal(flight, "flight-out.xml");
+		Flight flight = new Flight("NY600", null, null, from, to);
 
-		System.out.println(castorHelper.unmarshal("flight.xml"));
+		XMLGregorianCalendar xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar());
+		flight.setArrivalTime(xmlCalendar);
+		flight.setDepartureTime(xmlCalendar);
+
+		jibxHelper.marshal(flight, "flight-out.xml");
+
+//		System.out.println(jibxHelper.unmarshal("flight.xml"));
 
 		context.close();
 	}

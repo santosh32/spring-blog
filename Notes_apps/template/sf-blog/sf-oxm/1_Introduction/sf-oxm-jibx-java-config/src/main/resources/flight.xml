@@ -1,25 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<students>
-	<student>
-		<address>
-			<area>Madhapur</area>
-			<city>HYD</city>
-			<state>TS</state>
-			<zip>510101</zip>
-		</address>
-		<email>suresh.b@gmail.com</email>
-		<name>suresh</name>
-		<sid>1</sid>
-	</student>
-	<student>
-		<address>
-			<area>Hitech city</area>
-			<city>HYD</city>
-			<state>TS</state>
-			<zip>510102</zip>
-		</address>
-		<email>suresh.k@gmail.com</email>
-		<name>mahesh</name>
-		<sid>2</sid>
-	</student>
-</students>
+<?xml version="1.0" encoding="utf-8"?>
+<flight>
+  <number>str1234</number>
+  <departureTime>2012-12-13</departureTime>
+  <arrivalTime>2012-12-13</arrivalTime>
+  <from>
+    <code>str1234</code>
+    <name>str1234</name>
+    <city>123</city>
+  </from>
+  <to>
+    <code>str1234</code>
+    <name>str1234</name>
+    <city>123</city>
+  </to>
+</flight>
