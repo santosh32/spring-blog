@@ -42,7 +42,7 @@ public class JaxbHelper {
 		}
 	}
 
-	public Students unmarshal(String filename) throws IOException {
-		return (Students) unmarshaller.unmarshal(new StreamSource(JaxbHelper.class.getClassLoader().getResourceAsStream(filename)));
+	public Object unmarshal(String filename) throws IOException {
+		return unmarshaller.unmarshal(new StreamSource(JaxbHelper.class.getClassLoader().getResourceAsStream(filename)));
 	}
 }

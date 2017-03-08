@@ -1,13 +1,13 @@
 package in.spring4buddies.application.jaxb.config;
 
-import in.spring4buddies.application.jaxb.helper.JaxbHelper;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+
+import in.spring4buddies.application.jaxb.helper.JaxbHelper;
 
 @Configuration
 public class JaxbConfig {
