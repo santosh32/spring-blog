@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.spring4buddies.application</groupId>
-    <artifactId>sf-aop-1_introduction-annotation</artifactId>
+    <artifactId>sf-aop-basic-annotation</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sf-aop-1_introduction-annotation</name>
+    <name>sf-aop-basic-annotation</name>
     <properties>
         <jdk.version>1.7</jdk.version>
         <spring.boot.version>1.4.0.RELEASE</spring.boot.version>
