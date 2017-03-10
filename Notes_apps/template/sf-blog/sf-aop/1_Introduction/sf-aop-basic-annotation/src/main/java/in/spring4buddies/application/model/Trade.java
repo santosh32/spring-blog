@@ -40,4 +40,9 @@ public class Trade {
 	public void setSellCurrency(String sellCurrency) {
 		this.sellCurrency = sellCurrency;
 	}
+
+	@Override
+	public String toString() {
+		return "Trade [tradeType=" + tradeType + ", buyCurrency=" + buyCurrency + ", sellCurrency=" + sellCurrency + "]";
+	}
 }

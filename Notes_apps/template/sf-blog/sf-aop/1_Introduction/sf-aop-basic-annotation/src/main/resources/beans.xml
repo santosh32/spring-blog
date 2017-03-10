@@ -1,5 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -16,32 +17,25 @@
 		support -->
 	<!-- <aop:aspectj-autoproxy /> -->
 
-	<aop:config>
+	<!-- <aop:config>
 
-		<!-- Spring AOP Pointcut definitions -->
 		<aop:pointcut id="loggingOperation"
 			expression="execution(* in.spring4buddies.application.service.*.*(..))" />
 
 		<aop:pointcut id="transactionOperation"
 			expression="execution(* in.spring4buddies.application.service.TradeServiceImpl.getTradeByType(..))" />
 
-		<!-- Spring AOP aspect 1 -->
-		<aop:aspect id="transactionAspect" ref="transactionAspect">
-
-			<!-- Spring AOP advises -->
+		<aop:aspect id="loggingAspect" ref="loggingAspect">
 			<aop:before pointcut-ref="loggingOperation" method="logBefore" />
 			<aop:after pointcut-ref="loggingOperation" method="logAfter" />
-
 		</aop:aspect>
 
-		<!-- Spring AOP aspect 2 -->
-		<aop:aspect id="loggingAspect" ref="loggingAspect">
+		<aop:aspect id="transactionAspect" ref="transactionAspect">
 			<aop:before pointcut-ref="transactionOperation" method="getByType" />
 		</aop:aspect>
 
 	</aop:config>
-
-	<!-- Spring AOP aspect instances -->
+ -->
 	<bean id="loggingAspect" class="in.spring4buddies.application.aop.LoggingAspect" />
 	<bean id="transactionAspect" class="in.spring4buddies.application.aop.TransactionAspect" />
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import in.spring4buddies.application.model.Trade;
 
-@Service
+@Service("tradeService")
 public class TradeServiceImpl implements TradeService {
 
 	private static Map<String, Trade> tradeMap = new ConcurrentHashMap<>();

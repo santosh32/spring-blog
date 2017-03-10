@@ -13,10 +13,10 @@ public class Application {
 
 		TradeService tradeService = (TradeService) context.getBean("tradeService");
 
-		Trade trade = new Trade("S", "ÜSD", "EURO");
+		Trade trade = new Trade("Chemical", "ÜSD", "EURO");
 		tradeService.addTrade(trade);
 
-		System.out.println(tradeService.getTradeByType("S"));
+		System.out.println(tradeService.getTradeByType("Chemical"));
 
 		context.close();
 	}
