@@ -9,31 +9,11 @@
 	<context:annotation-config />
 
 	<context:component-scan base-package="in.spring4buddies.application.*" />
+	<context:component-scan base-package="in.spring4buddies.application.aop.*" />
 
-	<!-- We don't need to this; This is required only in annotation based AOP 
-		support -->
-	<!-- <aop:aspectj-autoproxy /> -->
-
-	<aop:config>
-
-		<aop:pointcut id="loggingOperation"
-			expression="execution(* in.spring4buddies.application.service.*.*(..))" />
-
-		<aop:pointcut id="transactionOperation"
-			expression="execution(* in.spring4buddies.application.service.TradeServiceImpl.getTradeByType(..))" />
-
-		<aop:aspect id="loggingAspect" ref="loggingAspect">
-			<aop:before pointcut-ref="loggingOperation" method="logBefore" />
-			<aop:after pointcut-ref="loggingOperation" method="logAfter" />
-		</aop:aspect>
-
-		<aop:aspect id="transactionAspect" ref="transactionAspect">
-			<aop:before pointcut-ref="transactionOperation" method="getByType" />
-		</aop:aspect>
-
-	</aop:config>
-
+	<aop:aspectj-autoproxy />
+<!-- 
 	<bean id="loggingAspect" class="in.spring4buddies.application.aop.LoggingAspect" />
-	<bean id="transactionAspect" class="in.spring4buddies.application.aop.TransactionAspect" />
+	<bean id="transactionAspect" class="in.spring4buddies.application.aop.TransactionAspect" /> -->
 
 </beans>
