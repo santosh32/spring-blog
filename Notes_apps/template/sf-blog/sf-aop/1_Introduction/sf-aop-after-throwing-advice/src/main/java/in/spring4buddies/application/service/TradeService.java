@@ -6,7 +6,7 @@ public interface TradeService {
 
 	Trade getTradeByType(String tradeType);
 
-	void addTrade(Trade trade);
+	void addTrade(Trade trade) throws Exception;
 
 	Trade updateTrade(Trade trade, String tradeType);
 

@@ -19,9 +19,10 @@ public class TradeServiceImpl implements TradeService {
 	}
 
 	@Override
-	public void addTrade(Trade trade) {
+	public void addTrade(Trade trade) throws Exception {
 		System.out.println("TradeService : addTrade() : invoked");
 		tradeMap.put(trade.getTradeType(), trade);
+		throw new Exception();
 	}
 
 	@Override
