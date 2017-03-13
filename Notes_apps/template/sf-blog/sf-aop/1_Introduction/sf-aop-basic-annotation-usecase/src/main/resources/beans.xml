@@ -12,6 +12,4 @@
 
 	<aop:aspectj-autoproxy />
 
-
-
 </beans>

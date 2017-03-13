@@ -34,10 +34,10 @@ public class LoggingAspect {
 		System.out.println("LoggingAspect.logAfterThrowing() " + joinPoint.getSignature().getName() + " : Exception :" + ex);
 	}
 
-	@Around("execution(* in.spring4buddies.application.service.*.*(..))")
-	public void logAround(ProceedingJoinPoint pjp) throws Throwable {
-		System.out.println("LoggingAspect.logAround() : before : " + pjp.getSignature().getName());
-		pjp.proceed();
-		System.out.println("LoggingAspect.logAround() : after : " + pjp.getSignature().getName());
-	}
+//	@Around("execution(* in.spring4buddies.application.service.*.*(..))")
+//	public void logAround(ProceedingJoinPoint pjp) throws Throwable {
+//		System.out.println("LoggingAspect.logAround() : before : " + pjp.getSignature().getName());
+//		pjp.proceed();
+//		System.out.println("LoggingAspect.logAround() : after : " + pjp.getSignature().getName());
+//	}
 }
