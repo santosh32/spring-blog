@@ -11,5 +11,15 @@
 	<context:component-scan base-package="in.spring4buddies.application.aop.*" />
 
 	<aop:aspectj-autoproxy />
+<!-- 
+	<aop:config>
+		<aop:aspect ref="loggingAspect">
+			<aop:pointcut id="loggingPointcuts"
+				expression="execution(* in.spring4buddies.application.service.*.*(..))" />
+			<aop:around method="logAround" pointcut-ref="loggingPointcuts" />
+		</aop:aspect>
+	</aop:config>
 
-</beans>
+	<bean id="loggingAspect" class="in.spring4buddies.application.aop.LoggingAspect" />
+ -->
+ </beans>
