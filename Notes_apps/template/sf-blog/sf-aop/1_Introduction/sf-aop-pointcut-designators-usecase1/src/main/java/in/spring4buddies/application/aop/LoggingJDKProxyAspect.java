@@ -18,6 +18,6 @@ public class LoggingJDKProxyAspect {
 
 	@Before("serviceMethod()")
 	public void logBeforeServiceMethod(JoinPoint joinPoint) {
-		System.out.println("PCD - within() LoggingJDKProxyAspect.logBeforeServiceMethod() : serviceMethod() : " + joinPoint.getSignature().getName());
+		System.out.println("PCD - target() LoggingJDKProxyAspect.logBeforeServiceMethod() : serviceMethod() : " + joinPoint.getSignature().getName());
 	}
 }

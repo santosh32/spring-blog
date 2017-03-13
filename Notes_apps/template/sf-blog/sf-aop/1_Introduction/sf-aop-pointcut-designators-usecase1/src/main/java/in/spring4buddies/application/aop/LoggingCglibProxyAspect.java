@@ -18,6 +18,6 @@ public class LoggingCglibProxyAspect {
 
 	@Before("daoMethod()")
 	public void logBeforeDaoMethod(JoinPoint joinPoint) {
-		System.out.println("PCD - execution() LoggingCglibProxyAspect.logBeforeDaoMethod() : daoMethod() : " + joinPoint.getSignature().getName());
+		System.out.println("PCD - this() LoggingCglibProxyAspect.logBeforeDaoMethod() : daoMethod() : " + joinPoint.getSignature().getName());
 	}
 }
