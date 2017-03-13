@@ -6,13 +6,13 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Order(1)
+@Order(0)
 @Aspect
 @Component
-public class LoggingAspect {
+public class TransactionAspect {
 
 	@Before("execution(* in.spring4buddies.application.service.*.*(..))")
-	public void logBefore(JoinPoint joinPoint) {
-		System.out.println("LoggingAspect.logBefore() : " + joinPoint.getSignature().getName());
+	public void txnBefore(JoinPoint joinPoint) {
+		System.out.println("TransactionAspect.txnBefore() : " + joinPoint.getSignature().getName());
 	}
 }

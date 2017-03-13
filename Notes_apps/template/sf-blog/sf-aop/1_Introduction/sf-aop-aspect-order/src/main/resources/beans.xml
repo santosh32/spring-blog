@@ -13,13 +13,21 @@
 	<aop:aspectj-autoproxy />
 <!-- 
 	<aop:config>
-		<aop:aspect ref="loggingAspect">
+		<aop:aspect ref="loggingAspect" order="1">
 			<aop:pointcut id="loggingPointcuts"
 				expression="execution(* in.spring4buddies.application.service.*.*(..))" />
 			<aop:before method="logBefore" pointcut-ref="loggingPointcuts" />
 		</aop:aspect>
+
+		<aop:aspect ref="transactionAspect" order="0">
+			<aop:pointcut id="transactionPointcuts"
+				expression="execution(* in.spring4buddies.application.service.*.*(..))" />
+			<aop:before method="txnBefore" pointcut-ref="transactionPointcuts" />
+		</aop:aspect>
+
 	</aop:config>
 
 	<bean id="loggingAspect" class="in.spring4buddies.application.aop.LoggingAspect" />
+	<bean id="transactionAspect" class="in.spring4buddies.application.aop.TransactionAspect" />
  -->
- </beans>
+</beans>

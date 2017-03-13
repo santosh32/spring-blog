@@ -16,7 +16,7 @@ public class Application {
 		Trade trade = new Trade("Pharma-SELL", "ÜSD", "EURO");
 		tradeService.addTrade(trade);
 
-		System.out.println(tradeService.getTradeByType("Pharma-SELL"));
+		System.out.println("==> " + tradeService.getTradeByType("Pharma-SELL"));
 
 		context.close();
 	}
