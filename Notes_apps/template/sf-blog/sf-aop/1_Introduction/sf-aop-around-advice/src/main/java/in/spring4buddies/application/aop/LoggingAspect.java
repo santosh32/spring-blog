@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
 	@Around("execution(* in.spring4buddies.application.service.*.*(..))")
-	public void logAround(ProceedingJoinPoint pjp) throws Throwable {
+	public Object logAround(ProceedingJoinPoint pjp) throws Throwable {
 		System.out.println("LoggingAspect.logAround() : before : " + pjp.getSignature().getName());
-		pjp.proceed();
+		Object object = pjp.proceed();
 		System.out.println("LoggingAspect.logAround() : after : " + pjp.getSignature().getName());
+		return object;
 	}
 }
