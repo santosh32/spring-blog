@@ -10,13 +10,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
+	// execution pcd- this is like package level or any level like method,
+	// method parameters level
 	@Pointcut("execution(* in.spring4buddies.application.dao.TradeDaoImpl.getTradeByType(..))")
+	public void daoGetMethod() {
+
+	}
+
+	@Before("daoGetMethod()")
+	public void logBeforeDaoGetMethod(JoinPoint joinPoint) {
+		System.out.println("PCD - execution() LoggingAspect.logBefore() : daoGetMethod() : " + joinPoint.getSignature().getName());
+	}
+
+	// within pcd - this is package level
+	@Pointcut("within(in.spring4buddies.application.dao.TradeDaoImpl)")
 	public void daoMethod() {
 
 	}
 
 	@Before("daoMethod()")
-	public void logBefore(JoinPoint joinPoint) {
-		System.out.println("LoggingAspect.logBefore() : " + joinPoint.getSignature().getName());
+	public void logBeforeDaoAddMethod(JoinPoint joinPoint) {
+		System.out.println("PCD - within() LoggingAspect.logBefore() : daoMethod() : " + joinPoint.getSignature().getName());
 	}
 }
