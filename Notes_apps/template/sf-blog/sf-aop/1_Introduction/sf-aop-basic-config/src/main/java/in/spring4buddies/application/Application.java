@@ -12,7 +12,7 @@ public class Application {
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AspectConfig.class);
 
-		TradeService tradeService = (TradeService) context.getBean("tradeService");
+		TradeService tradeService = context.getBean(TradeService.class);
 
 		String tradeType = "Pharma-SELL";
 
