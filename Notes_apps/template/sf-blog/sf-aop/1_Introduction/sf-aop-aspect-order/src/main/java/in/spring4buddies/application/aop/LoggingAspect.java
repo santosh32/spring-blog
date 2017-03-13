@@ -9,7 +9,12 @@ import org.springframework.stereotype.Component;
 @Order(1)
 @Aspect
 @Component
-public class LoggingAspect {
+public class LoggingAspect { //implements Ordered {
+	
+//	@Override
+//	public int getOrder() {
+//		return 0;
+//	}
 
 	@Before("execution(* in.spring4buddies.application.service.*.*(..))")
 	public void logBefore(JoinPoint joinPoint) {
