@@ -1,10 +1,10 @@
 package in.spring4buddies.application.dao;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import in.spring4buddies.application.model.Trade;
 
-@Service("tradeDao")
+@Repository("tradeDao")
 public class TradeDaoImpl implements TradeDao {
 
 	@Override

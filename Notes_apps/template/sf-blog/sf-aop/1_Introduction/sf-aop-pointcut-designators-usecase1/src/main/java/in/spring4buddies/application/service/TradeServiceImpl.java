@@ -3,16 +3,16 @@ package in.spring4buddies.application.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.spring4buddies.application.dao.TradeDao;
+import in.spring4buddies.application.dao.TradeDaoImpl;
 import in.spring4buddies.application.model.Trade;
 
 @Service("tradeService")
 public class TradeServiceImpl implements TradeService {
 
 	@Autowired
-	private TradeDao tradeDao;
+	private TradeDaoImpl tradeDao;
 
-	public void setTradeDao(TradeDao tradeDao) {
+	public void setTradeDao(TradeDaoImpl tradeDao) {
 		this.tradeDao = tradeDao;
 	}
 

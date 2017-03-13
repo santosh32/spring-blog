@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-//@Aspect
+@Aspect
 @Component
 public class LoggingAspect {
 
@@ -19,7 +19,7 @@ public class LoggingAspect {
 
 	@Before("daoGetMethod()")
 	public void logBeforeDaoGetMethod(JoinPoint joinPoint) {
-		System.out.println("PCD - execution() LoggingAspect.logBefore() : daoGetMethod() : " + joinPoint.getSignature().getName());
+		System.out.println("PCD - execution() LoggingAspect.logBeforeDaoGetMethod() : daoGetMethod() : " + joinPoint.getSignature().getName());
 	}
 
 	// within pcd - this is package level
@@ -30,6 +30,6 @@ public class LoggingAspect {
 
 	@Before("daoMethod()")
 	public void logBeforeDaoAddMethod(JoinPoint joinPoint) {
-		System.out.println("PCD - within() LoggingAspect.logBefore() : daoMethod() : " + joinPoint.getSignature().getName());
+		System.out.println("PCD - within() LoggingAspect.logBeforeDaoAddMethod() : daoMethod() : " + joinPoint.getSignature().getName());
 	}
 }

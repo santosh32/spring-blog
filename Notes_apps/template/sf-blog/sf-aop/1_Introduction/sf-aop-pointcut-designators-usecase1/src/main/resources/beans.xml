@@ -11,6 +11,6 @@
 	<context:component-scan base-package="in.spring4buddies.application.service" />
 	<context:component-scan base-package="in.spring4buddies.application.dao" />
 
-	<aop:aspectj-autoproxy proxy-target-class="false" />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 </beans>
