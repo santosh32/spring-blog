@@ -3,7 +3,7 @@ package in.spring4buddies.application;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import in.spring4buddies.application.model.Trade;
-import in.spring4buddies.application.service.TradeServiceImpl;
+import in.spring4buddies.application.service.TradeService;
 
 public class Application {
 
@@ -11,15 +11,15 @@ public class Application {
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-		TradeServiceImpl tradeService = (TradeServiceImpl) context.getBean("tradeService");
+		TradeService tradeService = (TradeService) context.getBean("tradeService");
 
 		System.out.println("*******************************************");
-		
+
 		Trade trade = new Trade("Pharma-SELL", "ÜSD", "EURO");
 		tradeService.addTrade(trade);
 
 		System.out.println(tradeService.getTradeByType("Pharma-SELL"));
-		
+
 		System.out.println("*******************************************");
 		context.close();
 	}
