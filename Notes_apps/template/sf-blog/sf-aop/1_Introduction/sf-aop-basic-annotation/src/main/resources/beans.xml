@@ -1,6 +1,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -16,24 +15,19 @@
 
 	<aop:config>
 
-		<aop:pointcut id="loggingOperation"
+		<aop:pointcut id="loggingPointcuts"
 			expression="execution(* in.spring4buddies.application.service.*.*(..))" />
 
-		<aop:pointcut id="transactionOperation"
-			expression="execution(* in.spring4buddies.application.service.TradeServiceImpl.getTradeByType(..))" />
-
 		<aop:aspect id="loggingAspect" ref="loggingAspect">
-			<aop:before pointcut-ref="loggingOperation" method="logBefore" />
-			<aop:after pointcut-ref="loggingOperation" method="logAfter" />
-		</aop:aspect>
-
-		<aop:aspect id="transactionAspect" ref="transactionAspect">
-			<aop:before pointcut-ref="transactionOperation" method="getByType" />
+			<aop:before pointcut-ref="loggingPointcuts" method="logBefore" />
+			<aop:after pointcut-ref="loggingPointcuts" method="logAfter" />
+			<aop:after-returning method="logAfterReturning" pointcut-ref="loggingPointcuts" returning="retVal" />
+			<aop:after-throwing method="logAfterThrowing" pointcut-ref="loggingPointcuts" throwing="ex" />
+			<aop:around method="logAround" pointcut-ref="loggingPointcuts" />
 		</aop:aspect>
 
 	</aop:config>
 
 	<bean id="loggingAspect" class="in.spring4buddies.application.aop.LoggingAspect" />
-	<bean id="transactionAspect" class="in.spring4buddies.application.aop.TransactionAspect" />
 
 </beans>
