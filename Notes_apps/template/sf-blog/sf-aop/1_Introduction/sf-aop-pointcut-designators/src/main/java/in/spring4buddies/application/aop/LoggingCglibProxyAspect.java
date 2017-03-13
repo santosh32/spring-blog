@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 //@Aspect
 @Component
-public class LoggingAspect {
+public class LoggingCglibProxyAspect {
 
 	// execution pcd- this is like package level or any level like method,
 	// method parameters level
