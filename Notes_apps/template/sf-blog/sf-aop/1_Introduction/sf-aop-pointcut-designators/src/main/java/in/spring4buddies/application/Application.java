@@ -13,11 +13,14 @@ public class Application {
 
 		TradeServiceImpl tradeService = (TradeServiceImpl) context.getBean("tradeService");
 
+		System.out.println("*******************************************");
+		
 		Trade trade = new Trade("Pharma-SELL", "ÜSD", "EURO");
 		tradeService.addTrade(trade);
 
 		System.out.println(tradeService.getTradeByType("Pharma-SELL"));
-
+		
+		System.out.println("*******************************************");
 		context.close();
 	}
 }

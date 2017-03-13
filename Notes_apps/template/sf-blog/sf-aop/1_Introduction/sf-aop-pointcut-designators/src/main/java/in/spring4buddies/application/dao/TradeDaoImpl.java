@@ -10,7 +10,7 @@ public class TradeDaoImpl implements TradeDao {
 	@Override
 	public Trade getTradeByType(String tradeType) {
 		System.out.println("TradeDao : getTradeByType() : called");
-		return new Trade();
+		return new Trade("Pharma-SELL", "ÜSD", "EURO");
 	}
 
 	@Override

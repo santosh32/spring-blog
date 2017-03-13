@@ -7,9 +7,10 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="in.spring4buddies.application.*" />
+	<context:component-scan base-package="in.spring4buddies.application.service" />
+	<context:component-scan base-package="in.spring4buddies.application.dao" />
 	<context:component-scan base-package="in.spring4buddies.application.aop.*" />
 
-	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<aop:aspectj-autoproxy proxy-target-class="false" />
 
 </beans>
