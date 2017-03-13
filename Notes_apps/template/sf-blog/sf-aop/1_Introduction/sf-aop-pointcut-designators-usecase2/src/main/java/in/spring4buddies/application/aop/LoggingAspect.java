@@ -21,4 +21,25 @@ public class LoggingAspect {
 		System.out.println("PCD - @target() LoggingAspect.logBefore() : " + joinPoint.getSignature().getName());
 	}
 
+//	// @args pcd
+//	@Pointcut("@args(javax.persistence.Entity)")
+//	public void methodsAcceptingEntities() {
+//	}
+//
+//	// @within pcd
+//	@Pointcut("@within(org.springframework.stereotype.Repository)")
+//	public void withinAnnotation() {
+//
+//	}
+//	
+//	@Before("withinAnnotation()")
+//	public void logBeforeWithinAnnotation(JoinPoint joinPoint) {
+//		System.out.println("PCD - @target() LoggingAspect.logBeforeWithinAnnotation() : " + joinPoint.getSignature().getName());
+//	}
+//
+//	// @annotation pcd
+//	@Pointcut("@annotation(*.annotations.Loggable)")
+//	public void loggableMethods() {
+//	}
+
 }
