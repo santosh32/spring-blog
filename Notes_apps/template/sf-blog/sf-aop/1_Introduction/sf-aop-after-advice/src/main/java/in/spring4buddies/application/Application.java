@@ -16,7 +16,7 @@ public class Application {
 		Trade trade = new Trade("Chemical", "ÜSD", "EURO");
 		tradeService.addTrade(trade);
 
-		System.out.println(tradeService.getTradeByType("Chemical"));
+		System.out.println("==> " + tradeService.getTradeByType("Chemical"));
 
 		context.close();
 	}

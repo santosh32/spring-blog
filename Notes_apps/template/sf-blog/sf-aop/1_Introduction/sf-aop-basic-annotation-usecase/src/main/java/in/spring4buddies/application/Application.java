@@ -20,24 +20,24 @@ public class Application {
 		tradeService.addTrade(trade);
 
 		System.out.println("-----------------getTradeByType-----------------");
-		System.out.println(tradeService.getTradeByType(tradeType));
+		System.out.println("==> " + tradeService.getTradeByType(tradeType));
 
 		System.out.println("---------------updateTrade-------------------");
 		tradeType = "Pharma-BUY";
 		tradeService.updateTrade(trade, tradeType);
 
 		System.out.println("---------------getTradeByType-------------------");
-		System.out.println(tradeService.getTradeByType(tradeType));
+		System.out.println("==> " + tradeService.getTradeByType(tradeType));
 
 		System.out.println("---------------deleteTrade-------------------");
 		try {
 			tradeService.deleteTrade(tradeType);
 		} catch (Exception e) {
-			System.out.println("== After throwing Exception handled here == ");
+			System.out.println("<==> After throwing Exception handled here <==> ");
 		}
 
 		System.out.println("------------------getTradeByType----------------");
-		System.out.println(tradeService.getTradeByType(tradeType));
+		System.out.println("==> " + tradeService.getTradeByType(tradeType));
 		System.out.println("----------------------------------");
 		context.close();
 	}
