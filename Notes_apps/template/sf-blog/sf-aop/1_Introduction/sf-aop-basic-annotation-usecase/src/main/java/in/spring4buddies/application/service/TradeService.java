@@ -10,6 +10,6 @@ public interface TradeService {
 
 	Trade updateTrade(Trade trade, String tradeType);
 
-	void deleteTrade(String tradeType);
+	void deleteTrade(String tradeType) throws Exception;
 
 }

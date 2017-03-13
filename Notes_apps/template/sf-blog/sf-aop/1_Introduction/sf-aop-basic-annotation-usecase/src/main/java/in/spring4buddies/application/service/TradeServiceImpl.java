@@ -33,8 +33,9 @@ public class TradeServiceImpl implements TradeService {
 	}
 
 	@Override
-	public void deleteTrade(String tradeType) {
+	public void deleteTrade(String tradeType) throws Exception {
 		System.out.println("TradeService : deleteTrade() : invoked");
 		tradeMap.remove(tradeType);
+		throw new Exception();
 	}
 }
