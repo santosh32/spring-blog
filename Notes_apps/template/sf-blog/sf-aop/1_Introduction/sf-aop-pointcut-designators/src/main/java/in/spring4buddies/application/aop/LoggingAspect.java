@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-	@Pointcut("execution(public Trade in.spring4buddies.application.dao.TradeDaoImpl.getTradeByType(String))")
-	public void daoGetMethod() {
+	@Pointcut("execution(* in.spring4buddies.application.dao.TradeDaoImpl.getTradeByType(..))")
+	public void daoMethod() {
 
 	}
 
-	@Before("daoGetMethod()")
+	@Before("daoMethod()")
 	public void logBefore(JoinPoint joinPoint) {
 		System.out.println("LoggingAspect.logBefore() : " + joinPoint.getSignature().getName());
 	}
