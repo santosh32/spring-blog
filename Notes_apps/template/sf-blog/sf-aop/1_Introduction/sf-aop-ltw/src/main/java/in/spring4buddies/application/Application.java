@@ -9,7 +9,7 @@ public class Application {
 
 	public static void main(String[] args) throws Exception {
 
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:beans.xml");
 
 		TradeService tradeService = (TradeService) context.getBean("tradeService");
 

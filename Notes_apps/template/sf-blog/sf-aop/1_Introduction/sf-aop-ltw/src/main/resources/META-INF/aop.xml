@@ -1,12 +1,13 @@
 <aspectj>
 
     <aspects>
-        <aspect name="com.amirkost.aop.aspectj.aspects.ErrorHandlerAspect"/>
-        <aspect name="com.amirkost.aop.aspectj.aspects.LoggerAspect"/>
+        <aspect name="in.spring4buddies.application.aop.ErrorHandlerAspect"/>
+        <!-- <aspect name="in.spring4buddies.application.aop.LoggerAspect"/> -->
     </aspects>
 
     <weaver options="-showWeaveInfo">
-        <include within="com.amirkost.aop.aspectj.controller.AopController"/>
+        <include within="in.spring4buddies.application.service.TradeService"/>
+        <include within="in.spring4buddies.application.service.TradeServiceImpl"/>
         <include within="org.springframework.beans.factory..*"/>
     </weaver>
 </aspectj>

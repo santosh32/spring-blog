@@ -1,8 +1,7 @@
 package in.spring4buddies.application.service;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import in.spring4buddies.application.model.Trade;
@@ -10,31 +9,27 @@ import in.spring4buddies.application.model.Trade;
 @Service("tradeService")
 public class TradeServiceImpl implements TradeService {
 
-	private static Map<String, Trade> tradeMap = new ConcurrentHashMap<>();
+	private static Logger logger = LoggerFactory.getLogger(TradeServiceImpl.class);
 
 	@Override
 	public Trade getTradeByType(String tradeType) {
-		System.out.println("TradeService : getTradeByType() : invoked");
-		return tradeMap.get(tradeType);
+		logger.info("TradeService : getTradeByType() : invoked");
+		return new Trade("Chemical", "ÜSD", "EURO");
 	}
 
 	@Override
 	public void addTrade(Trade trade) {
-		System.out.println("TradeService : addTrade() : invoked");
-		tradeMap.put(trade.getTradeType(), trade);
+		logger.info("TradeService : addTrade() : invoked");
 	}
 
 	@Override
 	public Trade updateTrade(Trade trade, String tradeType) {
-		System.out.println("TradeService : updateTrade() : invoked");
-		// TODO consider this as update
-		tradeMap.put(tradeType, trade);
+		logger.info("TradeService : updateTrade() : invoked");
 		return trade;
 	}
 
 	@Override
 	public void deleteTrade(String tradeType) {
-		System.out.println("TradeService : deleteTrade() : invoked");
-		tradeMap.remove(tradeType);
+		logger.info("TradeService : deleteTrade() : invoked");
 	}
 }
