@@ -1,0 +1,12 @@
+<aspectj>
+
+    <aspects>
+        <aspect name="com.amirkost.aop.aspectj.aspects.ErrorHandlerAspect"/>
+        <aspect name="com.amirkost.aop.aspectj.aspects.LoggerAspect"/>
+    </aspects>
+
+    <weaver options="-showWeaveInfo">
+        <include within="com.amirkost.aop.aspectj.controller.AopController"/>
+        <include within="org.springframework.beans.factory..*"/>
+    </weaver>
+</aspectj>
