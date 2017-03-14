@@ -35,3 +35,5 @@ Security
 ========
 http://howtodoinjava.com/spring-security-tutorial/
 http://www.concretepage.com/spring/spring-security/
+
+https://github.com/eugenp/tutorials/tree/master/spring-mvc-java
