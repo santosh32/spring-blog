@@ -37,3 +37,8 @@ http://howtodoinjava.com/spring-security-tutorial/
 http://www.concretepage.com/spring/spring-security/
 
 https://github.com/eugenp/tutorials/tree/master/spring-mvc-java
+
+
+aop
+===
+http://janistoolbox.typepad.com/blog/2011/11/aspectjload-time-weavingabstract-aspect.html
