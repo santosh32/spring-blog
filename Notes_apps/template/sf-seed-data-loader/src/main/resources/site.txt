@@ -44,3 +44,4 @@ aop
 http://janistoolbox.typepad.com/blog/2011/11/aspectjload-time-weavingabstract-aspect.html
 
 http://javakart.blogspot.in/2012/11/spring-aop-example-with-xml-based-configuration.html
+http://kruders.com/spring/
