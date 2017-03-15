@@ -10,6 +10,7 @@
 	<context:component-scan base-package="in.spring4buddies.application.*" />
 	<context:component-scan base-package="in.spring4buddies.application.aop.*" />
 
-	<aop:aspectj-autoproxy />
+	<!-- <aop:aspectj-autoproxy /> -->
+	<context:load-time-weaver/>
 	
 </beans>

@@ -32,6 +32,11 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
@@ -65,33 +70,14 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.8</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<complianceLevel>1.7</complianceLevel>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-						<configuration>
-							<complianceLevel>1.7</complianceLevel>
-							<source>${jdk.version}</source>
-							<target>${jdk.version}</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>aspectj-maven-plugin</artifactId> 
+				<version>1.8</version> <dependencies> <dependency> <groupId>org.aspectj</groupId> 
+				<artifactId>aspectjtools</artifactId> <version>${aspectj.version}</version> 
+				</dependency> </dependencies> <configuration> <complianceLevel>1.7</complianceLevel> 
+				</configuration> <executions> <execution> <goals> <goal>compile</goal> </goals> 
+				<configuration> <complianceLevel>1.7</complianceLevel> <source>${jdk.version}</source> 
+				<target>${jdk.version}</target> </configuration> </execution> </executions> 
+				</plugin> -->
 		</plugins>
 	</build>
 </project>

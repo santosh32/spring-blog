@@ -1,3 +1,1 @@
-# sf-aop-ltw
-add the following VM argument: <code>-javaagent:{PATH_TO}/aspectjweaver-1.8.7.jar</code>
-
+-javaagent:D:\MavenRepository\org\springframework\spring-instrument\4.2.1.RELEASE\spring-instrument-4.2.1.RELEASE.jar

@@ -1,13 +1,15 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
 <aspectj>
 
-    <aspects>
-        <aspect name="in.spring4buddies.application.aop.ErrorHandlerAspect"/>
-        <!-- <aspect name="in.spring4buddies.application.aop.LoggerAspect"/> -->
-    </aspects>
+	<weaver options="-showWeaveInfo">
+		<!-- <include within="in.spring4buddies.application.service.TradeService" /> -->
+		<include within="in.spring4buddies.application.service.TradeServiceImpl" />
+		<!-- <include within="org.springframework.beans.factory..*"/> -->
+	</weaver>
+	
+	<aspects>
+		<aspect name="in.spring4buddies.application.aop.ProfilingAspect" />
+		<!-- <aspect name="in.spring4buddies.application.aop.LoggerAspect"/> -->
+	</aspects>
 
-    <weaver options="-showWeaveInfo">
-        <include within="in.spring4buddies.application.service.TradeService"/>
-        <include within="in.spring4buddies.application.service.TradeServiceImpl"/>
-        <include within="org.springframework.beans.factory..*"/>
-    </weaver>
 </aspectj>
