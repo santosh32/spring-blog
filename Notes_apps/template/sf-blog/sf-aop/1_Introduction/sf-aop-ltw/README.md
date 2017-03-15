@@ -1,1 +1,2 @@
+-javaagent:D:\MavenRepository\org\aspectj\aspectjweaver\1.8.9\aspectjweaver-1.8.9.jar
 -javaagent:D:\MavenRepository\org\springframework\spring-instrument\4.2.1.RELEASE\spring-instrument-4.2.1.RELEASE.jar

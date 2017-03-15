@@ -4,12 +4,10 @@
 	<weaver options="-showWeaveInfo">
 		<!-- <include within="in.spring4buddies.application.service.TradeService" /> -->
 		<include within="in.spring4buddies.application.service.TradeServiceImpl" />
-		<!-- <include within="org.springframework.beans.factory..*"/> -->
 	</weaver>
 	
 	<aspects>
 		<aspect name="in.spring4buddies.application.aop.ProfilingAspect" />
-		<!-- <aspect name="in.spring4buddies.application.aop.LoggerAspect"/> -->
 	</aspects>
 
 </aspectj>
