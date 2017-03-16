@@ -6,9 +6,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.support.ControllerBeanNameHandlerMapping" />
 
-	<bean name="/helloworld.html"
+	<bean name="helloworld.html"
 		class="in.spring4buddies.application.controller.HelloWorldController" />
 
 	<bean
