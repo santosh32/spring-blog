@@ -6,7 +6,11 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+<!-- 		<property name="caseSensitive" value="true" />
+		<property name="pathPrefix" value="/BycontrollerName" />
+		<property name="basePackage" value="in.spring4buddies.application.controller" /> -->
+	</bean>
 
 	<bean class="in.spring4buddies.application.controller.HelloWorldController" />
 
