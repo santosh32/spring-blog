@@ -1,17 +1,19 @@
 package in.spring4buddies.application.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.AbstractController;
+@Controller
+@RequestMapping("/helloworld.html")
+public class HelloWorldController {
 
-public class HelloWorldController extends AbstractController {
+	@RequestMapping(method = RequestMethod.GET)
+	public String printWelcome(ModelMap model) {
 
-	@Override
-	protected ModelAndView handleRequestInternal(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		ModelAndView model = new ModelAndView("helloworld");
-		model.addObject("message", "Hello World!!!");
-		return model;
+		model.addAttribute("message", "Hello World!!!");
+		return "helloworld";
+
 	}
 }
