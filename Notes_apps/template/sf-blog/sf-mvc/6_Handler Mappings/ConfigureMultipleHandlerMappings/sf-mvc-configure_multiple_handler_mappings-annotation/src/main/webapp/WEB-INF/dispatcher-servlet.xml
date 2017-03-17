@@ -14,17 +14,15 @@
 		<property name="mappings">
 			<props>
 				<prop key="/helloworld.html">helloWorldController</prop>
-				<prop key="/hellospring.html">helloSpringController</prop>
 			</props>
 		</property>
 		<property name="order" value="0" />
 	</bean>
 
-	<bean name="/helloworld.html"
+	<bean name="helloWorldController"
 		class="in.spring4buddies.application.controller.HelloWorldController" />
 
-	<bean name="/hellospring.html"
-		class="in.spring4buddies.application.controller.HelloSpringController" />
+	<bean class="in.spring4buddies.application.controller.HelloSpringController" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
