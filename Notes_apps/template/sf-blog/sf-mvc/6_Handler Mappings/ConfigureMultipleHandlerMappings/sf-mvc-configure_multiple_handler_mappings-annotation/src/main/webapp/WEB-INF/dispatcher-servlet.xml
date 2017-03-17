@@ -6,10 +6,25 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="order" value="1" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/helloworld.html">helloWorldController</prop>
+				<prop key="/hellospring.html">helloSpringController</prop>
+			</props>
+		</property>
+		<property name="order" value="0" />
+	</bean>
 
 	<bean name="/helloworld.html"
 		class="in.spring4buddies.application.controller.HelloWorldController" />
+
+	<bean name="/hellospring.html"
+		class="in.spring4buddies.application.controller.HelloSpringController" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
