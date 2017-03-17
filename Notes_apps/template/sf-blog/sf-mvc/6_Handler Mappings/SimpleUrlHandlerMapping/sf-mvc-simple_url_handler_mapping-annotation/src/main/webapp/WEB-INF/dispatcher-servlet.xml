@@ -4,11 +4,35 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- 
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/helloworld.html">helloWorldController</prop>
+			</props>
+		</property>
+	</bean>
 
-	<bean id="handlerMapping"
-		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<map>
+				<entry key="/helloworld*" value-ref="helloWorldController"></entry>
+			</map>
+		</property>
+	</bean>
+ -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/helloworld.html=helloWorldController
+				/*/helloworld.html=helloWorldController
+				/helloworld.htm=helloWorldController
+				/helloworld=helloWorldController
+			</value>
+		</property>
+	</bean>
 
-	<bean name="/helloworld.html"
+	<bean name="helloWorldController"
 		class="in.spring4buddies.application.controller.HelloWorldController" />
 
 	<bean
