@@ -31,14 +31,7 @@
 			</tr>
 			<tr>
 				<td>Country :</td>
-				<td>
-					<form:select path="country">
-							<form:option value="0" label="Select" />
-							<form:option value="1" label="India" />
-							<form:option value="2" label="USA" />
-							<form:option value="3" label="UK" />
-					</form:select>
-				</td>
+				<td><form:select path="country" items="${countries}" /></td>
 				<td><form:errors path="country" cssClass="error" /></td>
 			</tr>
 			<tr>
@@ -48,10 +41,7 @@
 			</tr>
 			<tr>
 				<td>Community :</td>
-				<td>
-					<form:checkbox path="community" value="Spring" label="Spring" /> 
-					<form:checkbox path="community" value="Hibernate" label="Hibernate" /> 
-					<form:checkbox path="community" value="Struts" label="Struts" />
+				<td><form:checkboxes items="${communities}" path="community" />
 				</td>
 				<td><form:errors path="community" cssClass="error" /></td>
 			</tr>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>Success Page</title>
@@ -9,8 +10,10 @@
 	<br /> Gender : ${user.gender}
 	<br /> Country : ${user.country}
 	<br /> About You : ${user.aboutYou}
-	<br /> Community : ${user.community[0]} ${user.community[1]}
-	${user.community[2]}
-	<br /> Mailing List: ${user.feed}
+	<br /> Community :
+	<c:forEach items="${user.community}" var="c">
+		<c:out value="${c}" />
+	</c:forEach>
+	<br />Feed Subscription: ${user.feed}
 </body>
 </html>
