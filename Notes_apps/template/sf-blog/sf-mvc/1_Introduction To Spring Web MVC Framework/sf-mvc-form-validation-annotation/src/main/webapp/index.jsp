@@ -1,4 +1,0 @@
-
-<%
-	response.sendRedirect("userForm.htm");
-%>
