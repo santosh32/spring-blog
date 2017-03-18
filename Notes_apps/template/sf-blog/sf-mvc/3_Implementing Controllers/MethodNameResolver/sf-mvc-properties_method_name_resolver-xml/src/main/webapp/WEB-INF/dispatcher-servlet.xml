@@ -9,7 +9,21 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
-	<bean class="in.spring4buddies.application.controller.CustomerController" />
+	<bean class="in.spring4buddies.application.controller.CustomerController">
+		<property name="methodNameResolver">
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+				<property name="mappings">
+					<props>
+						<prop key="/customer/a.htm">add</prop>
+						<prop key="/customer/u.htm">update</prop>
+						<prop key="/customer/d.htm">delete</prop>
+						<prop key="/customer/l.htm">list</prop>
+					</props>
+				</property>
+			</bean>
+		</property>
+	</bean>
 
 	<bean class="in.spring4buddies.application.controller.EmployeeController">
 		<property name="methodNameResolver">
