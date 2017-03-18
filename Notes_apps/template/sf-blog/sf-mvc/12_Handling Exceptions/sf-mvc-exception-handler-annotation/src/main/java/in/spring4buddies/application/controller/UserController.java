@@ -1,5 +1,6 @@
 package in.spring4buddies.application.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +45,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/userForm", method = RequestMethod.POST)
-	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult result) throws Exception {
 		if (result.hasErrors()) {
 			System.out.println(result);
 			return "userForm";
+		}
+		if (user.getName().length() > 6) {
+			throw new IOException("Forcely thrown exception!!!");
 		}
 		return "userSuccess";
 	}
