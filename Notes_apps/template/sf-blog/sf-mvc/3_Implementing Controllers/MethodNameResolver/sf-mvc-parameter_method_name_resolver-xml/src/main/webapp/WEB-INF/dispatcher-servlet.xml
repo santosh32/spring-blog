@@ -9,7 +9,14 @@
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
-	<bean class="in.spring4buddies.application.controller.CustomerController" />
+	<bean class="in.spring4buddies.application.controller.CustomerController">
+		<property name="methodNameResolver">
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="paramName" value="action" />
+			</bean>
+		</property>
+	</bean>
 
 	<bean class="in.spring4buddies.application.controller.EmployeeController">
 		<property name="methodNameResolver">
