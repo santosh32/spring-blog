@@ -2,6 +2,11 @@
 <html>
 <head>
 <title>User Page</title>
+<style>
+.error {
+	color: #ff0000;
+}
+</style>
 </head>
 <body>
 	<form:form method="POST" commandName="userForm">
