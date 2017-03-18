@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import in.spring4buddies.application.domain.User;
+import in.spring4buddies.application.exception.CustomException;
 
 @Controller
 public class UserController {
@@ -52,6 +53,10 @@ public class UserController {
 		}
 		if (user.getName().length() > 6) {
 			throw new IOException("Forcely thrown exception!!!");
+		}
+
+		if (user.getPassword().length() > 6) {
+			throw new CustomException("Forcely thrown custom exception!!!", "");
 		}
 		return "userSuccess";
 	}
