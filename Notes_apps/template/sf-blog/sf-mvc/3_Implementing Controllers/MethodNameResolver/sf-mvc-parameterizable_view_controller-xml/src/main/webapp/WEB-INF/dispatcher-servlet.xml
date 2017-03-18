@@ -6,27 +6,19 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean
-		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-
-	<bean class="in.spring4buddies.application.controller.CustomerController">
-		<property name="methodNameResolver">
-			<bean
-				class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
-				<property name="paramName" value="action" />
-			</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/welcome.htm">welcomeController</prop>
+			</props>
 		</property>
 	</bean>
 
-	<bean class="in.spring4buddies.application.controller.EmployeeController">
-		<property name="methodNameResolver">
-			<bean
-				class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver">
-				<property name="prefix" value="test" />
-				<property name="suffix" value="Employee" />
-			</bean>
-		</property>
+	<bean name="welcomeController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="WelcomePage" />
 	</bean>
+
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
