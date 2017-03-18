@@ -9,7 +9,7 @@
 </style>
 </head>
 <body>
-	<form:form method="POST" commandName="userForm">
+	<form:form method="POST" commandName="user">
 		<table>
 			<tr>
 				<td>User Name :</td>
