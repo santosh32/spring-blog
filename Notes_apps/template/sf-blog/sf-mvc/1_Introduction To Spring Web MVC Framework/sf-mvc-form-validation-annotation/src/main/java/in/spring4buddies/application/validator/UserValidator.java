@@ -4,13 +4,13 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import in.spring4buddies.application.domain.Login;
+import in.spring4buddies.application.domain.User;
 
-public class LoginValidator implements Validator {
+public class UserValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return Login.class.isAssignableFrom(clazz);
+		return User.class.isAssignableFrom(clazz);
 	}
 
 	@Override

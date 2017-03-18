@@ -1,4 +1,4 @@
 
 <%
-	response.sendRedirect("loginForm.htm");
+	response.sendRedirect("userForm.htm");
 %>

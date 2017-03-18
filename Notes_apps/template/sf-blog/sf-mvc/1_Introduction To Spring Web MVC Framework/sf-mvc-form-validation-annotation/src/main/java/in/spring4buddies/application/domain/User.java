@@ -1,6 +1,6 @@
 package in.spring4buddies.application.domain;
 
-public class Login {
+public class User {
 	private String email;
 	private String password;
 
