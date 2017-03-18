@@ -9,9 +9,11 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import in.spring4buddies.application.domain.User;
 
@@ -54,5 +56,15 @@ public class UserController {
 			throw new IOException("Forcely thrown exception!!!");
 		}
 		return "userSuccess";
+	}
+
+	@ExceptionHandler(IOException.class)
+	public ModelAndView processException(IOException ioe) {
+
+		ModelAndView mav = new ModelAndView("exceptionPage");
+		mav.addObject("name", ioe.getClass().getSimpleName());
+		mav.addObject("message", ioe.getMessage());
+
+		return mav;
 	}
 }
