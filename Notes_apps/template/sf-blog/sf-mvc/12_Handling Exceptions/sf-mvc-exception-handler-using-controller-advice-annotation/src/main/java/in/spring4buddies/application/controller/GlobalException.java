@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import in.spring4buddies.application.exception.CustomException;
 
 @ControllerAdvice
-public class ExceptionController {
+public class GlobalException {
 
 	@ExceptionHandler(IOException.class)
 	public ModelAndView processException(IOException ioe) {
