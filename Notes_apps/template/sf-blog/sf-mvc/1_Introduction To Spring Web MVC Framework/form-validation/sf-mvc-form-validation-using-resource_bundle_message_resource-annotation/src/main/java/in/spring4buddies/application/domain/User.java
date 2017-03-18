@@ -1,13 +1,32 @@
 package in.spring4buddies.application.domain;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
 
+	@NotEmpty
+	@Size
 	private String name;
+
+	@NotEmpty
+	@Size
 	private String password;
+
+	@NotEmpty
 	private String gender;
+
+	@NotEmpty
 	private String country;
+
+	@NotEmpty
+	@Size
 	private String aboutYou;
+
+	@NotEmpty
 	private String[] community;
+
 	private Boolean feed;
 
 	public String getName() {
