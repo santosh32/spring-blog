@@ -1,11 +1,12 @@
 package in.spring4buddies.application.controller;
 
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import in.spring4buddies.application.domain.Login;
 
 public class LoginController extends SimpleFormController {
-	
+
 	public LoginController() {
 		setCommandClass(Login.class);
 		setCommandName("loginForm");
