@@ -56,7 +56,7 @@ public class UserController {
 		}
 
 		if (user.getPassword().length() > 6) {
-			throw new CustomException("Forcely thrown custom exception!!!", "");
+			throw new CustomException("Forcely thrown custom exception!!!", "CustomException");
 		}
 		return "userSuccess";
 	}
