@@ -42,8 +42,14 @@ public class UserController extends SimpleFormController {
 		countries.add("USA");
 		countries.add("UK");
 
+		List<String> hobbies = new ArrayList<String>();
+		hobbies.add("Gardening");
+		hobbies.add("Listening Music");
+		hobbies.add("Writing Technical Tutorials");
+
 		referenceData.put("communities", communities);
 		referenceData.put("countries", countries);
+		referenceData.put("hobbies", hobbies);
 
 		return referenceData;
 

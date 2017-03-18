@@ -46,6 +46,11 @@
 				<td><form:errors path="community" cssClass="error" /></td>
 			</tr>
 			<tr>
+				<td>Hobbies :</td>
+				<td><form:select items="${hobbies}" path="hobbies" multiple="true" /></td>
+				<td><form:errors path="hobbies" cssClass="error" /></td>
+			</tr>
+			<tr>
 				<td></td>
 				<td><form:checkbox path="feed"
 						label="Would you like to notify if any least updates ?" /></td>

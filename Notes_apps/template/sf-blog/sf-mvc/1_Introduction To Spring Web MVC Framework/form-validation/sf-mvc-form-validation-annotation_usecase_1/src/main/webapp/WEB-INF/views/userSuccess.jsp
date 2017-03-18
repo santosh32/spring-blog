@@ -14,6 +14,10 @@
 	<c:forEach items="${user.community}" var="c">
 		<c:out value="${c}" />
 	</c:forEach>
+	<br /> hobbies :
+	<c:forEach items="${user.hobbies}" var="h">
+		<c:out value="${h}" />
+	</c:forEach>
 	<br />Feed Subscription: ${user.feed}
 </body>
 </html>

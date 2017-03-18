@@ -8,6 +8,7 @@ public class User {
 	private String country;
 	private String aboutYou;
 	private String[] community;
+	private String[] hobbies;
 	private Boolean feed;
 
 	public String getName() {
@@ -65,4 +66,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String[] getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String[] hobbies) {
+		this.hobbies = hobbies;
+	}
+
 }
