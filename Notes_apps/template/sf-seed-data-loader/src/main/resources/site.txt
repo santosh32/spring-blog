@@ -45,3 +45,4 @@ http://janistoolbox.typepad.com/blog/2011/11/aspectjload-time-weavingabstract-as
 
 http://javakart.blogspot.in/2012/11/spring-aop-example-with-xml-based-configuration.html
 http://kruders.com/spring/
+https://www.javainterviewpoint.com/spring-mvc-form-handling-example/
