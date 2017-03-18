@@ -1,5 +1,6 @@
 mvn clean install
 mvn tomcat7:run
 
-http://localhost:8080/sf-mvc-form-validation-annotation/helloworld.html
+http://localhost:8080/sf-mvc-form-validation-annotation/
+http://localhost:8080/sf-mvc-form-validation-annotation/loginForm.htm
 

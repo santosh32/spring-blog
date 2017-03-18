@@ -6,7 +6,8 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean class="in.spring4buddies.application.controller.LoginController">
+	<bean name="/loginForm.htm"
+		class="in.spring4buddies.application.controller.LoginController">
 		<property name="formView" value="loginForm" />
 		<property name="successView" value="loginSuccess" />
 
@@ -17,10 +18,8 @@
 	</bean>
 
 	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource"
