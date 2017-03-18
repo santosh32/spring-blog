@@ -26,6 +26,7 @@ public class UserController extends SimpleFormController {
 		return user;
 	}
 
+	@Override
 	protected Map<String, Object> referenceData(HttpServletRequest request) throws Exception {
 
 		Map<String, Object> referenceData = new HashMap<>();
