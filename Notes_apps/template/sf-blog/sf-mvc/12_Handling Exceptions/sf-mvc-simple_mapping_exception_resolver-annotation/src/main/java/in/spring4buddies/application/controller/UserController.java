@@ -9,13 +9,12 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import in.spring4buddies.application.domain.User;
+import in.spring4buddies.application.exception.CustomException;
 
 @Controller
 public class UserController {
@@ -52,19 +51,12 @@ public class UserController {
 			System.out.println(result);
 			return "userForm";
 		}
-		if (user.getName().length() > 6) {
-			throw new IOException("Forcely thrown exception!!!");
+		
+		if (user.getName().startsWith("IO")) {
+			throw new IOException("Forcibly thrown IO exception!!!");
+		} else if (!user.getName().startsWith("IO")) {
+			throw new CustomException("Forcibly thrown Custom exception!!!", "CustomException");
 		}
 		return "userSuccess";
-	}
-
-	@ExceptionHandler(IOException.class)
-	public ModelAndView processException(IOException ioe) {
-
-		ModelAndView mav = new ModelAndView("exceptionPage");
-		mav.addObject("name", ioe.getClass().getSimpleName());
-		mav.addObject("message", ioe.getMessage());
-
-		return mav;
 	}
 }

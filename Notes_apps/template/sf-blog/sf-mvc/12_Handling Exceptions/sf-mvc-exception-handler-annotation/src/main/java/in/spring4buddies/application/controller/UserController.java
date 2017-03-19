@@ -53,7 +53,7 @@ public class UserController {
 			return "userForm";
 		}
 		if (user.getName().length() > 6) {
-			throw new IOException("Forcely thrown exception!!!");
+			throw new IOException("Forcibly thrown IO exception!!!");
 		}
 		return "userSuccess";
 	}

@@ -1,12 +1,10 @@
-package in.spring4buddies.application.controller;
+package in.spring4buddies.application.exception;
 
 import java.io.IOException;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
-
-import in.spring4buddies.application.exception.CustomException;
 
 @ControllerAdvice
 public class GlobalException {
