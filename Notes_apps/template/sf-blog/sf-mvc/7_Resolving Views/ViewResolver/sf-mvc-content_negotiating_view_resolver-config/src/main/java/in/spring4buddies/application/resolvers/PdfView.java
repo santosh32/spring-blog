@@ -1,4 +1,4 @@
-package in.spring4buddies.application.resolvers;
+/*package in.spring4buddies.application.resolvers;
 
 import java.util.Map;
 
@@ -34,4 +34,4 @@ public class PdfView extends AbstractPdfView {
 
 		document.add(table);
 	}
-}
+}*/

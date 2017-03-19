@@ -1,4 +1,4 @@
-package in.spring4buddies.application.resolvers;
+/*package in.spring4buddies.application.resolvers;
 
 import java.util.Locale;
 
@@ -15,4 +15,4 @@ public class PdfViewResolver implements ViewResolver {
 
 	}
 
-}
+}*/

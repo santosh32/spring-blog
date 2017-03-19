@@ -18,11 +18,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.XmlViewResolver;
 
 import in.spring4buddies.application.domain.User;
 import in.spring4buddies.application.resolvers.JsonViewResolver;
-import in.spring4buddies.application.resolvers.PdfViewResolver;
+import in.spring4buddies.application.resolvers.XmlViewResolver;
 
 @Configuration
 @EnableWebMvc
@@ -52,7 +51,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 
 		resolvers.add(xmlViewResolver());
 		resolvers.add(jsonViewResolver());
-		resolvers.add(pdfViewResolver());
+//		resolvers.add(pdfViewResolver());
 		resolvers.add(jspViewResolver());
 
 		resolver.setViewResolvers(resolvers);
@@ -71,10 +70,10 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 		return new JsonViewResolver();
 	}
 
-	@Bean
-	public ViewResolver pdfViewResolver() {
-		return new PdfViewResolver();
-	}
+//	@Bean
+//	public ViewResolver pdfViewResolver() {
+//		return new PdfViewResolver();
+//	}
 
 	@Bean
 	public ViewResolver jspViewResolver() {
