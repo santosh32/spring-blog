@@ -1,4 +1,4 @@
-/*package in.spring4buddies.application.resolvers;
+package in.spring4buddies.application.view;
 
 import java.util.Map;
 
@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
+import com.lowagie.text.Document;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 
 import in.spring4buddies.application.domain.User;
 
 public class PdfView extends AbstractPdfView {
 
 	@Override
-	protected void buildPdfDocument(Map model, Document document, PdfWriter writer, HttpServletRequest req, HttpServletResponse resp)
+	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer, HttpServletRequest req, HttpServletResponse resp)
 			throws Exception {
 
 		User user = (User) model.get("user");
@@ -35,4 +35,4 @@ public class PdfView extends AbstractPdfView {
 
 		document.add(table);
 	}
-}*/
+}

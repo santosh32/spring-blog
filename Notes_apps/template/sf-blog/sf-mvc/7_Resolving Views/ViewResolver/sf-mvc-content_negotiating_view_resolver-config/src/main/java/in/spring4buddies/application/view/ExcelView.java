@@ -1,4 +1,4 @@
-package in.spring4buddies.application.resolvers;
+package in.spring4buddies.application.view;
 
 import java.util.Map;
 

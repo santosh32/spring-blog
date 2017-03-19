@@ -68,10 +68,18 @@
 		</dependency>
 
 		<!-- Needed for PDF View -->
+		<!-- Needed for Lowagie PDF View -->
 		<dependency>
 			<groupId>com.lowagie</groupId>
 			<artifactId>itext</artifactId>
-			<version>4.2.1</version>
+			<version>2.1.7</version>
+		</dependency>
+
+		<!-- Needed for IText PDF View -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.9</version>
 		</dependency>
 
 		<!-- Needed for XLS View -->
