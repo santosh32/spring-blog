@@ -4,4 +4,6 @@ mvn tomcat7:run
 http://localhost:8080/sf-mvc-content_negotiating_view_resolver-config/user/Greg
 http://localhost:8080/sf-mvc-content_negotiating_view_resolver-config/user/Greg.json
 http://localhost:8080/sf-mvc-content_negotiating_view_resolver-config/user/Greg.xml
+http://localhost:8080/sf-mvc-content_negotiating_view_resolver-config/user/Greg.pdf
+http://localhost:8080/sf-mvc-content_negotiating_view_resolver-config/user/Greg.xls
 

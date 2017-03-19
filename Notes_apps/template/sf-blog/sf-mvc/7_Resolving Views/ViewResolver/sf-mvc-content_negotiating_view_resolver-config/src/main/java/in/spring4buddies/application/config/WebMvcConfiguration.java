@@ -20,6 +20,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import in.spring4buddies.application.domain.User;
+import in.spring4buddies.application.resolvers.ExcelViewResolver;
 import in.spring4buddies.application.resolvers.JsonViewResolver;
 import in.spring4buddies.application.resolvers.XmlViewResolver;
 
@@ -52,6 +53,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 		resolvers.add(xmlViewResolver());
 		resolvers.add(jsonViewResolver());
 //		resolvers.add(pdfViewResolver());
+		resolvers.add(excelViewResolver());
 		resolvers.add(jspViewResolver());
 
 		resolver.setViewResolvers(resolvers);
@@ -68,6 +70,11 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public ViewResolver jsonViewResolver() {
 		return new JsonViewResolver();
+	}
+	
+	@Bean
+	public ViewResolver excelViewResolver() {
+		return new ExcelViewResolver();
 	}
 
 //	@Bean

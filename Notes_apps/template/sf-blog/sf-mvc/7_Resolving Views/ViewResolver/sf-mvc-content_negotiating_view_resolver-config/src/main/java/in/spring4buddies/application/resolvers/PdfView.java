@@ -15,6 +15,7 @@ import in.spring4buddies.application.domain.User;
 
 public class PdfView extends AbstractPdfView {
 
+	@Override
 	protected void buildPdfDocument(Map model, Document document, PdfWriter writer, HttpServletRequest req, HttpServletResponse resp)
 			throws Exception {
 
