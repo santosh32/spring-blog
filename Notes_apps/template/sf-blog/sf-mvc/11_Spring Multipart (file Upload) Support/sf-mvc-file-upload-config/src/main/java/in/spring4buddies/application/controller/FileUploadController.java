@@ -24,7 +24,7 @@ public class FileUploadController {
 
 	@RequestMapping
 	public String loadDownloadfiles() {
-		return "upload";
+		return "uploadFile";
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
