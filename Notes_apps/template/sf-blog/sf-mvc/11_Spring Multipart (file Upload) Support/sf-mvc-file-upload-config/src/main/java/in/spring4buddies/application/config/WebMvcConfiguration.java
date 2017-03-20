@@ -39,7 +39,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean(name = "multipartResolver")
-	public CommonsMultipartResolver getResolver() throws IOException {
+	public CommonsMultipartResolver multipartResolver() throws IOException {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
 		// no limit
 		resolver.setMaxUploadSize(-1);

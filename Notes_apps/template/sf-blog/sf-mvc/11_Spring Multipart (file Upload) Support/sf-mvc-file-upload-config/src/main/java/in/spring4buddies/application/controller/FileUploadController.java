@@ -23,7 +23,7 @@ public class FileUploadController {
 	ServletContext context;
 
 	@RequestMapping
-	public String loadDownloadfiles() {
+	public String load() {
 		return "uploadFile";
 	}
 
