@@ -1,8 +1,11 @@
 package in.spring4buddies.application.config;
 
+import java.io.IOException;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -32,6 +35,14 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setViewClass(JstlView.class);
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
+		return resolver;
+	}
+
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver getResolver() throws IOException {
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		// no limit
+		resolver.setMaxUploadSize(-1);
 		return resolver;
 	}
 }
