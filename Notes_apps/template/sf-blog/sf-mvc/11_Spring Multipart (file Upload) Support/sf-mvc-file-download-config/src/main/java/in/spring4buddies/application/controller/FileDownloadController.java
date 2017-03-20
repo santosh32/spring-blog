@@ -15,20 +15,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DownloadController {
+public class FileDownloadController {
 
 	@Autowired
 	ServletContext context;
 
-	@RequestMapping("/download")
-	public String loadDownloadfiles() {
-		return "download";
+	@RequestMapping
+	public String load() {
+		return "downloadFile";
 	}
 
 	@RequestMapping("/download/{fileName:.+}")
 	public void downloader(HttpServletRequest request, HttpServletResponse response, @PathVariable("fileName") String fileName) {
 		try {
-			String downloadFolder = context.getRealPath("/WEB-INF/downloads");
+			String downloadFolder = context.getRealPath("/WEB-INF/download");
+			System.out.println("== downloadFolder == : " + downloadFolder);
 			File file = new File(downloadFolder + File.separator + fileName);
 
 			if (file.exists()) {
