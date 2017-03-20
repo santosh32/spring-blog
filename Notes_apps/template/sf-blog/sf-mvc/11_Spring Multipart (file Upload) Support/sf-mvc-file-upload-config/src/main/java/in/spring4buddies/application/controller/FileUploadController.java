@@ -1,6 +1,7 @@
 package in.spring4buddies.application.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.spring4buddies.application.model.FileInfo;
@@ -27,8 +29,34 @@ public class FileUploadController {
 		return "uploadFile";
 	}
 
+//	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+//	public ModelAndView processFiles(@RequestParam("file") List<MultipartFile> files) {
+//
+//		List<FileInfo> uploadedFiles = new ArrayList<FileInfo>();
+//
+//		if (!files.isEmpty()) {
+//			try {
+//				for (MultipartFile file : files) {
+//					String path = context.getRealPath("/WEB-INF/uploaded") + File.separator + file.getOriginalFilename();
+//					File destinationFile = new File(path);
+//					file.transferTo(destinationFile);
+//					uploadedFiles.add(new FileInfo(destinationFile.getName(), path));
+//				}
+//
+//			} catch (Exception e) {
+//				System.out.println(e.getMessage());
+//			}
+//
+//		}
+//		ModelAndView modelAndView = new ModelAndView("uploadSuccess");
+//		modelAndView.addObject("files", uploadedFiles);
+//		return modelAndView;
+//	}
+
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public ModelAndView upload(@RequestParam("file") List<MultipartFile> files) {
+	public ModelAndView processFiles(MultipartHttpServletRequest request) throws IOException {
+
+		List<MultipartFile> files = request.getFiles("file");
 
 		List<FileInfo> uploadedFiles = new ArrayList<FileInfo>();
 

@@ -26,7 +26,7 @@ public class FileDownloadController {
 	}
 
 	@RequestMapping("/download/{fileName:.+}")
-	public void downloader(HttpServletRequest request, HttpServletResponse response, @PathVariable("fileName") String fileName) {
+	public void processFiles(HttpServletRequest request, HttpServletResponse response, @PathVariable("fileName") String fileName) {
 		try {
 			String downloadFolder = context.getRealPath("/WEB-INF/download");
 			System.out.println("== downloadFolder == : " + downloadFolder);
