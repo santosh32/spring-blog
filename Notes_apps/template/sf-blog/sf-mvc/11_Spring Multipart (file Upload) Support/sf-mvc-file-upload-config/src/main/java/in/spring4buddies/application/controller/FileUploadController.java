@@ -28,30 +28,30 @@ public class FileUploadController {
 	public String load() {
 		return "uploadFile";
 	}
+	// TODO: FIX ME: at time two methods will not allow, to run some one needs to comment
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public ModelAndView processFiles(@RequestParam("file") List<MultipartFile> files) {
 
-//	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-//	public ModelAndView processFiles(@RequestParam("file") List<MultipartFile> files) {
-//
-//		List<FileInfo> uploadedFiles = new ArrayList<FileInfo>();
-//
-//		if (!files.isEmpty()) {
-//			try {
-//				for (MultipartFile file : files) {
-//					String path = context.getRealPath("/WEB-INF/uploaded") + File.separator + file.getOriginalFilename();
-//					File destinationFile = new File(path);
-//					file.transferTo(destinationFile);
-//					uploadedFiles.add(new FileInfo(destinationFile.getName(), path));
-//				}
-//
-//			} catch (Exception e) {
-//				System.out.println(e.getMessage());
-//			}
-//
-//		}
-//		ModelAndView modelAndView = new ModelAndView("uploadSuccess");
-//		modelAndView.addObject("files", uploadedFiles);
-//		return modelAndView;
-//	}
+		List<FileInfo> uploadedFiles = new ArrayList<FileInfo>();
+
+		if (!files.isEmpty()) {
+			try {
+				for (MultipartFile file : files) {
+					String path = context.getRealPath("/WEB-INF/uploaded") + File.separator + file.getOriginalFilename();
+					File destinationFile = new File(path);
+					file.transferTo(destinationFile);
+					uploadedFiles.add(new FileInfo(destinationFile.getName(), path));
+				}
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+		}
+		ModelAndView modelAndView = new ModelAndView("uploadSuccess");
+		modelAndView.addObject("files", uploadedFiles);
+		return modelAndView;
+	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public ModelAndView processFiles(MultipartHttpServletRequest request) throws IOException {
