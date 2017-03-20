@@ -1,4 +1,4 @@
-package in.spring4buddies.application.domain;
+package in.spring4buddies.application.command;
 
 public class User {
 

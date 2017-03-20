@@ -9,7 +9,12 @@
 </style>
 </head>
 <body>
-	<form:form method="POST" action="user">
+	<!-- Step 1. -->
+	<%-- <form:form method="POST" action="user"> --%>
+	<!-- Step 2. -->
+	<%-- <form:form method="POST" action="user" commandName="user"> --%>
+	<!-- Step 3. -->
+	<form:form method="POST" action="user" modelAttribute="user">
 		<table>
 			<tr>
 				<td>User Name :</td>

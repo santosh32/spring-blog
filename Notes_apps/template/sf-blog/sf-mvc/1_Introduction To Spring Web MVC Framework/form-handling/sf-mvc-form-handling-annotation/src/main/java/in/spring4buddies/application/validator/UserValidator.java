@@ -4,7 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import in.spring4buddies.application.domain.User;
+import in.spring4buddies.application.command.User;
 
 public class UserValidator implements Validator {
 
