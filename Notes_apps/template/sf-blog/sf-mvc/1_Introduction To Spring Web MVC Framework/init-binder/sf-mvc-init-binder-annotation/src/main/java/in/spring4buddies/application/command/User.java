@@ -1,5 +1,6 @@
 package in.spring4buddies.application.command;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class User {
@@ -75,6 +76,12 @@ public class User {
 
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", country=" + country + ", aboutYou=" + aboutYou
+				+ ", community=" + Arrays.toString(community) + ", feed=" + feed + "]";
 	}
 
 }
