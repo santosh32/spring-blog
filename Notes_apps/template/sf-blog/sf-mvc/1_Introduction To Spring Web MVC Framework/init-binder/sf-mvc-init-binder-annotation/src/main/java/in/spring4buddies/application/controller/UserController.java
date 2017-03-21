@@ -18,7 +18,7 @@ public class UserController {
 
 		ModelAndView modelAndView = new ModelAndView("userForm");
 		// Step 1.
-		// modelAndView.addObject("command", new User());
+		 modelAndView.addObject("command", new User());
 		// Step 2 & 3.
 		modelAndView.addObject("user", new User());
 		return modelAndView;

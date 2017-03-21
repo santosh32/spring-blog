@@ -1,9 +1,12 @@
 package in.spring4buddies.application.command;
 
+import java.util.Date;
+
 public class User {
 
 	private String name;
 	private String password;
+	private Date dateOfBirth;
 	private String gender;
 	private String country;
 	private String aboutYou;
@@ -65,4 +68,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
 }

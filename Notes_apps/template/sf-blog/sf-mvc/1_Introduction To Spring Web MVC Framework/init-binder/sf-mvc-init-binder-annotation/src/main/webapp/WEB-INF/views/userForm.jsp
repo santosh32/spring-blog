@@ -35,6 +35,11 @@
 				<td><form:errors path="gender" cssClass="error" /></td>
 			</tr>
 			<tr>
+				<td>Date Of Birth :</td>
+				<td><form:input path="dateOfBirth" /></td>
+				<td><form:errors path="dateOfBirth" cssClass="error" /></td>
+			</tr>
+			<tr>
 				<td>Country :</td>
 				<td>
 					<form:select path="country">
