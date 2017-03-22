@@ -21,10 +21,9 @@ public class UserController {
 
 	@InitBinder
 	public void customizeBinding(WebDataBinder binder) {
-		// CurrencyStyleFormatter currencyFormatter = new
-		// CurrencyStyleFormatter();
-		// currencyFormatter.setCurrency(Currency.getInstance(Locale.US));
-		// binder.addCustomFormatter(currencyFormatter, "amount");
+		CurrencyStyleFormatter currencyFormatter = new CurrencyStyleFormatter();
+		currencyFormatter.setCurrency(Currency.getInstance(Locale.US));
+		binder.addCustomFormatter(currencyFormatter, "salary");
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
