@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,10 +24,6 @@ public class UserController {
 		SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormatter.setLenient(false);
 		binder.registerCustomEditor(Date.class, "dateOfBirth", new CustomDateEditor(dateFormatter, true));
-
-//		DateFormatter dateFormatter1 = new DateFormatter();
-//		dateFormatter1.setPattern("MM-dd-yyyy");
-//		binder.addCustomFormatter(dateFormatter1, "dateOfBirth");
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

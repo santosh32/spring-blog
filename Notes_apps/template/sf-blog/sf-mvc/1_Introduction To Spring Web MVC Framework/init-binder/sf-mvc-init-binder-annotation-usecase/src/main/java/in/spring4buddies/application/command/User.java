@@ -1,13 +1,13 @@
 package in.spring4buddies.application.command;
 
-import java.util.Currency;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class User {
 
 	private String name;
 	private Date dateOfBirth;
-	private Currency salary;
+	private BigDecimal salary;
 
 	public String getName() {
 		return name;
@@ -25,11 +25,11 @@ public class User {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Currency getSalary() {
+	public BigDecimal getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Currency salary) {
+	public void setSalary(BigDecimal salary) {
 		this.salary = salary;
 	}
 
@@ -37,5 +37,4 @@ public class User {
 	public String toString() {
 		return "User [name=" + name + ", dateOfBirth=" + dateOfBirth + ", salary=" + salary + "]";
 	}
-
 }
