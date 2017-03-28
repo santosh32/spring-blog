@@ -19,7 +19,7 @@ public class User {
 	@NotNull(message = "DateOfBirth is empty")
 	private Date dateOfBirth;
 
-	@NumberFormat(style = Style.NUMBER, pattern = "###,##,##,###.##")
+	@NumberFormat(style = Style.CURRENCY, pattern = "###,##,##,###.##")
 	@NotNull(message = "Salary is empty")
 	private BigDecimal salary;
 
