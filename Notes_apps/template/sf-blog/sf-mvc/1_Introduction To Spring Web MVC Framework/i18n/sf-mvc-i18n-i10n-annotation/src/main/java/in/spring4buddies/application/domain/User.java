@@ -1,87 +1,32 @@
 package in.spring4buddies.application.domain;
 
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
 public class User {
 
-	@NotEmpty(message = "UserName cannot be empty")
-	@Size(min = 1, max = 16, message = "Size should be between 1 to 16")
-	private String name;
+	private String id;
+	private String firstName;
+	private String lastName;
 
-	@NotEmpty(message = "Password cannot be empty")
-	@Size(min = 1, max = 16, message = "Size should be between 1 to 16")
-	private String password;
-
-	@NotEmpty(message = "Gender cannot be empty")
-	private String gender;
-
-	@NotEmpty(message = "Country cannot be empty")
-	private String country;
-
-	@NotEmpty(message = "AboutYou cannot be empty")
-	@Size(min = 1, max = 50, message = "Size should be between 1 to 50")
-	private String aboutYou;
-
-	@NotEmpty(message = "Community cannot be empty")
-	private String[] community;
-
-	private Boolean feed;
-
-	public String getName() {
-		return name;
+	public String getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getAboutYou() {
-		return aboutYou;
-	}
-
-	public void setAboutYou(String aboutYou) {
-		this.aboutYou = aboutYou;
-	}
-
-	public String[] getCommunity() {
-		return community;
-	}
-
-	public void setCommunity(String[] community) {
-		this.community = community;
-	}
-
-	public Boolean getFeed() {
-		return feed;
-	}
-
-	public void setFeed(Boolean feed) {
-		this.feed = feed;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 }

@@ -6,25 +6,25 @@
 
 <html>
 <head>
-<title>Spring MVC Hello World</title>
+<title>user details</title>
 </head>
 
 <body>
 	<h2>
-		<spring:message code="lbl.page" text="All Employees in System" />
+		<spring:message code="lbl.page" text="All Users in System" />
 	</h2>
 
 	<table border="1">
 		<tr>
-			<th><spring:message code="lbl.Id" text="Employee Id" /></th>
+			<th><spring:message code="lbl.Id" text="User Id" /></th>
 			<th><spring:message code="lbl.firstName" text="First Name" /></th>
 			<th><spring:message code="lbl.lastName" text="Last Name" /></th>
 		</tr>
-		<c:forEach items="${employees}" var="employee">
+		<c:forEach items="${users}" var="user">
 			<tr>
-				<td>${employee.id}</td>
-				<td>${employee.firstName}</td>
-				<td>${employee.lastName}</td>
+				<td>${user.id}</td>
+				<td>${user.firstName}</td>
+				<td>${user.lastName}</td>
 			</tr>
 		</c:forEach>
 	</table>
