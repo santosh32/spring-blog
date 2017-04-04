@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td>Date Of Birth :</td>
-				<td><form:input path="dateOfBirth"/></td>
+				<td><form:input path="dateOfBirth" placeholder="MM/dd/yyyy"/></td>
 				<td><form:errors path="dateOfBirth" cssClass="error" /></td>
 			</tr>
 			<tr>
