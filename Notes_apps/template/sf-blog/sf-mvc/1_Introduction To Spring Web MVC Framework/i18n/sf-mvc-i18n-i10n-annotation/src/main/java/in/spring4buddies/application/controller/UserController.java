@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
-	@RequestMapping("/userForm")
+	@RequestMapping("/users")
 	public String getAllUsers(Model model) {
+
 		User user1 = new User();
 		user1.setId("100");
 		user1.setFirstName("first 1");
@@ -29,7 +30,7 @@ public class UserController {
 		users.add(user2);
 
 		model.addAttribute("users", users);
-		return "userForm";
+		
+		return "users";
 	}
-
 }
