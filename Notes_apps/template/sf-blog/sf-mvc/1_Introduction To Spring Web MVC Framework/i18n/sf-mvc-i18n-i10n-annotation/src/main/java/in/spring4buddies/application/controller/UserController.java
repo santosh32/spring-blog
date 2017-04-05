@@ -17,13 +17,13 @@ public class UserController {
 
 		User user1 = new User();
 		user1.setId("100");
-		user1.setFirstName("first 1");
-		user1.setLastName("last 1");
+		user1.setFirstName("Greg");
+		user1.setLastName("Thomas");
 
 		User user2 = new User();
 		user2.setId("200");
-		user2.setFirstName("first 2");
-		user2.setLastName("last 2");
+		user2.setFirstName("Curt");
+		user2.setLastName("McGennis");
 
 		List<User> users = new ArrayList<>();
 		users.add(user1);
