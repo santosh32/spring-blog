@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "in.spring4buddies.application.controller")
+@ComponentScan(basePackages = { "in.spring4buddies.application.controller", "in.spring4buddies.application.config" })
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
