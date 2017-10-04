@@ -1,0 +1,4 @@
+- You may get build errors when you do mvn clean install, make sure that oracle dependency in place.
+- verify pom.xml and replace spring and oracle dependency versions.
+- verify spring-config.xml for JPA related stuff.
+- Make sure that Entity class and Repositories are in same package.
