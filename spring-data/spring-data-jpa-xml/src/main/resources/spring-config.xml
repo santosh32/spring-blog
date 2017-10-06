@@ -29,8 +29,8 @@
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" />
 
-	<bean id="employeeService" class="in.spring4buddies.application.service.EmployeeService">
+<!-- 	<bean id="employeeService" class="in.spring4buddies.application.service.EmployeeService">
 		<constructor-arg name="employeeRepository" ref="employeeRepository" />
-	</bean>
+	</bean> -->
 
 </beans>
