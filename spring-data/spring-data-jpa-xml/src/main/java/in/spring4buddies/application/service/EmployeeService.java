@@ -1,7 +1,7 @@
 package in.spring4buddies.application.service;
 
-import in.spring4buddies.application.jpa.Employee;
 import in.spring4buddies.application.jpa.EmployeeRepository;
+import in.spring4buddies.application.model.Employee;
 
 public class EmployeeService {
 

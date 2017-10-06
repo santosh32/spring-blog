@@ -1,4 +1,4 @@
-package in.spring4buddies.application.jpa;
+package in.spring4buddies.application.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

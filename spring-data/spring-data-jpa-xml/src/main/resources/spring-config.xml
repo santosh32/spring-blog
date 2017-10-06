@@ -7,14 +7,7 @@
 
 	<jpa:repositories base-package="in.spring4buddies.application.jpa" />
 
-<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1522:orcl" />
-		<property name="username" value="srlp" />
-		<property name="password" value="srlp" />
-	</bean> -->
-
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1522:orcl" />
 		<property name="username" value="srlp" />
@@ -31,7 +24,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<!-- spring based scanning for entity classes -->
-		<property name="packagesToScan" value="in.spring4buddies.application.jpa" />
+		<property name="packagesToScan" value="in.spring4buddies.application.model" />
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" />
