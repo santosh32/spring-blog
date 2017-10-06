@@ -3,8 +3,8 @@ package in.spring4buddies.application;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import in.spring4buddies.application.model.Employee;
-import in.spring4buddies.application.service.EmployeeService;
+//import in.spring4buddies.application.model.Employee;
+//import in.spring4buddies.application.service.EmployeeService;
 
 public class Application {
 
