@@ -43,18 +43,18 @@ public class InventoryOrganizationRef implements Serializable {
 
 	//bi-directional many-to-one association to CalendarRef
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="DEFAULT_SHIPPING_CALENDAR_ID", referencedColumnName="CALENDAR_ID"),
-		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
-		})
+//	@JoinColumns({
+//		@JoinColumn(name="DEFAULT_SHIPPING_CALENDAR_ID", referencedColumnName="CALENDAR_ID"),
+//		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
+//		})
 	private CalendarRef calendarRef;
 
 	//bi-directional many-to-one association to NodeGroupRef
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="DEFAULT_NODE_GROUP_ID", referencedColumnName="NODE_GROUP_ID"),
-		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
-		})
+//	@JoinColumns({
+//		@JoinColumn(name="DEFAULT_NODE_GROUP_ID", referencedColumnName="NODE_GROUP_ID"),
+//		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
+//		})
 	private NodeGroupRef nodeGroupRef;
 
 	//bi-directional many-to-one association to ProductClassRef

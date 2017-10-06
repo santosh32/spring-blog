@@ -19,20 +19,20 @@ public class NodeFulfillmentTypeMap implements Serializable {
 
 	//bi-directional many-to-one association to FulfillmentTypeRef
 	@ManyToOne
-	@JoinColumn(name="FULFILLMENT_TYPE_ID")
+//	@JoinColumn(name="FULFILLMENT_TYPE_ID" )
 	private FulfillmentTypeRef fulfillmentTypeRef;
 
 	//bi-directional many-to-one association to InventoryOrganizationRef
 	@ManyToOne
-	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
+//	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
 	private InventoryOrganizationRef inventoryOrganizationRef;
 
 	//bi-directional many-to-one association to NodeRef
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID"),
-		@JoinColumn(name="NODE_ID", referencedColumnName="NODE_ID")
-		})
+//	@JoinColumns({
+//		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID"),
+//		@JoinColumn(name="NODE_ID", referencedColumnName="NODE_ID")
+//		})
 	private NodeRef nodeRef;
 
 	public NodeFulfillmentTypeMap() {

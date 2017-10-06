@@ -32,7 +32,7 @@ public class CalendarRef implements Serializable {
 
 	//bi-directional many-to-one association to InventoryOrganizationRef
 	@ManyToOne
-	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
+//	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
 	private InventoryOrganizationRef inventoryOrganizationRef;
 
 	//bi-directional many-to-one association to DayOfWeekRef

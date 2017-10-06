@@ -71,25 +71,25 @@ public class NodeRef implements Serializable {
 
 	//bi-directional many-to-one association to AddressRef
 	@ManyToOne
-	@JoinColumn(name="ADDRESS_ID")
+//	@JoinColumn(name="ADDRESS_ID")
 	private AddressRef addressRef;
 
 	//bi-directional many-to-one association to CalendarRef
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID"),
-		@JoinColumn(name="SHIPPING_CALENDAR_ID", referencedColumnName="CALENDAR_ID")
-		})
+//	@JoinColumns({
+//		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID"),
+//		@JoinColumn(name="SHIPPING_CALENDAR_ID", referencedColumnName="CALENDAR_ID")
+//		})
 	private CalendarRef calendarRef;
 
 	//bi-directional many-to-one association to InventoryOrganizationRef
 	@ManyToOne
-	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
+//	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
 	private InventoryOrganizationRef inventoryOrganizationRef;
 
 	//bi-directional many-to-one association to NodeTypeRef
 	@ManyToOne
-	@JoinColumn(name="NODE_TYPE_ID")
+//	@JoinColumn(name="NODE_TYPE_ID")
 	private NodeTypeRef nodeTypeRef;
 
 	public NodeRef() {

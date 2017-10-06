@@ -23,20 +23,20 @@ public class DayOfWeekRef implements Serializable {
 
 	//bi-directional many-to-one association to CalendarRef
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CALENDAR_ID", referencedColumnName="CALENDAR_ID"),
-		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
-		})
+//	@JoinColumns({
+//		@JoinColumn(name="CALENDAR_ID", referencedColumnName="CALENDAR_ID"),
+//		@JoinColumn(name="INVENTORY_ORGANIZATION_ID", referencedColumnName="INVENTORY_ORGANIZATION_ID")
+//		})
 	private CalendarRef calendarRef;
 
 	//bi-directional many-to-one association to DayRef
 	@ManyToOne
-	@JoinColumn(name="DAY_ID")
+//	@JoinColumn(name="DAY_ID")
 	private DayRef dayRef;
 
 	//bi-directional many-to-one association to InventoryOrganizationRef
 	@ManyToOne
-	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
+//	@JoinColumn(name="INVENTORY_ORGANIZATION_ID")
 	private InventoryOrganizationRef inventoryOrganizationRef;
 
 	public DayOfWeekRef() {
