@@ -2,16 +2,16 @@ package search;
 
 public class BinarySearchWEx {
 
-	public int binarySearch(int[] inputArr, int key) {
+	public int binarySearch(int[] a, int key) {
 
 		int start = 0;
-		int end = inputArr.length - 1;
+		int end = a.length - 1;
 		while (start <= end) {
 			int mid = (start + end) / 2;
-			if (key == inputArr[mid]) {
+			if (key == a[mid]) {
 				return mid;
 			}
-			if (key < inputArr[mid]) {
+			if (key < a[mid]) {
 				end = mid - 1;
 			} else {
 				start = mid + 1;
