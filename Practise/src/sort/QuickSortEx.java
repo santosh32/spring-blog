@@ -22,6 +22,7 @@ public class QuickSortEx {
 		int pivot = a[lowerIndex + (higherIndex - lowerIndex) / 2];
 		// Divide into two arrays
 		while (i <= j) {
+			System.out.println("----");
 			while (a[i] < pivot) {
 				i++;
 			}
@@ -35,6 +36,7 @@ public class QuickSortEx {
 				// move index to next position on both sides
 				i++;
 				j--;
+				print(a);
 			}
 		}
 		// call quickSort() method recursively
@@ -48,10 +50,35 @@ public class QuickSortEx {
 
 		QuickSortEx sorter = new QuickSortEx();
 		int[] input = { 11, 13, 5, 7, 3 };
+		System.out.print("Before : ");
+		print(input);
 		sorter.sort(input);
-		for (int i : input) {
-			System.out.print(i);
-			System.out.print(" ");
+		System.out.println("====");
+		System.out.print("After : ");
+		print(input);
+	}
+	private static void print(int[] a) {
+		for (int x : a) {
+			System.out.print(x + " ");
 		}
+		System.out.println();
 	}
 }
+
+/*
+ * 
+Before : 11 13 5 7 3 
+----
+3 13 5 7 11 
+----
+3 5 13 7 11 
+----
+3 5 13 7 11 
+----
+3 5 7 13 11 
+----
+3 5 7 11 13 
+====
+After : 3 5 7 11 13 
+
+ */
