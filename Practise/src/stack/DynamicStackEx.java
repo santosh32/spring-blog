@@ -2,13 +2,13 @@ package stack;
 
 public class DynamicStackEx {
 
-	private int stackSize;
-	private int[] stackArr;
+	private int size;
+	private int[] stack;
 	private int top;
 
 	public DynamicStackEx(int size) {
-		this.stackSize = size;
-		this.stackArr = new int[stackSize];
+		this.size = size;
+		this.stack = new int[size];
 		this.top = -1;
 	}
 
@@ -18,30 +18,30 @@ public class DynamicStackEx {
 			this.increaseStackCapacity();
 		}
 		System.out.println("Adding: " + entry);
-		this.stackArr[++top] = entry;
+		this.stack[++top] = entry;
 	}
 
 	public int pop() throws Exception {
 		if (this.isStackEmpty()) {
 			throw new Exception("Stack is empty. Can not remove element.");
 		}
-		int entry = this.stackArr[top--];
+		int entry = this.stack[top--];
 		System.out.println("Removed entry: " + entry);
 		return entry;
 	}
 
 	public long peek() {
-		return stackArr[top];
+		return stack[top];
 	}
 
 	private void increaseStackCapacity() {
 
-		int[] newStack = new int[this.stackSize * 2];
-		for (int i = 0; i < stackSize; i++) {
-			newStack[i] = this.stackArr[i];
+		int[] newStack = new int[this.size * 2];
+		for (int i = 0; i < size; i++) {
+			newStack[i] = this.stack[i];
 		}
-		this.stackArr = newStack;
-		this.stackSize = this.stackSize * 2;
+		this.stack = newStack;
+		this.size = this.size * 2;
 	}
 
 	public boolean isStackEmpty() {
@@ -49,7 +49,7 @@ public class DynamicStackEx {
 	}
 
 	public boolean isStackFull() {
-		return (top == stackSize - 1);
+		return (top == size - 1);
 	}
 
 	public static void main(String[] args) {

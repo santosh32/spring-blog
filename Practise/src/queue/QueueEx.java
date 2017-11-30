@@ -1,81 +1,84 @@
 package queue;
 
+import java.util.NoSuchElementException;
+
 public class QueueEx {
 
-	private int capacity;
-	int queueArr[];
-	int front = 0;
-	int rear = -1;
-	int currentSize = 0;
+	protected int queue[];
+	protected int front, rear, size, count;
 
-	public QueueEx(int queueSize) {
-		this.capacity = queueSize;
-		queueArr = new int[this.capacity];
+	public QueueEx(int size) {
+		this.size = size;
+		count = 0;
+		queue = new int[size];
+		front = 0;
+		rear = 0;
 	}
 
-	public void enqueue(int item) {
-		if (isQueueFull()) {
-			System.out.println("Overflow ! Unable to add element: " + item);
-		} else {
-			rear++;
-			if (rear == capacity - 1) {
-				rear = 0;
-			}
-			queueArr[rear] = item;
-			currentSize++;
-			System.out.println("Element " + item + " is pushed to Queue !");
+	public boolean isEmpty() {
+		return count == 0;
+	}
+
+	public boolean isFull() {
+		return count == size;
+	}
+
+	public int peek() {
+		if (isEmpty())
+			throw new NoSuchElementException("Underflow Exception");
+		return queue[front];
+	}
+
+	public void enqueue(int element) {
+		if (isFull())
+			System.out.println("Queue is full");
+		if (rear == size)
+			rear = 0;
+		queue[rear++] = element;
+		System.out.println("enqueue = " + element);
+		count++;
+	}
+
+	public int dequeue() {
+		if (isEmpty()) {
+			System.out.println("Queue is empty");
+			return -1;
 		}
+		int element = queue[front++];
+		if (front == size)
+			front = 0;
+		count--;
+		System.out.println("dequeue = " + element);
+		return element;
 	}
 
-	public void dequeue() {
-		if (isQueueEmpty()) {
-			System.out
-					.println("Underflow ! Unable to remove element from Queue");
-		} else {
-			front++;
-			if (front == capacity - 1) {
-				System.out.println("Pop operation done ! removed: "
-						+ queueArr[front - 1]);
-				front = 0;
-			} else {
-				System.out.println("Pop operation done ! removed: "
-						+ queueArr[front - 1]);
-			}
-			currentSize--;
+	public void display() {
+		System.out.print("\nDisplay Queue = ");
+		for (int i : queue) {
+			System.out.print(i + " ");
 		}
+		System.out.println();
 	}
 
-	public boolean isQueueFull() {
-		boolean status = false;
-		if (currentSize == capacity) {
-			status = true;
-		}
-		return status;
-	}
-
-	public boolean isQueueEmpty() {
-		boolean status = false;
-		if (currentSize == 0) {
-			status = true;
-		}
-		return status;
-	}
-
-	public static void main(String a[]) {
-
-		QueueEx queue = new QueueEx(4);
-		queue.enqueue(4);
-		queue.dequeue();
-		queue.enqueue(56);
-		queue.enqueue(2);
-		queue.enqueue(67);
-		queue.dequeue();
-		queue.dequeue();
-		queue.enqueue(24);
-		queue.dequeue();
-		queue.enqueue(98);
-		queue.enqueue(45);
-		queue.enqueue(23);
-		queue.enqueue(435);
+	public static void main(String[] args) {
+		QueueEx queueEx = new QueueEx(5);
+		queueEx.display();
+		queueEx.enqueue(10);
+		queueEx.enqueue(20);
+		queueEx.enqueue(30);
+		queueEx.display();
+		queueEx.dequeue();
+		queueEx.display();
+		queueEx.enqueue(40);
+		queueEx.enqueue(50);
+		queueEx.display();
+		queueEx.dequeue();
+		queueEx.dequeue();
+		queueEx.display();
+		queueEx.dequeue();
+		queueEx.dequeue();
+		queueEx.display();
+		queueEx.dequeue();
+		queueEx.display();
 	}
 }

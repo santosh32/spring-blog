@@ -2,13 +2,13 @@ package stack;
 
 public class StackEx {
 
-	private int stackSize;
-	private int[] stackArr;
+	private int size;
+	private int[] stack;
 	private int top;
 
 	public StackEx(int size) {
-		this.stackSize = size;
-		this.stackArr = new int[stackSize];
+		this.size = size;
+		this.stack = new int[size];
 		this.top = -1;
 	}
 
@@ -17,20 +17,20 @@ public class StackEx {
 			throw new Exception("Stack is already full. Can not add element.");
 		}
 		System.out.println("Adding: " + entry);
-		this.stackArr[++top] = entry;
+		this.stack[++top] = entry;
 	}
 
 	public int pop() throws Exception {
 		if (this.isStackEmpty()) {
 			throw new Exception("Stack is empty. Can not remove element.");
 		}
-		int entry = this.stackArr[top--];
+		int entry = this.stack[top--];
 		System.out.println("Removed entry: " + entry);
 		return entry;
 	}
 
 	public int peek() {
-		return stackArr[top];
+		return stack[top];
 	}
 
 	public boolean isStackEmpty() {
@@ -38,7 +38,7 @@ public class StackEx {
 	}
 
 	public boolean isStackFull() {
-		return (top == stackSize - 1);
+		return (top == size - 1);
 	}
 
 	public static void main(String[] args) {
