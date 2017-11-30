@@ -1,6 +1,6 @@
 package search;
 
-public class BinarySearchWEx {
+public class BinarySearchEx {
 
 	public int binarySearch(int[] a, int key) {
 
@@ -22,7 +22,7 @@ public class BinarySearchWEx {
 
 	public static void main(String[] args) {
 
-		BinarySearchWEx mbs = new BinarySearchWEx();
+		BinarySearchEx mbs = new BinarySearchEx();
 		int[] arr = { 2, 4, 6, 8, 10, 12, 14, 16 };
 		System.out.println("Key 14's position: " + mbs.binarySearch(arr, 14));
 		
