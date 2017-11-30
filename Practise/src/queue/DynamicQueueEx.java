@@ -3,13 +3,13 @@ package queue;
 public class DynamicQueueEx {
 
 	private int capacity = 2;
-	int queueArr[];
+	int queue[];
 	int front = 0;
 	int rear = -1;
-	int currentSize = 0;
+	int size = 0;
 
 	public DynamicQueueEx() {
-		queueArr = new int[this.capacity];
+		queue = new int[this.capacity];
 	}
 
 	public void enqueue(int item) {
@@ -19,11 +19,11 @@ public class DynamicQueueEx {
 			increaseCapacity();
 		}
 		rear++;
-		if (rear >= queueArr.length && currentSize != queueArr.length) {
+		if (rear >= queue.length && size != queue.length) {
 			rear = 0;
 		}
-		queueArr[rear] = item;
-		currentSize++;
+		queue[rear] = item;
+		size++;
 		System.out.println("Adding: " + item);
 	}
 
@@ -33,19 +33,19 @@ public class DynamicQueueEx {
 					.println("Underflow ! Unable to remove element from Queue");
 		} else {
 			front++;
-			if (front > queueArr.length - 1) {
-				System.out.println("removed: " + queueArr[front - 1]);
+			if (front > queue.length - 1) {
+				System.out.println("removed: " + queue[front - 1]);
 				front = 0;
 			} else {
-				System.out.println("removed: " + queueArr[front - 1]);
+				System.out.println("removed: " + queue[front - 1]);
 			}
-			currentSize--;
+			size--;
 		}
 	}
 
 	public boolean isQueueFull() {
 		boolean status = false;
-		if (currentSize == queueArr.length) {
+		if (size == queue.length) {
 			status = true;
 		}
 		return status;
@@ -53,7 +53,7 @@ public class DynamicQueueEx {
 
 	public boolean isQueueEmpty() {
 		boolean status = false;
-		if (currentSize == 0) {
+		if (size == 0) {
 			status = true;
 		}
 		return status;
@@ -62,24 +62,24 @@ public class DynamicQueueEx {
 	private void increaseCapacity() {
 
 		// create new array with double size as the current one.
-		int newCapacity = this.queueArr.length * 2;
+		int newCapacity = this.queue.length * 2;
 		int[] newArr = new int[newCapacity];
 		// copy elements to new array, copy from rear to front
 		int tmpFront = front;
 		int index = -1;
 		while (true) {
-			newArr[++index] = this.queueArr[tmpFront];
+			newArr[++index] = this.queue[tmpFront];
 			tmpFront++;
-			if (tmpFront == this.queueArr.length) {
+			if (tmpFront == this.queue.length) {
 				tmpFront = 0;
 			}
-			if (currentSize == index + 1) {
+			if (size == index + 1) {
 				break;
 			}
 		}
 		// make new array as queue
-		this.queueArr = newArr;
-		System.out.println("New array capacity: " + this.queueArr.length);
+		this.queue = newArr;
+		System.out.println("New array capacity: " + this.queue.length);
 		// reset front & rear values
 		this.front = 0;
 		this.rear = index;
